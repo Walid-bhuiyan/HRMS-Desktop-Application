@@ -65,5 +65,10 @@ namespace HRMS
             }
 
         }
+
+        private void lblLoginAs_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
