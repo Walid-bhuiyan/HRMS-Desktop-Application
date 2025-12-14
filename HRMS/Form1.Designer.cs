@@ -112,7 +112,7 @@
             // 
             this.lblLoginAs.AutoSize = true;
             this.lblLoginAs.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoginAs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.lblLoginAs.ForeColor = System.Drawing.Color.Fuchsia;
             this.lblLoginAs.Location = new System.Drawing.Point(44, 64);
             this.lblLoginAs.Name = "lblLoginAs";
             this.lblLoginAs.Size = new System.Drawing.Size(99, 30);
@@ -180,7 +180,7 @@
             this.lblUname.AutoSize = true;
             this.lblUname.BackColor = System.Drawing.Color.Transparent;
             this.lblUname.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblUname.ForeColor = System.Drawing.Color.Red;
             this.lblUname.Location = new System.Drawing.Point(44, 202);
             this.lblUname.Name = "lblUname";
             this.lblUname.Size = new System.Drawing.Size(117, 30);
