@@ -102,7 +102,7 @@
             this.cmbLoginAs.Location = new System.Drawing.Point(152, 44);
             this.cmbLoginAs.Name = "cmbLoginAs";
             this.cmbLoginAs.Size = new System.Drawing.Size(216, 31);
-            this.cmbLoginAs.TabIndex = 4;
+            this.cmbLoginAs.TabIndex = 3;
             this.cmbLoginAs.Tag = "";
             // 
             // lblLoginAs
@@ -126,7 +126,7 @@
             this.lblForgetPass.Location = new System.Drawing.Point(252, 271);
             this.lblForgetPass.Name = "lblForgetPass";
             this.lblForgetPass.Size = new System.Drawing.Size(113, 17);
-            this.lblForgetPass.TabIndex = 3;
+            this.lblForgetPass.TabIndex = 4;
             this.lblForgetPass.Text = "Forgot Password?";
             // 
             // txtuname
