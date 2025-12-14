@@ -56,6 +56,9 @@ namespace HRMS
                 if (txtuname.Text == uname && txtpass.Text == pass)
                 {
                     MessageBox.Show("Successfully logged in");
+                    Form h = new Form();
+                    h.Show();
+                    this.Hide();
                 }
                 else
                     MessageBox.Show("Invalid username or password");
