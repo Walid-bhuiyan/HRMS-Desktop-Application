@@ -125,12 +125,12 @@
             this.lblForgetPass.AutoSize = true;
             this.lblForgetPass.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblForgetPass.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblForgetPass.ForeColor = System.Drawing.Color.Red;
+            this.lblForgetPass.ForeColor = System.Drawing.Color.Blue;
             this.lblForgetPass.Location = new System.Drawing.Point(284, 339);
             this.lblForgetPass.Name = "lblForgetPass";
-            this.lblForgetPass.Size = new System.Drawing.Size(50, 21);
+            this.lblForgetPass.Size = new System.Drawing.Size(133, 21);
             this.lblForgetPass.TabIndex = 11;
-            this.lblForgetPass.Text = "!!@@";
+            this.lblForgetPass.Text = "Forgot Password?";
             // 
             // txtuname
             // 
@@ -148,7 +148,7 @@
             this.lblPass.AutoSize = true;
             this.lblPass.BackColor = System.Drawing.Color.Transparent;
             this.lblPass.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPass.ForeColor = System.Drawing.Color.Red;
+            this.lblPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblPass.Location = new System.Drawing.Point(44, 278);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(112, 30);
@@ -180,7 +180,7 @@
             this.lblUname.AutoSize = true;
             this.lblUname.BackColor = System.Drawing.Color.Transparent;
             this.lblUname.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUname.ForeColor = System.Drawing.Color.Red;
+            this.lblUname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblUname.Location = new System.Drawing.Point(44, 202);
             this.lblUname.Name = "lblUname";
             this.lblUname.Size = new System.Drawing.Size(117, 30);
