@@ -102,7 +102,7 @@
             this.cmbLoginAs.Location = new System.Drawing.Point(152, 44);
             this.cmbLoginAs.Name = "cmbLoginAs";
             this.cmbLoginAs.Size = new System.Drawing.Size(216, 31);
-            this.cmbLoginAs.TabIndex = 13;
+            this.cmbLoginAs.TabIndex = 4;
             this.cmbLoginAs.Tag = "";
             // 
             // lblLoginAs
@@ -126,7 +126,7 @@
             this.lblForgetPass.Location = new System.Drawing.Point(252, 271);
             this.lblForgetPass.Name = "lblForgetPass";
             this.lblForgetPass.Size = new System.Drawing.Size(113, 17);
-            this.lblForgetPass.TabIndex = 11;
+            this.lblForgetPass.TabIndex = 3;
             this.lblForgetPass.Text = "Forgot Password?";
             // 
             // txtuname
@@ -137,7 +137,7 @@
             this.txtuname.Location = new System.Drawing.Point(152, 159);
             this.txtuname.Name = "txtuname";
             this.txtuname.Size = new System.Drawing.Size(216, 30);
-            this.txtuname.TabIndex = 10;
+            this.txtuname.TabIndex = 0;
             // 
             // lblPass
             // 
@@ -192,7 +192,7 @@
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(216, 30);
-            this.txtpass.TabIndex = 3;
+            this.txtpass.TabIndex = 1;
             // 
             // btnlogin
             // 
@@ -207,7 +207,7 @@
             this.btnlogin.Location = new System.Drawing.Point(144, 294);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(112, 34);
-            this.btnlogin.TabIndex = 4;
+            this.btnlogin.TabIndex = 2;
             this.btnlogin.Text = "LOGIN";
             this.btnlogin.UseVisualStyleBackColor = false;
             this.btnlogin.Click += new System.EventHandler(this.button1_Click);
