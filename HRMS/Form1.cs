@@ -47,24 +47,42 @@ namespace HRMS
         private void button1_Click(object sender, EventArgs e)
         {
             lblerrorpass.Text = lblerroruname.Text = "";
-            if (txtuname.Text == "")
-                lblerroruname.Text = "***Please enter username";
-            if (txtpass.Text == "")
-                lblerrorpass.Text = "***Please enter password";
-            if (txtuname.Text != "" && txtpass.Text != "")
+            if (txtuname.Text == uname && txtpass.Text == pass)
             {
-                if (txtuname.Text == uname && txtpass.Text == pass)
+                if (cmbLoginAs.Text == "Admin")
                 {
-                    MessageBox.Show("Successfully logged in");
-                    Form h = new Form();
+                    AdminDashboard a = new AdminDashboard();
+                    a.Show();
+                    this.Hide();
+                }
+                else if (cmbLoginAs.Text == "HR Manager")
+                {
+                    HRManagerDashboard h = new HRManagerDashboard();
                     h.Show();
                     this.Hide();
                 }
+                else if (cmbLoginAs.Text == "Employee")
+                {
+                    EmployeeDashboard e1 = new EmployeeDashboard();
+                    e1.Show();
+                    this.Hide();
+                }
+                else if (cmbLoginAs.Text == "Accountant")
+                {
+                    AccountantDashboard ac = new AccountantDashboard();
+                    ac.Show();
+                    this.Hide();
+                }
                 else
-                    MessageBox.Show("Invalid username or password");
+                {
+                    MessageBox.Show("Please select a role!");
+                }
             }
 
         }
+
+
+        
 
         private void lblLoginAs_Click(object sender, EventArgs e)
         {
