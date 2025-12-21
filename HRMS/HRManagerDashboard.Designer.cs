@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.pnlTopHr = new System.Windows.Forms.Panel();
-            this.topHeaderLogin = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.topHeaderLogin = new System.Windows.Forms.Label();
             this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.btnReports = new System.Windows.Forms.Button();
-            this.btnRecruitment = new System.Windows.Forms.Button();
-            this.btnLeaveManagement = new System.Windows.Forms.Button();
-            this.btnEmployees = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnEmployees = new System.Windows.Forms.Button();
+            this.btnLeaveManagement = new System.Windows.Forms.Button();
+            this.btnRecruitment = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlTopHr.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
@@ -53,17 +53,6 @@
             this.pnlTopHr.Size = new System.Drawing.Size(800, 60);
             this.pnlTopHr.TabIndex = 8;
             // 
-            // topHeaderLogin
-            // 
-            this.topHeaderLogin.AutoSize = true;
-            this.topHeaderLogin.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.topHeaderLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.topHeaderLogin.Location = new System.Drawing.Point(228, 9);
-            this.topHeaderLogin.Name = "topHeaderLogin";
-            this.topHeaderLogin.Size = new System.Drawing.Size(341, 38);
-            this.topHeaderLogin.TabIndex = 0;
-            this.topHeaderLogin.Text = "HR Management System";
-            // 
             // btnLogout
             // 
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -79,6 +68,17 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
+            // topHeaderLogin
+            // 
+            this.topHeaderLogin.AutoSize = true;
+            this.topHeaderLogin.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.topHeaderLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.topHeaderLogin.Location = new System.Drawing.Point(228, 9);
+            this.topHeaderLogin.Name = "topHeaderLogin";
+            this.topHeaderLogin.Size = new System.Drawing.Size(341, 38);
+            this.topHeaderLogin.TabIndex = 0;
+            this.topHeaderLogin.Text = "HR Management System";
+            // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(41)))), ((int)(((byte)(51)))));
@@ -93,70 +93,6 @@
             this.pnlSidebar.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.pnlSidebar.Size = new System.Drawing.Size(220, 390);
             this.pnlSidebar.TabIndex = 9;
-            // 
-            // btnReports
-            // 
-            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReports.FlatAppearance.BorderSize = 0;
-            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReports.ForeColor = System.Drawing.Color.White;
-            this.btnReports.Location = new System.Drawing.Point(0, 10);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnReports.Size = new System.Drawing.Size(220, 45);
-            this.btnReports.TabIndex = 0;
-            this.btnReports.Text = "Reports";
-            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.UseVisualStyleBackColor = true;
-            // 
-            // btnRecruitment
-            // 
-            this.btnRecruitment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRecruitment.FlatAppearance.BorderSize = 0;
-            this.btnRecruitment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRecruitment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRecruitment.ForeColor = System.Drawing.Color.White;
-            this.btnRecruitment.Location = new System.Drawing.Point(0, 55);
-            this.btnRecruitment.Name = "btnRecruitment";
-            this.btnRecruitment.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnRecruitment.Size = new System.Drawing.Size(220, 45);
-            this.btnRecruitment.TabIndex = 1;
-            this.btnRecruitment.Text = "Recruitment";
-            this.btnRecruitment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRecruitment.UseVisualStyleBackColor = true;
-            // 
-            // btnLeaveManagement
-            // 
-            this.btnLeaveManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLeaveManagement.FlatAppearance.BorderSize = 0;
-            this.btnLeaveManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaveManagement.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeaveManagement.ForeColor = System.Drawing.Color.White;
-            this.btnLeaveManagement.Location = new System.Drawing.Point(0, 100);
-            this.btnLeaveManagement.Name = "btnLeaveManagement";
-            this.btnLeaveManagement.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnLeaveManagement.Size = new System.Drawing.Size(220, 45);
-            this.btnLeaveManagement.TabIndex = 2;
-            this.btnLeaveManagement.Text = "Leave Management";
-            this.btnLeaveManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLeaveManagement.UseVisualStyleBackColor = true;
-            // 
-            // btnEmployees
-            // 
-            this.btnEmployees.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEmployees.FlatAppearance.BorderSize = 0;
-            this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployees.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployees.ForeColor = System.Drawing.Color.White;
-            this.btnEmployees.Location = new System.Drawing.Point(0, 145);
-            this.btnEmployees.Name = "btnEmployees";
-            this.btnEmployees.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnEmployees.Size = new System.Drawing.Size(220, 45);
-            this.btnEmployees.TabIndex = 3;
-            this.btnEmployees.Text = "Employees";
-            this.btnEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployees.UseVisualStyleBackColor = true;
             // 
             // btnDashboard
             // 
@@ -174,9 +110,73 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.UseVisualStyleBackColor = true;
             // 
+            // btnEmployees
+            // 
+            this.btnEmployees.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmployees.FlatAppearance.BorderSize = 0;
+            this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmployees.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployees.ForeColor = System.Drawing.Color.White;
+            this.btnEmployees.Location = new System.Drawing.Point(0, 145);
+            this.btnEmployees.Name = "btnEmployees";
+            this.btnEmployees.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnEmployees.Size = new System.Drawing.Size(220, 45);
+            this.btnEmployees.TabIndex = 3;
+            this.btnEmployees.Text = "Employees";
+            this.btnEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmployees.UseVisualStyleBackColor = true;
+            // 
+            // btnLeaveManagement
+            // 
+            this.btnLeaveManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLeaveManagement.FlatAppearance.BorderSize = 0;
+            this.btnLeaveManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaveManagement.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeaveManagement.ForeColor = System.Drawing.Color.White;
+            this.btnLeaveManagement.Location = new System.Drawing.Point(0, 100);
+            this.btnLeaveManagement.Name = "btnLeaveManagement";
+            this.btnLeaveManagement.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLeaveManagement.Size = new System.Drawing.Size(220, 45);
+            this.btnLeaveManagement.TabIndex = 2;
+            this.btnLeaveManagement.Text = "Leave Management";
+            this.btnLeaveManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLeaveManagement.UseVisualStyleBackColor = true;
+            // 
+            // btnRecruitment
+            // 
+            this.btnRecruitment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnRecruitment.FlatAppearance.BorderSize = 0;
+            this.btnRecruitment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRecruitment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecruitment.ForeColor = System.Drawing.Color.White;
+            this.btnRecruitment.Location = new System.Drawing.Point(0, 55);
+            this.btnRecruitment.Name = "btnRecruitment";
+            this.btnRecruitment.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnRecruitment.Size = new System.Drawing.Size(220, 45);
+            this.btnRecruitment.TabIndex = 1;
+            this.btnRecruitment.Text = "Recruitment";
+            this.btnRecruitment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRecruitment.UseVisualStyleBackColor = true;
+            // 
+            // btnReports
+            // 
+            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReports.FlatAppearance.BorderSize = 0;
+            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReports.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.ForeColor = System.Drawing.Color.White;
+            this.btnReports.Location = new System.Drawing.Point(0, 10);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnReports.Size = new System.Drawing.Size(220, 45);
+            this.btnReports.TabIndex = 0;
+            this.btnReports.Text = "Reports";
+            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReports.UseVisualStyleBackColor = true;
+            // 
             // pnlMain
             // 
-            this.pnlMain.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlMain.BackColor = System.Drawing.Color.Gainsboro;
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(220, 60);
             this.pnlMain.Name = "pnlMain";
