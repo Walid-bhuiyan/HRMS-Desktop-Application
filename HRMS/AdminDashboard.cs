@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HRMS
 {
-    public partial class AdminDashboard : Form
+    public partial class btnadminoperations : Form
     {
-        public AdminDashboard()
+        public btnadminoperations()
         {
             InitializeComponent();
         }
@@ -23,6 +23,16 @@ namespace HRMS
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
