@@ -84,6 +84,7 @@
             // btnlogout
             // 
             this.btnlogout.BackColor = System.Drawing.Color.Salmon;
+            this.btnlogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogout.ForeColor = System.Drawing.SystemColors.Control;
             this.btnlogout.Location = new System.Drawing.Point(12, 318);
@@ -92,6 +93,7 @@
             this.btnlogout.TabIndex = 21;
             this.btnlogout.Text = "Log Out";
             this.btnlogout.UseVisualStyleBackColor = false;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
             // btnresetpassword
             // 

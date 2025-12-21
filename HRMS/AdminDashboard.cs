@@ -36,5 +36,13 @@ namespace HRMS
         {
 
         }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            
+            loginframe lg = new loginframe();
+            lg.Show();
+            this.Hide();
+        }
     }
 }
