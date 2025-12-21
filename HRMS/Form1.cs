@@ -51,7 +51,7 @@ namespace HRMS
             {
                 if (cmbLoginAs.Text == "Admin")
                 {
-                    AdminDashboard a = new AdminDashboard();
+                    btnadminoperations a = new btnadminoperations();
                     a.Show();
                     this.Hide();
                 }
