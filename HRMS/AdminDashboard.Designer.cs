@@ -30,7 +30,7 @@
         {
             this.topLoginPanel = new System.Windows.Forms.Panel();
             this.topHeaderLogin = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlsidebar = new System.Windows.Forms.Panel();
             this.btnlogout = new System.Windows.Forms.Button();
             this.btnresetpassword = new System.Windows.Forms.Button();
             this.btnaccountantoperations = new System.Windows.Forms.Button();
@@ -39,7 +39,7 @@
             this.lbladminmenu = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.topLoginPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlsidebar.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLoginPanel
@@ -65,25 +65,26 @@
             this.topHeaderLogin.TabIndex = 0;
             this.topHeaderLogin.Text = "HR Management System";
             // 
-            // panel1
+            // pnlsidebar
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.btnlogout);
-            this.panel1.Controls.Add(this.btnresetpassword);
-            this.panel1.Controls.Add(this.btnaccountantoperations);
-            this.panel1.Controls.Add(this.btnempoyeeoperations);
-            this.panel1.Controls.Add(this.btnmangeroperations);
-            this.panel1.Controls.Add(this.lbladminmenu);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(185, 448);
-            this.panel1.TabIndex = 15;
+            this.pnlsidebar.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlsidebar.Controls.Add(this.btnlogout);
+            this.pnlsidebar.Controls.Add(this.btnresetpassword);
+            this.pnlsidebar.Controls.Add(this.btnaccountantoperations);
+            this.pnlsidebar.Controls.Add(this.btnempoyeeoperations);
+            this.pnlsidebar.Controls.Add(this.btnmangeroperations);
+            this.pnlsidebar.Controls.Add(this.lbladminmenu);
+            this.pnlsidebar.Controls.Add(this.button1);
+            this.pnlsidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlsidebar.Location = new System.Drawing.Point(0, 49);
+            this.pnlsidebar.Name = "pnlsidebar";
+            this.pnlsidebar.Size = new System.Drawing.Size(185, 448);
+            this.pnlsidebar.TabIndex = 15;
             // 
             // btnlogout
             // 
             this.btnlogout.BackColor = System.Drawing.Color.Salmon;
+            this.btnlogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogout.ForeColor = System.Drawing.SystemColors.Control;
             this.btnlogout.Location = new System.Drawing.Point(12, 318);
@@ -92,6 +93,7 @@
             this.btnlogout.TabIndex = 21;
             this.btnlogout.Text = "Log Out";
             this.btnlogout.UseVisualStyleBackColor = false;
+            this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
             // 
             // btnresetpassword
             // 
@@ -163,15 +165,15 @@
             this.BackgroundImage = global::HRMS.Properties.Resources.business_businessman_communication_concept;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(695, 497);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlsidebar);
             this.Controls.Add(this.topLoginPanel);
             this.Name = "btnadminoperations";
             this.Text = "AdminDashboard";
             this.Load += new System.EventHandler(this.AdminDashboard_Load);
             this.topLoginPanel.ResumeLayout(false);
             this.topLoginPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlsidebar.ResumeLayout(false);
+            this.pnlsidebar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -179,7 +181,7 @@
         #endregion
         private System.Windows.Forms.Panel topLoginPanel;
         private System.Windows.Forms.Label topHeaderLogin;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlsidebar;
         private System.Windows.Forms.Button btnlogout;
         private System.Windows.Forms.Button btnresetpassword;
         private System.Windows.Forms.Button btnaccountantoperations;
