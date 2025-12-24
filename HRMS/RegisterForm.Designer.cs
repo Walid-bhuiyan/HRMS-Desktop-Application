@@ -57,6 +57,7 @@
             this.lblEmploymentType = new System.Windows.Forms.Label();
             this.pnlSalary = new System.Windows.Forms.Panel();
             this.txtSalary = new System.Windows.Forms.TextBox();
+            this.lblSalary = new System.Windows.Forms.Label();
             this.pnlSecutityAnsweremp = new System.Windows.Forms.Panel();
             this.txtSecurityAnswer = new System.Windows.Forms.TextBox();
             this.lblSecurityAnswer = new System.Windows.Forms.Label();
@@ -82,7 +83,6 @@
             this.pnlAddress = new System.Windows.Forms.Panel();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.lblAdress = new System.Windows.Forms.Label();
-            this.lblSalary = new System.Windows.Forms.Label();
             this.topLoginPanel.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelCard.SuspendLayout();
@@ -205,6 +205,7 @@
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnBack
             // 
@@ -462,6 +463,17 @@
             this.txtSalary.Size = new System.Drawing.Size(374, 27);
             this.txtSalary.TabIndex = 1;
             // 
+            // lblSalary
+            // 
+            this.lblSalary.AutoSize = true;
+            this.lblSalary.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSalary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalary.Location = new System.Drawing.Point(0, 6);
+            this.lblSalary.Name = "lblSalary";
+            this.lblSalary.Size = new System.Drawing.Size(49, 20);
+            this.lblSalary.TabIndex = 2;
+            this.lblSalary.Text = "Salary";
+            // 
             // pnlSecutityAnsweremp
             // 
             this.pnlSecutityAnsweremp.Controls.Add(this.txtSecurityAnswer);
@@ -529,7 +541,6 @@
             this.tblPersonalInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblPersonalInfo.Size = new System.Drawing.Size(780, 197);
             this.tblPersonalInfo.TabIndex = 0;
-            this.tblPersonalInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.tblPersonalInfo_Paint);
             // 
             // pnlFullName
             // 
@@ -745,17 +756,6 @@
             this.lblAdress.Size = new System.Drawing.Size(62, 20);
             this.lblAdress.TabIndex = 0;
             this.lblAdress.Text = "Address";
-            // 
-            // lblSalary
-            // 
-            this.lblSalary.AutoSize = true;
-            this.lblSalary.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSalary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalary.Location = new System.Drawing.Point(0, 6);
-            this.lblSalary.Name = "lblSalary";
-            this.lblSalary.Size = new System.Drawing.Size(49, 20);
-            this.lblSalary.TabIndex = 2;
-            this.lblSalary.Text = "Salary";
             // 
             // RegisterForm
             // 
