@@ -15,7 +15,7 @@ namespace HRMS
     public partial class RegisterForm : Form
     {
         private string fullName, email, dob, gender, phone, address;
-        private string employeeId, department, jobTitle, employmentType;
+        private string securityQuestion, securityAnswer, department, jobTitle, employmentType;
         private decimal salary;
 
         public RegisterForm()
@@ -34,8 +34,8 @@ namespace HRMS
             email = txtEmail.Text;
             phone = txtPhone.Text;
             address = rtbAddress.Text;
-
-            employeeId = txtEmpId.Text;
+            securityQuestion = txtSecurityQuestion.Text;
+            securityAnswer = txtSecurityAnswer.Text;
             department = cmbDepartment.Text;
             jobTitle = cmbJobTitle.Text;
             employmentType = cmbEmploymentType.Text;
@@ -85,9 +85,9 @@ namespace HRMS
                 return;
             }
 
-            if (employeeId == "")
+            if (securityQuestion == "")
             {
-                MessageBox.Show("Please enter Employee ID.");
+                MessageBox.Show("Please enter security question.");
                 return;
             }
 
@@ -119,12 +119,20 @@ namespace HRMS
                 return;
             }
 
+            salary = Convert.ToDecimal(txtSalary.Text);
+
+            if (securityAnswer == "")
+            {
+                MessageBox.Show("Please enter security answer.");
+                return;
+            }
+
 
             MessageBox.Show(
                 "Name: " + fullName + "\nGender: " + gender +"\nDOB: " + dtpDOB.Text +"\nEmail: " + email +
-                "\nPhone: " + phone +"\nAddress: " + address +"\nEmployee ID: " + employeeId +
+                "\nPhone: " + phone +"\nAddress: " + address +"\nSecurity Question: " + securityQuestion +
                 "\nDepartment: " + department +"\nJob Title: " + jobTitle +"\nEmployment Type: " + employmentType +
-                "\nJoining Date: " + dtpJoiningDate.Text +"\nSalary: " + salary
+                "\nJoining Date: " + dtpJoiningDate.Text +"\nSalary: " + salary+"\nSecurity Answer:"+securityAnswer
 
             );
         }
