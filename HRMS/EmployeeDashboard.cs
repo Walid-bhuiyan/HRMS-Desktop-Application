@@ -24,5 +24,15 @@ namespace HRMS
             this.Hide();
 
         }
+
+        private void btnupdateprofile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnsalarydetails_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
