@@ -16,5 +16,23 @@ namespace HRMS
         {
             InitializeComponent();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            loginframe login = new loginframe();
+            login.Show();
+            this.Hide();
+
+        }
+
+        private void btnupdateprofile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnsalarydetails_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -23,5 +23,10 @@ namespace HRMS
             login.Show();
             this.Hide();
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

@@ -164,6 +164,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Finantial Reports.resx">
       <DependentUpon>Finantial Reports.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeDashboard.resx">
+      <DependentUpon>EmployeeDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
