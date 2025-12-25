@@ -15,6 +15,12 @@ namespace HRMS
     public partial class RegisterForm : Form
     {
         private string fullName, email, dob, gender, phone, address;
+
+        private void lblDOB_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private string employeeId, department, jobTitle, employmentType;
         private decimal salary;
 
