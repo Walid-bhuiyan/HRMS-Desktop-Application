@@ -58,41 +58,11 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Attendance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Attendance.Designer.cs">
-      <DependentUpon>Attendance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Audit Logs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Audit Logs.Designer.cs">
-      <DependentUpon>Audit Logs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Change Password.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Change Password.Designer.cs">
-      <DependentUpon>Change Password.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Deduction Management.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Deduction Management.Designer.cs">
-      <DependentUpon>Deduction Management.cs</DependentUpon>
-    </Compile>
     <Compile Include="EmployeeDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EmployeeDashboard.Designer.cs">
       <DependentUpon>EmployeeDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Finantial Reports.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Finantial Reports.Designer.cs">
-      <DependentUpon>Finantial Reports.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -106,24 +76,6 @@
     <Compile Include="HRManagerDashboard.Designer.cs">
       <DependentUpon>HRManagerDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payment Management.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Payment Management.Designer.cs">
-      <DependentUpon>Payment Management.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Payslip Generation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Payslip Generation.Designer.cs">
-      <DependentUpon>Payslip Generation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Profile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Profile.Designer.cs">
-      <DependentUpon>Profile.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterForm.cs">
@@ -132,38 +84,9 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Payroll Processing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Resources\Payroll Processing.Designer.cs">
-      <DependentUpon>Payroll Processing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Salary Management.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Salary Management.Designer.cs">
-      <DependentUpon>Salary Management.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AccountantDashboard.resx">
-      <DependentUpon>AccountantDashboard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Attendance.resx">
-      <DependentUpon>Attendance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Audit Logs.resx">
-      <DependentUpon>Audit Logs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Change Password.resx">
-      <DependentUpon>Change Password.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Deduction Management.resx">
-      <DependentUpon>Deduction Management.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Finantial Reports.resx">
-      <DependentUpon>Finantial Reports.cs</DependentUpon>
     <EmbeddedResource Include="EmployeeDashboard.resx">
       <DependentUpon>EmployeeDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,15 +95,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HRManagerDashboard.resx">
       <DependentUpon>HRManagerDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Payment Management.resx">
-      <DependentUpon>Payment Management.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Payslip Generation.resx">
-      <DependentUpon>Payslip Generation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Profile.resx">
-      <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -194,12 +108,6 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Payroll Processing.resx">
-      <DependentUpon>Payroll Processing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Salary Management.resx">
-      <DependentUpon>Salary Management.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
