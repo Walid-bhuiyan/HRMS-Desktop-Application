@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace HRMS
+{
+    public partial class EmployeeDashboard : Form
+    {
+        public EmployeeDashboard()
+        {
+            InitializeComponent();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            loginframe login = new loginframe();
+            login.Show();
+            this.Hide();
+
+        }
+
+        private void btnupdateprofile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnsalarydetails_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}

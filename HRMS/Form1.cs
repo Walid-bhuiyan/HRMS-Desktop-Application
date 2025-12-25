@@ -46,20 +46,75 @@ namespace HRMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblerrorpass.Text = lblerroruname.Text = "";
+           
+            lblerroruname.Text = "";
+            lblerrorpass.Text = "";
+
+            bool valid = true;
+
             if (txtuname.Text == "")
-                lblerroruname.Text = "***Please enter username";
-            if (txtpass.Text == "")
-                lblerrorpass.Text = "***Please enter password";
-            if (txtuname.Text != "" && txtpass.Text != "")
             {
-                if (txtuname.Text == uname && txtpass.Text == pass)
-                {
-                    MessageBox.Show("Successfully logged in");
-                }
-                else
-                    MessageBox.Show("Invalid username or password");
+                lblerroruname.Text = "Username is required";
+                valid = false;
             }
+
+            if (txtpass.Text == "")
+            {
+                lblerrorpass.Text = "Password is required";
+                valid = false;
+            }
+
+            if (cmbLoginAs.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a role!", "Validation Error");
+                valid = false;
+            }
+
+            if (!valid)
+            {
+                return;
+            }
+
+            if (txtuname.Text == uname && txtpass.Text == pass)
+            {
+                if (cmbLoginAs.Text == "Admin")
+                {
+                    btnadminoperations a = new btnadminoperations();
+                    a.Show();
+                    this.Hide();
+                }
+                else if (cmbLoginAs.Text == "HR Manager")
+                {
+                    HRManagerDashboard h = new HRManagerDashboard();
+                    h.Show();
+                    this.Hide();
+                }
+                else if (cmbLoginAs.Text == "Employee")
+                {
+                    EmployeeDashboard e1 = new EmployeeDashboard();
+                    e1.Show();
+                    this.Hide();
+                }
+                else if (cmbLoginAs.Text == "Accountant")
+                {
+                    AccountantDashboard ac = new AccountantDashboard();
+                    ac.Show();
+                    this.Hide();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password!",
+                    "Login Failed");
+            }
+        }
+
+
+
+
+
+        private void lblLoginAs_Click(object sender, EventArgs e)
+        {
 
         }
     }
