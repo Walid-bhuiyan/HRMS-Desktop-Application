@@ -125,5 +125,8 @@
   <ItemGroup>
     <None Include="Resources\business-businessman-communication-concept.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="HRMS_DB.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
