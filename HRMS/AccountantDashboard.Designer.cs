@@ -46,17 +46,17 @@
             this.lblemployees = new System.Windows.Forms.Label();
             this.lblenumber = new System.Windows.Forms.Label();
             this.showpanel = new System.Windows.Forms.Panel();
-            this.lblmonthlypayroll = new System.Windows.Forms.Label();
-            this.lbldeductions = new System.Windows.Forms.Label();
-            this.lblnetpayable = new System.Windows.Forms.Label();
-            this.lblpendingpayments = new System.Windows.Forms.Label();
-            this.lblmptk = new System.Windows.Forms.Label();
-            this.lblmonthlypayrolltk = new System.Windows.Forms.Label();
-            this.lbldeductionstk = new System.Windows.Forms.Label();
-            this.lbldtk = new System.Windows.Forms.Label();
+            this.lblppnumber = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblppnumber = new System.Windows.Forms.Label();
+            this.lbldeductionstk = new System.Windows.Forms.Label();
+            this.lbldtk = new System.Windows.Forms.Label();
+            this.lblmonthlypayrolltk = new System.Windows.Forms.Label();
+            this.lblmptk = new System.Windows.Forms.Label();
+            this.lblpendingpayments = new System.Windows.Forms.Label();
+            this.lblnetpayable = new System.Windows.Forms.Label();
+            this.lbldeductions = new System.Windows.Forms.Label();
+            this.lblmonthlypayroll = new System.Windows.Forms.Label();
             this.listPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.showpanel.SuspendLayout();
@@ -253,7 +253,7 @@
             this.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogout.ForeColor = System.Drawing.Color.White;
-            this.btnlogout.Location = new System.Drawing.Point(191, 477);
+            this.btnlogout.Location = new System.Drawing.Point(191, 481);
             this.btnlogout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(238, 44);
@@ -310,95 +310,17 @@
             this.showpanel.Size = new System.Drawing.Size(603, 588);
             this.showpanel.TabIndex = 15;
             // 
-            // lblmonthlypayroll
+            // lblppnumber
             // 
-            this.lblmonthlypayroll.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblmonthlypayroll.AutoSize = true;
-            this.lblmonthlypayroll.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmonthlypayroll.Location = new System.Drawing.Point(339, 17);
-            this.lblmonthlypayroll.Name = "lblmonthlypayroll";
-            this.lblmonthlypayroll.Size = new System.Drawing.Size(227, 38);
-            this.lblmonthlypayroll.TabIndex = 14;
-            this.lblmonthlypayroll.Text = "Monthly Payroll";
-            this.lblmonthlypayroll.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // lbldeductions
-            // 
-            this.lbldeductions.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbldeductions.AutoSize = true;
-            this.lbldeductions.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldeductions.Location = new System.Drawing.Point(56, 176);
-            this.lbldeductions.Name = "lbldeductions";
-            this.lbldeductions.Size = new System.Drawing.Size(165, 38);
-            this.lbldeductions.TabIndex = 15;
-            this.lbldeductions.Text = "Deductions";
-            // 
-            // lblnetpayable
-            // 
-            this.lblnetpayable.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblnetpayable.AutoSize = true;
-            this.lblnetpayable.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnetpayable.Location = new System.Drawing.Point(366, 176);
-            this.lblnetpayable.Name = "lblnetpayable";
-            this.lblnetpayable.Size = new System.Drawing.Size(174, 38);
-            this.lblnetpayable.TabIndex = 16;
-            this.lblnetpayable.Text = "Net Payable";
-            // 
-            // lblpendingpayments
-            // 
-            this.lblpendingpayments.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblpendingpayments.AutoSize = true;
-            this.lblpendingpayments.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpendingpayments.Location = new System.Drawing.Point(184, 320);
-            this.lblpendingpayments.Name = "lblpendingpayments";
-            this.lblpendingpayments.Size = new System.Drawing.Size(259, 38);
-            this.lblpendingpayments.TabIndex = 17;
-            this.lblpendingpayments.Text = "Pending Payments";
-            // 
-            // lblmptk
-            // 
-            this.lblmptk.AutoSize = true;
-            this.lblmptk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmptk.Location = new System.Drawing.Point(366, 68);
-            this.lblmptk.Name = "lblmptk";
-            this.lblmptk.Size = new System.Drawing.Size(40, 38);
-            this.lblmptk.TabIndex = 18;
-            this.lblmptk.Text = "৳";
-            // 
-            // lblmonthlypayrolltk
-            // 
-            this.lblmonthlypayrolltk.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblmonthlypayrolltk.AutoSize = true;
-            this.lblmonthlypayrolltk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmonthlypayrolltk.Location = new System.Drawing.Point(408, 68);
-            this.lblmonthlypayrolltk.Name = "lblmonthlypayrolltk";
-            this.lblmonthlypayrolltk.Size = new System.Drawing.Size(113, 38);
-            this.lblmonthlypayrolltk.TabIndex = 19;
-            this.lblmonthlypayrolltk.Text = "150000";
-            this.lblmonthlypayrolltk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblmonthlypayrolltk.Click += new System.EventHandler(this.lblmonthlypayrolltk_Click);
-            // 
-            // lbldeductionstk
-            // 
-            this.lbldeductionstk.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lbldeductionstk.AutoSize = true;
-            this.lbldeductionstk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldeductionstk.Location = new System.Drawing.Point(98, 227);
-            this.lbldeductionstk.Name = "lbldeductionstk";
-            this.lbldeductionstk.Size = new System.Drawing.Size(113, 38);
-            this.lbldeductionstk.TabIndex = 21;
-            this.lbldeductionstk.Text = "150000";
-            this.lbldeductionstk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lbldtk
-            // 
-            this.lbldtk.AutoSize = true;
-            this.lbldtk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldtk.Location = new System.Drawing.Point(56, 227);
-            this.lbldtk.Name = "lbldtk";
-            this.lbldtk.Size = new System.Drawing.Size(40, 38);
-            this.lbldtk.TabIndex = 20;
-            this.lbldtk.Text = "৳";
+            this.lblppnumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblppnumber.AutoSize = true;
+            this.lblppnumber.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblppnumber.Location = new System.Drawing.Point(290, 372);
+            this.lblppnumber.Name = "lblppnumber";
+            this.lblppnumber.Size = new System.Drawing.Size(33, 38);
+            this.lblppnumber.TabIndex = 24;
+            this.lblppnumber.Text = "3";
+            this.lblppnumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -422,17 +344,95 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "৳";
             // 
-            // lblppnumber
+            // lbldeductionstk
             // 
-            this.lblppnumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblppnumber.AutoSize = true;
-            this.lblppnumber.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblppnumber.Location = new System.Drawing.Point(290, 372);
-            this.lblppnumber.Name = "lblppnumber";
-            this.lblppnumber.Size = new System.Drawing.Size(33, 38);
-            this.lblppnumber.TabIndex = 24;
-            this.lblppnumber.Text = "3";
-            this.lblppnumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lbldeductionstk.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbldeductionstk.AutoSize = true;
+            this.lbldeductionstk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldeductionstk.Location = new System.Drawing.Point(98, 227);
+            this.lbldeductionstk.Name = "lbldeductionstk";
+            this.lbldeductionstk.Size = new System.Drawing.Size(113, 38);
+            this.lbldeductionstk.TabIndex = 21;
+            this.lbldeductionstk.Text = "150000";
+            this.lbldeductionstk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lbldtk
+            // 
+            this.lbldtk.AutoSize = true;
+            this.lbldtk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldtk.Location = new System.Drawing.Point(56, 227);
+            this.lbldtk.Name = "lbldtk";
+            this.lbldtk.Size = new System.Drawing.Size(40, 38);
+            this.lbldtk.TabIndex = 20;
+            this.lbldtk.Text = "৳";
+            // 
+            // lblmonthlypayrolltk
+            // 
+            this.lblmonthlypayrolltk.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblmonthlypayrolltk.AutoSize = true;
+            this.lblmonthlypayrolltk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmonthlypayrolltk.Location = new System.Drawing.Point(408, 68);
+            this.lblmonthlypayrolltk.Name = "lblmonthlypayrolltk";
+            this.lblmonthlypayrolltk.Size = new System.Drawing.Size(113, 38);
+            this.lblmonthlypayrolltk.TabIndex = 19;
+            this.lblmonthlypayrolltk.Text = "150000";
+            this.lblmonthlypayrolltk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblmonthlypayrolltk.Click += new System.EventHandler(this.lblmonthlypayrolltk_Click);
+            // 
+            // lblmptk
+            // 
+            this.lblmptk.AutoSize = true;
+            this.lblmptk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmptk.Location = new System.Drawing.Point(366, 68);
+            this.lblmptk.Name = "lblmptk";
+            this.lblmptk.Size = new System.Drawing.Size(40, 38);
+            this.lblmptk.TabIndex = 18;
+            this.lblmptk.Text = "৳";
+            // 
+            // lblpendingpayments
+            // 
+            this.lblpendingpayments.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblpendingpayments.AutoSize = true;
+            this.lblpendingpayments.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpendingpayments.Location = new System.Drawing.Point(184, 320);
+            this.lblpendingpayments.Name = "lblpendingpayments";
+            this.lblpendingpayments.Size = new System.Drawing.Size(259, 38);
+            this.lblpendingpayments.TabIndex = 17;
+            this.lblpendingpayments.Text = "Pending Payments";
+            // 
+            // lblnetpayable
+            // 
+            this.lblnetpayable.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblnetpayable.AutoSize = true;
+            this.lblnetpayable.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnetpayable.Location = new System.Drawing.Point(366, 176);
+            this.lblnetpayable.Name = "lblnetpayable";
+            this.lblnetpayable.Size = new System.Drawing.Size(174, 38);
+            this.lblnetpayable.TabIndex = 16;
+            this.lblnetpayable.Text = "Net Payable";
+            // 
+            // lbldeductions
+            // 
+            this.lbldeductions.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbldeductions.AutoSize = true;
+            this.lbldeductions.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldeductions.Location = new System.Drawing.Point(56, 176);
+            this.lbldeductions.Name = "lbldeductions";
+            this.lbldeductions.Size = new System.Drawing.Size(165, 38);
+            this.lbldeductions.TabIndex = 15;
+            this.lbldeductions.Text = "Deductions";
+            // 
+            // lblmonthlypayroll
+            // 
+            this.lblmonthlypayroll.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblmonthlypayroll.AutoSize = true;
+            this.lblmonthlypayroll.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmonthlypayroll.Location = new System.Drawing.Point(339, 17);
+            this.lblmonthlypayroll.Name = "lblmonthlypayroll";
+            this.lblmonthlypayroll.Size = new System.Drawing.Size(227, 38);
+            this.lblmonthlypayroll.TabIndex = 14;
+            this.lblmonthlypayroll.Text = "Monthly Payroll";
+            this.lblmonthlypayroll.Click += new System.EventHandler(this.label2_Click);
             // 
             // accountantDashboard
             // 
