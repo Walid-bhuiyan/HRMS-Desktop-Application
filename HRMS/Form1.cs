@@ -97,7 +97,7 @@ namespace HRMS
                 }
                 else if (cmbLoginAs.Text == "Accountant")
                 {
-                    accountantDashboard ac = new accountantDashboard();
+                    AccountantDashboard ac = new AccountantDashboard();
                     ac.Show();
                     this.Hide();
                 }
@@ -114,16 +114,6 @@ namespace HRMS
 
 
         private void lblLoginAs_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbLoginAs_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblForgotPassword_Click(object sender, EventArgs e)
         {
 
         }
