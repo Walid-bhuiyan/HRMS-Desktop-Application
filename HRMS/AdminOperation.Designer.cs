@@ -76,7 +76,7 @@
             this.pnlsidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlsidebar.Location = new System.Drawing.Point(0, 49);
             this.pnlsidebar.Name = "pnlsidebar";
-            this.pnlsidebar.Size = new System.Drawing.Size(148, 401);
+            this.pnlsidebar.Size = new System.Drawing.Size(475, 401);
             this.pnlsidebar.TabIndex = 16;
             // 
             // btnlogout
@@ -95,7 +95,7 @@
             // btnresetpassword
             // 
             this.btnresetpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnresetpassword.Location = new System.Drawing.Point(0, 220);
+            this.btnresetpassword.Location = new System.Drawing.Point(146, 218);
             this.btnresetpassword.Name = "btnresetpassword";
             this.btnresetpassword.Size = new System.Drawing.Size(132, 29);
             this.btnresetpassword.TabIndex = 20;
@@ -115,7 +115,7 @@
             // btnempoyeeoperations
             // 
             this.btnempoyeeoperations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnempoyeeoperations.Location = new System.Drawing.Point(0, 112);
+            this.btnempoyeeoperations.Location = new System.Drawing.Point(228, 96);
             this.btnempoyeeoperations.Name = "btnempoyeeoperations";
             this.btnempoyeeoperations.Size = new System.Drawing.Size(132, 28);
             this.btnempoyeeoperations.TabIndex = 18;
@@ -135,7 +135,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 18);
+            this.button1.Location = new System.Drawing.Point(228, 18);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 29);
             this.button1.TabIndex = 15;
