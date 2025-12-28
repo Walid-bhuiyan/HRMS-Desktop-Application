@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HRMS
 {
-    public partial class lbl : Form
+    public partial class AdminOperation : Form
     {
-        public lbl()
+        public AdminOperation()
         {
             InitializeComponent();
         }

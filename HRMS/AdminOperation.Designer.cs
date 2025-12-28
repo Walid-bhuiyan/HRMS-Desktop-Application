@@ -1,6 +1,6 @@
 ﻿namespace HRMS
 {
-    partial class lbl
+    partial class AdminOperation
     {
         /// <summary>
         /// Required designer variable.
@@ -31,12 +31,12 @@
             this.topLoginPanel = new System.Windows.Forms.Panel();
             this.topHeaderLogin = new System.Windows.Forms.Label();
             this.pnlsidebar = new System.Windows.Forms.Panel();
-            this.btnback = new System.Windows.Forms.Button();
-            this.btnreset = new System.Windows.Forms.Button();
-            this.btnsearch = new System.Windows.Forms.Button();
-            this.btndelete = new System.Windows.Forms.Button();
-            this.btnupdate = new System.Windows.Forms.Button();
-            this.btninsert = new System.Windows.Forms.Button();
+            this.btnlogout = new System.Windows.Forms.Button();
+            this.btnresetpassword = new System.Windows.Forms.Button();
+            this.btnaccountantoperations = new System.Windows.Forms.Button();
+            this.btnempoyeeoperations = new System.Windows.Forms.Button();
+            this.btnmangeroperations = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.topLoginPanel.SuspendLayout();
             this.pnlsidebar.SuspendLayout();
             this.SuspendLayout();
@@ -67,90 +67,90 @@
             // pnlsidebar
             // 
             this.pnlsidebar.BackColor = System.Drawing.SystemColors.Window;
-            this.pnlsidebar.Controls.Add(this.btnback);
-            this.pnlsidebar.Controls.Add(this.btnreset);
-            this.pnlsidebar.Controls.Add(this.btnsearch);
-            this.pnlsidebar.Controls.Add(this.btndelete);
-            this.pnlsidebar.Controls.Add(this.btnupdate);
-            this.pnlsidebar.Controls.Add(this.btninsert);
+            this.pnlsidebar.Controls.Add(this.btnlogout);
+            this.pnlsidebar.Controls.Add(this.btnresetpassword);
+            this.pnlsidebar.Controls.Add(this.btnaccountantoperations);
+            this.pnlsidebar.Controls.Add(this.btnempoyeeoperations);
+            this.pnlsidebar.Controls.Add(this.btnmangeroperations);
+            this.pnlsidebar.Controls.Add(this.button1);
             this.pnlsidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlsidebar.Location = new System.Drawing.Point(0, 49);
             this.pnlsidebar.Name = "pnlsidebar";
-            this.pnlsidebar.Size = new System.Drawing.Size(142, 401);
+            this.pnlsidebar.Size = new System.Drawing.Size(148, 401);
             this.pnlsidebar.TabIndex = 16;
             // 
-            // btnback
+            // btnlogout
             // 
-            this.btnback.BackColor = System.Drawing.Color.Salmon;
-            this.btnback.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnback.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnback.Location = new System.Drawing.Point(3, 270);
-            this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(132, 27);
-            this.btnback.TabIndex = 21;
-            this.btnback.Text = "Back";
-            this.btnback.UseVisualStyleBackColor = false;
+            this.btnlogout.BackColor = System.Drawing.Color.Salmon;
+            this.btnlogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlogout.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnlogout.Location = new System.Drawing.Point(0, 269);
+            this.btnlogout.Name = "btnlogout";
+            this.btnlogout.Size = new System.Drawing.Size(132, 27);
+            this.btnlogout.TabIndex = 21;
+            this.btnlogout.Text = "Log Out";
+            this.btnlogout.UseVisualStyleBackColor = false;
             // 
-            // btnreset
+            // btnresetpassword
             // 
-            this.btnreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreset.Location = new System.Drawing.Point(3, 211);
-            this.btnreset.Name = "btnreset";
-            this.btnreset.Size = new System.Drawing.Size(132, 29);
-            this.btnreset.TabIndex = 20;
-            this.btnreset.Text = "Reset";
-            this.btnreset.UseVisualStyleBackColor = true;
+            this.btnresetpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnresetpassword.Location = new System.Drawing.Point(0, 220);
+            this.btnresetpassword.Name = "btnresetpassword";
+            this.btnresetpassword.Size = new System.Drawing.Size(132, 29);
+            this.btnresetpassword.TabIndex = 20;
+            this.btnresetpassword.Text = "Reset Password";
+            this.btnresetpassword.UseVisualStyleBackColor = true;
             // 
-            // btnsearch
+            // btnaccountantoperations
             // 
-            this.btnsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsearch.Location = new System.Drawing.Point(3, 162);
-            this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(132, 27);
-            this.btnsearch.TabIndex = 19;
-            this.btnsearch.Text = "Search";
-            this.btnsearch.UseVisualStyleBackColor = true;
+            this.btnaccountantoperations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnaccountantoperations.Location = new System.Drawing.Point(0, 163);
+            this.btnaccountantoperations.Name = "btnaccountantoperations";
+            this.btnaccountantoperations.Size = new System.Drawing.Size(132, 27);
+            this.btnaccountantoperations.TabIndex = 19;
+            this.btnaccountantoperations.Text = "Accountant Operations";
+            this.btnaccountantoperations.UseVisualStyleBackColor = true;
             // 
-            // btndelete
+            // btnempoyeeoperations
             // 
-            this.btndelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btndelete.Location = new System.Drawing.Point(3, 112);
-            this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(132, 28);
-            this.btndelete.TabIndex = 18;
-            this.btndelete.Text = "Delete";
-            this.btndelete.UseVisualStyleBackColor = true;
+            this.btnempoyeeoperations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnempoyeeoperations.Location = new System.Drawing.Point(0, 112);
+            this.btnempoyeeoperations.Name = "btnempoyeeoperations";
+            this.btnempoyeeoperations.Size = new System.Drawing.Size(132, 28);
+            this.btnempoyeeoperations.TabIndex = 18;
+            this.btnempoyeeoperations.Text = "Employee Operations";
+            this.btnempoyeeoperations.UseVisualStyleBackColor = true;
             // 
-            // btnupdate
+            // btnmangeroperations
             // 
-            this.btnupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnupdate.Location = new System.Drawing.Point(3, 65);
-            this.btnupdate.Name = "btnupdate";
-            this.btnupdate.Size = new System.Drawing.Size(132, 29);
-            this.btnupdate.TabIndex = 17;
-            this.btnupdate.Text = "Update";
-            this.btnupdate.UseVisualStyleBackColor = true;
+            this.btnmangeroperations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmangeroperations.Location = new System.Drawing.Point(0, 64);
+            this.btnmangeroperations.Name = "btnmangeroperations";
+            this.btnmangeroperations.Size = new System.Drawing.Size(132, 29);
+            this.btnmangeroperations.TabIndex = 17;
+            this.btnmangeroperations.Text = "Manager Operations";
+            this.btnmangeroperations.UseVisualStyleBackColor = true;
             // 
-            // btninsert
+            // button1
             // 
-            this.btninsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btninsert.Location = new System.Drawing.Point(3, 20);
-            this.btninsert.Name = "btninsert";
-            this.btninsert.Size = new System.Drawing.Size(132, 29);
-            this.btninsert.TabIndex = 15;
-            this.btninsert.Text = "Insert";
-            this.btninsert.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.btninsert.UseVisualStyleBackColor = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(132, 29);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Admin Operations";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // lbl
+            // AdminOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlsidebar);
             this.Controls.Add(this.topLoginPanel);
-            this.Name = "lbl";
+            this.Name = "AdminOperation";
+            this.Text = "AdminOperation";
             this.topLoginPanel.ResumeLayout(false);
             this.topLoginPanel.PerformLayout();
             this.pnlsidebar.ResumeLayout(false);
@@ -163,11 +163,11 @@
         private System.Windows.Forms.Panel topLoginPanel;
         private System.Windows.Forms.Label topHeaderLogin;
         private System.Windows.Forms.Panel pnlsidebar;
-        private System.Windows.Forms.Button btnback;
-        private System.Windows.Forms.Button btnreset;
-        private System.Windows.Forms.Button btnsearch;
-        private System.Windows.Forms.Button btndelete;
-        private System.Windows.Forms.Button btnupdate;
-        private System.Windows.Forms.Button btninsert;
+        private System.Windows.Forms.Button btnlogout;
+        private System.Windows.Forms.Button btnresetpassword;
+        private System.Windows.Forms.Button btnaccountantoperations;
+        private System.Windows.Forms.Button btnempoyeeoperations;
+        private System.Windows.Forms.Button btnmangeroperations;
+        private System.Windows.Forms.Button button1;
     }
 }
