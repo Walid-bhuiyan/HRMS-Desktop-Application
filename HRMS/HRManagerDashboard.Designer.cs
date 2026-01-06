@@ -32,16 +32,16 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.topHeaderLogin = new System.Windows.Forms.Label();
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnChangePassword = new System.Windows.Forms.Button();
+            this.btnProfile = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnPayroll = new System.Windows.Forms.Button();
+            this.btnLeaveManagementSP = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnOrganization = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.btnDashboardSB = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.btnProfile = new System.Windows.Forms.Button();
-            this.btnChangePassword = new System.Windows.Forms.Button();
-            this.btnLeaveManagementSP = new System.Windows.Forms.Button();
             this.pnlTopHr.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +103,38 @@
             this.pnlSidebar.Size = new System.Drawing.Size(220, 390);
             this.pnlSidebar.TabIndex = 9;
             // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnChangePassword.FlatAppearance.BorderSize = 0;
+            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePassword.ForeColor = System.Drawing.Color.White;
+            this.btnChangePassword.Location = new System.Drawing.Point(0, 370);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnChangePassword.Size = new System.Drawing.Size(199, 45);
+            this.btnChangePassword.TabIndex = 10;
+            this.btnChangePassword.Text = "Change Password";
+            this.btnChangePassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChangePassword.UseVisualStyleBackColor = true;
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProfile.FlatAppearance.BorderSize = 0;
+            this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfile.ForeColor = System.Drawing.Color.White;
+            this.btnProfile.Location = new System.Drawing.Point(0, 325);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnProfile.Size = new System.Drawing.Size(199, 45);
+            this.btnProfile.TabIndex = 9;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProfile.UseVisualStyleBackColor = true;
+            // 
             // btnReports
             // 
             this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
@@ -134,6 +166,22 @@
             this.btnPayroll.Text = "Payroll";
             this.btnPayroll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPayroll.UseVisualStyleBackColor = true;
+            // 
+            // btnLeaveManagementSP
+            // 
+            this.btnLeaveManagementSP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLeaveManagementSP.FlatAppearance.BorderSize = 0;
+            this.btnLeaveManagementSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaveManagementSP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLeaveManagementSP.ForeColor = System.Drawing.Color.White;
+            this.btnLeaveManagementSP.Location = new System.Drawing.Point(0, 190);
+            this.btnLeaveManagementSP.Name = "btnLeaveManagementSP";
+            this.btnLeaveManagementSP.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnLeaveManagementSP.Size = new System.Drawing.Size(199, 45);
+            this.btnLeaveManagementSP.TabIndex = 11;
+            this.btnLeaveManagementSP.Text = "Leave Management ";
+            this.btnLeaveManagementSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLeaveManagementSP.UseVisualStyleBackColor = true;
             // 
             // btnAttendance
             // 
@@ -182,6 +230,7 @@
             this.btnEmployees.Text = "Employees";
             this.btnEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmployees.UseVisualStyleBackColor = true;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // btnDashboardSB
             // 
@@ -209,54 +258,6 @@
             this.pnlMain.Size = new System.Drawing.Size(580, 390);
             this.pnlMain.TabIndex = 10;
             this.pnlMain.Visible = false;
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProfile.FlatAppearance.BorderSize = 0;
-            this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfile.ForeColor = System.Drawing.Color.White;
-            this.btnProfile.Location = new System.Drawing.Point(0, 325);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnProfile.Size = new System.Drawing.Size(199, 45);
-            this.btnProfile.TabIndex = 9;
-            this.btnProfile.Text = "Profile";
-            this.btnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProfile.UseVisualStyleBackColor = true;
-            // 
-            // btnChangePassword
-            // 
-            this.btnChangePassword.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnChangePassword.FlatAppearance.BorderSize = 0;
-            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePassword.ForeColor = System.Drawing.Color.White;
-            this.btnChangePassword.Location = new System.Drawing.Point(0, 370);
-            this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnChangePassword.Size = new System.Drawing.Size(199, 45);
-            this.btnChangePassword.TabIndex = 10;
-            this.btnChangePassword.Text = "Change Password";
-            this.btnChangePassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChangePassword.UseVisualStyleBackColor = true;
-            // 
-            // btnLeaveManagementSP
-            // 
-            this.btnLeaveManagementSP.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLeaveManagementSP.FlatAppearance.BorderSize = 0;
-            this.btnLeaveManagementSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaveManagementSP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLeaveManagementSP.ForeColor = System.Drawing.Color.White;
-            this.btnLeaveManagementSP.Location = new System.Drawing.Point(0, 190);
-            this.btnLeaveManagementSP.Name = "btnLeaveManagementSP";
-            this.btnLeaveManagementSP.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnLeaveManagementSP.Size = new System.Drawing.Size(199, 45);
-            this.btnLeaveManagementSP.TabIndex = 11;
-            this.btnLeaveManagementSP.Text = "Leave Management ";
-            this.btnLeaveManagementSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLeaveManagementSP.UseVisualStyleBackColor = true;
             // 
             // HRManagerDashboard
             // 
