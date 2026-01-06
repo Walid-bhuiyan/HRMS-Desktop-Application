@@ -16,7 +16,7 @@ namespace HRMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminInsertionForm());
+            Application.Run(new loginframe());
         }
     }
 }

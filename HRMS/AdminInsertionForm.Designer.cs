@@ -47,6 +47,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnsubmit = new System.Windows.Forms.Button();
+            this.btnback = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -212,11 +213,22 @@
             this.btnsubmit.UseVisualStyleBackColor = true;
             this.btnsubmit.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnback
+            // 
+            this.btnback.Location = new System.Drawing.Point(58, 370);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(75, 23);
+            this.btnback.TabIndex = 19;
+            this.btnback.Text = "Back";
+            this.btnback.UseVisualStyleBackColor = true;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            // 
             // AdminInsertionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(630, 450);
+            this.Controls.Add(this.btnback);
             this.Controls.Add(this.btnsubmit);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.dateTimePicker1);
@@ -265,5 +277,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnsubmit;
+        private System.Windows.Forms.Button btnback;
     }
 }
