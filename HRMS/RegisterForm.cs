@@ -33,8 +33,14 @@ namespace HRMS
         private decimal salary;
 
         SqlConnection con = new SqlConnection(
-            @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
+            @"Data Source=localhost;
+      Initial Catalog=HRMS_DB;
+      Integrated Security=True;
+      Encrypt=True;
+      TrustServerCertificate=True;"
         );
+
+
 
         public RegisterForm()
         {
