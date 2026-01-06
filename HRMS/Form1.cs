@@ -117,5 +117,10 @@ namespace HRMS
         {
 
         }
+
+        private void cmbLoginAs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
