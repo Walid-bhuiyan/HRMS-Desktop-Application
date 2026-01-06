@@ -22,6 +22,13 @@ namespace HRMS
             InitializeComponent();
         }
 
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            AdminOperation admnoperations= new AdminOperation();
+            admnoperations.Show();
+            this.Close();
+        }
+
         private void AdminInsertionForm_Load(object sender, EventArgs e)
         {
 
