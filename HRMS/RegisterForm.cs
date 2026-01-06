@@ -15,6 +15,8 @@ namespace HRMS
         private readonly string cs =
             ConfigurationManager.ConnectionStrings["HRMS_DB"].ConnectionString;
 
+
+
         public RegisterForm()
         {
             InitializeComponent();
