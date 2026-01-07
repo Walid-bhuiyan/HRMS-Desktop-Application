@@ -252,7 +252,7 @@
             this.btnback.UseVisualStyleBackColor = false;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
-            // btnsearch
+          
             // 
             this.btnsearch.Location = new System.Drawing.Point(32, 240);
             this.btnsearch.Name = "btnsearch";

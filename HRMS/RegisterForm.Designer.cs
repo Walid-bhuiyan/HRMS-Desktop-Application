@@ -125,7 +125,7 @@
             this.topHeaderRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.topHeaderRegister.Location = new System.Drawing.Point(237, 9);
             this.topHeaderRegister.Name = "topHeaderRegister";
-            this.topHeaderRegister.Size = new System.Drawing.Size(268, 30);
+            this.topHeaderRegister.Size = new System.Drawing.Size(341, 38);
             this.topHeaderRegister.TabIndex = 0;
             this.topHeaderRegister.Text = "HR Management System";
             // 
@@ -247,7 +247,7 @@
             this.tblEmploymentInfo.Controls.Add(this.pnlSalary, 1, 2);
             this.tblEmploymentInfo.Controls.Add(this.pnlSecutityAnsweremp, 0, 3);
             this.tblEmploymentInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblEmploymentInfo.Location = new System.Drawing.Point(10, 29);
+            this.tblEmploymentInfo.Location = new System.Drawing.Point(10, 33);
             this.tblEmploymentInfo.Name = "tblEmploymentInfo";
             this.tblEmploymentInfo.Padding = new System.Windows.Forms.Padding(10);
             this.tblEmploymentInfo.RowCount = 6;
@@ -257,7 +257,7 @@
             this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblEmploymentInfo.Size = new System.Drawing.Size(855, 234);
+            this.tblEmploymentInfo.Size = new System.Drawing.Size(855, 230);
             this.tblEmploymentInfo.TabIndex = 0;
             // 
             // pnlSecurityQuestion
@@ -275,9 +275,9 @@
             // 
             this.txtSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSecurityQuestion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecurityQuestion.Location = new System.Drawing.Point(0, 21);
+            this.txtSecurityQuestion.Location = new System.Drawing.Point(0, 26);
             this.txtSecurityQuestion.Name = "txtSecurityQuestion";
-            this.txtSecurityQuestion.Size = new System.Drawing.Size(411, 23);
+            this.txtSecurityQuestion.Size = new System.Drawing.Size(411, 27);
             this.txtSecurityQuestion.TabIndex = 1;
             // 
             // lblSecurityQuestion
@@ -287,7 +287,7 @@
             this.lblSecurityQuestion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSecurityQuestion.Location = new System.Drawing.Point(0, 6);
             this.lblSecurityQuestion.Name = "lblSecurityQuestion";
-            this.lblSecurityQuestion.Size = new System.Drawing.Size(100, 15);
+            this.lblSecurityQuestion.Size = new System.Drawing.Size(124, 20);
             this.lblSecurityQuestion.TabIndex = 0;
             this.lblSecurityQuestion.Text = "Security Question";
             // 
@@ -314,9 +314,9 @@
             "Finance",
             "Marketing",
             "Operations"});
-            this.cmbDepartment.Location = new System.Drawing.Point(0, 21);
+            this.cmbDepartment.Location = new System.Drawing.Point(0, 26);
             this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(412, 23);
+            this.cmbDepartment.Size = new System.Drawing.Size(412, 28);
             this.cmbDepartment.TabIndex = 1;
             // 
             // lblDepartment
@@ -326,7 +326,7 @@
             this.lblDepartment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepartment.Location = new System.Drawing.Point(0, 6);
             this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(70, 15);
+            this.lblDepartment.Size = new System.Drawing.Size(89, 20);
             this.lblDepartment.TabIndex = 0;
             this.lblDepartment.Text = "Department";
             // 
@@ -353,9 +353,9 @@
             "HR Executive",
             "Accountant",
             "Intern"});
-            this.cmbJobTitle.Location = new System.Drawing.Point(0, 21);
+            this.cmbJobTitle.Location = new System.Drawing.Point(0, 26);
             this.cmbJobTitle.Name = "cmbJobTitle";
-            this.cmbJobTitle.Size = new System.Drawing.Size(411, 23);
+            this.cmbJobTitle.Size = new System.Drawing.Size(411, 28);
             this.cmbJobTitle.TabIndex = 1;
             // 
             // lblJobTitle
@@ -364,7 +364,7 @@
             this.lblJobTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblJobTitle.Location = new System.Drawing.Point(0, 6);
             this.lblJobTitle.Name = "lblJobTitle";
-            this.lblJobTitle.Size = new System.Drawing.Size(50, 15);
+            this.lblJobTitle.Size = new System.Drawing.Size(65, 20);
             this.lblJobTitle.TabIndex = 0;
             this.lblJobTitle.Text = "Job Title";
             // 
@@ -384,9 +384,9 @@
             // 
             this.dtpJoiningDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpJoiningDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpJoiningDate.Location = new System.Drawing.Point(0, 21);
+            this.dtpJoiningDate.Location = new System.Drawing.Point(0, 26);
             this.dtpJoiningDate.Name = "dtpJoiningDate";
-            this.dtpJoiningDate.Size = new System.Drawing.Size(412, 23);
+            this.dtpJoiningDate.Size = new System.Drawing.Size(412, 27);
             this.dtpJoiningDate.TabIndex = 1;
             // 
             // lblJoiningDate
@@ -395,7 +395,7 @@
             this.lblJoiningDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblJoiningDate.Location = new System.Drawing.Point(0, 6);
             this.lblJoiningDate.Name = "lblJoiningDate";
-            this.lblJoiningDate.Size = new System.Drawing.Size(72, 15);
+            this.lblJoiningDate.Size = new System.Drawing.Size(92, 20);
             this.lblJoiningDate.TabIndex = 0;
             this.lblJoiningDate.Text = "Joining Date";
             // 
@@ -428,9 +428,9 @@
             "Full-Time",
             "Part-Time",
             "Contract"});
-            this.cmbEmploymentType.Location = new System.Drawing.Point(0, 21);
+            this.cmbEmploymentType.Location = new System.Drawing.Point(0, 26);
             this.cmbEmploymentType.Name = "cmbEmploymentType";
-            this.cmbEmploymentType.Size = new System.Drawing.Size(411, 23);
+            this.cmbEmploymentType.Size = new System.Drawing.Size(411, 28);
             this.cmbEmploymentType.TabIndex = 1;
             // 
             // lblEmploymentType
@@ -439,7 +439,7 @@
             this.lblEmploymentType.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblEmploymentType.Location = new System.Drawing.Point(0, 6);
             this.lblEmploymentType.Name = "lblEmploymentType";
-            this.lblEmploymentType.Size = new System.Drawing.Size(102, 15);
+            this.lblEmploymentType.Size = new System.Drawing.Size(128, 20);
             this.lblEmploymentType.TabIndex = 0;
             this.lblEmploymentType.Text = "Employment Type";
             // 
@@ -458,9 +458,9 @@
             // txtSalary
             // 
             this.txtSalary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSalary.Location = new System.Drawing.Point(0, 21);
+            this.txtSalary.Location = new System.Drawing.Point(0, 26);
             this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(412, 23);
+            this.txtSalary.Size = new System.Drawing.Size(412, 27);
             this.txtSalary.TabIndex = 1;
             // 
             // lblSalary
@@ -470,7 +470,7 @@
             this.lblSalary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSalary.Location = new System.Drawing.Point(0, 6);
             this.lblSalary.Name = "lblSalary";
-            this.lblSalary.Size = new System.Drawing.Size(38, 15);
+            this.lblSalary.Size = new System.Drawing.Size(49, 20);
             this.lblSalary.TabIndex = 2;
             this.lblSalary.Text = "Salary";
             // 
@@ -488,9 +488,9 @@
             // 
             this.txtSecurityAnswer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSecurityAnswer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecurityAnswer.Location = new System.Drawing.Point(0, 15);
+            this.txtSecurityAnswer.Location = new System.Drawing.Point(0, 20);
             this.txtSecurityAnswer.Name = "txtSecurityAnswer";
-            this.txtSecurityAnswer.Size = new System.Drawing.Size(411, 23);
+            this.txtSecurityAnswer.Size = new System.Drawing.Size(411, 27);
             this.txtSecurityAnswer.TabIndex = 2;
             // 
             // lblSecurityAnswer
@@ -500,7 +500,7 @@
             this.lblSecurityAnswer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSecurityAnswer.Location = new System.Drawing.Point(0, 0);
             this.lblSecurityAnswer.Name = "lblSecurityAnswer";
-            this.lblSecurityAnswer.Size = new System.Drawing.Size(91, 15);
+            this.lblSecurityAnswer.Size = new System.Drawing.Size(113, 20);
             this.lblSecurityAnswer.TabIndex = 1;
             this.lblSecurityAnswer.Text = "Security Answer";
             // 
@@ -529,7 +529,7 @@
             this.tblPersonalInfo.Controls.Add(this.pnlPhone, 0, 2);
             this.tblPersonalInfo.Controls.Add(this.pnlAddress, 1, 2);
             this.tblPersonalInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblPersonalInfo.Location = new System.Drawing.Point(10, 29);
+            this.tblPersonalInfo.Location = new System.Drawing.Point(10, 33);
             this.tblPersonalInfo.Name = "tblPersonalInfo";
             this.tblPersonalInfo.Padding = new System.Windows.Forms.Padding(10);
             this.tblPersonalInfo.RowCount = 6;
@@ -539,7 +539,7 @@
             this.tblPersonalInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblPersonalInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblPersonalInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblPersonalInfo.Size = new System.Drawing.Size(855, 201);
+            this.tblPersonalInfo.Size = new System.Drawing.Size(855, 197);
             this.tblPersonalInfo.TabIndex = 0;
             // 
             // pnlFullName
@@ -559,10 +559,10 @@
             this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFullName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullName.Location = new System.Drawing.Point(0, 21);
+            this.txtFullName.Location = new System.Drawing.Point(0, 26);
             this.txtFullName.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(411, 23);
+            this.txtFullName.Size = new System.Drawing.Size(411, 27);
             this.txtFullName.TabIndex = 1;
             // 
             // lblFullName
@@ -572,7 +572,7 @@
             this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.Location = new System.Drawing.Point(0, 6);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(61, 15);
+            this.lblFullName.Size = new System.Drawing.Size(76, 20);
             this.lblFullName.TabIndex = 0;
             this.lblFullName.Text = "Full Name";
             // 
@@ -593,10 +593,10 @@
             this.flowGender.Controls.Add(this.rbMale);
             this.flowGender.Controls.Add(this.rbFemale);
             this.flowGender.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowGender.Location = new System.Drawing.Point(0, 21);
+            this.flowGender.Location = new System.Drawing.Point(0, 26);
             this.flowGender.Name = "flowGender";
             this.flowGender.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.flowGender.Size = new System.Drawing.Size(412, 27);
+            this.flowGender.Size = new System.Drawing.Size(412, 22);
             this.flowGender.TabIndex = 1;
             this.flowGender.WrapContents = false;
             // 
@@ -606,7 +606,7 @@
             this.rbMale.Checked = true;
             this.rbMale.Location = new System.Drawing.Point(3, 7);
             this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(51, 19);
+            this.rbMale.Size = new System.Drawing.Size(63, 24);
             this.rbMale.TabIndex = 0;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
@@ -615,9 +615,9 @@
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
-            this.rbFemale.Location = new System.Drawing.Point(60, 7);
+            this.rbFemale.Location = new System.Drawing.Point(72, 7);
             this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(63, 19);
+            this.rbFemale.Size = new System.Drawing.Size(78, 24);
             this.rbFemale.TabIndex = 1;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -628,7 +628,7 @@
             this.lblGender.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblGender.Location = new System.Drawing.Point(0, 6);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(45, 15);
+            this.lblGender.Size = new System.Drawing.Size(57, 20);
             this.lblGender.TabIndex = 0;
             this.lblGender.Text = "Gender";
             // 
@@ -648,9 +648,9 @@
             // 
             this.dtpDOB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDOB.Location = new System.Drawing.Point(0, 21);
+            this.dtpDOB.Location = new System.Drawing.Point(0, 26);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(411, 23);
+            this.dtpDOB.Size = new System.Drawing.Size(411, 27);
             this.dtpDOB.TabIndex = 1;
             // 
             // lblDOB
@@ -659,7 +659,7 @@
             this.lblDOB.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDOB.Location = new System.Drawing.Point(0, 6);
             this.lblDOB.Name = "lblDOB";
-            this.lblDOB.Size = new System.Drawing.Size(73, 15);
+            this.lblDOB.Size = new System.Drawing.Size(94, 20);
             this.lblDOB.TabIndex = 0;
             this.lblDOB.Text = "Date of Birth";
             // 
@@ -678,9 +678,9 @@
             // txtEmail
             // 
             this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmail.Location = new System.Drawing.Point(0, 21);
+            this.txtEmail.Location = new System.Drawing.Point(0, 26);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(412, 23);
+            this.txtEmail.Size = new System.Drawing.Size(412, 27);
             this.txtEmail.TabIndex = 1;
             // 
             // lblEmail
@@ -689,7 +689,7 @@
             this.lblEmail.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblEmail.Location = new System.Drawing.Point(0, 6);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(36, 15);
+            this.lblEmail.Size = new System.Drawing.Size(46, 20);
             this.lblEmail.TabIndex = 0;
             this.lblEmail.Text = "Email";
             // 
@@ -708,9 +708,9 @@
             // txtPhone
             // 
             this.txtPhone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhone.Location = new System.Drawing.Point(0, 21);
+            this.txtPhone.Location = new System.Drawing.Point(0, 26);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(411, 23);
+            this.txtPhone.Size = new System.Drawing.Size(411, 27);
             this.txtPhone.TabIndex = 1;
             // 
             // lblPhone
@@ -719,7 +719,7 @@
             this.lblPhone.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblPhone.Location = new System.Drawing.Point(0, 6);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(88, 15);
+            this.lblPhone.Size = new System.Drawing.Size(108, 20);
             this.lblPhone.TabIndex = 0;
             this.lblPhone.Text = "Phone Number";
             // 
@@ -740,10 +740,10 @@
             this.rtbAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbAddress.DetectUrls = false;
             this.rtbAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbAddress.Location = new System.Drawing.Point(0, 21);
+            this.rtbAddress.Location = new System.Drawing.Point(0, 26);
             this.rtbAddress.Name = "rtbAddress";
             this.rtbAddress.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtbAddress.Size = new System.Drawing.Size(412, 27);
+            this.rtbAddress.Size = new System.Drawing.Size(412, 22);
             this.rtbAddress.TabIndex = 1;
             this.rtbAddress.Text = "";
             // 
@@ -753,14 +753,14 @@
             this.lblAdress.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblAdress.Location = new System.Drawing.Point(0, 6);
             this.lblAdress.Name = "lblAdress";
-            this.lblAdress.Size = new System.Drawing.Size(49, 15);
+            this.lblAdress.Size = new System.Drawing.Size(62, 20);
             this.lblAdress.TabIndex = 0;
             this.lblAdress.Text = "Address";
             // 
             // RegisterForm
             // 
             this.AcceptButton = this.btnSubmit;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
