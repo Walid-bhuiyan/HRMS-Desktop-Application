@@ -52,13 +52,7 @@ namespace HRMS
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtname.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtemail.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtphone.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtgender.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtaddress.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            txtdob.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+
 
         }
 
@@ -141,5 +135,27 @@ namespace HRMS
             conn.Close();
         }
 
+        private void btndelete_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;");
+            conn.Open();
+            string query = "Delete from Admins where ID=" + txtid.Text;
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            txtid.Text = txtname.Text = txtemail.Text = "";
+            show();
+            conn.Close();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtname.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            txtemail.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtphone.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtgender.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtaddress.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtdob.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+        }
     }
 }
