@@ -1,6 +1,6 @@
 ﻿namespace HRMS
 {
-    partial class accountantDashboard
+    partial class AccountantDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(accountantDashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountantDashboard));
             this.listPanel = new System.Windows.Forms.Panel();
             this.btnchangepassword = new System.Windows.Forms.Button();
             this.btnattendance = new System.Windows.Forms.Button();
@@ -47,8 +47,8 @@
             this.lblenumber = new System.Windows.Forms.Label();
             this.showpanel = new System.Windows.Forms.Panel();
             this.lblppnumber = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblnetpayabletk = new System.Windows.Forms.Label();
+            this.lblnptk = new System.Windows.Forms.Label();
             this.lbldeductionstk = new System.Windows.Forms.Label();
             this.lbldtk = new System.Windows.Forms.Label();
             this.lblmonthlypayrolltk = new System.Windows.Forms.Label();
@@ -293,8 +293,8 @@
             this.showpanel.BackColor = System.Drawing.SystemColors.MenuBar;
             this.showpanel.Controls.Add(this.lblppnumber);
             this.showpanel.Controls.Add(this.btnlogout);
-            this.showpanel.Controls.Add(this.label2);
-            this.showpanel.Controls.Add(this.label3);
+            this.showpanel.Controls.Add(this.lblnetpayabletk);
+            this.showpanel.Controls.Add(this.lblnptk);
             this.showpanel.Controls.Add(this.lbldeductionstk);
             this.showpanel.Controls.Add(this.lbldtk);
             this.showpanel.Controls.Add(this.lblmonthlypayrolltk);
@@ -322,27 +322,27 @@
             this.lblppnumber.Text = "3";
             this.lblppnumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label2
+            // lblnetpayabletk
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(412, 227);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 38);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "150000";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblnetpayabletk.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblnetpayabletk.AutoSize = true;
+            this.lblnetpayabletk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnetpayabletk.Location = new System.Drawing.Point(412, 227);
+            this.lblnetpayabletk.Name = "lblnetpayabletk";
+            this.lblnetpayabletk.Size = new System.Drawing.Size(113, 38);
+            this.lblnetpayabletk.TabIndex = 23;
+            this.lblnetpayabletk.Text = "150000";
+            this.lblnetpayabletk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label3
+            // lblnptk
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(368, 227);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 38);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "৳";
+            this.lblnptk.AutoSize = true;
+            this.lblnptk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnptk.Location = new System.Drawing.Point(368, 227);
+            this.lblnptk.Name = "lblnptk";
+            this.lblnptk.Size = new System.Drawing.Size(40, 38);
+            this.lblnptk.TabIndex = 22;
+            this.lblnptk.Text = "৳";
             // 
             // lbldeductionstk
             // 
@@ -434,7 +434,7 @@
             this.lblmonthlypayroll.Text = "Monthly Payroll";
             this.lblmonthlypayroll.Click += new System.EventHandler(this.label2_Click);
             // 
-            // accountantDashboard
+            // AccountantDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -444,7 +444,7 @@
             this.Controls.Add(this.showpanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listPanel);
-            this.Name = "accountantDashboard";
+            this.Name = "AccountantDashboard";
             this.Text = "AccountantDashboard";
             this.Load += new System.EventHandler(this.AccountantDashboard_Load);
             this.listPanel.ResumeLayout(false);
@@ -484,7 +484,7 @@
         private System.Windows.Forms.Label lbldeductionstk;
         private System.Windows.Forms.Label lbldtk;
         private System.Windows.Forms.Label lblppnumber;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblnetpayabletk;
+        private System.Windows.Forms.Label lblnptk;
     }
 }

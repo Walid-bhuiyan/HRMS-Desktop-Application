@@ -11,9 +11,11 @@ using System.Windows.Forms;
 
 namespace HRMS
 {
-    public partial class accountantDashboard : Form
+    public partial class AccountantDashboard : Form
     {
-        public accountantDashboard()
+
+        string connectionString = @"Data Source=localhost;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;";
+        public AccountantDashboard()
         {
             InitializeComponent();
         }

@@ -97,7 +97,7 @@ namespace HRMS
                 }
                 else if (cmbLoginAs.Text == "Accountant")
                 {
-                    accountantDashboard ac = new accountantDashboard();
+                    AccountantDashboard ac = new AccountantDashboard();
                     ac.Show();
                     this.Hide();
                 }

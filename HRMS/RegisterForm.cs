@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Data.SqlClient;
 
 namespace HRMS
 {
@@ -17,6 +18,11 @@ namespace HRMS
         private string fullName, email, dob, gender, phone, address;
 
         private void lblDOB_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
         {
 
         }

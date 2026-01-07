@@ -24,7 +24,7 @@ namespace HRMS.Resources
 
         private void button1_Click(object sender, EventArgs e)
         {
-            accountantDashboard ad = new accountantDashboard();
+            AccountantDashboard ad = new AccountantDashboard();
             ad.Show();
             this.Hide();
         }

@@ -29,7 +29,7 @@ namespace HRMS
 
         private void btnback_Click_1(object sender, EventArgs e)
         {
-            accountantDashboard ad = new accountantDashboard();
+            AccountantDashboard ad = new AccountantDashboard();
             ad.Show();
             this.Hide();
         }
