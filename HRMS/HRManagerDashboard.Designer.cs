@@ -53,8 +53,9 @@
             this.pnlTopHr.Controls.Add(this.topHeaderLogin);
             this.pnlTopHr.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopHr.Location = new System.Drawing.Point(0, 0);
+            this.pnlTopHr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlTopHr.Name = "pnlTopHr";
-            this.pnlTopHr.Size = new System.Drawing.Size(800, 60);
+            this.pnlTopHr.Size = new System.Drawing.Size(600, 49);
             this.pnlTopHr.TabIndex = 8;
             // 
             // btnLogout
@@ -64,9 +65,10 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.Ivory;
-            this.btnLogout.Location = new System.Drawing.Point(706, 8);
+            this.btnLogout.Location = new System.Drawing.Point(530, 6);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(90, 35);
+            this.btnLogout.Size = new System.Drawing.Size(68, 28);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -77,9 +79,10 @@
             this.topHeaderLogin.AutoSize = true;
             this.topHeaderLogin.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topHeaderLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.topHeaderLogin.Location = new System.Drawing.Point(228, 9);
+            this.topHeaderLogin.Location = new System.Drawing.Point(171, 7);
+            this.topHeaderLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.topHeaderLogin.Name = "topHeaderLogin";
-            this.topHeaderLogin.Size = new System.Drawing.Size(341, 38);
+            this.topHeaderLogin.Size = new System.Drawing.Size(268, 30);
             this.topHeaderLogin.TabIndex = 0;
             this.topHeaderLogin.Text = "HR Management System";
             // 
@@ -97,10 +100,11 @@
             this.pnlSidebar.Controls.Add(this.btnEmployees);
             this.pnlSidebar.Controls.Add(this.btnDashboardSB);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Location = new System.Drawing.Point(0, 60);
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 49);
+            this.pnlSidebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pnlSidebar.Size = new System.Drawing.Size(220, 390);
+            this.pnlSidebar.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.pnlSidebar.Size = new System.Drawing.Size(165, 317);
             this.pnlSidebar.TabIndex = 9;
             // 
             // btnChangePassword
@@ -110,10 +114,11 @@
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.White;
-            this.btnChangePassword.Location = new System.Drawing.Point(0, 370);
+            this.btnChangePassword.Location = new System.Drawing.Point(0, 304);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnChangePassword.Size = new System.Drawing.Size(199, 45);
+            this.btnChangePassword.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnChangePassword.Size = new System.Drawing.Size(148, 37);
             this.btnChangePassword.TabIndex = 10;
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,10 +131,11 @@
             this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfile.ForeColor = System.Drawing.Color.White;
-            this.btnProfile.Location = new System.Drawing.Point(0, 325);
+            this.btnProfile.Location = new System.Drawing.Point(0, 267);
+            this.btnProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnProfile.Size = new System.Drawing.Size(199, 45);
+            this.btnProfile.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnProfile.Size = new System.Drawing.Size(148, 37);
             this.btnProfile.TabIndex = 9;
             this.btnProfile.Text = "Profile";
             this.btnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,10 +148,11 @@
             this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReports.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReports.ForeColor = System.Drawing.Color.White;
-            this.btnReports.Location = new System.Drawing.Point(0, 280);
+            this.btnReports.Location = new System.Drawing.Point(0, 230);
+            this.btnReports.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnReports.Size = new System.Drawing.Size(199, 45);
+            this.btnReports.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnReports.Size = new System.Drawing.Size(148, 37);
             this.btnReports.TabIndex = 8;
             this.btnReports.Text = "Reports";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -158,10 +165,11 @@
             this.btnPayroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayroll.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayroll.ForeColor = System.Drawing.Color.White;
-            this.btnPayroll.Location = new System.Drawing.Point(0, 235);
+            this.btnPayroll.Location = new System.Drawing.Point(0, 193);
+            this.btnPayroll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPayroll.Name = "btnPayroll";
-            this.btnPayroll.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnPayroll.Size = new System.Drawing.Size(199, 45);
+            this.btnPayroll.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnPayroll.Size = new System.Drawing.Size(148, 37);
             this.btnPayroll.TabIndex = 7;
             this.btnPayroll.Text = "Payroll";
             this.btnPayroll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,10 +182,11 @@
             this.btnLeaveManagementSP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLeaveManagementSP.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLeaveManagementSP.ForeColor = System.Drawing.Color.White;
-            this.btnLeaveManagementSP.Location = new System.Drawing.Point(0, 190);
+            this.btnLeaveManagementSP.Location = new System.Drawing.Point(0, 156);
+            this.btnLeaveManagementSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLeaveManagementSP.Name = "btnLeaveManagementSP";
-            this.btnLeaveManagementSP.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnLeaveManagementSP.Size = new System.Drawing.Size(199, 45);
+            this.btnLeaveManagementSP.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnLeaveManagementSP.Size = new System.Drawing.Size(148, 37);
             this.btnLeaveManagementSP.TabIndex = 11;
             this.btnLeaveManagementSP.Text = "Leave Management ";
             this.btnLeaveManagementSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -190,10 +199,11 @@
             this.btnAttendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAttendance.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttendance.ForeColor = System.Drawing.Color.White;
-            this.btnAttendance.Location = new System.Drawing.Point(0, 145);
+            this.btnAttendance.Location = new System.Drawing.Point(0, 119);
+            this.btnAttendance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAttendance.Name = "btnAttendance";
-            this.btnAttendance.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnAttendance.Size = new System.Drawing.Size(199, 45);
+            this.btnAttendance.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnAttendance.Size = new System.Drawing.Size(148, 37);
             this.btnAttendance.TabIndex = 6;
             this.btnAttendance.Text = "Attendance";
             this.btnAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -206,10 +216,11 @@
             this.btnOrganization.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOrganization.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOrganization.ForeColor = System.Drawing.Color.White;
-            this.btnOrganization.Location = new System.Drawing.Point(0, 100);
+            this.btnOrganization.Location = new System.Drawing.Point(0, 82);
+            this.btnOrganization.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOrganization.Name = "btnOrganization";
-            this.btnOrganization.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnOrganization.Size = new System.Drawing.Size(199, 45);
+            this.btnOrganization.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnOrganization.Size = new System.Drawing.Size(148, 37);
             this.btnOrganization.TabIndex = 5;
             this.btnOrganization.Text = "Organization";
             this.btnOrganization.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -222,10 +233,11 @@
             this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployees.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployees.ForeColor = System.Drawing.Color.White;
-            this.btnEmployees.Location = new System.Drawing.Point(0, 55);
+            this.btnEmployees.Location = new System.Drawing.Point(0, 45);
+            this.btnEmployees.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEmployees.Name = "btnEmployees";
-            this.btnEmployees.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnEmployees.Size = new System.Drawing.Size(199, 45);
+            this.btnEmployees.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnEmployees.Size = new System.Drawing.Size(148, 37);
             this.btnEmployees.TabIndex = 4;
             this.btnEmployees.Text = "Employees";
             this.btnEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -239,10 +251,11 @@
             this.btnDashboardSB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDashboardSB.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboardSB.ForeColor = System.Drawing.Color.White;
-            this.btnDashboardSB.Location = new System.Drawing.Point(0, 10);
+            this.btnDashboardSB.Location = new System.Drawing.Point(0, 8);
+            this.btnDashboardSB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDashboardSB.Name = "btnDashboardSB";
-            this.btnDashboardSB.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnDashboardSB.Size = new System.Drawing.Size(199, 45);
+            this.btnDashboardSB.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.btnDashboardSB.Size = new System.Drawing.Size(148, 37);
             this.btnDashboardSB.TabIndex = 0;
             this.btnDashboardSB.Text = "Dashboard";
             this.btnDashboardSB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -253,20 +266,22 @@
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.BackColor = System.Drawing.Color.White;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMain.Location = new System.Drawing.Point(220, 60);
+            this.pnlMain.Location = new System.Drawing.Point(165, 49);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(580, 390);
+            this.pnlMain.Size = new System.Drawing.Size(436, 317);
             this.pnlMain.TabIndex = 10;
             this.pnlMain.Visible = false;
             // 
             // HRManagerDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSidebar);
             this.Controls.Add(this.pnlTopHr);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "HRManagerDashboard";
             this.Text = "HRManagerDashboard";
             this.pnlTopHr.ResumeLayout(false);
