@@ -110,7 +110,7 @@
             this.topLoginPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topLoginPanel.Location = new System.Drawing.Point(0, 0);
             this.topLoginPanel.Name = "topLoginPanel";
-            this.topLoginPanel.Size = new System.Drawing.Size(882, 60);
+            this.topLoginPanel.Size = new System.Drawing.Size(957, 60);
             this.topLoginPanel.TabIndex = 8;
             // 
             // topHeaderRegister
@@ -120,7 +120,7 @@
             this.topHeaderRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.topHeaderRegister.Location = new System.Drawing.Point(237, 9);
             this.topHeaderRegister.Name = "topHeaderRegister";
-            this.topHeaderRegister.Size = new System.Drawing.Size(404, 45);
+            this.topHeaderRegister.Size = new System.Drawing.Size(268, 30);
             this.topHeaderRegister.TabIndex = 0;
             this.topHeaderRegister.Text = "HR Management System";
             // 
@@ -132,7 +132,7 @@
             this.panelMain.Location = new System.Drawing.Point(0, 60);
             this.panelMain.Name = "panelMain";
             this.panelMain.Padding = new System.Windows.Forms.Padding(20);
-            this.panelMain.Size = new System.Drawing.Size(882, 543);
+            this.panelMain.Size = new System.Drawing.Size(957, 643);
             this.panelMain.TabIndex = 9;
             // 
             // panelCard
@@ -146,7 +146,7 @@
             this.panelCard.Location = new System.Drawing.Point(20, 20);
             this.panelCard.Name = "panelCard";
             this.panelCard.Padding = new System.Windows.Forms.Padding(20);
-            this.panelCard.Size = new System.Drawing.Size(816, 600);
+            this.panelCard.Size = new System.Drawing.Size(917, 600);
             this.panelCard.TabIndex = 0;
             // 
             // pnlButtons
@@ -156,7 +156,7 @@
             this.pnlButtons.Location = new System.Drawing.Point(20, 518);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Padding = new System.Windows.Forms.Padding(10);
-            this.pnlButtons.Size = new System.Drawing.Size(774, 60);
+            this.pnlButtons.Size = new System.Drawing.Size(875, 55);
             this.pnlButtons.TabIndex = 2;
             // 
             // flowButtons
@@ -167,7 +167,7 @@
             this.flowButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowButtons.Location = new System.Drawing.Point(10, 10);
             this.flowButtons.Name = "flowButtons";
-            this.flowButtons.Size = new System.Drawing.Size(754, 40);
+            this.flowButtons.Size = new System.Drawing.Size(855, 35);
             this.flowButtons.TabIndex = 0;
             this.flowButtons.WrapContents = false;
             // 
@@ -223,7 +223,7 @@
             this.grpEmploymentInfo.Location = new System.Drawing.Point(20, 260);
             this.grpEmploymentInfo.Name = "grpEmploymentInfo";
             this.grpEmploymentInfo.Padding = new System.Windows.Forms.Padding(10);
-            this.grpEmploymentInfo.Size = new System.Drawing.Size(774, 260);
+            this.grpEmploymentInfo.Size = new System.Drawing.Size(875, 273);
             this.grpEmploymentInfo.TabIndex = 1;
             this.grpEmploymentInfo.TabStop = false;
             this.grpEmploymentInfo.Text = "Employment Information";
@@ -240,7 +240,7 @@
             this.tblEmploymentInfo.Controls.Add(this.pnlEmploymentType, 0, 2);
             this.tblEmploymentInfo.Controls.Add(this.pnlSalary, 1, 2);
             this.tblEmploymentInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblEmploymentInfo.Location = new System.Drawing.Point(10, 38);
+            this.tblEmploymentInfo.Location = new System.Drawing.Point(10, 29);
             this.tblEmploymentInfo.Name = "tblEmploymentInfo";
             this.tblEmploymentInfo.Padding = new System.Windows.Forms.Padding(10);
             this.tblEmploymentInfo.RowCount = 5;
@@ -249,49 +249,50 @@
             this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblEmploymentInfo.Size = new System.Drawing.Size(754, 212);
+            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tblEmploymentInfo.Size = new System.Drawing.Size(855, 234);
             this.tblEmploymentInfo.TabIndex = 0;
             // 
-            // pnlEmpId
+            // pnlSecurityQuestion
             // 
-            this.pnlEmpId.Controls.Add(this.txtEmpId);
-            this.pnlEmpId.Controls.Add(this.lblEmployeeID);
-            this.pnlEmpId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEmpId.Location = new System.Drawing.Point(13, 13);
-            this.pnlEmpId.Name = "pnlEmpId";
-            this.pnlEmpId.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlEmpId.Size = new System.Drawing.Size(361, 54);
-            this.pnlEmpId.TabIndex = 0;
+            this.pnlSecurityQuestion.Controls.Add(this.txtSecurityQuestion);
+            this.pnlSecurityQuestion.Controls.Add(this.lblSecurityQuestion);
+            this.pnlSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSecurityQuestion.Location = new System.Drawing.Point(13, 13);
+            this.pnlSecurityQuestion.Name = "pnlSecurityQuestion";
+            this.pnlSecurityQuestion.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.pnlSecurityQuestion.Size = new System.Drawing.Size(411, 54);
+            this.pnlSecurityQuestion.TabIndex = 0;
             // 
-            // txtEmpId
+            // txtSecurityQuestion
             // 
-            this.txtEmpId.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmpId.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmpId.Location = new System.Drawing.Point(0, 31);
-            this.txtEmpId.Name = "txtEmpId";
-            this.txtEmpId.Size = new System.Drawing.Size(361, 31);
-            this.txtEmpId.TabIndex = 1;
+            this.txtSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSecurityQuestion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecurityQuestion.Location = new System.Drawing.Point(0, 21);
+            this.txtSecurityQuestion.Name = "txtSecurityQuestion";
+            this.txtSecurityQuestion.Size = new System.Drawing.Size(411, 23);
+            this.txtSecurityQuestion.TabIndex = 1;
             // 
-            // lblEmployeeID
+            // lblSecurityQuestion
             // 
-            this.lblEmployeeID.AutoSize = true;
-            this.lblEmployeeID.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblEmployeeID.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployeeID.Location = new System.Drawing.Point(0, 6);
-            this.lblEmployeeID.Name = "lblEmployeeID";
-            this.lblEmployeeID.Size = new System.Drawing.Size(113, 25);
-            this.lblEmployeeID.TabIndex = 0;
-            this.lblEmployeeID.Text = "Employee ID";
+            this.lblSecurityQuestion.AutoSize = true;
+            this.lblSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSecurityQuestion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecurityQuestion.Location = new System.Drawing.Point(0, 6);
+            this.lblSecurityQuestion.Name = "lblSecurityQuestion";
+            this.lblSecurityQuestion.Size = new System.Drawing.Size(100, 15);
+            this.lblSecurityQuestion.TabIndex = 0;
+            this.lblSecurityQuestion.Text = "Security Question";
             // 
             // pnlDepartment
             // 
             this.pnlDepartment.Controls.Add(this.cmbDepartment);
             this.pnlDepartment.Controls.Add(this.lblDepartment);
             this.pnlDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDepartment.Location = new System.Drawing.Point(380, 13);
+            this.pnlDepartment.Location = new System.Drawing.Point(430, 13);
             this.pnlDepartment.Name = "pnlDepartment";
             this.pnlDepartment.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlDepartment.Size = new System.Drawing.Size(361, 54);
+            this.pnlDepartment.Size = new System.Drawing.Size(412, 54);
             this.pnlDepartment.TabIndex = 1;
             // 
             // cmbDepartment
@@ -306,9 +307,9 @@
             "Finance",
             "Marketing",
             "Operations"});
-            this.cmbDepartment.Location = new System.Drawing.Point(0, 31);
+            this.cmbDepartment.Location = new System.Drawing.Point(0, 21);
             this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(361, 33);
+            this.cmbDepartment.Size = new System.Drawing.Size(412, 23);
             this.cmbDepartment.TabIndex = 1;
             // 
             // lblDepartment
@@ -318,7 +319,7 @@
             this.lblDepartment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepartment.Location = new System.Drawing.Point(0, 6);
             this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(107, 25);
+            this.lblDepartment.Size = new System.Drawing.Size(70, 15);
             this.lblDepartment.TabIndex = 0;
             this.lblDepartment.Text = "Department";
             // 
@@ -331,7 +332,7 @@
             this.pnlJobTitle.Location = new System.Drawing.Point(13, 73);
             this.pnlJobTitle.Name = "pnlJobTitle";
             this.pnlJobTitle.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlJobTitle.Size = new System.Drawing.Size(361, 54);
+            this.pnlJobTitle.Size = new System.Drawing.Size(411, 54);
             this.pnlJobTitle.TabIndex = 2;
             // 
             // cmbJobTitle
@@ -345,9 +346,9 @@
             "HR Executive",
             "Accountant",
             "Intern"});
-            this.cmbJobTitle.Location = new System.Drawing.Point(0, 31);
+            this.cmbJobTitle.Location = new System.Drawing.Point(0, 21);
             this.cmbJobTitle.Name = "cmbJobTitle";
-            this.cmbJobTitle.Size = new System.Drawing.Size(361, 33);
+            this.cmbJobTitle.Size = new System.Drawing.Size(411, 23);
             this.cmbJobTitle.TabIndex = 1;
             // 
             // lblJobTitle
@@ -356,7 +357,7 @@
             this.lblJobTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblJobTitle.Location = new System.Drawing.Point(0, 6);
             this.lblJobTitle.Name = "lblJobTitle";
-            this.lblJobTitle.Size = new System.Drawing.Size(77, 25);
+            this.lblJobTitle.Size = new System.Drawing.Size(50, 15);
             this.lblJobTitle.TabIndex = 0;
             this.lblJobTitle.Text = "Job Title";
             // 
@@ -366,19 +367,19 @@
             this.pnlJoinDate.Controls.Add(this.lblJoiningDate);
             this.pnlJoinDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlJoinDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlJoinDate.Location = new System.Drawing.Point(380, 73);
+            this.pnlJoinDate.Location = new System.Drawing.Point(430, 73);
             this.pnlJoinDate.Name = "pnlJoinDate";
             this.pnlJoinDate.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlJoinDate.Size = new System.Drawing.Size(361, 54);
+            this.pnlJoinDate.Size = new System.Drawing.Size(412, 54);
             this.pnlJoinDate.TabIndex = 3;
             // 
             // dtpJoiningDate
             // 
             this.dtpJoiningDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpJoiningDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpJoiningDate.Location = new System.Drawing.Point(0, 31);
+            this.dtpJoiningDate.Location = new System.Drawing.Point(0, 21);
             this.dtpJoiningDate.Name = "dtpJoiningDate";
-            this.dtpJoiningDate.Size = new System.Drawing.Size(361, 31);
+            this.dtpJoiningDate.Size = new System.Drawing.Size(412, 23);
             this.dtpJoiningDate.TabIndex = 1;
             // 
             // lblJoiningDate
@@ -387,7 +388,7 @@
             this.lblJoiningDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblJoiningDate.Location = new System.Drawing.Point(0, 6);
             this.lblJoiningDate.Name = "lblJoiningDate";
-            this.lblJoiningDate.Size = new System.Drawing.Size(110, 25);
+            this.lblJoiningDate.Size = new System.Drawing.Size(72, 15);
             this.lblJoiningDate.TabIndex = 0;
             this.lblJoiningDate.Text = "Joining Date";
             // 
@@ -400,7 +401,7 @@
             this.pnlEmploymentType.Location = new System.Drawing.Point(13, 133);
             this.pnlEmploymentType.Name = "pnlEmploymentType";
             this.pnlEmploymentType.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlEmploymentType.Size = new System.Drawing.Size(361, 54);
+            this.pnlEmploymentType.Size = new System.Drawing.Size(411, 54);
             this.pnlEmploymentType.TabIndex = 4;
             // 
             // cmbEmploymentType
@@ -412,9 +413,9 @@
             "Full-Time",
             "Part-Time",
             "Contract"});
-            this.cmbEmploymentType.Location = new System.Drawing.Point(0, 31);
+            this.cmbEmploymentType.Location = new System.Drawing.Point(0, 21);
             this.cmbEmploymentType.Name = "cmbEmploymentType";
-            this.cmbEmploymentType.Size = new System.Drawing.Size(361, 33);
+            this.cmbEmploymentType.Size = new System.Drawing.Size(411, 23);
             this.cmbEmploymentType.TabIndex = 1;
             // 
             // lblEmploymentType
@@ -423,7 +424,7 @@
             this.lblEmploymentType.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblEmploymentType.Location = new System.Drawing.Point(0, 6);
             this.lblEmploymentType.Name = "lblEmploymentType";
-            this.lblEmploymentType.Size = new System.Drawing.Size(155, 25);
+            this.lblEmploymentType.Size = new System.Drawing.Size(102, 15);
             this.lblEmploymentType.TabIndex = 0;
             this.lblEmploymentType.Text = "Employment Type";
             // 
@@ -433,18 +434,18 @@
             this.pnlSalary.Controls.Add(this.lblSalary);
             this.pnlSalary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSalary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlSalary.Location = new System.Drawing.Point(380, 133);
+            this.pnlSalary.Location = new System.Drawing.Point(430, 133);
             this.pnlSalary.Name = "pnlSalary";
             this.pnlSalary.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlSalary.Size = new System.Drawing.Size(361, 54);
+            this.pnlSalary.Size = new System.Drawing.Size(412, 54);
             this.pnlSalary.TabIndex = 5;
             // 
             // txtSalary
             // 
             this.txtSalary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSalary.Location = new System.Drawing.Point(0, 31);
+            this.txtSalary.Location = new System.Drawing.Point(0, 21);
             this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(361, 31);
+            this.txtSalary.Size = new System.Drawing.Size(412, 23);
             this.txtSalary.TabIndex = 1;
             // 
             // lblSalary
@@ -453,9 +454,39 @@
             this.lblSalary.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblSalary.Location = new System.Drawing.Point(0, 6);
             this.lblSalary.Name = "lblSalary";
-            this.lblSalary.Size = new System.Drawing.Size(59, 25);
-            this.lblSalary.TabIndex = 0;
+            this.lblSalary.Size = new System.Drawing.Size(38, 15);
+            this.lblSalary.TabIndex = 2;
             this.lblSalary.Text = "Salary";
+            // 
+            // pnlSecutityAnsweremp
+            // 
+            this.pnlSecutityAnsweremp.Controls.Add(this.txtSecurityAnswer);
+            this.pnlSecutityAnsweremp.Controls.Add(this.lblSecurityAnswer);
+            this.pnlSecutityAnsweremp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSecutityAnsweremp.Location = new System.Drawing.Point(13, 193);
+            this.pnlSecutityAnsweremp.Name = "pnlSecutityAnsweremp";
+            this.pnlSecutityAnsweremp.Size = new System.Drawing.Size(411, 54);
+            this.pnlSecutityAnsweremp.TabIndex = 6;
+            // 
+            // txtSecurityAnswer
+            // 
+            this.txtSecurityAnswer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSecurityAnswer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecurityAnswer.Location = new System.Drawing.Point(0, 15);
+            this.txtSecurityAnswer.Name = "txtSecurityAnswer";
+            this.txtSecurityAnswer.Size = new System.Drawing.Size(411, 23);
+            this.txtSecurityAnswer.TabIndex = 2;
+            // 
+            // lblSecurityAnswer
+            // 
+            this.lblSecurityAnswer.AutoSize = true;
+            this.lblSecurityAnswer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSecurityAnswer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecurityAnswer.Location = new System.Drawing.Point(0, 0);
+            this.lblSecurityAnswer.Name = "lblSecurityAnswer";
+            this.lblSecurityAnswer.Size = new System.Drawing.Size(91, 15);
+            this.lblSecurityAnswer.TabIndex = 1;
+            this.lblSecurityAnswer.Text = "Security Answer";
             // 
             // grpPersonalInfo
             // 
@@ -465,7 +496,7 @@
             this.grpPersonalInfo.Location = new System.Drawing.Point(20, 20);
             this.grpPersonalInfo.Name = "grpPersonalInfo";
             this.grpPersonalInfo.Padding = new System.Windows.Forms.Padding(10);
-            this.grpPersonalInfo.Size = new System.Drawing.Size(774, 240);
+            this.grpPersonalInfo.Size = new System.Drawing.Size(875, 240);
             this.grpPersonalInfo.TabIndex = 0;
             this.grpPersonalInfo.TabStop = false;
             this.grpPersonalInfo.Text = "Personal Information";
@@ -482,7 +513,7 @@
             this.tblPersonalInfo.Controls.Add(this.pnlPhone, 0, 2);
             this.tblPersonalInfo.Controls.Add(this.pnlAddress, 1, 2);
             this.tblPersonalInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblPersonalInfo.Location = new System.Drawing.Point(10, 38);
+            this.tblPersonalInfo.Location = new System.Drawing.Point(10, 29);
             this.tblPersonalInfo.Name = "tblPersonalInfo";
             this.tblPersonalInfo.Padding = new System.Windows.Forms.Padding(10);
             this.tblPersonalInfo.RowCount = 6;
@@ -492,7 +523,7 @@
             this.tblPersonalInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblPersonalInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tblPersonalInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblPersonalInfo.Size = new System.Drawing.Size(754, 192);
+            this.tblPersonalInfo.Size = new System.Drawing.Size(855, 201);
             this.tblPersonalInfo.TabIndex = 0;
             this.tblPersonalInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.tblPersonalInfo_Paint);
             // 
@@ -505,7 +536,7 @@
             this.pnlFullName.Location = new System.Drawing.Point(13, 13);
             this.pnlFullName.Name = "pnlFullName";
             this.pnlFullName.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlFullName.Size = new System.Drawing.Size(361, 54);
+            this.pnlFullName.Size = new System.Drawing.Size(411, 54);
             this.pnlFullName.TabIndex = 0;
             // 
             // txtFullName
@@ -513,10 +544,10 @@
             this.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFullName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFullName.Location = new System.Drawing.Point(0, 31);
+            this.txtFullName.Location = new System.Drawing.Point(0, 21);
             this.txtFullName.Margin = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(361, 31);
+            this.txtFullName.Size = new System.Drawing.Size(411, 23);
             this.txtFullName.TabIndex = 1;
             // 
             // lblFullName
@@ -526,7 +557,7 @@
             this.lblFullName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.Location = new System.Drawing.Point(0, 6);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(91, 25);
+            this.lblFullName.Size = new System.Drawing.Size(61, 15);
             this.lblFullName.TabIndex = 0;
             this.lblFullName.Text = "Full Name";
             // 
@@ -536,10 +567,10 @@
             this.pnlGender.Controls.Add(this.lblGender);
             this.pnlGender.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGender.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlGender.Location = new System.Drawing.Point(380, 13);
+            this.pnlGender.Location = new System.Drawing.Point(430, 13);
             this.pnlGender.Name = "pnlGender";
             this.pnlGender.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlGender.Size = new System.Drawing.Size(361, 54);
+            this.pnlGender.Size = new System.Drawing.Size(412, 54);
             this.pnlGender.TabIndex = 1;
             // 
             // flowGender
@@ -547,10 +578,10 @@
             this.flowGender.Controls.Add(this.rbMale);
             this.flowGender.Controls.Add(this.rbFemale);
             this.flowGender.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowGender.Location = new System.Drawing.Point(0, 31);
+            this.flowGender.Location = new System.Drawing.Point(0, 21);
             this.flowGender.Name = "flowGender";
             this.flowGender.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.flowGender.Size = new System.Drawing.Size(361, 17);
+            this.flowGender.Size = new System.Drawing.Size(412, 27);
             this.flowGender.TabIndex = 1;
             this.flowGender.WrapContents = false;
             // 
@@ -560,7 +591,7 @@
             this.rbMale.Checked = true;
             this.rbMale.Location = new System.Drawing.Point(3, 7);
             this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(75, 29);
+            this.rbMale.Size = new System.Drawing.Size(51, 19);
             this.rbMale.TabIndex = 0;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
@@ -569,9 +600,9 @@
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
-            this.rbFemale.Location = new System.Drawing.Point(84, 7);
+            this.rbFemale.Location = new System.Drawing.Point(60, 7);
             this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(93, 29);
+            this.rbFemale.Size = new System.Drawing.Size(63, 19);
             this.rbFemale.TabIndex = 1;
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
@@ -582,7 +613,7 @@
             this.lblGender.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblGender.Location = new System.Drawing.Point(0, 6);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(69, 25);
+            this.lblGender.Size = new System.Drawing.Size(45, 15);
             this.lblGender.TabIndex = 0;
             this.lblGender.Text = "Gender";
             // 
@@ -595,16 +626,16 @@
             this.pnlDOB.Location = new System.Drawing.Point(13, 73);
             this.pnlDOB.Name = "pnlDOB";
             this.pnlDOB.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlDOB.Size = new System.Drawing.Size(361, 54);
+            this.pnlDOB.Size = new System.Drawing.Size(411, 54);
             this.pnlDOB.TabIndex = 2;
             // 
             // dtpDOB
             // 
             this.dtpDOB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDOB.Location = new System.Drawing.Point(0, 31);
+            this.dtpDOB.Location = new System.Drawing.Point(0, 21);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(361, 31);
+            this.dtpDOB.Size = new System.Drawing.Size(411, 23);
             this.dtpDOB.TabIndex = 1;
             // 
             // lblDOB
@@ -613,7 +644,7 @@
             this.lblDOB.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblDOB.Location = new System.Drawing.Point(0, 6);
             this.lblDOB.Name = "lblDOB";
-            this.lblDOB.Size = new System.Drawing.Size(112, 25);
+            this.lblDOB.Size = new System.Drawing.Size(73, 15);
             this.lblDOB.TabIndex = 0;
             this.lblDOB.Text = "Date of Birth";
             this.lblDOB.Click += new System.EventHandler(this.lblDOB_Click);
@@ -624,18 +655,18 @@
             this.pnlEmail.Controls.Add(this.lblEmail);
             this.pnlEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlEmail.Location = new System.Drawing.Point(380, 73);
+            this.pnlEmail.Location = new System.Drawing.Point(430, 73);
             this.pnlEmail.Name = "pnlEmail";
             this.pnlEmail.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlEmail.Size = new System.Drawing.Size(361, 54);
+            this.pnlEmail.Size = new System.Drawing.Size(412, 54);
             this.pnlEmail.TabIndex = 3;
             // 
             // txtEmail
             // 
             this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmail.Location = new System.Drawing.Point(0, 31);
+            this.txtEmail.Location = new System.Drawing.Point(0, 21);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(361, 31);
+            this.txtEmail.Size = new System.Drawing.Size(412, 23);
             this.txtEmail.TabIndex = 1;
             // 
             // lblEmail
@@ -644,7 +675,7 @@
             this.lblEmail.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblEmail.Location = new System.Drawing.Point(0, 6);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(54, 25);
+            this.lblEmail.Size = new System.Drawing.Size(36, 15);
             this.lblEmail.TabIndex = 0;
             this.lblEmail.Text = "Email";
             // 
@@ -657,15 +688,15 @@
             this.pnlPhone.Location = new System.Drawing.Point(13, 133);
             this.pnlPhone.Name = "pnlPhone";
             this.pnlPhone.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlPhone.Size = new System.Drawing.Size(361, 54);
+            this.pnlPhone.Size = new System.Drawing.Size(411, 54);
             this.pnlPhone.TabIndex = 4;
             // 
             // txtPhone
             // 
             this.txtPhone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPhone.Location = new System.Drawing.Point(0, 31);
+            this.txtPhone.Location = new System.Drawing.Point(0, 21);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(361, 31);
+            this.txtPhone.Size = new System.Drawing.Size(411, 23);
             this.txtPhone.TabIndex = 1;
             // 
             // lblPhone
@@ -674,7 +705,7 @@
             this.lblPhone.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblPhone.Location = new System.Drawing.Point(0, 6);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(132, 25);
+            this.lblPhone.Size = new System.Drawing.Size(88, 15);
             this.lblPhone.TabIndex = 0;
             this.lblPhone.Text = "Phone Number";
             // 
@@ -684,10 +715,10 @@
             this.pnlAddress.Controls.Add(this.lblAdress);
             this.pnlAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlAddress.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlAddress.Location = new System.Drawing.Point(380, 133);
+            this.pnlAddress.Location = new System.Drawing.Point(430, 133);
             this.pnlAddress.Name = "pnlAddress";
             this.pnlAddress.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlAddress.Size = new System.Drawing.Size(361, 54);
+            this.pnlAddress.Size = new System.Drawing.Size(412, 54);
             this.pnlAddress.TabIndex = 5;
             // 
             // rtbAddress
@@ -695,10 +726,10 @@
             this.rtbAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbAddress.DetectUrls = false;
             this.rtbAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbAddress.Location = new System.Drawing.Point(0, 31);
+            this.rtbAddress.Location = new System.Drawing.Point(0, 21);
             this.rtbAddress.Name = "rtbAddress";
             this.rtbAddress.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtbAddress.Size = new System.Drawing.Size(361, 17);
+            this.rtbAddress.Size = new System.Drawing.Size(412, 27);
             this.rtbAddress.TabIndex = 1;
             this.rtbAddress.Text = "";
             // 
@@ -708,18 +739,18 @@
             this.lblAdress.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblAdress.Location = new System.Drawing.Point(0, 6);
             this.lblAdress.Name = "lblAdress";
-            this.lblAdress.Size = new System.Drawing.Size(77, 25);
+            this.lblAdress.Size = new System.Drawing.Size(49, 15);
             this.lblAdress.TabIndex = 0;
             this.lblAdress.Text = "Address";
             // 
             // RegisterForm
             // 
             this.AcceptButton = this.btnSubmit;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(882, 603);
+            this.ClientSize = new System.Drawing.Size(957, 703);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.topLoginPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

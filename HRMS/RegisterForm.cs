@@ -8,36 +8,30 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Data.SqlClient;
+using System.Configuration;
 
 namespace HRMS
 {
     public partial class RegisterForm : Form
     {
         private string fullName, email, dob, gender, phone, address;
-
-        private void lblDOB_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private string employeeId, department, jobTitle, employmentType;
+        private string securityQuestion, securityAnswer, department, jobTitle, employmentType;
         private decimal salary;
+
+        //  Connection string from App.config
+        private readonly string cs =
+            ConfigurationManager.ConnectionStrings["HRMS_DB"].ConnectionString;
+
+
 
         public RegisterForm()
         {
             InitializeComponent();
         }
 
-        private void tblPersonalInfo_Paint(object sender, PaintEventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-
+            ClearForm();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -125,10 +119,45 @@ namespace HRMS
                 return;
             }
 
-            if (txtSalary.Text == "")
+            try
             {
-                MessageBox.Show("Please enter salary.");
-                return;
+                using (SqlConnection con = new SqlConnection(cs))
+                {
+                    string query = @"
+                        INSERT INTO dbo.Employees_Info
+                        (FullName, Email, Gender, DOB, Phone, Address, Department,
+                         JobTitle, EmploymentType, JoinDate, Salary, SecurityQuestion, SecurityAnswer)
+                        VALUES
+                        (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department,
+                         @JobTitle, @EmploymentType, @JoinDate, @Salary, @SecurityQuestion, @SecurityAnswer)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@FullName", fullName);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Gender", gender);
+                        cmd.Parameters.AddWithValue("@DOB", dtpDOB.Value);
+                        cmd.Parameters.AddWithValue("@Phone", phone);
+                        cmd.Parameters.AddWithValue("@Address", address);
+                        cmd.Parameters.AddWithValue("@Department", department);
+                        cmd.Parameters.AddWithValue("@JobTitle", jobTitle);
+                        cmd.Parameters.AddWithValue("@EmploymentType", employmentType);
+                        cmd.Parameters.AddWithValue("@JoinDate", dtpJoiningDate.Value);
+                        cmd.Parameters.AddWithValue("@Salary", salary);
+                        cmd.Parameters.AddWithValue("@SecurityQuestion", securityQuestion);
+                        cmd.Parameters.AddWithValue("@SecurityAnswer", securityAnswer);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Employee added successfully!");
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
 
 

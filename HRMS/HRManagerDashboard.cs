@@ -23,5 +23,17 @@ namespace HRMS
             login.Show();
             this.Hide();
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            EmployeeOperation employeeOperation = new EmployeeOperation();
+            employeeOperation.Show();
+            this.Close();
+        }
     }
 }

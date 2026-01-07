@@ -100,6 +100,7 @@
       <HintPath>..\packages\System.ClientModel.1.5.1\lib\netstandard2.0\System.ClientModel.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
@@ -177,7 +178,19 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Attendance.cs">
+    <Compile Include="AdminInsertionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminInsertionForm.Designer.cs">
+      <DependentUpon>AdminInsertionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminOperation.Designer.cs">
+      <DependentUpon>AdminOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ApplyforLeave.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Attendance.Designer.cs">
@@ -198,8 +211,19 @@
     <Compile Include="Deduction Management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Deduction Management.Designer.cs">
-      <DependentUpon>Deduction Management.cs</DependentUpon>
+    <Compile Include="ComplainBox.Designer.cs">
+      <DependentUpon>ComplainBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DepartmentAndJobRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepartmentAndJobRule.Designer.cs">
+      <DependentUpon>DepartmentAndJobRule.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeDashboard.cs">
       <SubType>Form</SubType>
@@ -207,11 +231,11 @@
     <Compile Include="EmployeeDashboard.Designer.cs">
       <DependentUpon>EmployeeDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Finantial Reports.cs">
+    <Compile Include="EmployeeOperation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Finantial Reports.Designer.cs">
-      <DependentUpon>Finantial Reports.cs</DependentUpon>
+    <Compile Include="EmployeeOperation.Designer.cs">
+      <DependentUpon>EmployeeOperation.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -269,8 +293,14 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Attendance.resx">
-      <DependentUpon>Attendance.cs</DependentUpon>
+    <EmbeddedResource Include="AdminInsertionForm.resx">
+      <DependentUpon>AdminInsertionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminOperation.resx">
+      <DependentUpon>AdminOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ApplyforLeave.resx">
+      <DependentUpon>ApplyforLeave.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Audit Logs.resx">
       <DependentUpon>Audit Logs.cs</DependentUpon>
@@ -284,8 +314,8 @@
     <EmbeddedResource Include="EmployeeDashboard.resx">
       <DependentUpon>EmployeeDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Finantial Reports.resx">
-      <DependentUpon>Finantial Reports.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeOperation.resx">
+      <DependentUpon>EmployeeOperation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -321,6 +351,17 @@
     <EmbeddedResource Include="Salary Management.resx">
       <DependentUpon>Salary Management.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -337,6 +378,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\business-businessman-communication-concept.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HRMS_DB.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.6.0.2\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />

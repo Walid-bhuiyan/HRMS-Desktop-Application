@@ -122,10 +122,5 @@ namespace HRMS
         {
 
         }
-
-        private void lblForgotPassword_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
