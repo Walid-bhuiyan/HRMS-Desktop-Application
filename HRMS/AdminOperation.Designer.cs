@@ -51,6 +51,7 @@
             this.btnreset = new System.Windows.Forms.Button();
             this.btnback = new System.Windows.Forms.Button();
             this.btnsearch = new System.Windows.Forms.Button();
+            this.btndelete = new System.Windows.Forms.Button();
             this.topLoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +106,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(550, 204);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label2
@@ -244,7 +246,7 @@
             // btnback
             // 
             this.btnback.BackColor = System.Drawing.Color.IndianRed;
-            this.btnback.Location = new System.Drawing.Point(32, 276);
+            this.btnback.Location = new System.Drawing.Point(32, 308);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(75, 23);
             this.btnback.TabIndex = 30;
@@ -252,7 +254,7 @@
             this.btnback.UseVisualStyleBackColor = false;
             this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
-          
+            // btnsearch
             // 
             this.btnsearch.Location = new System.Drawing.Point(32, 240);
             this.btnsearch.Name = "btnsearch";
@@ -262,12 +264,23 @@
             this.btnsearch.UseVisualStyleBackColor = true;
             this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
+            // btndelete
+            // 
+            this.btndelete.Location = new System.Drawing.Point(32, 274);
+            this.btndelete.Name = "btndelete";
+            this.btndelete.Size = new System.Drawing.Size(75, 23);
+            this.btndelete.TabIndex = 32;
+            this.btndelete.Text = "Delete";
+            this.btndelete.UseVisualStyleBackColor = true;
+            this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
+            // 
             // AdminOperation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(724, 527);
+            this.Controls.Add(this.btndelete);
             this.Controls.Add(this.btnsearch);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.btnreset);
@@ -325,5 +338,6 @@
         private System.Windows.Forms.Button btnreset;
         private System.Windows.Forms.Button btnback;
         private System.Windows.Forms.Button btnsearch;
+        private System.Windows.Forms.Button btndelete;
     }
 }
