@@ -52,7 +52,7 @@
             this.topLoginPanel.Controls.Add(this.topHeaderLogin);
             this.topLoginPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topLoginPanel.Location = new System.Drawing.Point(0, 0);
-            this.topLoginPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.topLoginPanel.Margin = new System.Windows.Forms.Padding(2);
             this.topLoginPanel.Name = "topLoginPanel";
             this.topLoginPanel.Size = new System.Drawing.Size(600, 49);
             this.topLoginPanel.TabIndex = 7;
@@ -84,7 +84,7 @@
             this.PanelLogin.Controls.Add(this.txtpass);
             this.PanelLogin.Controls.Add(this.btnlogin);
             this.PanelLogin.Location = new System.Drawing.Point(152, 54);
-            this.PanelLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PanelLogin.Margin = new System.Windows.Forms.Padding(2);
             this.PanelLogin.Name = "PanelLogin";
             this.PanelLogin.Size = new System.Drawing.Size(300, 285);
             this.PanelLogin.TabIndex = 11;
@@ -103,7 +103,7 @@
             "Employee",
             "Accountant"});
             this.cmbLoginAs.Location = new System.Drawing.Point(114, 36);
-            this.cmbLoginAs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbLoginAs.Margin = new System.Windows.Forms.Padding(2);
             this.cmbLoginAs.Name = "cmbLoginAs";
             this.cmbLoginAs.Size = new System.Drawing.Size(163, 27);
             this.cmbLoginAs.TabIndex = 3;
@@ -142,7 +142,7 @@
             this.txtuname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtuname.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuname.Location = new System.Drawing.Point(114, 129);
-            this.txtuname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtuname.Margin = new System.Windows.Forms.Padding(2);
             this.txtuname.Name = "txtuname";
             this.txtuname.Size = new System.Drawing.Size(162, 26);
             this.txtuname.TabIndex = 0;
@@ -201,7 +201,7 @@
             this.txtpass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtpass.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpass.Location = new System.Drawing.Point(114, 179);
-            this.txtpass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtpass.Margin = new System.Windows.Forms.Padding(2);
             this.txtpass.Name = "txtpass";
             this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(162, 26);
@@ -217,8 +217,8 @@
             this.btnlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogin.ForeColor = System.Drawing.Color.White;
-            this.btnlogin.Location = new System.Drawing.Point(108, 249);
-            this.btnlogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnlogin.Location = new System.Drawing.Point(108, 248);
+            this.btnlogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnlogin.Name = "btnlogin";
             this.btnlogin.Size = new System.Drawing.Size(84, 28);
             this.btnlogin.TabIndex = 2;
@@ -231,7 +231,7 @@
             this.panelShadow.BackColor = System.Drawing.Color.LightGray;
             this.panelShadow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelShadow.Location = new System.Drawing.Point(152, 54);
-            this.panelShadow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelShadow.Margin = new System.Windows.Forms.Padding(2);
             this.panelShadow.Name = "panelShadow";
             this.panelShadow.Size = new System.Drawing.Size(304, 288);
             this.panelShadow.TabIndex = 12;
@@ -247,7 +247,7 @@
             this.Controls.Add(this.topLoginPanel);
             this.Controls.Add(this.panelShadow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "loginframe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Login Frame";
