@@ -58,15 +58,96 @@ namespace HRMS
             }
         }
 
+        /* private void InsertIntoAdmin()
+         {
+             string hashedPass = HashPassword(pass);
+             SqlConnection conn = Connect();
+             // string query = "Insert into Admins (Name,Email,phone,Gender,Address,dob,securityans,password) values('Faria','f@gmail.com','01601566663','Female','Address','2000-01-01','tomy','1234')";
+             string query = "Insert into Admins (name,email,phone,gender,address,dob,securityans,password) " +
+                "values('" + name + "','" + email + "','" + phone + "','" + gender + "','" + address + "','" + dob + "','" + securityans + "','" + hashedPass + "'); " +
+                "SELECT SCOPE_IDENTITY();";
+
+             SqlCommand cmd =new SqlCommand(query, conn);
+             int adminId = Convert.ToInt32(cmd.ExecuteScalar());
+             InsertIntoUsers(adminId, "Admin");
+         }
+
+         private void InsertIntoUsers(int refId, string role)
+         {
+             SqlConnection conn = Connect();
+
+             string query = "INSERT INTO Users (RefId, Role, Email, Password, SecurityAns) " +
+                            "VALUES (" + refId + ", '" + role + "', '" + email + "', '" + HashPassword(pass) + "', '" + securityans + "')";
+
+             SqlCommand cmd = new SqlCommand(query, conn);
+             cmd.ExecuteNonQuery();
+         }
+
+         */
+
         private void InsertIntoAdmin()
         {
-            string hashedPass = HashPassword(pass);
-            SqlConnection conn = Connect();
-            // string query = "Insert into Admins (Name,Email,phone,Gender,Address,dob,securityans,password) values('Faria','f@gmail.com','01601566663','Female','Address','2000-01-01','tomy','1234')";
-            string query = "Insert into Admins (name,email,phone,gender,address,dob,securityans,password) values('"+name+"','"+email+"','"+phone+"','"+gender+"','"+address+"','"+dob+"','"+securityans+"','"+hashedPass+"')";
-            SqlCommand cmd=new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                string hashedPass = HashPassword(pass);
+                SqlConnection conn = Connect();
+
+                string query = "INSERT INTO Admins (name,email,phone,gender,address,dob,securityans,password) " +
+                               "VALUES ('" + name + "','" + email + "','" + phone + "','" + gender + "','" + address + "','" + dob + "','" + securityans + "','" + hashedPass + "'); " +
+                               "SELECT SCOPE_IDENTITY();";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                int adminId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                InsertIntoUsers(adminId, "Admin");
+
+            }
+            catch (SqlException sqlEx)
+            {
+                if (sqlEx.Number == 2627)
+                {
+                    MessageBox.Show("This email already exists! Please use a different email.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        private void InsertIntoUsers(int refId, string role)
+        {
+            try
+            {
+                SqlConnection conn = Connect();
+
+                string query = "INSERT INTO Users (RefId, Role, Email, Password, SecurityAns) " +
+                               "VALUES (" + refId + ", '" + role + "', '" + email + "', '" + HashPassword(pass) + "', '" + securityans + "')";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException sqlEx)
+            {
+                if (sqlEx.Number == 2627) 
+                {
+                    MessageBox.Show("This email already exists in Users table! Insert failed.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show("Database error in Users table: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in Users table: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private bool IsValidEmail(string email)
         {

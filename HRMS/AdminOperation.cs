@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 using System.Data.SqlClient;
 
 namespace HRMS
@@ -82,11 +83,27 @@ namespace HRMS
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;");
             conn.Open();
-            string query = "UPDATE Admins SET name='"+txtname.Text+"', email='"+txtemail.Text+"', phone='"+txtphone.Text+"',gender='"+txtgender.Text+"', address='"+ txtaddress.Text+"', dob='"+txtdob.Text+"' WHERE id="+txtid.Text+" ";
-            SqlCommand cmd= new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            show();
+            try
+            {
+                string query = "UPDATE Admins SET name='" + txtname.Text + "', email='" + txtemail.Text + "', phone='" + txtphone.Text + "', gender='" + txtgender.Text + "', address='" + txtaddress.Text + "', dob='" + txtdob.Text + "' WHERE id=" + txtid.Text;
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                string queryUser = "UPDATE Users SET Email='" + txtemail.Text + "' WHERE RefId=" + txtid.Text + " AND Role='Admin'";
+                SqlCommand cmdUser = new SqlCommand(queryUser, conn);
+                cmdUser.ExecuteNonQuery();
+
+                MessageBox.Show("Admin updated successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+                show();
+            }
         }
 
         private void btnreset_Click(object sender, EventArgs e)
@@ -139,12 +156,30 @@ namespace HRMS
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;");
             conn.Open();
-            string query = "Delete from Admins where ID=" + txtid.Text;
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-            txtid.Text = txtname.Text = txtemail.Text = "";
-            show();
-            conn.Close();
+            try
+            {
+                string queryUser = "DELETE FROM Users WHERE RefId=" + txtid.Text + " AND Role='Admin'";
+                SqlCommand cmdUser = new SqlCommand(queryUser, conn);
+                cmdUser.ExecuteNonQuery();
+
+                string query = "DELETE FROM Admins WHERE ID=" + txtid.Text;
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Admin deleted successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                txtid.Text = txtname.Text = txtemail.Text = txtphone.Text = txtgender.Text = txtaddress.Text = txtdob.Text = "";
+                conn.Close();
+                show();
+            }
+
+
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
