@@ -9,6 +9,14 @@ namespace HRMS
     {
         private string fullName, email, dob, gender, phone, address;
         private string securityQuestion, securityAnswer, department, jobTitle, employmentType;
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            HR_EmployeeManagement w=new HR_EmployeeManagement();
+            w.Show();
+            this.Hide();
+        }
+
         private decimal salary;
 
         //  Connection string from App.config

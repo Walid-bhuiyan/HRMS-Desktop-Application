@@ -123,7 +123,7 @@
             this.topHeaderRegister.AutoSize = true;
             this.topHeaderRegister.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topHeaderRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.topHeaderRegister.Location = new System.Drawing.Point(237, 9);
+            this.topHeaderRegister.Location = new System.Drawing.Point(302, 9);
             this.topHeaderRegister.Name = "topHeaderRegister";
             this.topHeaderRegister.Size = new System.Drawing.Size(341, 38);
             this.topHeaderRegister.TabIndex = 0;
@@ -220,6 +220,7 @@
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Back ";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // grpEmploymentInfo
             // 
