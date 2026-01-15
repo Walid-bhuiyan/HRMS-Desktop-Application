@@ -215,6 +215,7 @@
             this.txtaddress.Name = "txtaddress";
             this.txtaddress.Size = new System.Drawing.Size(100, 20);
             this.txtaddress.TabIndex = 26;
+            this.txtaddress.TextChanged += new System.EventHandler(this.txtaddress_TextChanged);
             // 
             // txtdob
             // 
