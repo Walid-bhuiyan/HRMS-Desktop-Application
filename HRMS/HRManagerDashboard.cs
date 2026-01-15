@@ -31,9 +31,10 @@ namespace HRMS
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            EmployeeOperation employeeOperation = new EmployeeOperation();
-            employeeOperation.Show();
-            this.Close();
+            HR_EmployeeManagement empForm = new HR_EmployeeManagement();
+            empForm.Show();
+            this.Hide();
+
         }
     }
 }
