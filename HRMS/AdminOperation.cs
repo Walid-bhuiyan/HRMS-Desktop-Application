@@ -82,7 +82,7 @@ namespace HRMS
         {
             SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;");
             conn.Open();
-            string query = "UPDATE Admins SET name='"+txtname.Text+"', email='"+txtemail.Text+"', phone='"+txtphone.Text+"',gender='"+txtgender.Text+"', address='"+txtgender.Text+"', dob='"+txtdob.Text+"' WHERE id="+txtid.Text+" ";
+            string query = "UPDATE Admins SET name='"+txtname.Text+"', email='"+txtemail.Text+"', phone='"+txtphone.Text+"',gender='"+txtgender.Text+"', address='"+ txtaddress.Text+"', dob='"+txtdob.Text+"' WHERE id="+txtid.Text+" ";
             SqlCommand cmd= new SqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -156,6 +156,11 @@ namespace HRMS
             txtgender.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtaddress.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             txtdob.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+        }
+
+        private void txtaddress_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

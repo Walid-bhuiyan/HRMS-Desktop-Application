@@ -98,7 +98,7 @@
             // btnresetpassword
             // 
             this.btnresetpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnresetpassword.Location = new System.Drawing.Point(11, 252);
+            this.btnresetpassword.Location = new System.Drawing.Point(11, 268);
             this.btnresetpassword.Name = "btnresetpassword";
             this.btnresetpassword.Size = new System.Drawing.Size(132, 29);
             this.btnresetpassword.TabIndex = 20;
