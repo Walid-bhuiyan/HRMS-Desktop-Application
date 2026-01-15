@@ -31,6 +31,16 @@
             this.topLoginPanel = new System.Windows.Forms.Panel();
             this.topHeaderLogin = new System.Windows.Forms.Label();
             this.PanelLogin = new System.Windows.Forms.Panel();
+            this.Forgetpasspanel = new System.Windows.Forms.Panel();
+            this.btnupdatepass = new System.Windows.Forms.Button();
+            this.txtnewpass = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtemail = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtsecurityans = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chbshowpass = new System.Windows.Forms.CheckBox();
             this.cmbLoginAs = new System.Windows.Forms.ComboBox();
             this.lblLoginAs = new System.Windows.Forms.Label();
             this.lblForgotPassword = new System.Windows.Forms.Label();
@@ -44,6 +54,7 @@
             this.panelShadow = new System.Windows.Forms.Panel();
             this.topLoginPanel.SuspendLayout();
             this.PanelLogin.SuspendLayout();
+            this.Forgetpasspanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLoginPanel
@@ -73,6 +84,8 @@
             // 
             this.PanelLogin.BackColor = System.Drawing.SystemColors.Window;
             this.PanelLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PanelLogin.Controls.Add(this.Forgetpasspanel);
+            this.PanelLogin.Controls.Add(this.chbshowpass);
             this.PanelLogin.Controls.Add(this.cmbLoginAs);
             this.PanelLogin.Controls.Add(this.lblLoginAs);
             this.PanelLogin.Controls.Add(this.lblForgotPassword);
@@ -83,11 +96,116 @@
             this.PanelLogin.Controls.Add(this.lblUname);
             this.PanelLogin.Controls.Add(this.txtpass);
             this.PanelLogin.Controls.Add(this.btnlogin);
-            this.PanelLogin.Location = new System.Drawing.Point(152, 54);
+            this.PanelLogin.Location = new System.Drawing.Point(152, 56);
             this.PanelLogin.Margin = new System.Windows.Forms.Padding(2);
             this.PanelLogin.Name = "PanelLogin";
-            this.PanelLogin.Size = new System.Drawing.Size(300, 285);
+            this.PanelLogin.Size = new System.Drawing.Size(300, 315);
             this.PanelLogin.TabIndex = 11;
+            // 
+            // Forgetpasspanel
+            // 
+            this.Forgetpasspanel.Controls.Add(this.btnupdatepass);
+            this.Forgetpasspanel.Controls.Add(this.txtnewpass);
+            this.Forgetpasspanel.Controls.Add(this.label4);
+            this.Forgetpasspanel.Controls.Add(this.txtemail);
+            this.Forgetpasspanel.Controls.Add(this.label3);
+            this.Forgetpasspanel.Controls.Add(this.txtsecurityans);
+            this.Forgetpasspanel.Controls.Add(this.label2);
+            this.Forgetpasspanel.Controls.Add(this.label1);
+            this.Forgetpasspanel.Location = new System.Drawing.Point(-3, -3);
+            this.Forgetpasspanel.Name = "Forgetpasspanel";
+            this.Forgetpasspanel.Size = new System.Drawing.Size(304, 317);
+            this.Forgetpasspanel.TabIndex = 13;
+            this.Forgetpasspanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Forgetpasspanel_Paint);
+            // 
+            // btnupdatepass
+            // 
+            this.btnupdatepass.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnupdatepass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnupdatepass.FlatAppearance.BorderSize = 0;
+            this.btnupdatepass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Navy;
+            this.btnupdatepass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.btnupdatepass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnupdatepass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnupdatepass.ForeColor = System.Drawing.Color.White;
+            this.btnupdatepass.Location = new System.Drawing.Point(81, 220);
+            this.btnupdatepass.Margin = new System.Windows.Forms.Padding(2);
+            this.btnupdatepass.Name = "btnupdatepass";
+            this.btnupdatepass.Size = new System.Drawing.Size(137, 28);
+            this.btnupdatepass.TabIndex = 14;
+            this.btnupdatepass.Text = "Update Password";
+            this.btnupdatepass.UseVisualStyleBackColor = false;
+            this.btnupdatepass.Click += new System.EventHandler(this.btnupdatepass_Click);
+            // 
+            // txtnewpass
+            // 
+            this.txtnewpass.Location = new System.Drawing.Point(111, 152);
+            this.txtnewpass.Name = "txtnewpass";
+            this.txtnewpass.Size = new System.Drawing.Size(127, 20);
+            this.txtnewpass.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "New Password :";
+            // 
+            // txtemail
+            // 
+            this.txtemail.Location = new System.Drawing.Point(111, 107);
+            this.txtemail.Name = "txtemail";
+            this.txtemail.Size = new System.Drawing.Size(127, 20);
+            this.txtemail.TabIndex = 11;
+            this.txtemail.TextChanged += new System.EventHandler(this.txtemail_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(58, 110);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Email :";
+            // 
+            // txtsecurityans
+            // 
+            this.txtsecurityans.Location = new System.Drawing.Point(111, 60);
+            this.txtsecurityans.Name = "txtsecurityans";
+            this.txtsecurityans.Size = new System.Drawing.Size(127, 20);
+            this.txtsecurityans.TabIndex = 9;
+            this.txtsecurityans.TextChanged += new System.EventHandler(this.txtsecurityans_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Security Ans :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(211, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Security Question: What is  your pet name?";
+            // 
+            // chbshowpass
+            // 
+            this.chbshowpass.AutoSize = true;
+            this.chbshowpass.Location = new System.Drawing.Point(175, 210);
+            this.chbshowpass.Name = "chbshowpass";
+            this.chbshowpass.Size = new System.Drawing.Size(102, 17);
+            this.chbshowpass.TabIndex = 14;
+            this.chbshowpass.Text = "Show Password";
+            this.chbshowpass.UseVisualStyleBackColor = true;
+            this.chbshowpass.CheckedChanged += new System.EventHandler(this.chbshowpass_CheckedChanged);
             // 
             // cmbLoginAs
             // 
@@ -129,12 +247,13 @@
             this.lblForgotPassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblForgotPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblForgotPassword.ForeColor = System.Drawing.Color.Blue;
-            this.lblForgotPassword.Location = new System.Drawing.Point(189, 220);
+            this.lblForgotPassword.Location = new System.Drawing.Point(177, 230);
             this.lblForgotPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblForgotPassword.Name = "lblForgotPassword";
             this.lblForgotPassword.Size = new System.Drawing.Size(100, 15);
             this.lblForgotPassword.TabIndex = 4;
             this.lblForgotPassword.Text = "Forgot Password?";
+            this.lblForgotPassword.Click += new System.EventHandler(this.lblForgotPassword_Click);
             // 
             // txtuname
             // 
@@ -217,10 +336,10 @@
             this.btnlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogin.ForeColor = System.Drawing.Color.White;
-            this.btnlogin.Location = new System.Drawing.Point(108, 248);
+            this.btnlogin.Location = new System.Drawing.Point(33, 259);
             this.btnlogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnlogin.Name = "btnlogin";
-            this.btnlogin.Size = new System.Drawing.Size(84, 28);
+            this.btnlogin.Size = new System.Drawing.Size(137, 28);
             this.btnlogin.TabIndex = 2;
             this.btnlogin.Text = "LOGIN";
             this.btnlogin.UseVisualStyleBackColor = false;
@@ -233,7 +352,7 @@
             this.panelShadow.Location = new System.Drawing.Point(152, 54);
             this.panelShadow.Margin = new System.Windows.Forms.Padding(2);
             this.panelShadow.Name = "panelShadow";
-            this.panelShadow.Size = new System.Drawing.Size(304, 288);
+            this.panelShadow.Size = new System.Drawing.Size(300, 317);
             this.panelShadow.TabIndex = 12;
             // 
             // loginframe
@@ -242,7 +361,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(600, 380);
             this.Controls.Add(this.PanelLogin);
             this.Controls.Add(this.topLoginPanel);
             this.Controls.Add(this.panelShadow);
@@ -256,6 +375,8 @@
             this.topLoginPanel.PerformLayout();
             this.PanelLogin.ResumeLayout(false);
             this.PanelLogin.PerformLayout();
+            this.Forgetpasspanel.ResumeLayout(false);
+            this.Forgetpasspanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -272,9 +393,19 @@
         private System.Windows.Forms.Label lblUname;
         private System.Windows.Forms.TextBox txtpass;
         private System.Windows.Forms.Button btnlogin;
-        private System.Windows.Forms.Label lblForgotPassword;
         private System.Windows.Forms.ComboBox cmbLoginAs;
         private System.Windows.Forms.Label lblLoginAs;
+        private System.Windows.Forms.Label lblForgotPassword;
+        private System.Windows.Forms.CheckBox chbshowpass;
+        private System.Windows.Forms.Panel Forgetpasspanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtsecurityans;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtemail;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtnewpass;
+        private System.Windows.Forms.Button btnupdatepass;
     }
 }
 
