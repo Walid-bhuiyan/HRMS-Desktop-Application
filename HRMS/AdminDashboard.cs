@@ -44,5 +44,12 @@ namespace HRMS
             lg.Show();
             this.Hide();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            AdminOperation admnoperation=new AdminOperation();
+            admnoperation.Show();
+            this.Hide();
+        }
     }
 }

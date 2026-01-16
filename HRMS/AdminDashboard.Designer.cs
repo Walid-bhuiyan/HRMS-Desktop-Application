@@ -98,7 +98,7 @@
             // btnresetpassword
             // 
             this.btnresetpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnresetpassword.Location = new System.Drawing.Point(11, 252);
+            this.btnresetpassword.Location = new System.Drawing.Point(11, 268);
             this.btnresetpassword.Name = "btnresetpassword";
             this.btnresetpassword.Size = new System.Drawing.Size(132, 29);
             this.btnresetpassword.TabIndex = 20;
@@ -157,6 +157,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "Admin Operations";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnadminoperations
             // 
