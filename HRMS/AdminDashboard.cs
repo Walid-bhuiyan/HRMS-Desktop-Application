@@ -266,5 +266,12 @@ namespace HRMS
         {
 
         }
+
+        private void btnattendence_Click(object sender, EventArgs e)
+        {
+            AdminAttendence admnatdnc = new AdminAttendence();
+            admnatdnc.Show();
+            this.Close();
+        }
     }
 }
