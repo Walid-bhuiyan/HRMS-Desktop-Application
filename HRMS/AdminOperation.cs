@@ -204,7 +204,7 @@ namespace HRMS
             );
             conn.Open();
 
-            string query = "SELECT * FROM Admins WHERE id=" + txtid.Text + "";
+            string query = "SELECT * FROM Admins WHERE Id=" + txtid.Text + "";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader dr = cmd.ExecuteReader();
 
