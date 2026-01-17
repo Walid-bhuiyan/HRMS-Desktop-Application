@@ -63,7 +63,33 @@ namespace HRMS
             string password = HashPassword(txtpass.Text.Trim());
             string role = cmbLoginAs.Text.Trim();
 
-            using (SqlConnection conn = new SqlConnection(conStr))
+            string query = "SELECT * FROM Users WHERE Email='" + email +
+                           "' AND Password='" + password +
+                           "' AND Role='" + role + "'";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                MessageBox.Show("Login Successful!");
+
+                if (role == "Admin")
+                {
+                    btnadminoperations adm = new btnadminoperations(txtuname.Text);
+                    adm.Show();
+                    this.Hide();
+                }
+                else if (role == "Employee")
+                    new EmployeeDashboard().Show();
+                else if (role == "HR Manager")
+                    new HRManagerDashboard().Show();
+                else if (role == "Accountant")
+                    new AccountantDashboard().Show();
+
+                this.Hide();
+            }
+            else
             {
                 string query = @"SELECT RefId, Role 
                                  FROM Users 

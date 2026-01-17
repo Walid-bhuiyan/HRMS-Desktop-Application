@@ -81,30 +81,36 @@
             // 
             // txtinsert
             // 
-            this.txtinsert.Location = new System.Drawing.Point(32, 86);
+            this.txtinsert.BackColor = System.Drawing.Color.Green;
+            this.txtinsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtinsert.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtinsert.Location = new System.Drawing.Point(264, 55);
             this.txtinsert.Name = "txtinsert";
-            this.txtinsert.Size = new System.Drawing.Size(75, 23);
+            this.txtinsert.Size = new System.Drawing.Size(204, 46);
             this.txtinsert.TabIndex = 10;
-            this.txtinsert.Text = "Insert";
-            this.txtinsert.UseVisualStyleBackColor = true;
+            this.txtinsert.Text = "Insert Admin";
+            this.txtinsert.UseVisualStyleBackColor = false;
             this.txtinsert.Click += new System.EventHandler(this.txtinsert_Click);
             // 
             // txtshow
             // 
-            this.txtshow.Location = new System.Drawing.Point(32, 125);
+            this.txtshow.BackColor = System.Drawing.Color.Cyan;
+            this.txtshow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtshow.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.txtshow.Location = new System.Drawing.Point(146, 260);
             this.txtshow.Name = "txtshow";
-            this.txtshow.Size = new System.Drawing.Size(75, 23);
+            this.txtshow.Size = new System.Drawing.Size(88, 32);
             this.txtshow.TabIndex = 11;
             this.txtshow.Text = "Show";
-            this.txtshow.UseVisualStyleBackColor = true;
+            this.txtshow.UseVisualStyleBackColor = false;
             this.txtshow.Click += new System.EventHandler(this.txtshow_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(121, 311);
+            this.dataGridView1.Location = new System.Drawing.Point(32, 298);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(550, 204);
+            this.dataGridView1.Size = new System.Drawing.Size(662, 217);
             this.dataGridView1.TabIndex = 12;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -112,9 +118,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(182, 93);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Location = new System.Drawing.Point(128, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.Size = new System.Drawing.Size(33, 17);
             this.label2.TabIndex = 14;
             this.label2.Text = "ID : ";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -122,134 +129,148 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(182, 125);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label3.Location = new System.Drawing.Point(104, 152);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(57, 17);
             this.label3.TabIndex = 15;
             this.label3.Text = "Name : ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(182, 153);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label4.Location = new System.Drawing.Point(107, 185);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(54, 17);
             this.label4.TabIndex = 16;
             this.label4.Text = "Email : ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(180, 221);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label5.Location = new System.Drawing.Point(391, 123);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.Size = new System.Drawing.Size(68, 17);
             this.label5.TabIndex = 17;
             this.label5.Text = "Gender : ";
             // 
             // txtid
             // 
-            this.txtid.Location = new System.Drawing.Point(232, 89);
+            this.txtid.Location = new System.Drawing.Point(167, 120);
             this.txtid.Name = "txtid";
-            this.txtid.Size = new System.Drawing.Size(100, 20);
+            this.txtid.Size = new System.Drawing.Size(180, 20);
             this.txtid.TabIndex = 18;
             this.txtid.TextChanged += new System.EventHandler(this.txtid_TextChanged);
             // 
             // txtname
             // 
-            this.txtname.Location = new System.Drawing.Point(232, 122);
+            this.txtname.Location = new System.Drawing.Point(167, 151);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(100, 20);
+            this.txtname.Size = new System.Drawing.Size(180, 20);
             this.txtname.TabIndex = 19;
             // 
             // txtemail
             // 
-            this.txtemail.Location = new System.Drawing.Point(232, 148);
+            this.txtemail.Location = new System.Drawing.Point(167, 185);
             this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(100, 20);
+            this.txtemail.Size = new System.Drawing.Size(180, 20);
             this.txtemail.TabIndex = 20;
             // 
             // txtgender
             // 
-            this.txtgender.Location = new System.Drawing.Point(232, 218);
+            this.txtgender.Location = new System.Drawing.Point(465, 123);
             this.txtgender.Name = "txtgender";
-            this.txtgender.Size = new System.Drawing.Size(100, 20);
+            this.txtgender.Size = new System.Drawing.Size(178, 20);
             this.txtgender.TabIndex = 21;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(182, 187);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Location = new System.Drawing.Point(100, 217);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.Size = new System.Drawing.Size(61, 17);
             this.label6.TabIndex = 22;
             this.label6.Text = "Phone : ";
             // 
             // txtphone
             // 
-            this.txtphone.Location = new System.Drawing.Point(232, 184);
+            this.txtphone.Location = new System.Drawing.Point(167, 216);
             this.txtphone.Name = "txtphone";
-            this.txtphone.Size = new System.Drawing.Size(100, 20);
+            this.txtphone.Size = new System.Drawing.Size(180, 20);
             this.txtphone.TabIndex = 23;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(182, 251);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label7.Location = new System.Drawing.Point(387, 155);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.Size = new System.Drawing.Size(72, 17);
             this.label7.TabIndex = 24;
             this.label7.Text = "Address : ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(182, 281);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label8.Location = new System.Drawing.Point(413, 188);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.Size = new System.Drawing.Size(46, 17);
             this.label8.TabIndex = 25;
             this.label8.Text = "Dob : ";
             // 
             // txtaddress
             // 
-            this.txtaddress.Location = new System.Drawing.Point(232, 248);
+            this.txtaddress.Location = new System.Drawing.Point(465, 154);
             this.txtaddress.Name = "txtaddress";
-            this.txtaddress.Size = new System.Drawing.Size(100, 20);
+            this.txtaddress.Size = new System.Drawing.Size(177, 20);
             this.txtaddress.TabIndex = 26;
             this.txtaddress.TextChanged += new System.EventHandler(this.txtaddress_TextChanged);
             // 
             // txtdob
             // 
-            this.txtdob.Location = new System.Drawing.Point(232, 278);
+            this.txtdob.Location = new System.Drawing.Point(465, 188);
             this.txtdob.Name = "txtdob";
-            this.txtdob.Size = new System.Drawing.Size(100, 20);
+            this.txtdob.Size = new System.Drawing.Size(178, 20);
             this.txtdob.TabIndex = 27;
             // 
             // btnupdate
             // 
-            this.btnupdate.Location = new System.Drawing.Point(32, 167);
+            this.btnupdate.BackColor = System.Drawing.Color.Blue;
+            this.btnupdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnupdate.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnupdate.Location = new System.Drawing.Point(264, 260);
             this.btnupdate.Name = "btnupdate";
-            this.btnupdate.Size = new System.Drawing.Size(75, 23);
+            this.btnupdate.Size = new System.Drawing.Size(83, 32);
             this.btnupdate.TabIndex = 28;
             this.btnupdate.Text = "Update";
-            this.btnupdate.UseVisualStyleBackColor = true;
+            this.btnupdate.UseVisualStyleBackColor = false;
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
             // btnreset
             // 
-            this.btnreset.Location = new System.Drawing.Point(32, 206);
+            this.btnreset.BackColor = System.Drawing.Color.Gray;
+            this.btnreset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnreset.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnreset.Location = new System.Drawing.Point(377, 260);
             this.btnreset.Name = "btnreset";
-            this.btnreset.Size = new System.Drawing.Size(75, 23);
+            this.btnreset.Size = new System.Drawing.Size(91, 32);
             this.btnreset.TabIndex = 29;
             this.btnreset.Text = "Reset";
-            this.btnreset.UseVisualStyleBackColor = true;
+            this.btnreset.UseVisualStyleBackColor = false;
             this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
             // btnback
             // 
-            this.btnback.BackColor = System.Drawing.Color.IndianRed;
-            this.btnback.Location = new System.Drawing.Point(32, 308);
+            this.btnback.BackColor = System.Drawing.Color.Black;
+            this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnback.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnback.Location = new System.Drawing.Point(32, 260);
             this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(75, 23);
+            this.btnback.Size = new System.Drawing.Size(83, 32);
             this.btnback.TabIndex = 30;
             this.btnback.Text = "Back";
             this.btnback.UseVisualStyleBackColor = false;
@@ -257,22 +278,28 @@
             // 
             // btnsearch
             // 
-            this.btnsearch.Location = new System.Drawing.Point(32, 240);
+            this.btnsearch.BackColor = System.Drawing.Color.Orange;
+            this.btnsearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnsearch.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnsearch.Location = new System.Drawing.Point(493, 260);
             this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(75, 23);
+            this.btnsearch.Size = new System.Drawing.Size(87, 32);
             this.btnsearch.TabIndex = 31;
             this.btnsearch.Text = "Search";
-            this.btnsearch.UseVisualStyleBackColor = true;
+            this.btnsearch.UseVisualStyleBackColor = false;
             this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
             // btndelete
             // 
-            this.btndelete.Location = new System.Drawing.Point(32, 274);
+            this.btndelete.BackColor = System.Drawing.Color.Red;
+            this.btndelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btndelete.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btndelete.Location = new System.Drawing.Point(606, 260);
             this.btndelete.Name = "btndelete";
-            this.btndelete.Size = new System.Drawing.Size(75, 23);
+            this.btndelete.Size = new System.Drawing.Size(88, 32);
             this.btndelete.TabIndex = 32;
             this.btndelete.Text = "Delete";
-            this.btndelete.UseVisualStyleBackColor = true;
+            this.btndelete.UseVisualStyleBackColor = false;
             this.btndelete.Click += new System.EventHandler(this.btndelete_Click);
             // 
             // AdminOperation
