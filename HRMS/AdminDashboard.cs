@@ -273,5 +273,13 @@ namespace HRMS
             admnatdnc.Show();
             this.Close();
         }
+
+        private void btnmangeroperations_Click(object sender, EventArgs e)
+        {
+
+            AdminOpHRManager admnhrmanager= new AdminOpHRManager();
+            admnhrmanager.Show();
+            this.Close();
+        }
     }
 }

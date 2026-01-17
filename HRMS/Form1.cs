@@ -43,11 +43,9 @@ namespace HRMS
             }
         }
 
-        // ---------------- LOGIN ----------------
-
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtuname.Text == "" || txtpass.Text == "")
+            if (txtuname.Text.Trim() == "" || txtpass.Text.Trim() == "")
             {
                 MessageBox.Show("Username and Password required!");
                 return;
@@ -63,37 +61,54 @@ namespace HRMS
             string password = HashPassword(txtpass.Text.Trim());
             string role = cmbLoginAs.Text.Trim();
 
-            string query = "SELECT * FROM Users WHERE Email='" + email +
-                           "' AND Password='" + password +
-                           "' AND Role='" + role + "'";
+            // Fix: Use consistent role names
+            if (role == "HR Manager") role = "HRManager";  // match the inserted role
+            if (role == "Admin") role = "Admin";
+            if (role == "Employee") role = "Employee";
+            if (role == "Accountant") role = "Accountant";
 
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
+            try
             {
-                MessageBox.Show("Login Successful!");
-
-                if (role == "Admin")
+                using (SqlConnection conn = new SqlConnection(
+                    @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
                 {
-                    btnadminoperations adm = new btnadminoperations(txtuname.Text);
-                    adm.Show();
-                    this.Hide();
-                }
-                else if (role == "Employee")
-                    new EmployeeDashboard().Show();
-                else if (role == "HR Manager")
-                    new HRManagerDashboard().Show();
-                else if (role == "Accountant")
-                    new AccountantDashboard().Show();
+                    conn.Open();
 
-                this.Hide();
+                    string query = "SELECT * FROM Users WHERE Email=@Email AND Password=@Password AND Role=@Role";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@Role", role);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        MessageBox.Show("Login Successful!");
+
+                        if (role == "Admin")
+                            new btnadminoperations(txtuname.Text).Show();
+                        else if (role == "Employee")
+                            new EmployeeDashboard().Show();
+                        else if (role == "HRManager")
+                            new HRManagerDashboard().Show();
+                        else if (role == "Accountant")
+                            new AccountantDashboard().Show();
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid login information!");
+                    }
+
+                    dr.Close();
+                    conn.Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                string query = @"SELECT RefId, Role 
-                                 FROM Users 
-                                 WHERE Email=@Email AND Password=@Password AND Role=@Role";
+ 
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@Email", email);
@@ -107,7 +122,11 @@ namespace HRMS
                 {
                     int refId = Convert.ToInt32(dr["RefId"]);
 
-                    MessageBox.Show("Login Successful!");
+
+        private void lblLoginAs_Click(object sender, EventArgs e)
+        {
+
+        }
 
                     if (role == "Admin")
                         new btnadminoperations().Show();
@@ -206,3 +225,5 @@ namespace HRMS
         }
     }
 }
+
+
