@@ -31,6 +31,7 @@
             this.topLoginPanel = new System.Windows.Forms.Panel();
             this.topHeaderLogin = new System.Windows.Forms.Label();
             this.pnlsidebar = new System.Windows.Forms.Panel();
+            this.btnattendence = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
             this.btnresetpassword = new System.Windows.Forms.Button();
             this.btnaccountantoperations = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.lblwelcome = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.lblwc = new System.Windows.Forms.Label();
@@ -85,6 +85,7 @@
             // pnlsidebar
             // 
             this.pnlsidebar.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlsidebar.Controls.Add(this.btnattendence);
             this.pnlsidebar.Controls.Add(this.btnlogout);
             this.pnlsidebar.Controls.Add(this.btnresetpassword);
             this.pnlsidebar.Controls.Add(this.btnaccountantoperations);
@@ -98,13 +99,23 @@
             this.pnlsidebar.Size = new System.Drawing.Size(185, 448);
             this.pnlsidebar.TabIndex = 15;
             // 
+            // btnattendence
+            // 
+            this.btnattendence.Location = new System.Drawing.Point(11, 310);
+            this.btnattendence.Name = "btnattendence";
+            this.btnattendence.Size = new System.Drawing.Size(132, 29);
+            this.btnattendence.TabIndex = 22;
+            this.btnattendence.Text = "Attendence";
+            this.btnattendence.UseVisualStyleBackColor = true;
+            this.btnattendence.Click += new System.EventHandler(this.btnattendence_Click);
+            // 
             // btnlogout
             // 
             this.btnlogout.BackColor = System.Drawing.Color.Salmon;
             this.btnlogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogout.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnlogout.Location = new System.Drawing.Point(12, 318);
+            this.btnlogout.Location = new System.Drawing.Point(12, 367);
             this.btnlogout.Name = "btnlogout";
             this.btnlogout.Size = new System.Drawing.Size(132, 27);
             this.btnlogout.TabIndex = 21;
@@ -115,7 +126,7 @@
             // btnresetpassword
             // 
             this.btnresetpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnresetpassword.Location = new System.Drawing.Point(12, 259);
+            this.btnresetpassword.Location = new System.Drawing.Point(12, 252);
             this.btnresetpassword.Name = "btnresetpassword";
             this.btnresetpassword.Size = new System.Drawing.Size(132, 29);
             this.btnresetpassword.TabIndex = 20;
@@ -366,7 +377,6 @@
         private System.Windows.Forms.Label lbladminmenu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel resetpasspanel;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -380,5 +390,6 @@
         private System.Windows.Forms.Label lblwelcome;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label lblwc;
+        private System.Windows.Forms.Button btnattendence;
     }
 }
