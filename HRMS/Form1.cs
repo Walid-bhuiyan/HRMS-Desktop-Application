@@ -89,7 +89,11 @@ namespace HRMS
                 MessageBox.Show("Login Successful!");
 
                 if (role == "Admin")
-                    new btnadminoperations().Show();
+                {
+                    btnadminoperations adm = new btnadminoperations(txtuname.Text);
+                    adm.Show();
+                    this.Hide();
+                }
                 else if (role == "Employee")
                     new EmployeeDashboard().Show();
                 else if (role == "HR Manager")
