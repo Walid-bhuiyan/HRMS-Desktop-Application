@@ -23,5 +23,10 @@ namespace HRMS
             ed.Show();
             this.Hide();
         }
+
+        private void Profile_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
