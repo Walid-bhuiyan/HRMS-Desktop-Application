@@ -1,39 +1,58 @@
 ﻿using System;
-using System.Data.SqlClient;
-using System.Windows.Forms;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 namespace HRMS
 {
     public partial class RegisterForm : Form
     {
-        private string fullName, email, dob, gender, phone, address;
+        // Employee info
+        private string fullName, email, gender, phone, address;
         private string securityQuestion, securityAnswer, department, jobTitle, employmentType;
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            HR_EmployeeManagement w=new HR_EmployeeManagement();
-            w.Show();
-            this.Hide();
-        }
-
+        private string password;
         private decimal salary;
 
-        //  Connection string from App.config
+        // Connection string from App.config
         private readonly string cs =
             ConfigurationManager.ConnectionStrings["HRMS_DB"].ConnectionString;
-
-
 
         public RegisterForm()
         {
             InitializeComponent();
         }
 
+        // -------------------- NAVIGATION --------------------
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            HR_EmployeeManagement w = new HR_EmployeeManagement();
+            w.Show();
+            this.Hide();
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearForm();
         }
+
+        // -------------------- PASSWORD HASH --------------------
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha = SHA256.Create())
+            {
+                byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in bytes)
+                    sb.Append(b.ToString("x2"));
+                return sb.ToString();
+            }
+        }
+
+        // -------------------- SUBMIT BUTTON --------------------
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -46,7 +65,6 @@ namespace HRMS
             department = cmbDepartment.Text;
             jobTitle = cmbJobTitle.Text;
             employmentType = cmbEmploymentType.Text;
-            dob = dtpDOB.Text;
 
             if (rbMale.Checked)
                 gender = "Male";
@@ -55,95 +73,100 @@ namespace HRMS
             else
                 gender = "";
 
-            if (fullName == "")
+            // -------- VALIDATION --------
+
+            if (string.IsNullOrEmpty(fullName))
             {
-                MessageBox.Show("Please enter full name.");
-                return;
+                MessageBox.Show("Please enter full name."); return;
             }
 
             if (gender == "")
             {
-                MessageBox.Show("Please select gender.");
-                return;
+                MessageBox.Show("Please select gender."); return;
             }
 
             if (dtpDOB.Value.Date >= DateTime.Today)
             {
-                MessageBox.Show("Please enter a valid Date of Birth.");
-                return;
+                MessageBox.Show("Please enter a valid Date of Birth."); return;
             }
 
-            if (email == "")
+            if (string.IsNullOrEmpty(email))
             {
-                MessageBox.Show("Please enter email.");
-                return;
+                MessageBox.Show("Please enter email."); return;
             }
 
-            if (phone == "")
+            if (string.IsNullOrEmpty(phone))
             {
-                MessageBox.Show("Please enter phone number.");
-                return;
+                MessageBox.Show("Please enter phone number."); return;
             }
 
-            if (address == "")
+            if (string.IsNullOrEmpty(address))
             {
-                MessageBox.Show("Please enter address.");
-                return;
+                MessageBox.Show("Please enter address."); return;
             }
 
-            if (securityQuestion == "")
+            if (string.IsNullOrEmpty(securityQuestion))
             {
-                MessageBox.Show("Please enter security question.");
-                return;
+                MessageBox.Show("Please enter security question."); return;
             }
 
-            if (securityAnswer == "")
+            if (string.IsNullOrEmpty(securityAnswer))
             {
-                MessageBox.Show("Please enter security answer.");
-                return;
+                MessageBox.Show("Please enter security answer."); return;
             }
 
-            if (department == "")
+            if (string.IsNullOrEmpty(department))
             {
-                MessageBox.Show("Please select department.");
-                return;
+                MessageBox.Show("Please select department."); return;
             }
 
-            if (jobTitle == "")
+            if (string.IsNullOrEmpty(jobTitle))
             {
-                MessageBox.Show("Please select job title.");
-                return;
+                MessageBox.Show("Please select job title."); return;
             }
 
-            if (employmentType == "")
+            if (string.IsNullOrEmpty(employmentType))
             {
-                MessageBox.Show("Please select employment type.");
-                return;
+                MessageBox.Show("Please select employment type."); return;
             }
 
             if (dtpJoiningDate.Value.Date > DateTime.Today)
             {
-                MessageBox.Show("Joining date cannot be in the future.");
-                return;
+                MessageBox.Show("Joining date cannot be in the future."); return;
             }
 
             if (!decimal.TryParse(txtSalary.Text, out salary))
             {
-                MessageBox.Show("Please enter a valid numeric salary.");
-                return;
+                MessageBox.Show("Please enter a valid numeric salary."); return;
             }
 
+            if (string.IsNullOrEmpty(txtPassword.Text))
+            {
+                MessageBox.Show("Please enter password."); return;
+            }
+
+            password = HashPassword(txtPassword.Text.Trim());
+
+            // -------- DATABASE --------
+            InsertIntoEmployee();
+        }
+
+        // -------------------- INSERT EMPLOYEE --------------------
+
+        private void InsertIntoEmployee()
+        {
             try
             {
                 using (SqlConnection con = new SqlConnection(cs))
                 {
                     string query = @"
-                        INSERT INTO dbo.Employees_Info
+                        INSERT INTO Employees_Info
                         (FullName, Email, Gender, DOB, Phone, Address, Department,
-                         JobTitle, EmploymentType, JoinDate, Salary, SecurityQuestion, SecurityAnswer)
+                         JobTitle, EmploymentType, JoinDate, Salary)
                         VALUES
                         (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department,
-                         @JobTitle, @EmploymentType, @JoinDate, @Salary, @SecurityQuestion, @SecurityAnswer)";
+                         @JobTitle, @EmploymentType, @JoinDate, @Salary);
+                        SELECT SCOPE_IDENTITY();";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -158,22 +181,59 @@ namespace HRMS
                         cmd.Parameters.AddWithValue("@EmploymentType", employmentType);
                         cmd.Parameters.AddWithValue("@JoinDate", dtpJoiningDate.Value);
                         cmd.Parameters.AddWithValue("@Salary", salary);
-                        cmd.Parameters.AddWithValue("@SecurityQuestion", securityQuestion);
-                        cmd.Parameters.AddWithValue("@SecurityAnswer", securityAnswer);
 
                         con.Open();
-                        cmd.ExecuteNonQuery();
+                        int empId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        InsertIntoUsers(empId, "Employee");
                     }
                 }
 
-                MessageBox.Show("Employee added successfully!");
+                MessageBox.Show("Employee added successfully & user account created!");
                 ClearForm();
+            }
+            catch (SqlException sqlEx)
+            {
+                if (sqlEx.Number == 2627)
+                {
+                    MessageBox.Show("This email already exists!");
+                }
+                else
+                {
+                    MessageBox.Show("Database error: " + sqlEx.Message);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
+        // -------------------- INSERT USERS --------------------
+
+        private void InsertIntoUsers(int refId, string role)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                string query = @"
+                    INSERT INTO Users (RefId, Role, Email, Password, SecurityAns)
+                    VALUES (@RefId, @Role, @Email, @Password, @SecurityAns)";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@RefId", refId);
+                    cmd.Parameters.AddWithValue("@Role", role);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@SecurityAns", securityAnswer);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        // -------------------- CLEAR FORM --------------------
 
         private void ClearForm()
         {
@@ -184,6 +244,7 @@ namespace HRMS
             txtSecurityQuestion.Clear();
             txtSecurityAnswer.Clear();
             txtSalary.Clear();
+            txtPassword.Clear();
 
             cmbDepartment.SelectedIndex = -1;
             cmbJobTitle.SelectedIndex = -1;

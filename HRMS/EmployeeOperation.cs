@@ -24,7 +24,7 @@ namespace HRMS
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            HRManagerDashboard hrdb = new HRManagerDashboard();
+            HRManagerDashboard hrdb = new HRManagerDashboard(0);
             hrdb.Show();
             this.Hide();
         }
