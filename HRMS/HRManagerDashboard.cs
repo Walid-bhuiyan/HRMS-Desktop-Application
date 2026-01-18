@@ -12,9 +12,17 @@ namespace HRMS
 {
     public partial class HRManagerDashboard : Form
     {
+        int hrId;
         public HRManagerDashboard()
         {
             InitializeComponent();
+            hrId = 0;
+        }
+
+        public HRManagerDashboard(int id)
+        {
+            InitializeComponent();
+            hrId = id;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -34,6 +42,11 @@ namespace HRMS
             HR_EmployeeManagement empForm = new HR_EmployeeManagement();
             empForm.Show();
             this.Hide();
+
+        }
+
+        private void btnDashboardSB_Click(object sender, EventArgs e)
+        {
 
         }
     }
