@@ -25,16 +25,16 @@ namespace HRMS
 
         private void LoadProfile()
         {
-            MessageBox.Show("HR ID received: " + hrId);
+          
 
             try
             {
                 using (SqlConnection con = new SqlConnection(conStr))
                 {
                     string query = @"
-                        SELECT HRManagerID, Name, Email, Phone, Gender, Address, DOB
+                        SELECT hrId, Name, Email, Phone, Gender, Address, DOB
                         FROM HRManagers
-                        WHERE HRManagerID = @id";
+                        WHERE hrId = @id";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@id", hrId);
@@ -44,7 +44,7 @@ namespace HRMS
 
                     if (dr.Read())
                     {
-                        txtID.Text = dr["HRManagerID"].ToString();
+                        txtID.Text = dr["hrId"].ToString();
                         txtName.Text = dr["Name"].ToString();
                         txtEmail.Text = dr["Email"].ToString();
                         txtPhone.Text = dr["Phone"].ToString();
@@ -67,6 +67,11 @@ namespace HRMS
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

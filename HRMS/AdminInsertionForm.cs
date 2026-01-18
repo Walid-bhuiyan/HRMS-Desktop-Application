@@ -36,7 +36,7 @@ namespace HRMS
 
         private SqlConnection Connect()
         {
-            string connectionString = @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;";
+            string connectionString = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
             SqlConnection conn= new SqlConnection(connectionString);
             conn.Open();
             return conn;

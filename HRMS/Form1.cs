@@ -79,7 +79,7 @@ namespace HRMS
             try
             {
                 using (SqlConnection conn = new SqlConnection(
-                    @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
+                    @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
                 {
                     conn.Open();
  
@@ -175,7 +175,7 @@ namespace HRMS
                 string hashedNewPass = HashPassword(newPass);
  
                 using (SqlConnection conn = new SqlConnection(
-                    @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
+                    @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
                 {
                     conn.Open();
  

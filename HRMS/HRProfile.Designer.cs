@@ -72,6 +72,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(397, 337);
             this.panel2.TabIndex = 11;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -265,7 +266,6 @@
             this.Name = "HRProfile";
             this.Text = "HRProfile";
             this.Load += new System.EventHandler(this.HRProfile_Load);
-
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnlTopHr.ResumeLayout(false);
