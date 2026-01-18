@@ -89,7 +89,7 @@ namespace HRMS
                         else if (role == "Employee")
                             new EmployeeDashboard().Show();
                         else if (role == "HR Manager")
-                            new HRManagerDashboard(refId).Show();   // ✅ important
+                            new HRManagerDashboard(refId).Show();   
                         else if (role == "Accountant")
                             new AccountantDashboard().Show();
 
