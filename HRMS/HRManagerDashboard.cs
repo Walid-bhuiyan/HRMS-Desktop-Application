@@ -5,16 +5,13 @@ namespace HRMS
 {
     public partial class HRManagerDashboard : Form
     {
-        // 🔹 store logged-in HR id
         int hrId;
+        public HRManagerDashboard()
+        {
+            InitializeComponent();
+            hrId = 0;
+        }
 
-        // ❌ OLD constructor (do not use)
-        // public HRManagerDashboard()
-        // {
-        //     InitializeComponent();
-        // }
-
-        // ✅ NEW constructor (from login)
         public HRManagerDashboard(int id)
         {
             InitializeComponent();
@@ -52,6 +49,11 @@ namespace HRMS
         private void btnProfile_Click_1(object sender, EventArgs e)
         {
             btnProfile_Click(sender, e);
+        }
+
+        private void btnDashboardSB_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

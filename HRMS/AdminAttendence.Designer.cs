@@ -36,10 +36,10 @@
             this.chbdept = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Present = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.btnconfirm = new System.Windows.Forms.Button();
             this.btnsearch = new System.Windows.Forms.Button();
-            this.Present = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.topLoginPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +50,7 @@
             this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.btnback.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnback.Location = new System.Drawing.Point(13, 206);
-            this.btnback.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnback.Margin = new System.Windows.Forms.Padding(4);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(122, 28);
             this.btnback.TabIndex = 0;
@@ -82,7 +82,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(434, 87);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(244, 23);
             this.dateTimePicker1.TabIndex = 17;
@@ -108,7 +108,7 @@
             "Employee",
             "Accountant"});
             this.chbdept.Location = new System.Drawing.Point(165, 86);
-            this.chbdept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chbdept.Margin = new System.Windows.Forms.Padding(4);
             this.chbdept.Name = "chbdept";
             this.chbdept.Size = new System.Drawing.Size(160, 25);
             this.chbdept.TabIndex = 19;
@@ -131,10 +131,15 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Present});
             this.dataGridView1.Location = new System.Drawing.Point(13, 242);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(677, 251);
             this.dataGridView1.TabIndex = 21;
+            // 
+            // Present
+            // 
+            this.Present.HeaderText = "Present";
+            this.Present.Name = "Present";
             // 
             // button1
             // 
@@ -142,7 +147,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button1.Location = new System.Drawing.Point(165, 146);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 42);
             this.button1.TabIndex = 22;
@@ -175,11 +180,6 @@
             this.btnsearch.UseVisualStyleBackColor = false;
             this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
-            // Present
-            // 
-            this.Present.HeaderText = "Present";
-            this.Present.Name = "Present";
-            // 
             // AdminAttendence
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -197,7 +197,7 @@
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.topLoginPanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminAttendence";
             this.Text = "AdminAttendence";
             this.topLoginPanel.ResumeLayout(false);

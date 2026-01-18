@@ -94,13 +94,14 @@ namespace HRMS
                     if (dr.Read())
                     {
                         MessageBox.Show("Login Successful!");
- 
+                        int refId = Convert.ToInt32(dr["RefId"]);
+
                         if (role == "Admin")
                             new btnadminoperations(txtuname.Text).Show();
                         else if (role == "Employee")
                             new EmployeeDashboard().Show();
                         else if (role == "HRManager")
-                            new HRManagerDashboard().Show();
+                            new HRManagerDashboard(refId).Show();
                         else if (role == "Accountant")
                             new AccountantDashboard().Show();
  
