@@ -7,27 +7,26 @@ using System.Windows.Forms;
 namespace HRMS
 {
     public partial class loginframe : Form
-    {// ---------------- CONNECTION STRING ----------------
-
-        // 🔴 OLD (Pronoy PC) CONNECTION STRING - DO NOT USE
-        private string conStr = @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;";
-
-        // ✅ YOUR CURRENT CONNECTION STRING
-
-        //private string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
+    {
+        // ✅ CORRECT CONNECTION STRING
+        private string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
 
         public loginframe()
         {
             InitializeComponent();
         }
 
-        // ---------------- EMPTY EVENT HANDLERS (DESIGNER FIX) ----------------
+        // ---------------- REQUIRED EMPTY EVENT HANDLERS (DESIGNER FIX) ----------------
 
+        private void Forgetpasspanel_Paint(object sender, PaintEventArgs e) { }
+        private void txtemail_TextChanged(object sender, EventArgs e) { }
         private void txtsecurityans_TextChanged(object sender, EventArgs e) { }
         private void cmbLoginAs_SelectedIndexChanged(object sender, EventArgs e) { }
         private void lblLoginAs_Click(object sender, EventArgs e) { }
-        private void Forgetpasspanel_Paint(object sender, PaintEventArgs e) { }
-        private void txtemail_TextChanged(object sender, EventArgs e) { }
+        private void loginframe_Load(object sender, EventArgs e)
+        {
+            Forgetpasspanel.Visible = false;
+        }
 
         // ---------------- PASSWORD HASH ----------------
 
@@ -47,7 +46,7 @@ namespace HRMS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtuname.Text == "" || txtpass.Text == "")
+            if (txtuname.Text.Trim() == "" || txtpass.Text.Trim() == "")
             {
                 MessageBox.Show("Username and Password required!");
                 return;
@@ -63,41 +62,48 @@ namespace HRMS
             string password = HashPassword(txtpass.Text.Trim());
             string role = cmbLoginAs.Text.Trim();
 
-            using (SqlConnection conn = new SqlConnection(conStr))
+            try
             {
-                string query = @"SELECT RefId, Role 
-                                 FROM Users 
-                                 WHERE Email=@Email AND Password=@Password AND Role=@Role";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", password);
-                cmd.Parameters.AddWithValue("@Role", role);
-
-                conn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                using (SqlConnection conn = new SqlConnection(conStr))
                 {
-                    int refId = Convert.ToInt32(dr["RefId"]);
+                    string query = @"SELECT RefId, Role 
+                                     FROM Users 
+                                     WHERE Email=@Email AND Password=@Password AND Role=@Role";
 
-                    MessageBox.Show("Login Successful!");
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@Role", role);
 
-                    if (role == "Admin")
-                        new btnadminoperations().Show();
-                    else if (role == "Employee")
-                        new EmployeeDashboard().Show();
-                    else if (role == "HR Manager")
-                        new HRManagerDashboard(refId).Show();   // ✅ FIXED
-                    else if (role == "Accountant")
-                        new AccountantDashboard().Show();
+                    conn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
 
-                    this.Hide();
+                    if (dr.Read())
+                    {
+                        int refId = Convert.ToInt32(dr["RefId"]);
+
+                        MessageBox.Show("Login Successful!");
+
+                        if (role == "Admin")
+                            new btnadminoperations().Show();
+                        else if (role == "Employee")
+                            new EmployeeDashboard().Show();
+                        else if (role == "HR Manager")
+                            new HRManagerDashboard(refId).Show();   // ✅ important
+                        else if (role == "Accountant")
+                            new AccountantDashboard().Show();
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid login information!");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Invalid login information!");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Login error: " + ex.Message);
             }
         }
 
@@ -167,16 +173,9 @@ namespace HRMS
             }
         }
 
-        // ---------------- UI ----------------
-
         private void lblForgotPassword_Click(object sender, EventArgs e)
         {
             Forgetpasspanel.Visible = true;
-        }
-
-        private void loginframe_Load(object sender, EventArgs e)
-        {
-            Forgetpasspanel.Visible = false;
         }
     }
 }

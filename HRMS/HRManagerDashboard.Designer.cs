@@ -42,8 +42,27 @@
             this.btnEmployees = new System.Windows.Forms.Button();
             this.btnDashboardSB = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.pnlDashboard = new System.Windows.Forms.Panel();
+            this.pnlTotalEmployees = new System.Windows.Forms.Panel();
+            this.pnlTodayPresent = new System.Windows.Forms.Panel();
+            this.pnlPendingLeaves = new System.Windows.Forms.Panel();
+            this.pnlDepartments = new System.Windows.Forms.Panel();
+            this.lblTotalEmployeesText = new System.Windows.Forms.Label();
+            this.lblTotalEmployees = new System.Windows.Forms.Label();
+            this.lblTodayPresent = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblPendingLeaves = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblDepartments = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlTopHr.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            this.pnlDashboard.SuspendLayout();
+            this.pnlTotalEmployees.SuspendLayout();
+            this.pnlTodayPresent.SuspendLayout();
+            this.pnlPendingLeaves.SuspendLayout();
+            this.pnlDepartments.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlTopHr
@@ -103,7 +122,7 @@
             this.pnlSidebar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pnlSidebar.Size = new System.Drawing.Size(220, 390);
+            this.pnlSidebar.Size = new System.Drawing.Size(220, 363);
             this.pnlSidebar.TabIndex = 9;
             // 
             // btnChangePassword
@@ -266,6 +285,7 @@
             this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.BackColor = System.Drawing.Color.White;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Controls.Add(this.pnlDashboard);
             this.pnlMain.Location = new System.Drawing.Point(220, 60);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMain.Name = "pnlMain";
@@ -273,11 +293,159 @@
             this.pnlMain.TabIndex = 10;
             this.pnlMain.Visible = false;
             // 
+            // pnlDashboard
+            // 
+            this.pnlDashboard.Controls.Add(this.pnlDepartments);
+            this.pnlDashboard.Controls.Add(this.pnlTodayPresent);
+            this.pnlDashboard.Controls.Add(this.pnlPendingLeaves);
+            this.pnlDashboard.Controls.Add(this.pnlTotalEmployees);
+            this.pnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDashboard.Location = new System.Drawing.Point(0, 0);
+            this.pnlDashboard.Name = "pnlDashboard";
+            this.pnlDashboard.Size = new System.Drawing.Size(579, 388);
+            this.pnlDashboard.TabIndex = 0;
+            // 
+            // pnlTotalEmployees
+            // 
+            this.pnlTotalEmployees.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlTotalEmployees.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTotalEmployees.Controls.Add(this.lblTotalEmployees);
+            this.pnlTotalEmployees.Controls.Add(this.lblTotalEmployeesText);
+            this.pnlTotalEmployees.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTotalEmployees.Location = new System.Drawing.Point(0, 0);
+            this.pnlTotalEmployees.Name = "pnlTotalEmployees";
+            this.pnlTotalEmployees.Size = new System.Drawing.Size(579, 90);
+            this.pnlTotalEmployees.TabIndex = 0;
+            // 
+            // pnlTodayPresent
+            // 
+            this.pnlTodayPresent.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlTodayPresent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTodayPresent.Controls.Add(this.lblPendingLeaves);
+            this.pnlTodayPresent.Controls.Add(this.label3);
+            this.pnlTodayPresent.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTodayPresent.Location = new System.Drawing.Point(0, 180);
+            this.pnlTodayPresent.Name = "pnlTodayPresent";
+            this.pnlTodayPresent.Size = new System.Drawing.Size(579, 90);
+            this.pnlTodayPresent.TabIndex = 1;
+            // 
+            // pnlPendingLeaves
+            // 
+            this.pnlPendingLeaves.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlPendingLeaves.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPendingLeaves.Controls.Add(this.lblTodayPresent);
+            this.pnlPendingLeaves.Controls.Add(this.label2);
+            this.pnlPendingLeaves.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlPendingLeaves.Location = new System.Drawing.Point(0, 90);
+            this.pnlPendingLeaves.Name = "pnlPendingLeaves";
+            this.pnlPendingLeaves.Size = new System.Drawing.Size(579, 90);
+            this.pnlPendingLeaves.TabIndex = 2;
+            // 
+            // pnlDepartments
+            // 
+            this.pnlDepartments.BackColor = System.Drawing.Color.SteelBlue;
+            this.pnlDepartments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlDepartments.Controls.Add(this.lblDepartments);
+            this.pnlDepartments.Controls.Add(this.label4);
+            this.pnlDepartments.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDepartments.Location = new System.Drawing.Point(0, 270);
+            this.pnlDepartments.Name = "pnlDepartments";
+            this.pnlDepartments.Size = new System.Drawing.Size(579, 90);
+            this.pnlDepartments.TabIndex = 3;
+            // 
+            // lblTotalEmployeesText
+            // 
+            this.lblTotalEmployeesText.AutoSize = true;
+            this.lblTotalEmployeesText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEmployeesText.ForeColor = System.Drawing.Color.White;
+            this.lblTotalEmployeesText.Location = new System.Drawing.Point(209, 17);
+            this.lblTotalEmployeesText.Name = "lblTotalEmployeesText";
+            this.lblTotalEmployeesText.Size = new System.Drawing.Size(139, 23);
+            this.lblTotalEmployeesText.TabIndex = 0;
+            this.lblTotalEmployeesText.Text = "Total Employees";
+            // 
+            // lblTotalEmployees
+            // 
+            this.lblTotalEmployees.AutoSize = true;
+            this.lblTotalEmployees.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEmployees.ForeColor = System.Drawing.Color.White;
+            this.lblTotalEmployees.Location = new System.Drawing.Point(260, 40);
+            this.lblTotalEmployees.Name = "lblTotalEmployees";
+            this.lblTotalEmployees.Size = new System.Drawing.Size(46, 54);
+            this.lblTotalEmployees.TabIndex = 1;
+            this.lblTotalEmployees.Text = "0";
+            // 
+            // lblTodayPresent
+            // 
+            this.lblTodayPresent.AutoSize = true;
+            this.lblTodayPresent.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTodayPresent.ForeColor = System.Drawing.Color.White;
+            this.lblTodayPresent.Location = new System.Drawing.Point(256, 39);
+            this.lblTodayPresent.Name = "lblTodayPresent";
+            this.lblTodayPresent.Size = new System.Drawing.Size(46, 54);
+            this.lblTodayPresent.TabIndex = 3;
+            this.lblTodayPresent.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(219, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 23);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Today Present";
+            // 
+            // lblPendingLeaves
+            // 
+            this.lblPendingLeaves.AutoSize = true;
+            this.lblPendingLeaves.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingLeaves.ForeColor = System.Drawing.Color.White;
+            this.lblPendingLeaves.Location = new System.Drawing.Point(265, 39);
+            this.lblPendingLeaves.Name = "lblPendingLeaves";
+            this.lblPendingLeaves.Size = new System.Drawing.Size(46, 54);
+            this.lblPendingLeaves.TabIndex = 5;
+            this.lblPendingLeaves.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(228, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(132, 23);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Pending Leaves";
+            // 
+            // lblDepartments
+            // 
+            this.lblDepartments.AutoSize = true;
+            this.lblDepartments.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartments.ForeColor = System.Drawing.Color.White;
+            this.lblDepartments.Location = new System.Drawing.Point(259, 39);
+            this.lblDepartments.Name = "lblDepartments";
+            this.lblDepartments.Size = new System.Drawing.Size(46, 54);
+            this.lblDepartments.TabIndex = 7;
+            this.lblDepartments.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(222, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(159, 23);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Total Departments";
+            // 
             // HRManagerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 423);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlSidebar);
             this.Controls.Add(this.pnlTopHr);
@@ -287,6 +455,16 @@
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();
             this.pnlSidebar.ResumeLayout(false);
+            this.pnlMain.ResumeLayout(false);
+            this.pnlDashboard.ResumeLayout(false);
+            this.pnlTotalEmployees.ResumeLayout(false);
+            this.pnlTotalEmployees.PerformLayout();
+            this.pnlTodayPresent.ResumeLayout(false);
+            this.pnlTodayPresent.PerformLayout();
+            this.pnlPendingLeaves.ResumeLayout(false);
+            this.pnlPendingLeaves.PerformLayout();
+            this.pnlDepartments.ResumeLayout(false);
+            this.pnlDepartments.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -307,5 +485,18 @@
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.Button btnProfile;
         private System.Windows.Forms.Button btnLeaveManagementSP;
+        private System.Windows.Forms.Panel pnlDashboard;
+        private System.Windows.Forms.Panel pnlTotalEmployees;
+        private System.Windows.Forms.Panel pnlDepartments;
+        private System.Windows.Forms.Panel pnlTodayPresent;
+        private System.Windows.Forms.Panel pnlPendingLeaves;
+        private System.Windows.Forms.Label lblTotalEmployees;
+        private System.Windows.Forms.Label lblTotalEmployeesText;
+        private System.Windows.Forms.Label lblDepartments;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblPendingLeaves;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTodayPresent;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -8,9 +8,9 @@ namespace HRMS
     {
         private int hrId;
 
-        private string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
+        private string conStr =
+            @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
 
-        // ✅ constructor from dashboard
         public HRProfile(int id)
         {
             InitializeComponent();
@@ -18,27 +18,23 @@ namespace HRMS
             this.Load += HRProfile_Load;
         }
 
-        // ---------------- FORM LOAD ----------------
-
         private void HRProfile_Load(object sender, EventArgs e)
         {
-            
-
             LoadProfile();
         }
 
-        // ---------------- LOAD DATA ----------------
-
         private void LoadProfile()
         {
+            MessageBox.Show("HR ID received: " + hrId);
+
             try
             {
                 using (SqlConnection con = new SqlConnection(conStr))
                 {
                     string query = @"
-                SELECT HRManagerID, Name, Email, Phone, Gender, Address, DOB
-                FROM HRManagers
-                WHERE HRManagerID = @id";
+                        SELECT HRManagerID, Name, Email, Phone, Gender, Address, DOB
+                        FROM HRManagers
+                        WHERE HRManagerID = @id";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@id", hrId);
@@ -67,10 +63,6 @@ namespace HRMS
                 MessageBox.Show("Profile load error: " + ex.Message);
             }
         }
-
-
-
-        // ---------------- BACK ----------------
 
         private void btnBack_Click(object sender, EventArgs e)
         {
