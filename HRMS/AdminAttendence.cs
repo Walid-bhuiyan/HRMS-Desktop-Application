@@ -41,10 +41,14 @@ namespace HRMS
                         break;
 
                     case "Employee":
-                        tableName = "Employees";
+                        tableName = "Employees_Info";
                         userType = "Employee";
-                        idColumn = "Id";
-                        nameColumn = "Name";
+
+                        // 🔴 CHANGED FOR EMPLOYEES TABLE (according to your screenshot)
+                        idColumn = "EmployeeID";     // was: Id
+                        nameColumn = "FullName";     // was: Name
+                        // ✅ END CHANGE
+
                         break;
 
                     case "Accountant":
@@ -58,7 +62,7 @@ namespace HRMS
                         return;
                 }
                 using (SqlConnection conn = new SqlConnection(
-                    @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
+                    @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
                 {
                     conn.Open();
 
@@ -120,7 +124,7 @@ namespace HRMS
                 }
 
                 using (SqlConnection conn = new SqlConnection(
-                    @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
+                    @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
                 {
                     conn.Open();
                     DateTime selectedDate = dateTimePicker1.Value.Date;
@@ -185,7 +189,7 @@ namespace HRMS
             try
             {
                 using (SqlConnection conn = new SqlConnection(
-                    @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
+                    @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
                 {
                     conn.Open();
                     DateTime selectedDate = dateTimePicker1.Value.Date;

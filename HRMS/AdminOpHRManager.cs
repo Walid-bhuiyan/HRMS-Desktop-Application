@@ -50,7 +50,7 @@ namespace HRMS
         private void showHRManagers()
         {
             SqlConnection conn = new SqlConnection(
-                @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;");
+                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
             conn.Open();
 
             string query = "SELECT * FROM HRManagers";
@@ -92,7 +92,7 @@ namespace HRMS
             }
 
             SqlConnection conn = new SqlConnection(
-                @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"
+                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
             );
             conn.Open();
 
@@ -108,7 +108,7 @@ namespace HRMS
                 txtGender.Text = dr["gender"].ToString();
                 txtAddress.Text = dr["address"].ToString();
                 txtDob.Text = dr["dob"].ToString();
-                txtSalary.Text = dr["salary"].ToString(); 
+                txtSalary.Text = dr["salary"].ToString();
             }
             else
             {
@@ -121,7 +121,7 @@ namespace HRMS
         private void btndelete_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(
-                @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"
+                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
             );
             conn.Open();
             try
@@ -131,7 +131,7 @@ namespace HRMS
                 SqlCommand cmdUser = new SqlCommand(queryUser, conn);
                 cmdUser.ExecuteNonQuery();
 
-              
+
                 string query = "DELETE FROM HRManagers WHERE hrId=" + txtId.Text;
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.ExecuteNonQuery();
@@ -146,7 +146,7 @@ namespace HRMS
             {
                 txtId.Text = txtName.Text = txtEmail.Text = txtPhone.Text = txtGender.Text = txtAddress.Text = txtDob.Text = txtSalary.Text = "";
                 conn.Close();
-                showHRManagers();  
+                showHRManagers();
             }
         }
 
@@ -218,7 +218,7 @@ namespace HRMS
             }
 
             SqlConnection conn = new SqlConnection(
-                @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"
+                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
             );
 
             conn.Open();
@@ -253,7 +253,7 @@ namespace HRMS
             finally
             {
                 conn.Close();
-                showHRManagers();  
+                showHRManagers();
             }
         }
 
@@ -266,21 +266,21 @@ namespace HRMS
                 txtEmail.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 txtPhone.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
                 txtGender.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtDob.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtSalary.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtDob.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtSalary.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
             }
         }
 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private SqlConnection Connect()
         {
-            string cs = @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;";
+            string cs = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
             SqlConnection conn = new SqlConnection(cs);
             conn.Open();
             return conn;

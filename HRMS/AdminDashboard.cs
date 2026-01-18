@@ -14,26 +14,26 @@ namespace HRMS
 {
     public partial class btnadminoperations : Form
     {
-        private static string LoggedInAdminEmailStatic; 
+        private static string LoggedInAdminEmailStatic;
         private string loggedInAdminEmail;
         public btnadminoperations()
         {
             InitializeComponent();
-            loggedInAdminEmail = LoggedInAdminEmailStatic; 
+            loggedInAdminEmail = LoggedInAdminEmailStatic;
         }
         public btnadminoperations(string email)
         {
             InitializeComponent();
             loggedInAdminEmail = email;
-            LoggedInAdminEmailStatic = email; 
+            LoggedInAdminEmailStatic = email;
         }
 
         private void FitLabelText(Label lbl)
         {
             if (string.IsNullOrEmpty(lbl.Text)) return;
 
-            int maxWidth = lbl.Width - 20; 
-            int fontSize = 24; 
+            int maxWidth = lbl.Width - 20;
+            int fontSize = 24;
 
             using (Graphics g = lbl.CreateGraphics())
             {
@@ -54,7 +54,6 @@ namespace HRMS
 
 
 
-
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             resetpasspanel.Visible = false;
@@ -70,7 +69,7 @@ namespace HRMS
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(
-                        @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
+                        @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
                     {
                         conn.Open();
 
@@ -102,8 +101,6 @@ namespace HRMS
 
 
 
-
-
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -121,7 +118,6 @@ namespace HRMS
 
         private void btnlogout_Click(object sender, EventArgs e)
         {
-            
             loginframe lg = new loginframe();
             lg.Show();
             this.Hide();
@@ -129,14 +125,14 @@ namespace HRMS
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            AdminOperation admnoperation=new AdminOperation();
+            AdminOperation admnoperation = new AdminOperation();
             admnoperation.Show();
             this.Hide();
         }
 
         private void btnresetpassword_Click(object sender, EventArgs e)
         {
-            resetpasspanel.Visible = true; 
+            resetpasspanel.Visible = true;
             resetpasspanel.BringToFront();
         }
 
@@ -182,7 +178,7 @@ namespace HRMS
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
+                using (SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
                 {
                     conn.Open();
 
@@ -190,7 +186,7 @@ namespace HRMS
                     SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
                     object result = checkCmd.ExecuteScalar();
 
-                    if (result != null) 
+                    if (result != null)
                     {
                         int refId = Convert.ToInt32(result);
 
@@ -225,10 +221,8 @@ namespace HRMS
         }
 
 
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-           
         }
 
         private void txtoldpass_TextChanged(object sender, EventArgs e)
@@ -277,7 +271,7 @@ namespace HRMS
         private void btnmangeroperations_Click(object sender, EventArgs e)
         {
 
-            AdminOpHRManager admnhrmanager= new AdminOpHRManager();
+            AdminOpHRManager admnhrmanager = new AdminOpHRManager();
             admnhrmanager.Show();
             this.Close();
         }
