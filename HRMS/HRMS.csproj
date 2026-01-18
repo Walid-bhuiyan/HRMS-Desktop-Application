@@ -172,6 +172,12 @@
     <Compile Include="AccountantDashboard.Designer.cs">
       <DependentUpon>AccountantDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAttendence.Designer.cs">
+      <DependentUpon>AdminAttendence.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +311,9 @@
     <Compile Include="UpdateProfile.Designer.cs">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminAttendence.resx">
+      <DependentUpon>AdminAttendence.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>

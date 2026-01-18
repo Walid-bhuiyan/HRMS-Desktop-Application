@@ -149,75 +149,171 @@ namespace HRMS
         }
 
 
-        private bool IsValidEmail(string email)
+        public static bool IsValidEmail(string email)
         {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
+            if (string.IsNullOrWhiteSpace(email))
                 return false;
+            foreach (char c in email)
+            {
+                if (char.IsUpper(c))
+                    return false;
             }
+            int atCount = 0;
+            foreach (char c in email)
+            {
+                if (c == '@')
+                    atCount++;
+            }
+            if (atCount != 1)
+                return false;
+
+            string[] parts = email.Split('@');
+            string local = parts[0];
+            string domainFull = parts[1];
+
+            if (local.Length < 2) 
+                return false;
+
+            char[] specialChars = { '.', '_', '-', '+' };
+
+            if (specialChars.Contains(local[0]) || specialChars.Contains(local[local.Length - 1]))
+                return false;
+
+            for (int i = 0; i < local.Length; i++)
+            {
+                char c = local[i];
+                if (!(char.IsLower(c) || char.IsDigit(c) || specialChars.Contains(c)))
+                    return false;
+
+                if (i > 0 && c == '.' && local[i - 1] == '.')
+                    return false; 
+            }
+
+            string[] domainParts = domainFull.Split('.');
+            if (domainParts.Length != 2)
+                return false;
+
+            string domain = domainParts[0];
+            string tld = domainParts[1];
+
+            string[] allowedDomains = { "gmail", "yahoo", "icloud", "hotmail", "outlook" };
+            string[] allowedTlds = { "com", "org", "net", "edu" };
+
+            if (!allowedDomains.Contains(domain))
+                return false;
+
+            if (!allowedTlds.Contains(tld))
+                return false;
+
+            foreach (char c in domain)
+            {
+                if (!(char.IsLower(c) || char.IsDigit(c) || c == '-'))
+                    return false;
+            }
+
+            return true; 
         }
+
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            name=txtname.Text;
-            email=txtemail.Text;
+            lblerrorname.Text = lblerrorphone.Text = lblerrorpasswod.Text = lblerrorsecurityans.Text =
+            lblerroraddress.Text = lblerrordob.Text = lblerrorgender.Text = "";
+
+            bool hasEmptyFields = false;
+
+            name = txtname.Text;
+            email = txtemail.Text;
             phone = txtphone.Text;
             address = richTextBox1.Text;
             securityans = txtquestionans.Text;
             pass = txtpass.Text;
-
             dob = Convert.ToDateTime(dateTimePicker1.Text);
 
-            if (rbmale.Checked)
-            {
-                gender = "Male";
-            }
-            else if (rbfemale.Checked)
-            {
-                gender = "Female";
-            }
-            else
-            {
-                gender = "";
-            }
+            if (rbmale.Checked) gender = "Male";
+            else if (rbfemale.Checked) gender = "Female";
+            else gender = "";
 
-            
-
-            if (string.IsNullOrEmpty(name) ||
-                string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(phone) ||
-                string.IsNullOrEmpty(gender) ||
-                string.IsNullOrEmpty(address) ||
-                string.IsNullOrEmpty(securityans) ||
-                string.IsNullOrEmpty(pass) )
+            if (string.IsNullOrWhiteSpace(name))
             {
-                MessageBox.Show("All fields are required!", "Validation Error");
-                return;
+                lblerrorname.Text = "Please enter name";
+                hasEmptyFields = true;
             }
-            if (!IsValidEmail(email))
+            if (string.IsNullOrWhiteSpace(phone))
             {
-                MessageBox.Show("Please enter a valid email address!", "Validation Error");
-                return;
+                lblerrorphone.Text = "Please enter phone number";
+                hasEmptyFields = true;
             }
-
-            
+            if (string.IsNullOrWhiteSpace(pass))
+            {
+                lblerrorpasswod.Text = "Please enter password";
+                hasEmptyFields = true;
+            }
+            if (string.IsNullOrWhiteSpace(securityans))
+            {
+                lblerrorsecurityans.Text = "Please enter security answer";
+                hasEmptyFields = true;
+            }
+            if (string.IsNullOrWhiteSpace(address))
+            {
+                lblerroraddress.Text = "Please enter address";
+                hasEmptyFields = true;
+            }
             if (dob == DateTime.Today)
             {
-                MessageBox.Show("Date of birth cannot be today's date!", "Validation Error");
+                lblerrordob.Text = "Invalid DOB ";
+                hasEmptyFields = true;
+            }
+            if (string.IsNullOrWhiteSpace(gender))
+            {
+                lblerrorgender.Text = "Please select gender";
+                hasEmptyFields = true;
+            }
+
+            if (hasEmptyFields) return;
+
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c) && c != ' ')
+                {
+                    MessageBox.Show("Name can contain only letters and spaces!", "Invalid Name");
+                    return;
+                }
+            }
+
+            if (phone.Length < 6 || phone.Length > 15 || !phone.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must be 6-15 digits and digits only!", "Invalid Phone", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (pass.Length < 4 || !pass.Any(c => "#@$%&*".Contains(c)))
+            {
+                MessageBox.Show("Password must be at least 4 characters and contain at least one special character (#,@,$,%,&,*).", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Invalid email address!", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             InsertIntoAdmin();
+            MessageBox.Show("Admin inserted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-            MessageBox.Show("Admin inserted successfully!");
-
+            txtname.Clear();
+            txtemail.Clear();
+            txtphone.Clear();
+            richTextBox1.Clear();
+            txtquestionans.Clear();
+            txtpass.Clear();
+            rbmale.Checked = rbfemale.Checked = false;
+            dateTimePicker1.Value = DateTime.Today;
         }
+
+
+
     }
 }
