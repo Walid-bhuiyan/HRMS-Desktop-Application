@@ -261,6 +261,12 @@
     <Compile Include="HRManagerDashboard.Designer.cs">
       <DependentUpon>HRManagerDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="HRProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRProfile.Designer.cs">
+      <DependentUpon>HRProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="HR_EmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HRManagerDashboard.resx">
       <DependentUpon>HRManagerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRProfile.resx">
+      <DependentUpon>HRProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR_EmployeeManagement.resx">
       <DependentUpon>HR_EmployeeManagement.cs</DependentUpon>

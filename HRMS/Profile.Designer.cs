@@ -77,6 +77,7 @@
             this.Controls.Add(this.btnback);
             this.Name = "Profile";
             this.Text = "Profile";
+            this.Load += new System.EventHandler(this.Profile_Load);
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();
             this.ResumeLayout(false);
