@@ -163,6 +163,7 @@
             this.btnmangeroperations.TabIndex = 17;
             this.btnmangeroperations.Text = "Manager Operations";
             this.btnmangeroperations.UseVisualStyleBackColor = true;
+            this.btnmangeroperations.Click += new System.EventHandler(this.btnmangeroperations_Click);
             // 
             // lbladminmenu
             // 

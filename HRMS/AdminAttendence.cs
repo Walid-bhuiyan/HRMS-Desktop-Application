@@ -11,42 +11,65 @@ namespace HRMS
         {
             InitializeComponent();
         }
-
         private void btnback_Click(object sender, EventArgs e)
         {
             btnadminoperations btnatndc = new btnadminoperations();
             btnatndc.Show();
             this.Close();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
                 string tableName = "";
                 string userType = "";
+                string idColumn = "";
+                string nameColumn = "name";
 
                 switch (chbdept.Text)
                 {
-                    case "Admin": tableName = "Admins"; userType = "Admin"; break;
-                    case "Manager": tableName = "HRManagers"; userType = "Manager"; break;
-                    case "Employee": tableName = "Employees"; userType = "Employee"; break;
-                    case "Accountant": tableName = "Accountants"; userType = "Accountant"; break;
-                    default: MessageBox.Show("Please select a department!"); return;
-                }
+                    case "Admin":
+                        tableName = "Admins";
+                        userType = "Admin";
+                        idColumn = "id";
+                        break;
 
+                    case "Manager":
+                        tableName = "HRManagers";
+                        userType = "HRManager";
+                        idColumn = "hrId";
+                        break;
+
+                    case "Employee":
+                        tableName = "Employees";
+                        userType = "Employee";
+                        idColumn = "Id";
+                        nameColumn = "Name";
+                        break;
+
+                    case "Accountant":
+                        tableName = "Accountants";
+                        userType = "Accountant";
+                        idColumn = "id";
+                        break;
+
+                    default:
+                        MessageBox.Show("Please select a department!");
+                        return;
+                }
                 using (SqlConnection conn = new SqlConnection(
                     @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
                 {
                     conn.Open();
 
-                    string query = $"SELECT Id AS Id, Name AS Name FROM {tableName}";
+                    string query = $"SELECT {idColumn} AS Id, {nameColumn} AS Name FROM {tableName}";
                     SqlDataAdapter adp = new SqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
 
                     if (!dt.Columns.Contains("UserType"))
                         dt.Columns.Add("UserType", typeof(string));
+
                     foreach (DataRow row in dt.Rows)
                         row["UserType"] = userType;
 
@@ -57,7 +80,10 @@ namespace HRMS
                     foreach (DataRow row in dt.Rows)
                     {
                         int userId = Convert.ToInt32(row["Id"]);
-                        string checkQuery = "SELECT Status FROM Attendance WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+
+                        string checkQuery =
+                            "SELECT Status FROM Attendance WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+
                         SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
                         checkCmd.Parameters.AddWithValue("@UserId", userId);
                         checkCmd.Parameters.AddWithValue("@UserType", userType);
@@ -76,8 +102,6 @@ namespace HRMS
                     dataGridView1.Columns["Name"].Visible = true;
                     dataGridView1.Columns["UserType"].Visible = true;
                     dataGridView1.Columns["Present"].Visible = true;
-
-                    conn.Close();
                 }
             }
             catch (Exception ex)
@@ -85,14 +109,15 @@ namespace HRMS
                 MessageBox.Show("Error loading users: " + ex.Message);
             }
         }
-
-
-
         private void btnconfirm_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.Rows.Count == 0) { MessageBox.Show("No data to save!"); return; }
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    MessageBox.Show("No data to save!");
+                    return;
+                }
 
                 using (SqlConnection conn = new SqlConnection(
                     @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"))
@@ -107,19 +132,24 @@ namespace HRMS
                         int userId = Convert.ToInt32(row.Cells["Id"].Value);
                         string name = row.Cells["Name"].Value.ToString();
                         string userType = row.Cells["UserType"].Value.ToString();
-                        bool isPresent = row.Cells["Present"].Value != null && Convert.ToBoolean(row.Cells["Present"].Value);
+                        bool isPresent = Convert.ToBoolean(row.Cells["Present"].Value);
                         string status = isPresent ? "Present" : "Absent";
 
-                        string checkQuery = "SELECT COUNT(*) FROM Attendance WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+                        string checkQuery =
+                            "SELECT COUNT(*) FROM Attendance WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+
                         SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
                         checkCmd.Parameters.AddWithValue("@UserId", userId);
                         checkCmd.Parameters.AddWithValue("@UserType", userType);
                         checkCmd.Parameters.AddWithValue("@AttendanceDate", selectedDate);
+
                         int count = Convert.ToInt32(checkCmd.ExecuteScalar());
 
                         if (count > 0)
                         {
-                            string updateQuery = "UPDATE Attendance SET Status=@Status WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+                            string updateQuery =
+                                "UPDATE Attendance SET Status=@Status WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+
                             SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
                             updateCmd.Parameters.AddWithValue("@Status", status);
                             updateCmd.Parameters.AddWithValue("@UserId", userId);
@@ -129,7 +159,9 @@ namespace HRMS
                         }
                         else
                         {
-                            string insertQuery = "INSERT INTO Attendance (UserId, UserType, Name, Status, AttendanceDate) VALUES (@UserId,@UserType,@Name,@Status,@AttendanceDate)";
+                            string insertQuery =
+                                "INSERT INTO Attendance (UserId,UserType,Name,Status,AttendanceDate) VALUES (@UserId,@UserType,@Name,@Status,@AttendanceDate)";
+
                             SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
                             insertCmd.Parameters.AddWithValue("@UserId", userId);
                             insertCmd.Parameters.AddWithValue("@UserType", userType);
@@ -139,18 +171,15 @@ namespace HRMS
                             insertCmd.ExecuteNonQuery();
                         }
                     }
-
-                    conn.Close();
                 }
 
-                MessageBox.Show("Attendance saved/updated successfully for " + dateTimePicker1.Value.ToShortDateString());
+                MessageBox.Show("Attendance saved successfully!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving attendance: " + ex.Message);
             }
         }
-
         private void btnsearch_Click(object sender, EventArgs e)
         {
             try
@@ -161,15 +190,8 @@ namespace HRMS
                     conn.Open();
                     DateTime selectedDate = dateTimePicker1.Value.Date;
 
-                    string query = @"
-                        SELECT 
-                            AttendanceId AS Id,
-                            UserId,
-                            Name,
-                            Status,
-                            AttendanceDate
-                        FROM Attendance
-                        WHERE AttendanceDate=@AttendanceDate";
+                    string query =
+                        "SELECT AttendanceId AS Id, UserId, Name, Status, AttendanceDate FROM Attendance WHERE AttendanceDate=@AttendanceDate";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@AttendanceDate", selectedDate);
@@ -180,7 +202,6 @@ namespace HRMS
 
                     dataGridView1.DataSource = dt;
 
-                   
                     foreach (DataGridViewColumn col in dataGridView1.Columns)
                         col.Visible = false;
 
@@ -189,8 +210,6 @@ namespace HRMS
                     dataGridView1.Columns["Name"].Visible = true;
                     dataGridView1.Columns["Status"].Visible = true;
                     dataGridView1.Columns["AttendanceDate"].Visible = true;
-
-                    conn.Close();
                 }
             }
             catch (Exception ex)
@@ -198,15 +217,11 @@ namespace HRMS
                 MessageBox.Show("Error viewing attendance: " + ex.Message);
             }
         }
-
         private void chbdept_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
         }
-
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-           
         }
     }
 }
