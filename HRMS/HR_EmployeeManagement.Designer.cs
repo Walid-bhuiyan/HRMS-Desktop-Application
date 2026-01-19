@@ -382,7 +382,7 @@
             this.dataGridViewAccountants.RowHeadersWidth = 51;
             this.dataGridViewAccountants.Size = new System.Drawing.Size(503, 100);
             this.dataGridViewAccountants.TabIndex = 20;
-            this.dataGridViewAccountants.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccountants_CellContentClick);
+            this.dataGridViewAccountants.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccountants_CellClick);
             // 
             // btnShow2
             // 
@@ -421,6 +421,7 @@
             this.Name = "HR_EmployeeManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee Management";
+            this.Load += new System.EventHandler(this.HR_EmployeeManagement_Load);
             this.topLoginPanel.ResumeLayout(false);
             this.topLoginPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
