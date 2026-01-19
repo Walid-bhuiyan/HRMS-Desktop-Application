@@ -32,6 +32,7 @@ namespace HRMS
             payrollProcessingPanel.Visible = false;
             viewemppayrollPanel.Visible = false;
             paymentmanagementPanel.Visible = false;
+            viewpaymentsPanel.Visible = false;
         }
 
 
@@ -715,6 +716,370 @@ namespace HRMS
         {
             HideAllPanels();
             paymentmanagementPanel.Visible = true;
+
+            txtempidpm.Text = txtempnamepm.Text = txtdepartmentpm.Text = txtjobtitlepm.Text = txtnetsalarypm.Text = "";
+            cmbmonthpm.SelectedIndex = cmbyearpm.SelectedIndex = cmbpaymethodpm.SelectedIndex = -1;
+
+            lblerrorempidpm.Text = lblerrormonthpm.Text = lblerroryearpm.Text = lblerrorpaymethodpm.Text = "";
+
+            OpenFields3();
+        }
+
+        private void btnviewpaymentspm_Click(object sender, EventArgs e)
+        {
+            HideAllPanels();
+            paymentmanagementPanel.Visible = true;
+            viewpaymentsPanel.Visible = true;
+
+            OpenFields4();
+
+            lblerrorempidpm.Text = lblerrormonthpm.Text = lblerroryearpm.Text = lblerrorpaymethodpm.Text = lblerrorempidvp.Text = "";
+            dataGridView3.DataSource = null;
+        }
+
+        private void LockFields3()
+        {
+            txtempnamepm.ReadOnly = true;
+            txtdepartmentpm.ReadOnly = true;
+            txtjobtitlepm.ReadOnly = true;
+            txtnetsalarypm.ReadOnly = true;
+        }
+
+        private void OpenFields3()
+        {
+            txtempnamepm.ReadOnly = false;
+            txtdepartmentpm.ReadOnly = false;
+            txtjobtitlepm.ReadOnly = false;
+            txtnetsalarypm.ReadOnly = false;
+        }
+        private void show2()
+        {
+            using (SqlConnection conn = Connect())
+            {
+                string query = @"
+                SELECT
+                    pay.PaymentID,
+                    e.EmployeeID,
+                    e.FullName,
+                    e.Department,
+                    e.JobTitle,
+                    pay.NetSalary,
+                    pay.PayMonth,
+                    pay.PayYear,
+                    pay.PaymentStatus,
+                    pay.PaymentDate
+                FROM Payment pay
+                JOIN Employees_Info e ON e.EmployeeID = pay.EmployeeID
+                ORDER BY pay.PayYear DESC, pay.PayMonth DESC";
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dataGridView3.DataSource = dt;
+                dataGridView3.AutoGenerateColumns = true;
+            }
+        }
+
+        private void btnshowvp_Click(object sender, EventArgs e)
+        {
+            show2();
+        }
+
+        private void btnpaysalarypm_Click(object sender, EventArgs e)
+        {
+            lblerrorpaymethodpm.Text = "";
+            lblerrorempidpm.Text = lblerrormonthpm.Text = lblerroryearpm.Text = "";
+
+            if (txtempidpm.Text == "" || cmbmonthpm.SelectedIndex == -1 || cmbyearpm.SelectedIndex == -1 || cmbpaymethodpm.SelectedIndex == -1)
+            {
+                if (txtempidpm.Text == "")
+                {
+                    lblerrorempidpm.Text = "*** The Employee ID Field is Required.";
+                }
+                if (cmbmonthpm.SelectedIndex == -1)
+                {
+                    lblerrormonthpm.Text = "*** Month Selection is Required.";
+                }
+                if (cmbyearpm.SelectedIndex == -1)
+                {
+                    lblerroryearpm.Text = "*** Year Selection is Required.";
+                }
+                if(cmbpaymethodpm.SelectedIndex == -1)
+                {
+                    lblerrorpaymethodpm.Text = "*** Payment Method Selection is Required.";
+                }
+                return;
+            }
+
+            int empId;
+            if (!int.TryParse(txtempidpm.Text, out empId))
+            {
+                MessageBox.Show("Invalid Employee ID.");
+                return;
+            }
+
+            int month = cmbmonthpm.SelectedIndex + 1;
+            int year = Convert.ToInt32(cmbyearpm.Text);
+
+            using (SqlConnection conn = Connect())
+            {
+                string query = @"
+                UPDATE Payment
+                SET PaymentStatus = 'Paid',
+                    PaymentMethod = @Method,
+                    PaymentDate = @Date
+                WHERE EmployeeID = @EmpID
+                  AND PayMonth = @Month
+                  AND PayYear = @Year
+                  AND PaymentStatus = 'Unpaid'";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Method", cmbpaymethodpm.Text);
+                cmd.Parameters.AddWithValue("@Date", dateTimePicker1.Value.Date);
+                cmd.Parameters.AddWithValue("@EmpID", empId);
+                cmd.Parameters.AddWithValue("@Month", month);
+                cmd.Parameters.AddWithValue("@Year", year);
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    MessageBox.Show("Salary paid successfully.");
+                    btnpaysalarypm.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Salary already paid or payment record not found.");
+                }
+            }
+        }
+
+
+        private void btnsearchpm_Click(object sender, EventArgs e)
+        {
+            lblerrorempidpm.Text = lblerrormonthpm.Text = lblerroryearpm.Text = lblerrorpaymethodpm.Text = "";
+
+            if (txtempidpm.Text == "" || cmbmonthpm.SelectedIndex == -1 || cmbyearpm.SelectedIndex == -1)
+            {
+                if(txtempidpm.Text == "")
+                {
+                    lblerrorempidpm.Text = "*** The Employee ID Field is Required.";
+                }
+                if(cmbmonthpm.SelectedIndex == -1)
+                {
+                    lblerrormonthpm.Text = "*** Month Selection is Required.";
+                }
+                if(cmbyearpm.SelectedIndex == -1)
+                {
+                    lblerroryearpm.Text = "*** Year Selection is Required.";
+                }
+                return;
+            }
+
+            int empId = Convert.ToInt32(txtempidpm.Text);
+            int month = cmbmonthpm.SelectedIndex + 1;
+            int year = Convert.ToInt32(cmbyearpm.Text);
+
+            using (SqlConnection conn = Connect())
+            {
+                string ensurePaymentQuery = @"
+                IF NOT EXISTS (
+                    SELECT 1 FROM Payment
+                    WHERE EmployeeID = @EmpID
+                      AND PayMonth = @Month
+                      AND PayYear = @Year
+                )
+                BEGIN
+                    INSERT INTO Payment (EmployeeID, PayMonth, PayYear, NetSalary)
+                    SELECT EmployeeID, Month, Year, NetSalary
+                    FROM Payroll
+                    WHERE EmployeeID = @EmpID
+                      AND Month = @Month
+                      AND Year = @Year
+                END";
+
+                SqlCommand ensureCmd = new SqlCommand(ensurePaymentQuery, conn);
+                ensureCmd.Parameters.AddWithValue("@EmpID", empId);
+                ensureCmd.Parameters.AddWithValue("@Month", month);
+                ensureCmd.Parameters.AddWithValue("@Year", year);
+                ensureCmd.ExecuteNonQuery();
+
+                string query = @"
+                SELECT
+                    e.FullName,
+                    e.Department,
+                    e.JobTitle,
+                    p.NetSalary,
+                    pay.PaymentStatus
+                FROM Payroll p
+                INNER JOIN Employees_Info e ON e.EmployeeID = p.EmployeeID
+                INNER JOIN Payment pay 
+                    ON pay.EmployeeID = p.EmployeeID
+                   AND pay.PayMonth = p.Month
+                   AND pay.PayYear = p.Year
+                WHERE p.EmployeeID = @EmpID
+                  AND p.Month = @Month
+                  AND p.Year = @Year";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@EmpID", empId);
+                cmd.Parameters.AddWithValue("@Month", month);
+                cmd.Parameters.AddWithValue("@Year", year);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    txtempnamepm.Text = dr["FullName"].ToString();
+                    txtdepartmentpm.Text = dr["Department"].ToString();
+                    txtjobtitlepm.Text = dr["JobTitle"].ToString();
+                    txtnetsalarypm.Text = dr["NetSalary"].ToString();
+
+                    string status = dr["PaymentStatus"].ToString();
+                    btnpaysalarypm.Enabled = (status == "Unpaid");
+
+                    LockFields3();
+                }
+                else
+                {
+                    MessageBox.Show("Payroll not generated for this employee.");
+
+                    txtempidpm.Text = txtempnamepm.Text = txtdepartmentpm.Text = txtjobtitlepm.Text = txtnetsalarypm.Text = "";
+                    cmbmonthpm.SelectedIndex = cmbyearpm.SelectedIndex = cmbpaymethodpm.SelectedIndex = -1;
+                }
+            }
+        }
+
+        private void btnresetpm_Click(object sender, EventArgs e)
+        {
+            txtempidpm.Text = txtempnamepm.Text = txtdepartmentpm.Text = txtjobtitlepm.Text = txtnetsalarypm.Text = "";
+            cmbmonthpm.SelectedIndex = cmbyearpm.SelectedIndex = cmbpaymethodpm.SelectedIndex = -1;
+
+            lblerrorempidpm.Text = lblerrormonthpm.Text = lblerroryearpm.Text = lblerrorpaymethodpm.Text = "";
+
+            OpenFields3();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnsearchvp_Click(object sender, EventArgs e)
+        {
+            lblerrorempidvp.Text = "";
+
+            if (txtempidvp.Text == "")
+            {
+                lblerrorempidvp.Text = "*** The Employee ID Field is Required.";
+                return;
+            }
+
+            int empId;
+            if (!int.TryParse(txtempidvp.Text, out empId))
+            {
+                MessageBox.Show("Invalid Employee ID.");
+                return;
+            }
+
+            using (SqlConnection conn = Connect())
+            {
+                string query = @"
+                SELECT
+                    pay.PaymentID,
+                    pay.EmployeeID,
+                    e.FullName,
+                    e.Department,
+                    e.JobTitle,
+                    pay.NetSalary,
+                    pay.PayMonth,
+                    pay.PayYear,
+                    pay.PaymentStatus,
+                    pay.PaymentMethod,
+                    pay.PaymentDate
+                FROM Payment pay
+                INNER JOIN Employees_Info e
+                    ON e.EmployeeID = pay.EmployeeID
+                WHERE pay.EmployeeID = @EmpID
+                ORDER BY pay.PaymentDate DESC";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@EmpID", empId);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No payment record found for this employee.");
+                    return;
+                }
+
+                DataRow row = dt.Rows[0];
+
+                txtpaymentidvp.Text = row["PaymentID"].ToString();
+                txtempnamevp.Text = row["FullName"].ToString();
+                txtdepartmentvp.Text = row["Department"].ToString();
+                txtjobtitlevp.Text = row["JobTitle"].ToString();
+                txtnetsalaryvp.Text = row["NetSalary"].ToString();
+                txtpaymonthvp.Text = row["PayMonth"].ToString();
+                txtpayyearvp.Text = row["PayYear"].ToString();
+                txtpaystatusvp.Text = row["PaymentStatus"].ToString();
+                txtpaydatevp.Text = row["PaymentDate"] == DBNull.Value? "" : Convert.ToDateTime(row["PaymentDate"]).ToShortDateString();
+
+                LockFields4();
+
+                dataGridView3.DataSource = dt;
+                dataGridView3.AutoGenerateColumns = true;
+            }
+        }
+
+        private void OpenFields4()
+        {
+            txtempidvp.ReadOnly = false;
+            txtempnamevp.ReadOnly = false;
+            txtdepartmentvp.ReadOnly = false;
+            txtjobtitlevp.ReadOnly = false;
+            txtnetsalaryvp.ReadOnly = false;
+            txtpaymentidvp.ReadOnly = false;
+            txtpaymonthvp.ReadOnly = false;
+            txtpayyearvp.ReadOnly = false;
+            txtpaystatusvp.ReadOnly = false;
+            txtpaydatevp.ReadOnly = false;
+        }
+
+        private void LockFields4()
+        {
+            txtempidvp.ReadOnly = true ;
+            txtempnamevp.ReadOnly = true;
+            txtdepartmentvp.ReadOnly = true;
+            txtjobtitlevp.ReadOnly = true;
+            txtnetsalaryvp.ReadOnly = true;
+            txtpaymentidvp.ReadOnly = true;
+            txtpaymonthvp.ReadOnly = true;
+            txtpayyearvp.ReadOnly = true;
+            txtpaystatusvp.ReadOnly = true;
+            txtpaydatevp.ReadOnly = true;
+        }
+
+        private void btnbackvp_Click(object sender, EventArgs e)
+        {
+            HideAllPanels();
+            paymentmanagementPanel.Visible = true;
+
+            lblerrorempidpm.Text = lblerrormonthpm.Text = lblerroryearpm.Text = lblerrorpaymethodpm.Text = lblerrorempidvp.Text = "";
+        }
+
+        private void btnresetvp_Click(object sender, EventArgs e)
+        {
+            txtempidvp.Text = txtempnamevp.Text = txtdepartmentvp.Text = txtjobtitlevp.Text = txtnetsalaryvp.Text = txtpaymentidvp.Text = txtpaymonthvp.Text = txtpayyearvp.Text = txtpaystatusvp.Text = txtpaydatevp.Text = "";
+            OpenFields4();
+
+            lblerrorempidvp.Text = "";
+
+            dataGridView3.DataSource = null;
         }
     }
 }
