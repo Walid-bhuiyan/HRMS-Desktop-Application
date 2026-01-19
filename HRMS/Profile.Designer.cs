@@ -242,6 +242,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(803, 444);
             this.panel2.TabIndex = 19;
+           // this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // richTxtadd
             // 
@@ -296,7 +297,7 @@
             this.txtDob.Name = "txtDob";
             this.txtDob.Size = new System.Drawing.Size(216, 22);
             this.txtDob.TabIndex = 41;
-            this.txtDob.TextChanged += new System.EventHandler(this.txtDob_TextChanged);
+            //this.txtDob.TextChanged += new System.EventHandler(this.txtDob_TextChanged);
             // 
             // Profile
             // 

@@ -300,7 +300,7 @@
             this.panel3.BackColor = System.Drawing.Color.SteelBlue;
             this.panel3.Controls.Add(this.lblPendingLeavesValue);
             this.panel3.Controls.Add(this.lblPendingLeavesTitle);
-            this.panel3.Location = new System.Drawing.Point(21, 221);
+            this.panel3.Location = new System.Drawing.Point(20, 221);
             this.panel3.Margin = new System.Windows.Forms.Padding(15);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 110);
@@ -334,7 +334,7 @@
             this.panel4.BackColor = System.Drawing.Color.SteelBlue;
             this.panel4.Controls.Add(this.lblTotalDepartmentsValue);
             this.panel4.Controls.Add(this.lblTotalDepartmentsTitle);
-            this.panel4.Location = new System.Drawing.Point(337, 221);
+            this.panel4.Location = new System.Drawing.Point(336, 221);
             this.panel4.Margin = new System.Windows.Forms.Padding(15);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 110);
@@ -368,7 +368,7 @@
             this.panel2.BackColor = System.Drawing.Color.SteelBlue;
             this.panel2.Controls.Add(this.lblTodayPresentValue);
             this.panel2.Controls.Add(this.lblTodayPresentTitle);
-            this.panel2.Location = new System.Drawing.Point(337, 56);
+            this.panel2.Location = new System.Drawing.Point(336, 56);
             this.panel2.Margin = new System.Windows.Forms.Padding(15);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 110);
@@ -402,7 +402,7 @@
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.lblTotalEmployeesValue);
             this.panel1.Controls.Add(this.lblTotalEmployeesTitle);
-            this.panel1.Location = new System.Drawing.Point(21, 56);
+            this.panel1.Location = new System.Drawing.Point(20, 56);
             this.panel1.Margin = new System.Windows.Forms.Padding(15);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 110);

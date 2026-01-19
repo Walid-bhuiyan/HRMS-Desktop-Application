@@ -10,19 +10,34 @@ namespace HRMS
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
         string selectedTable = ""; // "EMP" or "ACC"
 
+        // 🔑 who opened this form
+        string callerRole = "";
+        int callerId = 0;
+
+        // ================= DEFAULT =================
         public HR_EmployeeManagement()
         {
             InitializeComponent();
-
-            // keep grids empty at start
             dataGridViewEmployees.DataSource = null;
             dataGridViewAccountants.DataSource = null;
+        }
+
+        // ================= ADMIN / HR CONSTRUCTOR =================
+        public HR_EmployeeManagement(string role, int id)
+        {
+            InitializeComponent();
+            dataGridViewEmployees.DataSource = null;
+            dataGridViewAccountants.DataSource = null;
+
+            callerRole = role;   // "ADMIN" or "HR"
+            callerId = id;
         }
 
         // ================= FORM LOAD =================
         private void HR_EmployeeManagement_Load(object sender, EventArgs e)
         {
-            // do nothing
+            // optional auto load
+            // ShowEmployees();
         }
 
         // ================= SHOW EMPLOYEES =================
@@ -37,8 +52,6 @@ namespace HRMS
                 SqlDataAdapter adp = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
-
-                dataGridViewEmployees.AutoGenerateColumns = true;
                 dataGridViewEmployees.DataSource = dt;
             }
         }
@@ -55,8 +68,6 @@ namespace HRMS
                 SqlDataAdapter adp = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
-
-                dataGridViewAccountants.AutoGenerateColumns = true;
                 dataGridViewAccountants.DataSource = dt;
             }
         }
@@ -65,20 +76,21 @@ namespace HRMS
         private void btnShowEmployees_Click(object sender, EventArgs e)
         {
             ShowEmployees();
+            selectedTable = "EMP";
         }
 
         private void btnShowAccountants_Click(object sender, EventArgs e)
         {
             ShowAccountants();
+            selectedTable = "ACC";
         }
 
-        // ================= GRID CLICK (EMPLOYEE) =================
+        // ================= GRID CLICK =================
         private void dataGridViewEmployees_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             selectedTable = "EMP";
-
             DataGridViewRow row = dataGridViewEmployees.Rows[e.RowIndex];
 
             txtId.Text = row.Cells["EmployeeID"].Value.ToString();
@@ -90,13 +102,11 @@ namespace HRMS
             txtAddress.Text = row.Cells["Address"].Value.ToString();
         }
 
-        // ================= GRID CLICK (ACCOUNTANT) =================
         private void dataGridViewAccountants_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             selectedTable = "ACC";
-
             DataGridViewRow row = dataGridViewAccountants.Rows[e.RowIndex];
 
             txtId.Text = row.Cells["AccountantID"].Value.ToString();
@@ -131,7 +141,58 @@ namespace HRMS
         {
             if (string.IsNullOrWhiteSpace(txtId.Text) || selectedTable == "")
             {
-                MessageBox.Show("Please click a row from Employee list or Accountant list first.");
+                MessageBox.Show("Please select a record first.");
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                conn.Open();
+                SqlCommand cmd;
+
+                if (selectedTable == "EMP")
+                {
+                    cmd = new SqlCommand(@"UPDATE Employees_Info 
+                                           SET FullName=@name, Email=@email, Gender=@gender,
+                                               DOB=@dob, Phone=@phone, Address=@address
+                                           WHERE EmployeeID=@id", conn);
+                }
+                else
+                {
+                    cmd = new SqlCommand(@"UPDATE Accountants 
+                                           SET FullName=@name, Email=@email, Gender=@gender,
+                                               DOB=@dob, Phone=@phone, Address=@address
+                                           WHERE AccountantID=@id", conn);
+                }
+
+                cmd.Parameters.AddWithValue("@id", txtId.Text);
+                cmd.Parameters.AddWithValue("@name", txtName.Text);
+                cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                cmd.Parameters.AddWithValue("@gender", txtGender.Text);
+                cmd.Parameters.AddWithValue("@dob", DateTime.Parse(txtDob.Text));
+                cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
+                cmd.Parameters.AddWithValue("@address", txtAddress.Text);
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Updated successfully ✅");
+
+                if (selectedTable == "EMP") ShowEmployees();
+                else ShowAccountants();
+            }
+        }
+
+        // ================= SEARCH =================
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtId.Text))
+            {
+                MessageBox.Show("Please enter an ID to search.");
+                return;
+            }
+
+            if (!int.TryParse(txtId.Text.Trim(), out int id))
+            {
+                MessageBox.Show("ID must be a number.");
                 return;
             }
 
@@ -139,77 +200,76 @@ namespace HRMS
             {
                 conn.Open();
 
-                if (selectedTable == "EMP")
+                // try employees
+                string empQuery = @"SELECT EmployeeID, FullName, Email, Gender, DOB, Phone, Address
+                                    FROM Employees_Info WHERE EmployeeID=@id";
+
+                SqlDataAdapter adp = new SqlDataAdapter(empQuery, conn);
+                adp.SelectCommand.Parameters.AddWithValue("@id", id);
+
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+
+                if (dt.Rows.Count > 0)
                 {
-                    string query = @"UPDATE Employees_Info 
-                                     SET FullName=@name,
-                                         Email=@email,
-                                         Gender=@gender,
-                                         DOB=@dob,
-                                         Phone=@phone,
-                                         Address=@address
-                                     WHERE EmployeeID=@id";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-
-                    cmd.Parameters.AddWithValue("@id", txtId.Text);
-                    cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@gender", txtGender.Text);
-                    cmd.Parameters.AddWithValue("@dob", DateTime.Parse(txtDob.Text));
-                    cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
-                    cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Employee updated successfully ✅");
-                    ShowEmployees();
+                    FillFieldsFromRow(dt.Rows[0], "EMP");
+                    dataGridViewEmployees.DataSource = dt;
+                    dataGridViewAccountants.DataSource = null;
+                    return;
                 }
-                else if (selectedTable == "ACC")
+
+                // try accountants
+                string accQuery = @"SELECT AccountantID, FullName, Email, Gender, DOB, Phone, Address
+                                    FROM Accountants WHERE AccountantID=@id";
+
+                SqlDataAdapter adp2 = new SqlDataAdapter(accQuery, conn);
+                adp2.SelectCommand.Parameters.AddWithValue("@id", id);
+
+                DataTable dt2 = new DataTable();
+                adp2.Fill(dt2);
+
+                if (dt2.Rows.Count > 0)
                 {
-                    string query = @"UPDATE Accountants 
-                                     SET FullName=@name,
-                                         Email=@email,
-                                         Gender=@gender,
-                                         DOB=@dob,
-                                         Phone=@phone,
-                                         Address=@address
-                                     WHERE AccountantID=@id";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-
-                    cmd.Parameters.AddWithValue("@id", txtId.Text);
-                    cmd.Parameters.AddWithValue("@name", txtName.Text);
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@gender", txtGender.Text);
-                    cmd.Parameters.AddWithValue("@dob", DateTime.Parse(txtDob.Text));
-                    cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
-                    cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Accountant updated successfully ✅");
-                    ShowAccountants();
+                    FillFieldsFromRow(dt2.Rows[0], "ACC");
+                    dataGridViewAccountants.DataSource = dt2;
+                    dataGridViewEmployees.DataSource = null;
+                    return;
                 }
+
+                MessageBox.Show("No employee or accountant found with this ID.");
             }
         }
 
-        // ================= NAVIGATION =================
+        private void FillFieldsFromRow(DataRow r, string type)
+        {
+            selectedTable = type;
+
+            txtId.Text = (type == "EMP") ? r["EmployeeID"].ToString() : r["AccountantID"].ToString();
+            txtName.Text = r["FullName"].ToString();
+            txtEmail.Text = r["Email"].ToString();
+            txtGender.Text = r["Gender"].ToString();
+            txtDob.Text = Convert.ToDateTime(r["DOB"]).ToString("yyyy-MM-dd");
+            txtPhone.Text = r["Phone"].ToString();
+            txtAddress.Text = r["Address"].ToString();
+        }
+
+        // ================= BACK =================
         private void btnBack_Click(object sender, EventArgs e)
         {
-            HRManagerDashboard a = new HRManagerDashboard(0);
-            a.Show();
+            if (callerRole == "ADMIN")
+                new btnadminoperations(callerId, "").Show();
+            else
+                new HRManagerDashboard(callerId).Show();
+
             this.Hide();
         }
 
+        // ================= ADD =================
         private void btnAddEmployee_Click(object sender, EventArgs e)
         {
-            RegisterForm b = new RegisterForm();
+            RegisterForm b = new RegisterForm(callerRole, callerId);
             b.Show();
             this.Hide();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Search clicked (connect logic later)");
         }
     }
 }

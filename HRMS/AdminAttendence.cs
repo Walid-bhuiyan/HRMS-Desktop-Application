@@ -2,18 +2,28 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace HRMS
 {
     public partial class AdminAttendence : Form
     {
+        int adminId;
+        string adminEmail;
+        public AdminAttendence(int id, string email)
+        {
+            InitializeComponent();
+            adminId = id;
+            adminEmail = email;
+        }
+
         public AdminAttendence()
         {
             InitializeComponent();
         }
         private void btnback_Click(object sender, EventArgs e)
         {
-            btnadminoperations btnatndc = new btnadminoperations();
+            btnadminoperations btnatndc = new btnadminoperations(adminId, adminEmail);
             btnatndc.Show();
             this.Close();
         }

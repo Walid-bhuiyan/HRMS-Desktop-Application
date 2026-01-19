@@ -1,33 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Security.Cryptography;
+using System.Text;
+using System.Windows.Forms;
 
 namespace HRMS
 {
     public partial class btnadminoperations : Form
     {
-        private static string LoggedInAdminEmailStatic;
-        private string loggedInAdminEmail;
-        public btnadminoperations()
+        int adminId;
+        string adminEmail;
+
+        string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+
+        // ✅ ONLY constructor (called from login)
+        public btnadminoperations(int id, string email)
         {
             InitializeComponent();
-            loggedInAdminEmail = LoggedInAdminEmailStatic;
-        }
-        public btnadminoperations(string email)
-        {
-            InitializeComponent();
-            loggedInAdminEmail = email;
-            LoggedInAdminEmailStatic = email;
+            adminId = id;
+            adminEmail = email;
         }
 
+        // ================= LOAD =================
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+            resetpasspanel.Visible = false;
+
+            lblwc.Text = "";
+            lblwc.Dock = DockStyle.Fill;
+            lblwc.TextAlign = ContentAlignment.MiddleCenter;
+            lblwc.AutoSize = false;
+            lblwc.Font = new Font("Segoe UI", 24, FontStyle.Bold);
+
+            LoadAdminName();
+        }
+
+        private void LoadAdminName()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(conStr))
+                {
+                    conn.Open();
+
+                    string query = "SELECT Name FROM Admins WHERE Id=@id";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", adminId);
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null)
+                        lblwc.Text = "Welcome Admin - " + result.ToString();
+                    else
+                        lblwc.Text = "Welcome Admin";
+
+                    conn.Close();
+                }
+
+                FitLabelText(lblwc);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading admin name: " + ex.Message);
+            }
+        }
+
+        // ================= LABEL AUTO FIT =================
         private void FitLabelText(Label lbl)
         {
             if (string.IsNullOrEmpty(lbl.Text)) return;
@@ -52,70 +91,7 @@ namespace HRMS
             }
         }
 
-
-
-        private void AdminDashboard_Load(object sender, EventArgs e)
-        {
-            resetpasspanel.Visible = false;
-
-            lblwc.Text = "";
-            lblwc.Dock = DockStyle.Fill;
-            lblwc.TextAlign = ContentAlignment.MiddleCenter;
-            lblwc.AutoSize = false;
-            lblwc.Font = new Font("Segoe UI", 24, FontStyle.Bold);
-
-            if (!string.IsNullOrEmpty(loggedInAdminEmail))
-            {
-                try
-                {
-                    using (SqlConnection conn = new SqlConnection(
-                        @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
-                    {
-                        conn.Open();
-
-                        string query = "SELECT name FROM Admins WHERE email = @email";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@email", loggedInAdminEmail);
-
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
-                            lblwc.Text = "Welcome Admin - " + result.ToString();
-                        else
-                            lblwc.Text = "Welcome Admin";
-
-                        conn.Close();
-                    }
-
-                    FitLabelText(lblwc);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error loading admin name: " + ex.Message);
-                }
-            }
-            else
-            {
-                lblwc.Text = "Welcome Admin";
-            }
-        }
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // ================= LOGOUT =================
         private void btnlogout_Click(object sender, EventArgs e)
         {
             loginframe lg = new loginframe();
@@ -123,22 +99,30 @@ namespace HRMS
             this.Hide();
         }
 
+        // ================= OPEN ADMIN OPERATIONS =================
         private void button1_Click_1(object sender, EventArgs e)
         {
-            AdminOperation admnoperation = new AdminOperation();
+            AdminOperation admnoperation = new AdminOperation(adminId, adminEmail);
             admnoperation.Show();
             this.Hide();
         }
 
+        // ================= RESET PANEL =================
         private void btnresetpassword_Click(object sender, EventArgs e)
         {
             resetpasspanel.Visible = true;
             resetpasspanel.BringToFront();
         }
 
+        private void btncancel_Click(object sender, EventArgs e)
+        {
+            resetpasspanel.Visible = false;
+        }
+
+        // ================= HASH =================
         private string HashPassword(string password)
         {
-            using (System.Security.Cryptography.SHA256 sha = System.Security.Cryptography.SHA256.Create())
+            using (SHA256 sha = SHA256.Create())
             {
                 byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
                 StringBuilder sb = new StringBuilder();
@@ -148,14 +132,14 @@ namespace HRMS
             }
         }
 
+        // ================= CHANGE PASSWORD =================
         private void btnconfirm_Click(object sender, EventArgs e)
         {
-            string username = txtusername.Text.Trim();
             string oldPass = txtoldpass.Text.Trim();
             string newPass = txtnewpass.Text.Trim();
             string confirmPass = txtconfirmpass.Text.Trim();
 
-            if (username == "" || oldPass == "" || newPass == "" || confirmPass == "")
+            if (oldPass == "" || newPass == "" || confirmPass == "")
             {
                 MessageBox.Show("All fields are required!");
                 return;
@@ -173,45 +157,48 @@ namespace HRMS
                 return;
             }
 
-            string hashedOldPass = HashPassword(oldPass);
-            string hashedNewPass = HashPassword(newPass);
+            string hashedOld = HashPassword(oldPass);
+            string hashedNew = HashPassword(newPass);
 
             try
             {
-                using (SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
+                using (SqlConnection conn = new SqlConnection(conStr))
                 {
                     conn.Open();
 
-                    string checkQuery = "SELECT RefId FROM Users WHERE Email='" + username + "' AND Password='" + hashedOldPass + "' AND Role='Admin'";
+                    string checkQuery = @"SELECT COUNT(*) FROM Users 
+                                          WHERE RefId=@id AND Role='Admin' AND Password=@old";
+
                     SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
-                    object result = checkCmd.ExecuteScalar();
+                    checkCmd.Parameters.AddWithValue("@id", adminId);
+                    checkCmd.Parameters.AddWithValue("@old", hashedOld);
 
-                    if (result != null)
+                    int ok = (int)checkCmd.ExecuteScalar();
+
+                    if (ok == 0)
                     {
-                        int refId = Convert.ToInt32(result);
-
-                        string updateUserQuery = "UPDATE Users SET Password='" + hashedNewPass + "' WHERE RefId=" + refId + " AND Role='Admin';";
-
-                        string updateAdminQuery = "UPDATE Admins SET Password='" + hashedNewPass + "' WHERE Id=" + refId + ";";
-
-                        string combinedQuery = updateUserQuery + updateAdminQuery;
-                        SqlCommand updateCmd = new SqlCommand(combinedQuery, conn);
-                        updateCmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Password updated successfully!");
-
-                        resetpasspanel.Visible = false;
-                        txtusername.Clear();
-                        txtoldpass.Clear();
-                        txtnewpass.Clear();
-                        txtconfirmpass.Clear();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Username or old password is incorrect!");
+                        MessageBox.Show("Old password is incorrect!");
+                        return;
                     }
 
-                    conn.Close();
+                    string q1 = "UPDATE Users SET Password=@new WHERE RefId=@id AND Role='Admin'";
+                    SqlCommand c1 = new SqlCommand(q1, conn);
+                    c1.Parameters.AddWithValue("@new", hashedNew);
+                    c1.Parameters.AddWithValue("@id", adminId);
+                    c1.ExecuteNonQuery();
+
+                    string q2 = "UPDATE Admins SET Password=@new WHERE Id=@id";
+                    SqlCommand c2 = new SqlCommand(q2, conn);
+                    c2.Parameters.AddWithValue("@new", hashedNew);
+                    c2.Parameters.AddWithValue("@id", adminId);
+                    c2.ExecuteNonQuery();
+
+                    MessageBox.Show("Password updated successfully!");
+
+                    txtoldpass.Clear();
+                    txtnewpass.Clear();
+                    txtconfirmpass.Clear();
+                    resetpasspanel.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -220,60 +207,45 @@ namespace HRMS
             }
         }
 
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        // ================= EMPLOYEE MANAGEMENT =================
+        private void btnempoyeeoperations_Click(object sender, EventArgs e)
         {
+            HR_EmployeeManagement emp = new HR_EmployeeManagement("ADMIN", adminId);
+            emp.Show();
+            this.Hide();
         }
 
-        private void txtoldpass_TextChanged(object sender, EventArgs e)
+        // ================= HR MANAGER OPS =================
+        private void btnmangeroperations_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtnewpass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtconfirmpass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btncancel_Click(object sender, EventArgs e)
-        {
-            resetpasspanel.Visible = false;
-        }
-
-        private void txtusername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblwelcome_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            AdminOpHRManager admnhrmanager = new AdminOpHRManager(adminId, adminEmail);
+            admnhrmanager.Show();
+            this.Hide();
         }
 
         private void btnattendence_Click(object sender, EventArgs e)
         {
             AdminAttendence admnatdnc = new AdminAttendence();
             admnatdnc.Show();
-            this.Close();
+            this.Hide();
         }
+        private void txtusername_TextChanged(object sender, EventArgs e) { }
 
-        private void btnmangeroperations_Click(object sender, EventArgs e)
+        private void txtoldpass_TextChanged(object sender, EventArgs e) { }
+
+        private void txtnewpass_TextChanged(object sender, EventArgs e) { }
+
+        private void txtconfirmpass_TextChanged(object sender, EventArgs e) { }
+
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+
+        private void lblwelcome_Click(object sender, EventArgs e) { }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
+
+        private void btnaccountantoperations_Click(object sender, EventArgs e)
         {
 
-            AdminOpHRManager admnhrmanager = new AdminOpHRManager();
-            admnhrmanager.Show();
-            this.Close();
         }
     }
 }
