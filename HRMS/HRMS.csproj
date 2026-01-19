@@ -337,6 +337,9 @@
     <Compile Include="UpdateProfile.Designer.cs">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountantDashboard.resx">
+      <DependentUpon>AccountantDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminAttendence.resx">
       <DependentUpon>AdminAttendence.cs</DependentUpon>
     </EmbeddedResource>

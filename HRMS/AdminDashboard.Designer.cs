@@ -98,7 +98,7 @@
             this.pnlsidebar.Name = "pnlsidebar";
             this.pnlsidebar.Size = new System.Drawing.Size(247, 552);
             this.pnlsidebar.TabIndex = 15;
-            this.pnlsidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlsidebar_Paint);
+            //this.pnlsidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlsidebar_Paint);
             // 
             // btnattendence
             // 
