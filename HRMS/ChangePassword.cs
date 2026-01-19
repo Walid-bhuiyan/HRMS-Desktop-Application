@@ -17,11 +17,21 @@ namespace HRMS
             InitializeComponent();
         }
 
+        private void changePassword()
+        {
+
+        }
+
         private void btnback_Click(object sender, EventArgs e)
         {
             EmployeeDashboard ed=new EmployeeDashboard();
             ed.Show();
             this.Hide();
+        }
+
+        private void ChangePassword_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
