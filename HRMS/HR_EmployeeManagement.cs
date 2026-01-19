@@ -186,5 +186,10 @@ namespace HRMS
             b.Show();
             this.Hide();
         }
+
+        private void HR_EmployeeManagement_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

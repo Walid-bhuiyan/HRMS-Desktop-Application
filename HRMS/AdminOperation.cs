@@ -21,7 +21,7 @@ namespace HRMS
 
         private void show()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;");
+            SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
             conn.Open();
             string query = "SELECT * FROM Admins";
             SqlCommand cmd= new SqlCommand(query, conn);
@@ -81,7 +81,7 @@ namespace HRMS
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;");
+            SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
             conn.Open();
             try
             {
@@ -127,7 +127,7 @@ namespace HRMS
             }
 
             SqlConnection conn = new SqlConnection(
-                @"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;"
+                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
             );
             conn.Open();
 
@@ -154,7 +154,7 @@ namespace HRMS
 
         private void btndelete_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=DESKTOP-GC7C78E;Initial Catalog=hrmsDB;Integrated Security=True;");
+            SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
             conn.Open();
             try
             {
