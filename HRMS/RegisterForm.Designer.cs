@@ -61,6 +61,9 @@
             this.pnlSecutityAnsweremp = new System.Windows.Forms.Panel();
             this.txtSecurityAnswer = new System.Windows.Forms.TextBox();
             this.lblSecurityAnswer = new System.Windows.Forms.Label();
+            this.pnlPassword = new System.Windows.Forms.Panel();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.grpPersonalInfo = new System.Windows.Forms.GroupBox();
             this.tblPersonalInfo = new System.Windows.Forms.TableLayoutPanel();
             this.pnlFullName = new System.Windows.Forms.Panel();
@@ -97,6 +100,7 @@
             this.pnlEmploymentType.SuspendLayout();
             this.pnlSalary.SuspendLayout();
             this.pnlSecutityAnsweremp.SuspendLayout();
+            this.pnlPassword.SuspendLayout();
             this.grpPersonalInfo.SuspendLayout();
             this.tblPersonalInfo.SuspendLayout();
             this.pnlFullName.SuspendLayout();
@@ -137,8 +141,9 @@
             this.panelMain.Location = new System.Drawing.Point(0, 60);
             this.panelMain.Name = "panelMain";
             this.panelMain.Padding = new System.Windows.Forms.Padding(20);
-            this.panelMain.Size = new System.Drawing.Size(957, 643);
+            this.panelMain.Size = new System.Drawing.Size(957, 682);
             this.panelMain.TabIndex = 9;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // panelCard
             // 
@@ -247,6 +252,7 @@
             this.tblEmploymentInfo.Controls.Add(this.pnlEmploymentType, 0, 2);
             this.tblEmploymentInfo.Controls.Add(this.pnlSalary, 1, 2);
             this.tblEmploymentInfo.Controls.Add(this.pnlSecutityAnsweremp, 0, 3);
+            this.tblEmploymentInfo.Controls.Add(this.pnlPassword, 1, 3);
             this.tblEmploymentInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblEmploymentInfo.Location = new System.Drawing.Point(10, 38);
             this.tblEmploymentInfo.Name = "tblEmploymentInfo";
@@ -504,6 +510,35 @@
             this.lblSecurityAnswer.Size = new System.Drawing.Size(137, 25);
             this.lblSecurityAnswer.TabIndex = 1;
             this.lblSecurityAnswer.Text = "Security Answer";
+            // 
+            // pnlPassword
+            // 
+            this.pnlPassword.Controls.Add(this.txtPassword);
+            this.pnlPassword.Controls.Add(this.lblPassword);
+            this.pnlPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPassword.Location = new System.Drawing.Point(430, 193);
+            this.pnlPassword.Name = "pnlPassword";
+            this.pnlPassword.Size = new System.Drawing.Size(412, 54);
+            this.pnlPassword.TabIndex = 7;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPassword.Location = new System.Drawing.Point(0, 20);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(412, 30);
+            this.txtPassword.TabIndex = 3;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(0, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(70, 20);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Password";
             // 
             // grpPersonalInfo
             // 
@@ -765,7 +800,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(957, 703);
+            this.ClientSize = new System.Drawing.Size(957, 742);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.topLoginPanel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -797,6 +832,8 @@
             this.pnlSalary.PerformLayout();
             this.pnlSecutityAnsweremp.ResumeLayout(false);
             this.pnlSecutityAnsweremp.PerformLayout();
+            this.pnlPassword.ResumeLayout(false);
+            this.pnlPassword.PerformLayout();
             this.grpPersonalInfo.ResumeLayout(false);
             this.tblPersonalInfo.ResumeLayout(false);
             this.pnlFullName.ResumeLayout(false);
@@ -843,6 +880,14 @@
         private System.Windows.Forms.Label lblAdress;
         private System.Windows.Forms.RichTextBox rtbAddress;
         private System.Windows.Forms.GroupBox grpEmploymentInfo;
+        private System.Windows.Forms.Panel pnlButtons;
+        private System.Windows.Forms.FlowLayoutPanel flowButtons;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.FlowLayoutPanel flowGender;
+        private System.Windows.Forms.RadioButton rbMale;
+        private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.TableLayoutPanel tblEmploymentInfo;
         private System.Windows.Forms.Panel pnlSecurityQuestion;
         private System.Windows.Forms.TextBox txtSecurityQuestion;
@@ -854,25 +899,20 @@
         private System.Windows.Forms.ComboBox cmbJobTitle;
         private System.Windows.Forms.Label lblJobTitle;
         private System.Windows.Forms.Panel pnlJoinDate;
-        private System.Windows.Forms.Label lblJoiningDate;
         private System.Windows.Forms.DateTimePicker dtpJoiningDate;
+        private System.Windows.Forms.Label lblJoiningDate;
         private System.Windows.Forms.Panel pnlEmploymentType;
+        private System.Windows.Forms.Panel pnlSecurityAnswer;
         private System.Windows.Forms.ComboBox cmbEmploymentType;
         private System.Windows.Forms.Label lblEmploymentType;
         private System.Windows.Forms.Panel pnlSalary;
         private System.Windows.Forms.TextBox txtSalary;
-        private System.Windows.Forms.Panel pnlButtons;
-        private System.Windows.Forms.FlowLayoutPanel flowButtons;
-        private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.FlowLayoutPanel flowGender;
-        private System.Windows.Forms.RadioButton rbMale;
-        private System.Windows.Forms.RadioButton rbFemale;
-        private System.Windows.Forms.Panel pnlSecurityAnswer;
+        private System.Windows.Forms.Label lblSalary;
         private System.Windows.Forms.Panel pnlSecutityAnsweremp;
         private System.Windows.Forms.TextBox txtSecurityAnswer;
         private System.Windows.Forms.Label lblSecurityAnswer;
-        private System.Windows.Forms.Label lblSalary;
+        private System.Windows.Forms.Panel pnlPassword;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblPassword;
     }
 }

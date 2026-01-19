@@ -32,6 +32,8 @@
             this.topHeaderLogin = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlSideBar = new System.Windows.Forms.Panel();
+            this.btncomplainbox = new System.Windows.Forms.Button();
+            this.btnnotice = new System.Windows.Forms.Button();
             this.btnpayslip = new System.Windows.Forms.Button();
             this.btnsalarydetails = new System.Windows.Forms.Button();
             this.btnleavestatus = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.btnchangepass = new System.Windows.Forms.Button();
             this.btnupdateprofile = new System.Windows.Forms.Button();
             this.btnProfileDetails = new System.Windows.Forms.Button();
-            this.btnnotice = new System.Windows.Forms.Button();
-            this.btncomplainbox = new System.Windows.Forms.Button();
             this.pnlTopHr.SuspendLayout();
             this.pnlSideBar.SuspendLayout();
             this.SuspendLayout();
@@ -101,8 +101,36 @@
             this.pnlSideBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSideBar.Location = new System.Drawing.Point(0, 60);
             this.pnlSideBar.Name = "pnlSideBar";
-            this.pnlSideBar.Size = new System.Drawing.Size(230, 471);
+            this.pnlSideBar.Size = new System.Drawing.Size(215, 471);
             this.pnlSideBar.TabIndex = 10;
+            // 
+            // btncomplainbox
+            // 
+            this.btncomplainbox.BackColor = System.Drawing.Color.White;
+            this.btncomplainbox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btncomplainbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btncomplainbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncomplainbox.Location = new System.Drawing.Point(0, 390);
+            this.btncomplainbox.Name = "btncomplainbox";
+            this.btncomplainbox.Size = new System.Drawing.Size(215, 39);
+            this.btncomplainbox.TabIndex = 10;
+            this.btncomplainbox.Text = "Complain Box";
+            this.btncomplainbox.UseVisualStyleBackColor = false;
+            this.btncomplainbox.Click += new System.EventHandler(this.btncomplainbox_Click);
+            // 
+            // btnnotice
+            // 
+            this.btnnotice.BackColor = System.Drawing.Color.Lavender;
+            this.btnnotice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnnotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnotice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnotice.Location = new System.Drawing.Point(0, 351);
+            this.btnnotice.Name = "btnnotice";
+            this.btnnotice.Size = new System.Drawing.Size(215, 39);
+            this.btnnotice.TabIndex = 9;
+            this.btnnotice.Text = "Notice";
+            this.btnnotice.UseVisualStyleBackColor = false;
+            this.btnnotice.Click += new System.EventHandler(this.btnnotice_Click);
             // 
             // btnpayslip
             // 
@@ -112,7 +140,7 @@
             this.btnpayslip.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnpayslip.Location = new System.Drawing.Point(0, 312);
             this.btnpayslip.Name = "btnpayslip";
-            this.btnpayslip.Size = new System.Drawing.Size(230, 39);
+            this.btnpayslip.Size = new System.Drawing.Size(215, 39);
             this.btnpayslip.TabIndex = 8;
             this.btnpayslip.Text = "Payslip";
             this.btnpayslip.UseVisualStyleBackColor = false;
@@ -126,7 +154,7 @@
             this.btnsalarydetails.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsalarydetails.Location = new System.Drawing.Point(0, 273);
             this.btnsalarydetails.Name = "btnsalarydetails";
-            this.btnsalarydetails.Size = new System.Drawing.Size(230, 39);
+            this.btnsalarydetails.Size = new System.Drawing.Size(215, 39);
             this.btnsalarydetails.TabIndex = 7;
             this.btnsalarydetails.Text = "Salary Details";
             this.btnsalarydetails.UseVisualStyleBackColor = false;
@@ -140,7 +168,7 @@
             this.btnleavestatus.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnleavestatus.Location = new System.Drawing.Point(0, 234);
             this.btnleavestatus.Name = "btnleavestatus";
-            this.btnleavestatus.Size = new System.Drawing.Size(230, 39);
+            this.btnleavestatus.Size = new System.Drawing.Size(215, 39);
             this.btnleavestatus.TabIndex = 6;
             this.btnleavestatus.Text = "Leave Status";
             this.btnleavestatus.UseVisualStyleBackColor = false;
@@ -154,7 +182,7 @@
             this.btnapplyforleave.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnapplyforleave.Location = new System.Drawing.Point(0, 195);
             this.btnapplyforleave.Name = "btnapplyforleave";
-            this.btnapplyforleave.Size = new System.Drawing.Size(230, 39);
+            this.btnapplyforleave.Size = new System.Drawing.Size(215, 39);
             this.btnapplyforleave.TabIndex = 5;
             this.btnapplyforleave.Text = "Apply for Leave";
             this.btnapplyforleave.UseVisualStyleBackColor = false;
@@ -168,7 +196,7 @@
             this.btnattendancerecord.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnattendancerecord.Location = new System.Drawing.Point(0, 156);
             this.btnattendancerecord.Name = "btnattendancerecord";
-            this.btnattendancerecord.Size = new System.Drawing.Size(230, 39);
+            this.btnattendancerecord.Size = new System.Drawing.Size(215, 39);
             this.btnattendancerecord.TabIndex = 4;
             this.btnattendancerecord.Text = "Attendance Record";
             this.btnattendancerecord.UseVisualStyleBackColor = false;
@@ -181,7 +209,7 @@
             this.btndeptjobrule.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btndeptjobrule.Location = new System.Drawing.Point(0, 117);
             this.btndeptjobrule.Name = "btndeptjobrule";
-            this.btndeptjobrule.Size = new System.Drawing.Size(230, 39);
+            this.btndeptjobrule.Size = new System.Drawing.Size(215, 39);
             this.btndeptjobrule.TabIndex = 3;
             this.btndeptjobrule.Text = "Department and Job Rule";
             this.btndeptjobrule.UseVisualStyleBackColor = true;
@@ -195,7 +223,7 @@
             this.btnchangepass.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnchangepass.Location = new System.Drawing.Point(0, 78);
             this.btnchangepass.Name = "btnchangepass";
-            this.btnchangepass.Size = new System.Drawing.Size(230, 39);
+            this.btnchangepass.Size = new System.Drawing.Size(215, 39);
             this.btnchangepass.TabIndex = 2;
             this.btnchangepass.Text = "Change Password";
             this.btnchangepass.UseVisualStyleBackColor = false;
@@ -210,7 +238,7 @@
             this.btnupdateprofile.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnupdateprofile.Location = new System.Drawing.Point(0, 39);
             this.btnupdateprofile.Name = "btnupdateprofile";
-            this.btnupdateprofile.Size = new System.Drawing.Size(230, 39);
+            this.btnupdateprofile.Size = new System.Drawing.Size(215, 39);
             this.btnupdateprofile.TabIndex = 1;
             this.btnupdateprofile.Text = "Update Profile Details";
             this.btnupdateprofile.UseVisualStyleBackColor = false;
@@ -224,44 +252,17 @@
             this.btnProfileDetails.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfileDetails.Location = new System.Drawing.Point(0, 0);
             this.btnProfileDetails.Name = "btnProfileDetails";
-            this.btnProfileDetails.Size = new System.Drawing.Size(230, 39);
+            this.btnProfileDetails.Size = new System.Drawing.Size(215, 39);
             this.btnProfileDetails.TabIndex = 0;
             this.btnProfileDetails.Text = "Profile";
             this.btnProfileDetails.UseVisualStyleBackColor = false;
             this.btnProfileDetails.Click += new System.EventHandler(this.btnProfileDetails_Click);
             // 
-            // btnnotice
-            // 
-            this.btnnotice.BackColor = System.Drawing.Color.Lavender;
-            this.btnnotice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnnotice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnnotice.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnotice.Location = new System.Drawing.Point(0, 351);
-            this.btnnotice.Name = "btnnotice";
-            this.btnnotice.Size = new System.Drawing.Size(230, 39);
-            this.btnnotice.TabIndex = 9;
-            this.btnnotice.Text = "Notice";
-            this.btnnotice.UseVisualStyleBackColor = false;
-            this.btnnotice.Click += new System.EventHandler(this.btnnotice_Click);
-            // 
-            // btncomplainbox
-            // 
-            this.btncomplainbox.BackColor = System.Drawing.Color.White;
-            this.btncomplainbox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btncomplainbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btncomplainbox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncomplainbox.Location = new System.Drawing.Point(0, 390);
-            this.btncomplainbox.Name = "btncomplainbox";
-            this.btncomplainbox.Size = new System.Drawing.Size(230, 39);
-            this.btncomplainbox.TabIndex = 10;
-            this.btncomplainbox.Text = "Complain Box";
-            this.btncomplainbox.UseVisualStyleBackColor = false;
-            this.btncomplainbox.Click += new System.EventHandler(this.btncomplainbox_Click);
-            // 
             // EmployeeDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(885, 531);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pnlSideBar);

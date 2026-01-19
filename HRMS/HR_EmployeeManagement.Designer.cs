@@ -2,15 +2,8 @@
 {
     partial class HR_EmployeeManagement
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.topLoginPanel = new System.Windows.Forms.Panel();
@@ -53,11 +42,15 @@
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewEmployees = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
+            this.lblAcc = new System.Windows.Forms.Label();
+            this.dataGridViewAccountants = new System.Windows.Forms.DataGridView();
+            this.btnShow2 = new System.Windows.Forms.Button();
             this.topLoginPanel.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountants)).BeginInit();
             this.SuspendLayout();
             // 
             // topLoginPanel
@@ -79,10 +72,10 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.Ivory;
-            this.btnBack.Location = new System.Drawing.Point(1026, 14);
+            this.btnBack.Location = new System.Drawing.Point(912, 11);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(102, 42);
+            this.btnBack.Size = new System.Drawing.Size(91, 34);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -178,10 +171,9 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(327, 68);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSearch.Location = new System.Drawing.Point(291, 54);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(105, 44);
+            this.btnSearch.Size = new System.Drawing.Size(93, 35);
             this.btnSearch.TabIndex = 13;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -303,14 +295,12 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(248, 540);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelete.Location = new System.Drawing.Point(207, 432);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(89, 44);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnRefresh
             // 
@@ -318,12 +308,11 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(350, 540);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRefresh.Location = new System.Drawing.Point(298, 432);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(93, 44);
             this.btnRefresh.TabIndex = 11;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "Clear";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -333,14 +322,13 @@
             this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShow.ForeColor = System.Drawing.Color.White;
-            this.btnShow.Location = new System.Drawing.Point(780, 540);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnShow.Location = new System.Drawing.Point(675, 252);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(89, 44);
             this.btnShow.TabIndex = 15;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = false;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.btnShow.Click += new System.EventHandler(this.btnShowEmployees_Click);
             // 
             // btnUpdate
             // 
@@ -348,8 +336,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(148, 540);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdate.Location = new System.Drawing.Point(119, 432);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(89, 44);
             this.btnUpdate.TabIndex = 16;
@@ -357,35 +344,73 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // dataGridView1
+            // dataGridViewEmployees
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(536, 156);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(566, 364);
-            this.dataGridView1.TabIndex = 17;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmployees.Location = new System.Drawing.Point(476, 125);
+            this.dataGridViewEmployees.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewEmployees.Name = "dataGridViewEmployees";
+            this.dataGridViewEmployees.RowHeadersWidth = 51;
+            this.dataGridViewEmployees.Size = new System.Drawing.Size(503, 100);
+            this.dataGridViewEmployees.TabIndex = 17;
+            this.dataGridViewEmployees.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEmployees_CellClick);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(858, 99);
+            this.label9.Location = new System.Drawing.Point(670, 79);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(134, 32);
+            this.label9.Size = new System.Drawing.Size(131, 28);
             this.label9.TabIndex = 18;
-            this.label9.Text = "Data Table";
+            this.label9.Text = "Emplyee List";
+            // 
+            // lblAcc
+            // 
+            this.lblAcc.AutoSize = true;
+            this.lblAcc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcc.Location = new System.Drawing.Point(670, 313);
+            this.lblAcc.Name = "lblAcc";
+            this.lblAcc.Size = new System.Drawing.Size(160, 28);
+            this.lblAcc.TabIndex = 21;
+            this.lblAcc.Text = "Accountant List";
+            // 
+            // dataGridViewAccountants
+            // 
+            this.dataGridViewAccountants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAccountants.Location = new System.Drawing.Point(476, 359);
+            this.dataGridViewAccountants.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewAccountants.Name = "dataGridViewAccountants";
+            this.dataGridViewAccountants.RowHeadersWidth = 51;
+            this.dataGridViewAccountants.Size = new System.Drawing.Size(503, 100);
+            this.dataGridViewAccountants.TabIndex = 20;
+            this.dataGridViewAccountants.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAccountants_CellClick);
+            // 
+            // btnShow2
+            // 
+            this.btnShow2.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnShow2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShow2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShow2.ForeColor = System.Drawing.Color.White;
+            this.btnShow2.Location = new System.Drawing.Point(675, 486);
+            this.btnShow2.Name = "btnShow2";
+            this.btnShow2.Size = new System.Drawing.Size(79, 35);
+            this.btnShow2.TabIndex = 19;
+            this.btnShow2.Text = "Show";
+            this.btnShow2.UseVisualStyleBackColor = false;
+            this.btnShow2.Click += new System.EventHandler(this.btnShowAccountants_Click);
             // 
             // HR_EmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1142, 798);
+            this.ClientSize = new System.Drawing.Size(1015, 638);
+            this.Controls.Add(this.lblAcc);
+            this.Controls.Add(this.dataGridViewAccountants);
+            this.Controls.Add(this.btnShow2);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewEmployees);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAddEmployee);
@@ -404,7 +429,8 @@
             this.topLoginPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAccountants)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,8 +462,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewEmployees;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label lblAcc;
+        private System.Windows.Forms.DataGridView dataGridViewAccountants;
+        private System.Windows.Forms.Button btnShow2;
     }
 }
