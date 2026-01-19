@@ -1,15 +1,22 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace HRMS
 {
     public partial class HRManagerDashboard : Form
     {
-        int hrId;
+        private int hrId = 0;
+
+        // ✅ Your database connection
+        private string conStr =
+            @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+
+        // ================= CONSTRUCTORS =================
+
         public HRManagerDashboard()
         {
             InitializeComponent();
-            hrId = 0;
         }
 
         public HRManagerDashboard(int id)
@@ -18,7 +25,49 @@ namespace HRMS
             hrId = id;
         }
 
-        // ---------------- LOGOUT ----------------
+        // ================= FORM LOAD =================
+
+        private void HRManagerDashboard_Load(object sender, EventArgs e)
+        {
+            LoadDashboardData();
+        }
+
+        // ================= DASHBOARD DATA =================
+
+        private void LoadDashboardData()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(conStr))
+                {
+                    conn.Open();
+
+                    // 🔹 TOTAL EMPLOYEES
+                    SqlCommand cmdEmp = new SqlCommand(
+                        "SELECT COUNT(*) FROM Employees_Info", conn);
+                    lblTotalEmployeesValue.Text = cmdEmp.ExecuteScalar().ToString();
+
+                    // 🔹 TODAY'S PRESENT
+                    SqlCommand cmdPresent = new SqlCommand(
+                        "SELECT COUNT(*) FROM Attendance WHERE AttendanceDate = CAST(GETDATE() AS DATE) AND Status='Present'", conn);
+                    lblTodayPresentValue.Text = cmdPresent.ExecuteScalar().ToString();
+
+                    // 🔹 TOTAL DEPARTMENTS
+                    SqlCommand cmdDept = new SqlCommand(
+                        "SELECT COUNT(*) FROM Departments", conn);
+                    lblTotalDepartmentsValue.Text = cmdDept.ExecuteScalar().ToString();
+
+                    // 🔹 PENDING LEAVES (NO TABLE YET)
+                    lblPendingLeavesValue.Text = "0";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Dashboard load error: " + ex.Message);
+            }
+        }
+
+        // ================= LOGOUT =================
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -27,16 +76,20 @@ namespace HRMS
             this.Hide();
         }
 
-        // ---------------- PROFILE ----------------
+        // ================= PROFILE =================
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            // Open HR profile and pass HR id
             HRProfile p = new HRProfile(hrId);
             p.Show();
         }
 
-        // ---------------- EMPLOYEES ----------------
+        private void btnProfile_Click_1(object sender, EventArgs e)
+        {
+            btnProfile_Click(sender, e);
+        }
+
+        // ================= EMPLOYEES =================
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
@@ -45,15 +98,35 @@ namespace HRMS
             this.Hide();
         }
 
-        // ❌ REMOVE duplicate empty handler if designer created it
-        private void btnProfile_Click_1(object sender, EventArgs e)
+        // ================= ATTENDANCE =================
+
+        private void btnAttendance_Click(object sender, EventArgs e)
         {
-            btnProfile_Click(sender, e);
+            HRAttendance hrAtt = new HRAttendance();
+            hrAtt.Show();
+            this.Hide();
         }
 
-        private void btnDashboardSB_Click(object sender, EventArgs e)
-        {
+        // ================= CHANGE PASSWORD =================
 
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            HRChangePassword cp = new HRChangePassword(hrId);
+            cp.Show();
+            this.Hide();
+        }
+
+        // ================= EMPTY EVENTS =================
+
+        private void pnlTopHr_Paint(object sender, PaintEventArgs e) { }
+        private void panelDashboard_Paint(object sender, PaintEventArgs e) { }
+        private void pnlMain_Paint(object sender, PaintEventArgs e) { }
+
+        private void btnOrganization_Click(object sender, EventArgs e)
+        {
+            HR_DepartmentManagement n= new HR_DepartmentManagement();
+            n.Show();
+            this.Hide();
         }
     }
 }
