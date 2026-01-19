@@ -92,7 +92,9 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.7.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.Tokens.7.7.1\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -172,6 +174,12 @@
     <Compile Include="AccountantDashboard.Designer.cs">
       <DependentUpon>AccountantDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAttendence.Designer.cs">
+      <DependentUpon>AdminAttendence.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +197,12 @@
     </Compile>
     <Compile Include="AdminOperation.Designer.cs">
       <DependentUpon>AdminOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminOpHRManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminOpHRManager.Designer.cs">
+      <DependentUpon>AdminOpHRManager.cs</DependentUpon>
     </Compile>
     <Compile Include="ApplyforLeave.cs">
       <SubType>Form</SubType>
@@ -243,11 +257,35 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HRAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRAttendance.Designer.cs">
+      <DependentUpon>HRAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HRChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRChangePassword.Designer.cs">
+      <DependentUpon>HRChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="HRManagerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HRManagerDashboard.Designer.cs">
       <DependentUpon>HRManagerDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HRProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRProfile.Designer.cs">
+      <DependentUpon>HRProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR_DepartmentManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR_DepartmentManagement.Designer.cs">
+      <DependentUpon>HR_DepartmentManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="HR_EmployeeManagement.cs">
       <SubType>Form</SubType>
@@ -299,6 +337,9 @@
     <Compile Include="UpdateProfile.Designer.cs">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminAttendence.resx">
+      <DependentUpon>AdminAttendence.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminOperation.resx">
       <DependentUpon>AdminOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminOpHRManager.resx">
+      <DependentUpon>AdminOpHRManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ApplyforLeave.resx">
       <DependentUpon>ApplyforLeave.cs</DependentUpon>
@@ -332,8 +376,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HRAttendance.resx">
+      <DependentUpon>HRAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRChangePassword.resx">
+      <DependentUpon>HRChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HRManagerDashboard.resx">
       <DependentUpon>HRManagerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRProfile.resx">
+      <DependentUpon>HRProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR_DepartmentManagement.resx">
+      <DependentUpon>HR_DepartmentManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR_EmployeeManagement.resx">
       <DependentUpon>HR_EmployeeManagement.cs</DependentUpon>

@@ -24,11 +24,11 @@ namespace HRMS
             SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
             conn.Open();
             string query = "SELECT * FROM Admins";
-            SqlCommand cmd= new SqlCommand(query, conn);
-            SqlDataAdapter adp= new SqlDataAdapter(cmd);
-            DataSet ds= new DataSet();
+            SqlCommand cmd = new SqlCommand(query, conn);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
             adp.Fill(ds);
-            DataTable dt= ds.Tables[0];
+            DataTable dt = ds.Tables[0];
             dataGridView1.DataSource = dt;
             dataGridView1.AutoGenerateColumns = true;
             conn.Close();
@@ -36,7 +36,7 @@ namespace HRMS
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -46,7 +46,7 @@ namespace HRMS
 
         private void txtinsert_Click(object sender, EventArgs e)
         {
-            AdminInsertionForm admninsertion= new AdminInsertionForm();
+            AdminInsertionForm admninsertion = new AdminInsertionForm();
             admninsertion.Show();
             this.Close();
         }
@@ -74,37 +74,113 @@ namespace HRMS
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            btnadminoperations btnadmnop= new btnadminoperations();
+            btnadminoperations btnadmnop = new btnadminoperations();
             btnadmnop.Show();
             this.Close();
         }
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
-            conn.Open();
-            try
+            if (string.IsNullOrWhiteSpace(txtid.Text))
             {
-                string query = "UPDATE Admins SET name='" + txtname.Text + "', email='" + txtemail.Text + "', phone='" + txtphone.Text + "', gender='" + txtgender.Text + "', address='" + txtaddress.Text + "', dob='" + txtdob.Text + "' WHERE id=" + txtid.Text;
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-
-                string queryUser = "UPDATE Users SET Email='" + txtemail.Text + "' WHERE RefId=" + txtid.Text + " AND Role='Admin'";
-                SqlCommand cmdUser = new SqlCommand(queryUser, conn);
-                cmdUser.ExecuteNonQuery();
-
-                MessageBox.Show("Admin updated successfully!");
+                MessageBox.Show("Please select an admin first.");
+                return;
             }
-            catch (Exception ex)
+
+            if (string.IsNullOrWhiteSpace(txtname.Text))
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Name cannot be empty.");
+                return;
             }
-            finally
+
+            if (string.IsNullOrWhiteSpace(txtemail.Text))
             {
-                conn.Close();
-                show();
+                MessageBox.Show("Email cannot be empty.");
+                return;
+            }
+
+            if (!AdminInsertionForm.IsValidEmail(txtemail.Text))
+            {
+                MessageBox.Show("Invalid email format.");
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(
+                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
+            {
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
+
+                try
+                {
+                    // 🔍 STEP 1: Check duplicate email (except this admin)
+                    string checkQuery = @"SELECT COUNT(*) 
+                                  FROM Users 
+                                  WHERE Email=@email 
+                                  AND NOT (RefId=@id AND Role='Admin')";
+
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn, tran);
+                    checkCmd.Parameters.AddWithValue("@email", txtemail.Text);
+                    checkCmd.Parameters.AddWithValue("@id", txtid.Text);
+
+                    int exists = (int)checkCmd.ExecuteScalar();
+
+                    if (exists > 0)
+                    {
+                        MessageBox.Show("This email is already used by another user.");
+                        tran.Rollback();
+                        return;
+                    }
+
+                    // 🔹 STEP 2: Update Admins
+                    string q1 = @"UPDATE Admins
+                          SET name=@name,
+                              email=@email,
+                              phone=@phone,
+                              gender=@gender,
+                              address=@address,
+                              dob=@dob
+                          WHERE id=@id";
+
+                    SqlCommand cmd1 = new SqlCommand(q1, conn, tran);
+
+                    cmd1.Parameters.AddWithValue("@id", txtid.Text);
+                    cmd1.Parameters.AddWithValue("@name", txtname.Text);
+                    cmd1.Parameters.AddWithValue("@email", txtemail.Text);
+                    cmd1.Parameters.AddWithValue("@phone", txtphone.Text);
+                    cmd1.Parameters.AddWithValue("@gender", txtgender.Text);
+                    cmd1.Parameters.AddWithValue("@address", txtaddress.Text);
+                    cmd1.Parameters.AddWithValue("@dob", Convert.ToDateTime(txtdob.Text));
+
+                    cmd1.ExecuteNonQuery();
+
+                    // 🔹 STEP 3: Update Users
+                    string q2 = @"UPDATE Users 
+                          SET Email=@email
+                          WHERE RefId=@id AND Role='Admin'";
+
+                    SqlCommand cmd2 = new SqlCommand(q2, conn, tran);
+                    cmd2.Parameters.AddWithValue("@id", txtid.Text);
+                    cmd2.Parameters.AddWithValue("@email", txtemail.Text);
+
+                    cmd2.ExecuteNonQuery();
+
+                    tran.Commit();
+                    MessageBox.Show("✅ Admin updated successfully!");
+                    show();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show("❌ Update failed: " + ex.Message);
+                }
             }
         }
+
+
+
+
+
 
         private void btnreset_Click(object sender, EventArgs e)
         {
@@ -131,7 +207,7 @@ namespace HRMS
             );
             conn.Open();
 
-            string query = "SELECT * FROM Admins WHERE id=" + txtid.Text + "";
+            string query = "SELECT * FROM Admins WHERE Id=" + txtid.Text + "";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader dr = cmd.ExecuteReader();
 
