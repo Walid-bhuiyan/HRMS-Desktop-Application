@@ -15,16 +15,25 @@ namespace HRMS
 {
     public partial class AdminInsertionForm : Form
     {
+        int adminId;
+        string adminEmail;
+
         private string name, email, phone, gender, address, securityans, pass;
         private DateTime dob;
-        public AdminInsertionForm()
+
+        string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+
+        // ✅ REQUIRED CONSTRUCTOR
+        public AdminInsertionForm(int id, string emailLogged)
         {
             InitializeComponent();
+            adminId = id;
+            adminEmail = emailLogged;
         }
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            AdminOperation admnoperations= new AdminOperation();
+            AdminOperation admnoperations= new AdminOperation(adminId, adminEmail);
             admnoperations.Show();
             this.Close();
         }

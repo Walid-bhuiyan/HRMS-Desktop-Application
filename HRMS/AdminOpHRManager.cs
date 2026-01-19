@@ -1,41 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace HRMS
 {
     public partial class AdminOpHRManager : Form
     {
+        int adminId;
+        string adminEmail;
+
         private string name, email, phone, gender, address, securityans, pass;
         private int salary;
         private DateTime dob;
 
-        public AdminOpHRManager()
+        string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+
+        // ✅ REQUIRED CONSTRUCTOR
+        public AdminOpHRManager(int id, string emailLogged)
         {
             InitializeComponent();
+            adminId = id;
+            adminEmail = emailLogged;
         }
 
+        // ================= LOAD =================
         private void AdminOpHRManager_Load(object sender, EventArgs e)
         {
             panel1.Visible = false;
         }
 
+        // ================= BACK =================
         private void btnback_Click(object sender, EventArgs e)
         {
-            btnadminoperations btnadminop = new btnadminoperations();
-            btnadminop.Show();
+            btnadminoperations admin = new btnadminoperations(adminId, adminEmail);
+            admin.Show();
             this.Close();
         }
 
+        // ================= SHOW PANEL =================
         private void btninsertmanager_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
@@ -47,23 +53,17 @@ namespace HRMS
             panel1.Visible = false;
         }
 
+        // ================= SHOW HR MANAGERS =================
         private void showHRManagers()
         {
-            SqlConnection conn = new SqlConnection(
-                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
-            conn.Open();
-
-            string query = "SELECT * FROM HRManagers";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            adp.Fill(ds);
-
-            DataTable dt = ds.Tables[0];
-            dataGridView1.DataSource = dt;
-            dataGridView1.AutoGenerateColumns = true;
-
-            conn.Close();
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                string query = "SELECT * FROM HRManagers";
+                SqlDataAdapter adp = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
         }
 
         private void txtshow_Click(object sender, EventArgs e)
@@ -71,18 +71,20 @@ namespace HRMS
             showHRManagers();
         }
 
+        // ================= RESET =================
         private void btnreset_Click(object sender, EventArgs e)
         {
-            txtId.Text = "";
-            txtName.Text = "";
-            txtEmail.Text = "";
-            txtPhone.Text = "";
-            txtGender.Text = "";
-            txtAddress.Text = "";
-            txtDob.Text = "";
-            txtSalary.Text = "";
+            txtId.Clear();
+            txtName.Clear();
+            txtEmail.Clear();
+            txtPhone.Clear();
+            txtGender.Clear();
+            txtAddress.Clear();
+            txtDob.Clear();
+            txtSalary.Clear();
         }
 
+        // ================= SEARCH =================
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtId.Text.Trim() == "")
@@ -91,369 +93,247 @@ namespace HRMS
                 return;
             }
 
-            SqlConnection conn = new SqlConnection(
-                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
-            );
-            conn.Open();
-
-            string query = "SELECT * FROM HRManagers WHERE hrId=" + txtId.Text;
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
+            using (SqlConnection conn = new SqlConnection(conStr))
             {
-                txtName.Text = dr["name"].ToString();
-                txtEmail.Text = dr["email"].ToString();
-                txtPhone.Text = dr["phone"].ToString();
-                txtGender.Text = dr["gender"].ToString();
-                txtAddress.Text = dr["address"].ToString();
-                txtDob.Text = dr["dob"].ToString();
-                txtSalary.Text = dr["salary"].ToString();
-            }
-            else
-            {
-                MessageBox.Show("HR Manager not found!");
-            }
+                conn.Open();
+                string query = "SELECT * FROM HRManagers WHERE hrId=@id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", txtId.Text);
 
-            conn.Close();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    txtName.Text = dr["name"].ToString();
+                    txtEmail.Text = dr["email"].ToString();
+                    txtPhone.Text = dr["phone"].ToString();
+                    txtGender.Text = dr["gender"].ToString();
+                    txtAddress.Text = dr["address"].ToString();
+                    txtDob.Text = dr["dob"].ToString();
+                    txtSalary.Text = dr["salary"].ToString();
+                }
+                else MessageBox.Show("HR Manager not found!");
+            }
         }
 
+        // ================= DELETE =================
         private void btndelete_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(
-                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
-            );
-            conn.Open();
-            try
+            if (txtId.Text == "") return;
+
+            using (SqlConnection conn = new SqlConnection(conStr))
             {
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
 
-                string queryUser = "DELETE FROM Users WHERE RefId=" + txtId.Text + " AND Role='HRManager'";
-                SqlCommand cmdUser = new SqlCommand(queryUser, conn);
-                cmdUser.ExecuteNonQuery();
+                try
+                {
+                    string q1 = "DELETE FROM Users WHERE RefId=@id AND Role='HRManager'";
+                    string q2 = "DELETE FROM HRManagers WHERE hrId=@id";
 
+                    SqlCommand c1 = new SqlCommand(q1, conn, tran);
+                    SqlCommand c2 = new SqlCommand(q2, conn, tran);
 
-                string query = "DELETE FROM HRManagers WHERE hrId=" + txtId.Text;
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
+                    c1.Parameters.AddWithValue("@id", txtId.Text);
+                    c2.Parameters.AddWithValue("@id", txtId.Text);
 
-                MessageBox.Show("HR Manager deleted successfully!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                txtId.Text = txtName.Text = txtEmail.Text = txtPhone.Text = txtGender.Text = txtAddress.Text = txtDob.Text = txtSalary.Text = "";
-                conn.Close();
-                showHRManagers();
+                    c1.ExecuteNonQuery();
+                    c2.ExecuteNonQuery();
+
+                    tran.Commit();
+                    MessageBox.Show("HR Manager deleted successfully!");
+                    showHRManagers();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
         }
 
+        // ================= UPDATE =================
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text.Trim();
-            string email = txtEmail.Text.Trim();
-            string phone = txtPhone.Text.Trim();
-            string salary = txtSalary.Text.Trim();
-
-            if (txtId.Text.Trim() == "")
+            if (txtId.Text == "")
             {
-                MessageBox.Show("Please select an HR Manager first!");
+                MessageBox.Show("Select HR Manager first!");
                 return;
             }
 
-            if (name == "")
+            if (!AdminInsertionForm.IsValidEmail(txtEmail.Text))
             {
-                MessageBox.Show("Name cannot be empty!");
+                MessageBox.Show("Invalid email!");
                 return;
             }
 
-            foreach (char c in name)
+            using (SqlConnection conn = new SqlConnection(conStr))
             {
-                if (!char.IsLetter(c) && c != ' ')
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
+
+                try
                 {
-                    MessageBox.Show("Name cannot contain numbers or special characters!");
-                    return;
+                    string q1 = @"UPDATE HRManagers SET 
+                                  name=@name,email=@email,phone=@phone,
+                                  gender=@gender,address=@address,
+                                  dob=@dob,salary=@salary WHERE hrId=@id";
+
+                    SqlCommand cmd = new SqlCommand(q1, conn, tran);
+
+                    cmd.Parameters.AddWithValue("@id", txtId.Text);
+                    cmd.Parameters.AddWithValue("@name", txtName.Text);
+                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+                    cmd.Parameters.AddWithValue("@phone", txtPhone.Text);
+                    cmd.Parameters.AddWithValue("@gender", txtGender.Text);
+                    cmd.Parameters.AddWithValue("@address", txtAddress.Text);
+                    cmd.Parameters.AddWithValue("@dob", txtDob.Text);
+                    cmd.Parameters.AddWithValue("@salary", txtSalary.Text);
+                    cmd.ExecuteNonQuery();
+
+                    string q2 = "UPDATE Users SET Email=@e WHERE RefId=@id AND Role='HRManager'";
+                    SqlCommand cmd2 = new SqlCommand(q2, conn, tran);
+                    cmd2.Parameters.AddWithValue("@id", txtId.Text);
+                    cmd2.Parameters.AddWithValue("@e", txtEmail.Text);
+                    cmd2.ExecuteNonQuery();
+
+                    tran.Commit();
+                    MessageBox.Show("HR Manager updated successfully!");
+                    showHRManagers();
                 }
-            }
-
-            if (email == "")
-            {
-                MessageBox.Show("Email cannot be empty!");
-                return;
-            }
-
-            if (!AdminInsertionForm.IsValidEmail(email))
-            {
-                MessageBox.Show("Invalid email address!");
-                return;
-            }
-
-            if (phone == "")
-            {
-                MessageBox.Show("Phone number cannot be empty!");
-                return;
-            }
-
-            foreach (char c in phone)
-            {
-                if (!char.IsDigit(c))
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Phone number must contain only digits!");
-                    return;
+                    tran.Rollback();
+                    MessageBox.Show("Error: " + ex.Message);
                 }
-            }
-
-            if (phone.Length < 6 || phone.Length > 15)
-            {
-                MessageBox.Show("Phone number must be between 6 and 15 digits!");
-                return;
-            }
-
-            if (!decimal.TryParse(salary, out _))
-            {
-                MessageBox.Show("Salary must contain only numbers!");
-                return;
-            }
-
-            SqlConnection conn = new SqlConnection(
-                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
-            );
-
-            conn.Open();
-
-            try
-            {
-                string query = "UPDATE HRManagers SET " +
-                               "name='" + txtName.Text + "', " +
-                               "email='" + txtEmail.Text + "', " +
-                               "phone='" + txtPhone.Text + "', " +
-                               "gender='" + txtGender.Text + "', " +
-                               "address='" + txtAddress.Text + "', " +
-                               "dob='" + txtDob.Text + "', " +
-                               "salary='" + txtSalary.Text + "' " +
-                               "WHERE hrId=" + txtId.Text;
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-
-                string queryUser = "UPDATE Users SET Email='" + txtEmail.Text +
-                                   "' WHERE RefId=" + txtId.Text + " AND Role='HRManager'";
-
-                SqlCommand cmdUser = new SqlCommand(queryUser, conn);
-                cmdUser.ExecuteNonQuery();
-
-                MessageBox.Show("HR Manager updated successfully!");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-                showHRManagers();
             }
         }
 
+        // ================= GRID CLICK =================
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow r = dataGridView1.Rows[e.RowIndex];
+            txtId.Text = r.Cells[0].Value.ToString();
+            txtName.Text = r.Cells[1].Value.ToString();
+            txtEmail.Text = r.Cells[2].Value.ToString();
+            txtPhone.Text = r.Cells[3].Value.ToString();
+            txtGender.Text = r.Cells[4].Value.ToString();
+            txtDob.Text = r.Cells[5].Value.ToString();
+            txtAddress.Text = r.Cells[6].Value.ToString();
+            txtSalary.Text = r.Cells[9].Value.ToString();
+        }
+
+        // ================= INSERT HR =================
+        private string HashPassword(string p)
+        {
+            using (SHA256 sha = SHA256.Create())
             {
-                txtId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtEmail.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-                txtPhone.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-                txtGender.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtAddress.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtDob.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtSalary.Text = dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
-            }
-        }
-
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private SqlConnection Connect()
-        {
-            string cs = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
-            SqlConnection conn = new SqlConnection(cs);
-            conn.Open();
-            return conn;
-        }
-
-        private string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder sb = new StringBuilder();
-                foreach (byte b in bytes)
-                {
-                    sb.Append(b.ToString("x2"));
-                }
-                return sb.ToString();
+                byte[] b = sha.ComputeHash(Encoding.UTF8.GetBytes(p));
+                return BitConverter.ToString(b).Replace("-", "").ToLower();
             }
         }
 
         private void InsertIntoHRManager()
         {
-            try
+            using (SqlConnection conn = new SqlConnection(conStr))
             {
-                SqlConnection conn = Connect();
-                string hashedPass = HashPassword(pass);
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
 
-                string query =
-                    "INSERT INTO HRManagers (name,email,phone,gender,address,dob,salary,securityans,password) " +
-                    "VALUES ('" + name + "','" + email + "','" + phone + "','" + gender + "','" +
-                    address + "','" + dob + "'," + salary + ",'" + securityans + "','" + hashedPass + "'); " +
-                    "SELECT SCOPE_IDENTITY();";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                int hrId = Convert.ToInt32(cmd.ExecuteScalar());
-
-                InsertIntoUsers(hrId, "HRManager");
-            }
-            catch (SqlException ex)
-            {
-                if (ex.Number == 2627)
+                try
                 {
-                    MessageBox.Show("This email already exists!", "Duplicate Email",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    string q1 = @"INSERT INTO HRManagers
+                        (name,email,phone,gender,address,dob,salary,securityans,password)
+                        VALUES (@n,@e,@p,@g,@a,@d,@s,@sec,@pass);
+                        SELECT SCOPE_IDENTITY();";
+
+                    SqlCommand cmd = new SqlCommand(q1, conn, tran);
+
+                    cmd.Parameters.AddWithValue("@n", name);
+                    cmd.Parameters.AddWithValue("@e", email);
+                    cmd.Parameters.AddWithValue("@p", phone);
+                    cmd.Parameters.AddWithValue("@g", gender);
+                    cmd.Parameters.AddWithValue("@a", address);
+                    cmd.Parameters.AddWithValue("@d", dob);
+                    cmd.Parameters.AddWithValue("@s", salary);
+                    cmd.Parameters.AddWithValue("@sec", securityans);
+                    cmd.Parameters.AddWithValue("@pass", HashPassword(pass));
+
+                    int hrId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    string q2 = @"INSERT INTO Users
+                        (RefId,Role,Email,Password,SecurityAns)
+                        VALUES (@id,'HRManager',@e,@p,@sec)";
+
+                    SqlCommand cmd2 = new SqlCommand(q2, conn, tran);
+                    cmd2.Parameters.AddWithValue("@id", hrId);
+                    cmd2.Parameters.AddWithValue("@e", email);
+                    cmd2.Parameters.AddWithValue("@p", HashPassword(pass));
+                    cmd2.Parameters.AddWithValue("@sec", securityans);
+                    cmd2.ExecuteNonQuery();
+
+                    tran.Commit();
                 }
-                else
+                catch (SqlException ex) when (ex.Number == 2627)
                 {
-                    MessageBox.Show("Database Error: " + ex.Message);
+                    tran.Rollback();
+                    MessageBox.Show("Email already exists!");
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
-        private void InsertIntoUsers(int refId, string role)
-        {
-            SqlConnection conn = Connect();
 
-            string query =
-                "INSERT INTO Users (RefId, Role, Email, Password, SecurityAns) " +
-                "VALUES (" + refId + ",'" + role + "','" + email + "','" +
-                HashPassword(pass) + "','" + securityans + "')";
-
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.ExecuteNonQuery();
-        }
-
+        // ================= SUBMIT HR =================
         private void btnsubmithr_Click(object sender, EventArgs e)
         {
-            lblerrorname.Text = lblerrorphone.Text = lblerroremail.Text =
-            lblerrorpasswod.Text = lblerrorsecurityans.Text = lblerroraddress.Text =
-            lblerrordob.Text = lblerrorgender.Text = lblerrorsalary.Text = "";
-
-            name = textname.Text;
-            email = textemail.Text;
-            phone = textphone.Text;
-            address = richTextBox.Text;
-            securityans = textquestionans.Text;
-            pass = textpass.Text;
-            dob = Convert.ToDateTime(dateTimePicker.Value);
-
-            if (rbmales.Checked) gender = "Male";
-            else if (rbfemales.Checked) gender = "Female";
-            else gender = "";
-
-            bool hasError = false;
-
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                lblerrorname.Text = "Please enter name";
-                hasError = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                lblerroremail.Text = "Please enter email";
-                hasError = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(phone))
-            {
-                lblerrorphone.Text = "Please enter phone";
-                hasError = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(pass))
-            {
-                lblerrorpasswod.Text = "Please enter password";
-                hasError = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(securityans))
-            {
-                lblerrorsecurityans.Text = "Please enter security answer";
-                hasError = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(address))
-            {
-                lblerroraddress.Text = "Please enter address";
-                hasError = true;
-            }
-
-            if (string.IsNullOrWhiteSpace(gender))
-            {
-                lblerrorgender.Text = "Please select gender";
-                hasError = true;
-            }
-
-            if (dob == DateTime.Today)
-            {
-                lblerrordob.Text = "Invalid DOB";
-                hasError = true;
-            }
+            name = textname.Text.Trim();
+            email = textemail.Text.Trim();
+            phone = textphone.Text.Trim();
+            address = richTextBox.Text.Trim();
+            securityans = textquestionans.Text.Trim();
+            pass = textpass.Text.Trim();
 
             if (!int.TryParse(textsalary.Text, out salary))
             {
-                lblerrorsalary.Text = "Salary must be numeric";
-                hasError = true;
+                MessageBox.Show("Salary must be numeric");
+                return;
             }
 
-            if (hasError) return;
+            dob = dateTimePicker.Value;
+            gender = rbmales.Checked ? "Male" : rbfemales.Checked ? "Female" : "";
 
-            foreach (char c in name)
+            if (name == "" || email == "" || phone == "" || pass == "" || securityans == "" || address == "" || gender == "")
             {
-                if (!char.IsLetter(c) && c != ' ')
-                {
-                    MessageBox.Show("Name can contain only letters and spaces");
-                    return;
-                }
+                MessageBox.Show("All fields required!");
+                return;
+            }
+
+            if (!AdminInsertionForm.IsValidEmail(email))
+            {
+                MessageBox.Show("Invalid email!");
+                return;
             }
 
             if (!phone.All(char.IsDigit) || phone.Length < 6 || phone.Length > 15)
             {
-                MessageBox.Show("Phone must be 6–15 digits only");
+                MessageBox.Show("Invalid phone!");
                 return;
             }
 
             if (pass.Length < 4 || !pass.Any(c => "#@$%&*".Contains(c)))
             {
-                MessageBox.Show("Password must contain a special character (#,@,$,%,&,*)");
+                MessageBox.Show("Weak password!");
                 return;
             }
 
             InsertIntoHRManager();
-            MessageBox.Show("HR Manager added successfully!", "Success",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            textname.Clear();
-            textemail.Clear();
-            textphone.Clear();
-            textsalary.Clear();
-            textquestionans.Clear();
-            textpass.Clear();
-            richTextBox.Clear();
-            rbmales.Checked = rbfemales.Checked = false;
-            dateTimePicker.Value = DateTime.Today;
+            MessageBox.Show("HR Manager added successfully!");
+            panel1.Visible = false;
         }
     }
 }

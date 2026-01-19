@@ -1,84 +1,97 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Security.Cryptography;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace HRMS
 {
     public partial class AdminOperation : Form
     {
-        public AdminOperation()
+        int adminId;
+        string adminEmail;
+
+        string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+
+        // ✅ REQUIRED CONSTRUCTOR
+        public AdminOperation(int id, string email)
         {
             InitializeComponent();
+            adminId = id;
+            adminEmail = email;
         }
 
+        // ================= SHOW ADMINS =================
         private void show()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
-            conn.Open();
-            string query = "SELECT * FROM Admins";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            adp.Fill(ds);
-            DataTable dt = ds.Tables[0];
-            dataGridView1.DataSource = dt;
-            dataGridView1.AutoGenerateColumns = true;
-            conn.Close();
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Admins";
+                SqlDataAdapter adp = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        // ================= BACK =================
+        private void btnback_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtinsert_Click(object sender, EventArgs e)
-        {
-            AdminInsertionForm admninsertion = new AdminInsertionForm();
-            admninsertion.Show();
+            btnadminoperations btnadmnop = new btnadminoperations(adminId, adminEmail);
+            btnadmnop.Show();
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-
-        }
-
+        // ================= SHOW =================
         private void txtshow_Click(object sender, EventArgs e)
         {
             show();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        // ================= INSERT =================
+        private void txtinsert_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtid_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnback_Click(object sender, EventArgs e)
-        {
-            btnadminoperations btnadmnop = new btnadminoperations();
-            btnadmnop.Show();
+            AdminInsertionForm admninsertion = new AdminInsertionForm(adminId, adminEmail);
+            admninsertion.Show();
             this.Close();
         }
 
+        // ================= SEARCH =================
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+            if (txtid.Text == "")
+            {
+                MessageBox.Show("Please enter ID");
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                conn.Open();
+                string query = "SELECT * FROM Admins WHERE Id=@id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", txtid.Text);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    txtname.Text = dr["name"].ToString();
+                    txtemail.Text = dr["email"].ToString();
+                    txtphone.Text = dr["phone"].ToString();
+                    txtgender.Text = dr["gender"].ToString();
+                    txtaddress.Text = dr["address"].ToString();
+                    txtdob.Text = dr["dob"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Admin not found!");
+                }
+            }
+        }
+
+        // ================= UPDATE =================
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtid.Text))
@@ -87,37 +100,17 @@ namespace HRMS
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtname.Text))
-            {
-                MessageBox.Show("Name cannot be empty.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtemail.Text))
-            {
-                MessageBox.Show("Email cannot be empty.");
-                return;
-            }
-
-            if (!AdminInsertionForm.IsValidEmail(txtemail.Text))
-            {
-                MessageBox.Show("Invalid email format.");
-                return;
-            }
-
-            using (SqlConnection conn = new SqlConnection(
-                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"))
+            using (SqlConnection conn = new SqlConnection(conStr))
             {
                 conn.Open();
                 SqlTransaction tran = conn.BeginTransaction();
 
                 try
                 {
-                    // 🔍 STEP 1: Check duplicate email (except this admin)
                     string checkQuery = @"SELECT COUNT(*) 
-                                  FROM Users 
-                                  WHERE Email=@email 
-                                  AND NOT (RefId=@id AND Role='Admin')";
+                                          FROM Users 
+                                          WHERE Email=@email 
+                                          AND NOT (RefId=@id AND Role='Admin')";
 
                     SqlCommand checkCmd = new SqlCommand(checkQuery, conn, tran);
                     checkCmd.Parameters.AddWithValue("@email", txtemail.Text);
@@ -132,18 +125,16 @@ namespace HRMS
                         return;
                     }
 
-                    // 🔹 STEP 2: Update Admins
-                    string q1 = @"UPDATE Admins
-                          SET name=@name,
-                              email=@email,
-                              phone=@phone,
-                              gender=@gender,
-                              address=@address,
-                              dob=@dob
-                          WHERE id=@id";
+                    string q1 = @"UPDATE Admins SET 
+                                    name=@name,
+                                    email=@email,
+                                    phone=@phone,
+                                    gender=@gender,
+                                    address=@address,
+                                    dob=@dob
+                                  WHERE id=@id";
 
                     SqlCommand cmd1 = new SqlCommand(q1, conn, tran);
-
                     cmd1.Parameters.AddWithValue("@id", txtid.Text);
                     cmd1.Parameters.AddWithValue("@name", txtname.Text);
                     cmd1.Parameters.AddWithValue("@email", txtemail.Text);
@@ -151,18 +142,14 @@ namespace HRMS
                     cmd1.Parameters.AddWithValue("@gender", txtgender.Text);
                     cmd1.Parameters.AddWithValue("@address", txtaddress.Text);
                     cmd1.Parameters.AddWithValue("@dob", Convert.ToDateTime(txtdob.Text));
-
                     cmd1.ExecuteNonQuery();
 
-                    // 🔹 STEP 3: Update Users
-                    string q2 = @"UPDATE Users 
-                          SET Email=@email
-                          WHERE RefId=@id AND Role='Admin'";
+                    string q2 = @"UPDATE Users SET Email=@email 
+                                  WHERE RefId=@id AND Role='Admin'";
 
                     SqlCommand cmd2 = new SqlCommand(q2, conn, tran);
                     cmd2.Parameters.AddWithValue("@id", txtid.Text);
                     cmd2.Parameters.AddWithValue("@email", txtemail.Text);
-
                     cmd2.ExecuteNonQuery();
 
                     tran.Commit();
@@ -177,89 +164,45 @@ namespace HRMS
             }
         }
 
-
-
-
-
-
-        private void btnreset_Click(object sender, EventArgs e)
-        {
-            txtid.Text = "";
-            txtname.Text = "";
-            txtemail.Text = "";
-            txtphone.Text = "";
-            txtgender.Text = "";
-            txtaddress.Text = "";
-            txtdob.Text = "";
-
-        }
-
-        private void btnsearch_Click(object sender, EventArgs e)
-        {
-            if (txtid.Text == "")
-            {
-                MessageBox.Show("Please enter ID");
-                return;
-            }
-
-            SqlConnection conn = new SqlConnection(
-                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True"
-            );
-            conn.Open();
-
-            string query = "SELECT * FROM Admins WHERE Id=" + txtid.Text + "";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read())
-            {
-                txtname.Text = dr["name"].ToString();
-                txtemail.Text = dr["email"].ToString();
-                txtphone.Text = dr["phone"].ToString();
-                txtgender.Text = dr["gender"].ToString();
-                txtaddress.Text = dr["address"].ToString();
-                txtdob.Text = dr["dob"].ToString();
-            }
-            else
-            {
-                MessageBox.Show("Admin not found!");
-            }
-
-            conn.Close();
-        }
-
+        // ================= DELETE =================
         private void btndelete_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
-            conn.Open();
-            try
+            using (SqlConnection conn = new SqlConnection(conStr))
             {
-                string queryUser = "DELETE FROM Users WHERE RefId=" + txtid.Text + " AND Role='Admin'";
-                SqlCommand cmdUser = new SqlCommand(queryUser, conn);
-                cmdUser.ExecuteNonQuery();
+                conn.Open();
+                try
+                {
+                    SqlCommand cmdUser = new SqlCommand(
+                        "DELETE FROM Users WHERE RefId=@id AND Role='Admin'", conn);
+                    cmdUser.Parameters.AddWithValue("@id", txtid.Text);
+                    cmdUser.ExecuteNonQuery();
 
-                string query = "DELETE FROM Admins WHERE ID=" + txtid.Text;
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
+                    SqlCommand cmd = new SqlCommand(
+                        "DELETE FROM Admins WHERE ID=@id", conn);
+                    cmd.Parameters.AddWithValue("@id", txtid.Text);
+                    cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Admin deleted successfully!");
+                    MessageBox.Show("Admin deleted successfully!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    txtid.Clear(); txtname.Clear(); txtemail.Clear();
+                    txtphone.Clear(); txtgender.Clear();
+                    txtaddress.Clear(); txtdob.Clear();
+                    show();
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                txtid.Text = txtname.Text = txtemail.Text = txtphone.Text = txtgender.Text = txtaddress.Text = txtdob.Text = "";
-                conn.Close();
-                show();
-            }
-
-
         }
 
+        // ================= GRID CLICK =================
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+
             txtid.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             txtname.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             txtemail.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -269,9 +212,15 @@ namespace HRMS
             txtdob.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
         }
 
-        private void txtaddress_TextChanged(object sender, EventArgs e)
+        private void btnreset_Click(object sender, EventArgs e)
         {
+            txtid.Clear(); txtname.Clear(); txtemail.Clear();
+            txtphone.Clear(); txtgender.Clear();
+            txtaddress.Clear(); txtdob.Clear();
+        }
 
+        private void AdminOperation_Load(object sender, EventArgs e)
+        {
         }
     }
 }
