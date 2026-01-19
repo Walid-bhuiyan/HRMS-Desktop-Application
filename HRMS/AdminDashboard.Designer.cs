@@ -84,14 +84,14 @@
             // pnlsidebar
             // 
             this.pnlsidebar.BackColor = System.Drawing.SystemColors.Window;
-            this.pnlsidebar.Controls.Add(this.btnattendence);
             this.pnlsidebar.Controls.Add(this.btnlogout);
+            this.pnlsidebar.Controls.Add(this.btnattendence);
             this.pnlsidebar.Controls.Add(this.btnresetpassword);
             this.pnlsidebar.Controls.Add(this.btnaccountantoperations);
             this.pnlsidebar.Controls.Add(this.btnempoyeeoperations);
             this.pnlsidebar.Controls.Add(this.btnmangeroperations);
-            this.pnlsidebar.Controls.Add(this.lbladminmenu);
             this.pnlsidebar.Controls.Add(this.button1);
+            this.pnlsidebar.Controls.Add(this.lbladminmenu);
             this.pnlsidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlsidebar.Location = new System.Drawing.Point(0, 60);
             this.pnlsidebar.Margin = new System.Windows.Forms.Padding(4);
@@ -102,10 +102,12 @@
             // btnattendence
             // 
             this.btnattendence.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnattendence.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnattendence.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnattendence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnattendence.Location = new System.Drawing.Point(21, 339);
+            this.btnattendence.Location = new System.Drawing.Point(0, 331);
             this.btnattendence.Name = "btnattendence";
-            this.btnattendence.Size = new System.Drawing.Size(187, 36);
+            this.btnattendence.Size = new System.Drawing.Size(226, 58);
             this.btnattendence.TabIndex = 22;
             this.btnattendence.Text = "Attendence";
             this.btnattendence.UseVisualStyleBackColor = false;
@@ -115,11 +117,12 @@
             // 
             this.btnlogout.BackColor = System.Drawing.Color.Red;
             this.btnlogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnlogout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnlogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogout.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnlogout.Location = new System.Drawing.Point(21, 393);
+            this.btnlogout.Location = new System.Drawing.Point(0, 389);
             this.btnlogout.Name = "btnlogout";
-            this.btnlogout.Size = new System.Drawing.Size(187, 36);
+            this.btnlogout.Size = new System.Drawing.Size(226, 49);
             this.btnlogout.TabIndex = 21;
             this.btnlogout.Text = "Log Out";
             this.btnlogout.UseVisualStyleBackColor = false;
@@ -128,10 +131,12 @@
             // btnresetpassword
             // 
             this.btnresetpassword.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnresetpassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnresetpassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnresetpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnresetpassword.Location = new System.Drawing.Point(21, 278);
+            this.btnresetpassword.Location = new System.Drawing.Point(0, 273);
             this.btnresetpassword.Name = "btnresetpassword";
-            this.btnresetpassword.Size = new System.Drawing.Size(187, 36);
+            this.btnresetpassword.Size = new System.Drawing.Size(226, 58);
             this.btnresetpassword.TabIndex = 20;
             this.btnresetpassword.Text = "Reset Password";
             this.btnresetpassword.UseVisualStyleBackColor = false;
@@ -140,11 +145,13 @@
             // btnaccountantoperations
             // 
             this.btnaccountantoperations.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnaccountantoperations.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnaccountantoperations.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnaccountantoperations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaccountantoperations.Location = new System.Drawing.Point(21, 225);
+            this.btnaccountantoperations.Location = new System.Drawing.Point(0, 215);
             this.btnaccountantoperations.Margin = new System.Windows.Forms.Padding(4);
             this.btnaccountantoperations.Name = "btnaccountantoperations";
-            this.btnaccountantoperations.Size = new System.Drawing.Size(187, 36);
+            this.btnaccountantoperations.Size = new System.Drawing.Size(226, 58);
             this.btnaccountantoperations.TabIndex = 19;
             this.btnaccountantoperations.Text = "Accountant ";
             this.btnaccountantoperations.UseVisualStyleBackColor = false;
@@ -153,11 +160,13 @@
             // btnempoyeeoperations
             // 
             this.btnempoyeeoperations.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnempoyeeoperations.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnempoyeeoperations.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnempoyeeoperations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnempoyeeoperations.Location = new System.Drawing.Point(20, 167);
+            this.btnempoyeeoperations.Location = new System.Drawing.Point(0, 157);
             this.btnempoyeeoperations.Margin = new System.Windows.Forms.Padding(4);
             this.btnempoyeeoperations.Name = "btnempoyeeoperations";
-            this.btnempoyeeoperations.Size = new System.Drawing.Size(188, 36);
+            this.btnempoyeeoperations.Size = new System.Drawing.Size(226, 58);
             this.btnempoyeeoperations.TabIndex = 18;
             this.btnempoyeeoperations.Text = "Employee Operations";
             this.btnempoyeeoperations.UseVisualStyleBackColor = false;
@@ -166,11 +175,13 @@
             // btnmangeroperations
             // 
             this.btnmangeroperations.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnmangeroperations.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnmangeroperations.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnmangeroperations.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmangeroperations.Location = new System.Drawing.Point(21, 111);
+            this.btnmangeroperations.Location = new System.Drawing.Point(0, 99);
             this.btnmangeroperations.Margin = new System.Windows.Forms.Padding(4);
             this.btnmangeroperations.Name = "btnmangeroperations";
-            this.btnmangeroperations.Size = new System.Drawing.Size(187, 36);
+            this.btnmangeroperations.Size = new System.Drawing.Size(226, 58);
             this.btnmangeroperations.TabIndex = 17;
             this.btnmangeroperations.Text = "Manager Operations";
             this.btnmangeroperations.UseVisualStyleBackColor = false;
@@ -178,25 +189,28 @@
             // 
             // lbladminmenu
             // 
-            this.lbladminmenu.AutoSize = true;
-            this.lbladminmenu.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.lbladminmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbladminmenu.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbladminmenu.Location = new System.Drawing.Point(25, 6);
+            this.lbladminmenu.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbladminmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbladminmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lbladminmenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbladminmenu.Location = new System.Drawing.Point(0, 0);
             this.lbladminmenu.Margin = new System.Windows.Forms.Padding(11, 4, 11, 4);
             this.lbladminmenu.Name = "lbladminmenu";
-            this.lbladminmenu.Size = new System.Drawing.Size(163, 25);
+            this.lbladminmenu.Size = new System.Drawing.Size(226, 41);
             this.lbladminmenu.TabIndex = 16;
             this.lbladminmenu.Text = "    Admin  Menu   ";
+            this.lbladminmenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SkyBlue;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(21, 52);
+            this.button1.Location = new System.Drawing.Point(0, 41);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 36);
+            this.button1.Size = new System.Drawing.Size(226, 58);
             this.button1.TabIndex = 15;
             this.button1.Text = "Admin Operations";
             this.button1.UseVisualStyleBackColor = false;
@@ -242,6 +256,7 @@
             // btncancel
             // 
             this.btncancel.BackColor = System.Drawing.Color.Black;
+            this.btncancel.Cursor = System.Windows.Forms.Cursors.AppStarting;
             this.btncancel.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btncancel.Location = new System.Drawing.Point(25, 134);
             this.btncancel.Name = "btncancel";
@@ -278,6 +293,7 @@
             // btnconfirm
             // 
             this.btnconfirm.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnconfirm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnconfirm.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnconfirm.Location = new System.Drawing.Point(169, 134);
             this.btnconfirm.Name = "btnconfirm";
@@ -371,7 +387,6 @@
             this.topLoginPanel.ResumeLayout(false);
             this.topLoginPanel.PerformLayout();
             this.pnlsidebar.ResumeLayout(false);
-            this.pnlsidebar.PerformLayout();
             this.resetpasspanel.ResumeLayout(false);
             this.resetpasspanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
