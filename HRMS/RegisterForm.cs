@@ -16,21 +16,34 @@ namespace HRMS
         private string password;
         private decimal salary;
 
+        // 🔑 who opened this form
+        string callerRole = "";   // "ADMIN" or "HR"
+        int callerId = 0;
+
         private readonly string cs =
             ConfigurationManager.ConnectionStrings["HRMS_DB"].ConnectionString;
+
+        // -------------------- CONSTRUCTORS --------------------
 
         public RegisterForm()
         {
             InitializeComponent();
         }
 
-        private void panelMain_Paint(object sender, PaintEventArgs e) { }
+        // ✅ role-aware constructor
+        public RegisterForm(string role, int id)
+        {
+            InitializeComponent();
+            callerRole = role;
+            callerId = id;
+        }
 
         // -------------------- NAVIGATION --------------------
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            HR_EmployeeManagement w = new HR_EmployeeManagement();
+            // ⬅ go back to Employee Management with same role
+            HR_EmployeeManagement w = new HR_EmployeeManagement(callerRole, callerId);
             w.Show();
             this.Hide();
         }
@@ -91,12 +104,12 @@ namespace HRMS
 
             password = HashPassword(txtPassword.Text.Trim());
 
-            InsertEmployeeWithRole();
+            InsertPerson();
         }
 
         // -------------------- MAIN INSERT LOGIC --------------------
 
-        private void InsertEmployeeWithRole()
+        private void InsertPerson()
         {
             using (SqlConnection con = new SqlConnection(cs))
             {
@@ -105,37 +118,61 @@ namespace HRMS
 
                 try
                 {
-                    // ✅ 1. INSERT INTO Employees_Info
-                    string q1 = @"
-                    INSERT INTO Employees_Info
-                    (FullName, Email, Gender, DOB, Phone, Address, Department,
-                     JobTitle, EmploymentType, JoinDate, Salary)
-                    VALUES
-                    (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department,
-                     @JobTitle, @EmploymentType, @JoinDate, @Salary);
-                    SELECT SCOPE_IDENTITY();";
+                    int refId = 0;
+                    string role = "";
 
-                    SqlCommand cmd1 = new SqlCommand(q1, con, tran);
-                    FillCommonParameters(cmd1);
-
-                    int empId = Convert.ToInt32(cmd1.ExecuteScalar());
-
-                    // ✅ 2. IF ACCOUNTANT → INSERT INTO Accountants
+                    // ================= ACCOUNTANT =================
                     if (jobTitle.Trim().ToLower() == "accountant")
                     {
-                        string q2 = @"INSERT INTO Accountants(EmployeeID) VALUES(@EmployeeID)";
-                        SqlCommand cmd2 = new SqlCommand(q2, con, tran);
-                        cmd2.Parameters.AddWithValue("@EmployeeID", empId);
-                        cmd2.ExecuteNonQuery();
+                        string q = @"
+                        INSERT INTO Accountants
+                        (FullName, Email, Gender, DOB, Phone, Address, Department,
+                         JobTitle, EmploymentType, JoinDate, Salary)
+                        VALUES
+                        (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department,
+                         @JobTitle, @EmploymentType, @JoinDate, @Salary);
+                        SELECT SCOPE_IDENTITY();";
+
+                        SqlCommand cmd = new SqlCommand(q, con, tran);
+                        FillCommonParameters(cmd);
+
+                        refId = Convert.ToInt32(cmd.ExecuteScalar());
+                        role = "Accountant";
                     }
 
-                    // ✅ 3. INSERT INTO Users
-                    InsertIntoUsers(empId,
-                        jobTitle.Trim().ToLower() == "accountant" ? "Accountant" : "Employee",
-                        con, tran);
+                    // ================= EMPLOYEE =================
+                    else
+                    {
+                        string q = @"
+                        INSERT INTO Employees_Info
+                        (FullName, Email, Gender, DOB, Phone, Address, Department,
+                         JobTitle, EmploymentType, JoinDate, Salary)
+                        VALUES
+                        (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department,
+                         @JobTitle, @EmploymentType, @JoinDate, @Salary);
+                        SELECT SCOPE_IDENTITY();";
+
+                        SqlCommand cmd = new SqlCommand(q, con, tran);
+                        FillCommonParameters(cmd);
+
+                        refId = Convert.ToInt32(cmd.ExecuteScalar());
+                        role = "Employee";
+                    }
+
+                    // ================= USERS =================
+                    string uq = @"INSERT INTO Users (RefId, Role, Email, Password, SecurityAns)
+                                  VALUES (@RefId, @Role, @Email, @Password, @SecurityAns)";
+
+                    SqlCommand ucmd = new SqlCommand(uq, con, tran);
+                    ucmd.Parameters.AddWithValue("@RefId", refId);
+                    ucmd.Parameters.AddWithValue("@Role", role);
+                    ucmd.Parameters.AddWithValue("@Email", email);
+                    ucmd.Parameters.AddWithValue("@Password", password);
+                    ucmd.Parameters.AddWithValue("@SecurityAns", securityAnswer);
+
+                    ucmd.ExecuteNonQuery();
 
                     tran.Commit();
-
                     MessageBox.Show("✅ Registration successful!");
                     ClearForm();
                 }
@@ -145,23 +182,6 @@ namespace HRMS
                     MessageBox.Show("❌ Error: " + ex.Message);
                 }
             }
-        }
-
-        // -------------------- USERS --------------------
-
-        private void InsertIntoUsers(int refId, string role, SqlConnection con, SqlTransaction tran)
-        {
-            string query = @"INSERT INTO Users (RefId, Role, Email, Password, SecurityAns)
-                             VALUES (@RefId, @Role, @Email, @Password, @SecurityAns)";
-
-            SqlCommand cmd = new SqlCommand(query, con, tran);
-            cmd.Parameters.AddWithValue("@RefId", refId);
-            cmd.Parameters.AddWithValue("@Role", role);
-            cmd.Parameters.AddWithValue("@Email", email);
-            cmd.Parameters.AddWithValue("@Password", password);
-            cmd.Parameters.AddWithValue("@SecurityAns", securityAnswer);
-
-            cmd.ExecuteNonQuery();
         }
 
         // -------------------- COMMON PARAMETERS --------------------

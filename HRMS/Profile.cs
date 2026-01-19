@@ -1,54 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace HRMS
 {
     public partial class Profile : Form
     {
-        public Profile()
+        int employeeId;
+
+        string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+
+        // ✅ Constructor must receive employeeId
+        public Profile(int id)
         {
             InitializeComponent();
+            employeeId = id;
         }
 
-        private void showProfile()
+        // ================= LOAD PROFILE =================
+        private void ShowProfile()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");        
-           
-            int employeeID= 1002;
-            String query= @"SELECT EmployeeID,FullName, Email, Gender, DOB, Phone, Address, Department, JobTitle FROM Employees_Info WHERE EmployeeID = @id";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@id", employeeID);
-            conn.Open();
-
-            SqlDataReader reader=cmd.ExecuteReader();
-
-            if (reader.Read())
+            using (SqlConnection conn = new SqlConnection(conStr))
             {
-                txtId.Text=reader["EmployeeID"].ToString();
-                txtName.Text = reader["FullName"].ToString();
-                txtEmail.Text=reader["Email"].ToString();
-                txtGender.Text=reader["Gender"].ToString();
-                txtDob.Text = Convert.ToDateTime(reader["DOB"]).ToString("dd-MM-yyyy");
-                txtPhone.Text = reader["Phone"].ToString();
-                richTxtadd.Text = reader["Address"].ToString();
-                txtdepartment.Text = reader["Department"].ToString();
-                txtJobtitle.Text = reader["JobTitle"].ToString();
+                string query = @"SELECT EmployeeID, FullName, Email, Gender, DOB, Phone, Address, Department, JobTitle 
+                                 FROM Employees_Info 
+                                 WHERE EmployeeID = @id";
 
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", employeeId);
+
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    txtId.Text = reader["EmployeeID"].ToString();
+                    txtName.Text = reader["FullName"].ToString();
+                    txtEmail.Text = reader["Email"].ToString();
+                    txtGender.Text = reader["Gender"].ToString();
+                    txtDob.Text = Convert.ToDateTime(reader["DOB"]).ToString("yyyy-MM-dd");
+                    txtPhone.Text = reader["Phone"].ToString();
+                    richTxtadd.Text = reader["Address"].ToString();
+                    txtdepartment.Text = reader["Department"].ToString();
+                    txtJobtitle.Text = reader["JobTitle"].ToString();
+                }
+
+                conn.Close();
             }
-          conn.Close();
-
         }
 
-        private void setReadOnly()
+        // ================= READ ONLY =================
+        private void SetReadOnly()
         {
             txtId.ReadOnly = true;
             txtName.ReadOnly = true;
@@ -58,26 +60,22 @@ namespace HRMS
             txtPhone.ReadOnly = true;
             txtJobtitle.ReadOnly = true;
             richTxtadd.ReadOnly = true;
+            txtdepartment.ReadOnly = true;
         }
 
-   
-        private void btnback_Click(object sender, EventArgs e)
-        {
-            EmployeeDashboard ed = new EmployeeDashboard();
-            ed.Show();
-            this.Hide();
-        }
-
-      
+        // ================= FORM LOAD =================
         private void Profile_Load(object sender, EventArgs e)
         {
-            showProfile();
-            setReadOnly();
+            ShowProfile();
+            SetReadOnly();
         }
 
-        private void txtDob_TextChanged(object sender, EventArgs e)
+        // ================= BACK =================
+        private void btnback_Click(object sender, EventArgs e)
         {
-
+            EmployeeDashboard ed = new EmployeeDashboard(employeeId);
+            ed.Show();
+            this.Hide();
         }
     }
 }

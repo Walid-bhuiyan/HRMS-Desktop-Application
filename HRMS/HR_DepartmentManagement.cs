@@ -162,5 +162,12 @@ namespace HRMS
             h.Show();
             this.Hide();
         }
+
+        private void btnBack_Click_1(object sender, EventArgs e)
+        {
+            HRManagerDashboard hd=new HRManagerDashboard(0);
+            hd.Show();
+            this.Hide();
+        }
     }
 }

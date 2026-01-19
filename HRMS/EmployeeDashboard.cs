@@ -16,6 +16,13 @@ namespace HRMS
         {
             InitializeComponent();
         }
+        int employeeId;
+
+        public EmployeeDashboard(int id)
+        {
+            InitializeComponent();
+            employeeId = id;
+        }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
@@ -27,7 +34,7 @@ namespace HRMS
 
         private void btnupdateprofile_Click(object sender, EventArgs e)
         {
-            UpdateProfile up = new UpdateProfile();
+            UpdateProfile up = new UpdateProfile(employeeId);
             up.Show();
             this.Hide();
         }
@@ -41,14 +48,14 @@ namespace HRMS
 
         private void btnProfileDetails_Click(object sender, EventArgs e)
         {
-            Profile pf= new Profile();
+            Profile pf= new Profile(employeeId);
             pf.Show();
             this.Hide();
         }
 
         private void btnchangepass_Click(object sender, EventArgs e)
         {
-            ChangePassword cp=new ChangePassword();
+            ChangePassword cp=new ChangePassword(employeeId);
             cp.Show();
             this.Hide();
         }
