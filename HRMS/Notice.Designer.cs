@@ -39,7 +39,7 @@
             this.btnback.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnback.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnback.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btnback.Location = new System.Drawing.Point(357, 207);
+            this.btnback.Location = new System.Drawing.Point(361, 221);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(86, 36);
             this.btnback.TabIndex = 2;
