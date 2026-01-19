@@ -51,5 +51,10 @@ namespace HRMS
             admnoperation.Show();
             this.Hide();
         }
+
+        private void pnlsidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
