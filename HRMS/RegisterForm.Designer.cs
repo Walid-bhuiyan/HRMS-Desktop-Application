@@ -38,6 +38,32 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.grpEmploymentInfo = new System.Windows.Forms.GroupBox();
+            this.tblEmploymentInfo = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlSecurityQuestion = new System.Windows.Forms.Panel();
+            this.txtSecurityQuestion = new System.Windows.Forms.TextBox();
+            this.lblSecurityQuestion = new System.Windows.Forms.Label();
+            this.pnlDepartment = new System.Windows.Forms.Panel();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.pnlJobTitle = new System.Windows.Forms.Panel();
+            this.cmbJobTitle = new System.Windows.Forms.ComboBox();
+            this.lblJobTitle = new System.Windows.Forms.Label();
+            this.pnlJoinDate = new System.Windows.Forms.Panel();
+            this.dtpJoiningDate = new System.Windows.Forms.DateTimePicker();
+            this.lblJoiningDate = new System.Windows.Forms.Label();
+            this.pnlEmploymentType = new System.Windows.Forms.Panel();
+            this.pnlSecurityAnswer = new System.Windows.Forms.Panel();
+            this.cmbEmploymentType = new System.Windows.Forms.ComboBox();
+            this.lblEmploymentType = new System.Windows.Forms.Label();
+            this.pnlSalary = new System.Windows.Forms.Panel();
+            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.lblSalary = new System.Windows.Forms.Label();
+            this.pnlSecutityAnsweremp = new System.Windows.Forms.Panel();
+            this.txtSecurityAnswer = new System.Windows.Forms.TextBox();
+            this.lblSecurityAnswer = new System.Windows.Forms.Label();
+            this.pnlPassword = new System.Windows.Forms.Panel();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.grpPersonalInfo = new System.Windows.Forms.GroupBox();
             this.tblPersonalInfo = new System.Windows.Forms.TableLayoutPanel();
             this.pnlFullName = new System.Windows.Forms.Panel();
@@ -60,38 +86,21 @@
             this.pnlAddress = new System.Windows.Forms.Panel();
             this.rtbAddress = new System.Windows.Forms.RichTextBox();
             this.lblAdress = new System.Windows.Forms.Label();
-            this.pnlSecutityAnsweremp = new System.Windows.Forms.Panel();
-            this.lblSecurityAnswer = new System.Windows.Forms.Label();
-            this.txtSecurityAnswer = new System.Windows.Forms.TextBox();
-            this.pnlSalary = new System.Windows.Forms.Panel();
-            this.lblSalary = new System.Windows.Forms.Label();
-            this.txtSalary = new System.Windows.Forms.TextBox();
-            this.pnlEmploymentType = new System.Windows.Forms.Panel();
-            this.lblEmploymentType = new System.Windows.Forms.Label();
-            this.cmbEmploymentType = new System.Windows.Forms.ComboBox();
-            this.pnlSecurityAnswer = new System.Windows.Forms.Panel();
-            this.pnlJoinDate = new System.Windows.Forms.Panel();
-            this.lblJoiningDate = new System.Windows.Forms.Label();
-            this.dtpJoiningDate = new System.Windows.Forms.DateTimePicker();
-            this.pnlJobTitle = new System.Windows.Forms.Panel();
-            this.lblJobTitle = new System.Windows.Forms.Label();
-            this.cmbJobTitle = new System.Windows.Forms.ComboBox();
-            this.pnlDepartment = new System.Windows.Forms.Panel();
-            this.lblDepartment = new System.Windows.Forms.Label();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.pnlSecurityQuestion = new System.Windows.Forms.Panel();
-            this.lblSecurityQuestion = new System.Windows.Forms.Label();
-            this.txtSecurityQuestion = new System.Windows.Forms.TextBox();
-            this.tblEmploymentInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlPassword = new System.Windows.Forms.Panel();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.topLoginPanel.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelCard.SuspendLayout();
             this.pnlButtons.SuspendLayout();
             this.flowButtons.SuspendLayout();
             this.grpEmploymentInfo.SuspendLayout();
+            this.tblEmploymentInfo.SuspendLayout();
+            this.pnlSecurityQuestion.SuspendLayout();
+            this.pnlDepartment.SuspendLayout();
+            this.pnlJobTitle.SuspendLayout();
+            this.pnlJoinDate.SuspendLayout();
+            this.pnlEmploymentType.SuspendLayout();
+            this.pnlSalary.SuspendLayout();
+            this.pnlSecutityAnsweremp.SuspendLayout();
+            this.pnlPassword.SuspendLayout();
             this.grpPersonalInfo.SuspendLayout();
             this.tblPersonalInfo.SuspendLayout();
             this.pnlFullName.SuspendLayout();
@@ -101,15 +110,6 @@
             this.pnlEmail.SuspendLayout();
             this.pnlPhone.SuspendLayout();
             this.pnlAddress.SuspendLayout();
-            this.pnlSecutityAnsweremp.SuspendLayout();
-            this.pnlSalary.SuspendLayout();
-            this.pnlEmploymentType.SuspendLayout();
-            this.pnlJoinDate.SuspendLayout();
-            this.pnlJobTitle.SuspendLayout();
-            this.pnlDepartment.SuspendLayout();
-            this.pnlSecurityQuestion.SuspendLayout();
-            this.tblEmploymentInfo.SuspendLayout();
-            this.pnlPassword.SuspendLayout();
             this.SuspendLayout();
             // 
             // topLoginPanel
@@ -143,6 +143,7 @@
             this.panelMain.Padding = new System.Windows.Forms.Padding(20);
             this.panelMain.Size = new System.Drawing.Size(957, 682);
             this.panelMain.TabIndex = 9;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // panelCard
             // 
@@ -238,6 +239,306 @@
             this.grpEmploymentInfo.TabIndex = 1;
             this.grpEmploymentInfo.TabStop = false;
             this.grpEmploymentInfo.Text = "Employment Information";
+            // 
+            // tblEmploymentInfo
+            // 
+            this.tblEmploymentInfo.ColumnCount = 2;
+            this.tblEmploymentInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblEmploymentInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tblEmploymentInfo.Controls.Add(this.pnlSecurityQuestion, 0, 0);
+            this.tblEmploymentInfo.Controls.Add(this.pnlDepartment, 1, 0);
+            this.tblEmploymentInfo.Controls.Add(this.pnlJobTitle, 0, 1);
+            this.tblEmploymentInfo.Controls.Add(this.pnlJoinDate, 1, 1);
+            this.tblEmploymentInfo.Controls.Add(this.pnlEmploymentType, 0, 2);
+            this.tblEmploymentInfo.Controls.Add(this.pnlSalary, 1, 2);
+            this.tblEmploymentInfo.Controls.Add(this.pnlSecutityAnsweremp, 0, 3);
+            this.tblEmploymentInfo.Controls.Add(this.pnlPassword, 1, 3);
+            this.tblEmploymentInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tblEmploymentInfo.Location = new System.Drawing.Point(10, 33);
+            this.tblEmploymentInfo.Name = "tblEmploymentInfo";
+            this.tblEmploymentInfo.Padding = new System.Windows.Forms.Padding(10);
+            this.tblEmploymentInfo.RowCount = 6;
+            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tblEmploymentInfo.Size = new System.Drawing.Size(855, 230);
+            this.tblEmploymentInfo.TabIndex = 0;
+            // 
+            // pnlSecurityQuestion
+            // 
+            this.pnlSecurityQuestion.Controls.Add(this.txtSecurityQuestion);
+            this.pnlSecurityQuestion.Controls.Add(this.lblSecurityQuestion);
+            this.pnlSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSecurityQuestion.Location = new System.Drawing.Point(13, 13);
+            this.pnlSecurityQuestion.Name = "pnlSecurityQuestion";
+            this.pnlSecurityQuestion.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.pnlSecurityQuestion.Size = new System.Drawing.Size(411, 54);
+            this.pnlSecurityQuestion.TabIndex = 0;
+            // 
+            // txtSecurityQuestion
+            // 
+            this.txtSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSecurityQuestion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecurityQuestion.Location = new System.Drawing.Point(0, 26);
+            this.txtSecurityQuestion.Name = "txtSecurityQuestion";
+            this.txtSecurityQuestion.Size = new System.Drawing.Size(411, 27);
+            this.txtSecurityQuestion.TabIndex = 1;
+            // 
+            // lblSecurityQuestion
+            // 
+            this.lblSecurityQuestion.AutoSize = true;
+            this.lblSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSecurityQuestion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecurityQuestion.Location = new System.Drawing.Point(0, 6);
+            this.lblSecurityQuestion.Name = "lblSecurityQuestion";
+            this.lblSecurityQuestion.Size = new System.Drawing.Size(124, 20);
+            this.lblSecurityQuestion.TabIndex = 0;
+            this.lblSecurityQuestion.Text = "Security Question";
+            // 
+            // pnlDepartment
+            // 
+            this.pnlDepartment.Controls.Add(this.cmbDepartment);
+            this.pnlDepartment.Controls.Add(this.lblDepartment);
+            this.pnlDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlDepartment.Location = new System.Drawing.Point(430, 13);
+            this.pnlDepartment.Name = "pnlDepartment";
+            this.pnlDepartment.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.pnlDepartment.Size = new System.Drawing.Size(412, 54);
+            this.pnlDepartment.TabIndex = 1;
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDepartment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Items.AddRange(new object[] {
+            "HR",
+            "IT",
+            "Finance",
+            "Marketing",
+            "Operations"});
+            this.cmbDepartment.Location = new System.Drawing.Point(0, 26);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(412, 28);
+            this.cmbDepartment.TabIndex = 1;
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDepartment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartment.Location = new System.Drawing.Point(0, 6);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(89, 20);
+            this.lblDepartment.TabIndex = 0;
+            this.lblDepartment.Text = "Department";
+            // 
+            // pnlJobTitle
+            // 
+            this.pnlJobTitle.Controls.Add(this.cmbJobTitle);
+            this.pnlJobTitle.Controls.Add(this.lblJobTitle);
+            this.pnlJobTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlJobTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlJobTitle.Location = new System.Drawing.Point(13, 73);
+            this.pnlJobTitle.Name = "pnlJobTitle";
+            this.pnlJobTitle.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.pnlJobTitle.Size = new System.Drawing.Size(411, 54);
+            this.pnlJobTitle.TabIndex = 2;
+            // 
+            // cmbJobTitle
+            // 
+            this.cmbJobTitle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbJobTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbJobTitle.FormattingEnabled = true;
+            this.cmbJobTitle.Items.AddRange(new object[] {
+            "Manager",
+            "Software Engineer",
+            "HR Executive",
+            "Accountant",
+            "Intern"});
+            this.cmbJobTitle.Location = new System.Drawing.Point(0, 26);
+            this.cmbJobTitle.Name = "cmbJobTitle";
+            this.cmbJobTitle.Size = new System.Drawing.Size(411, 28);
+            this.cmbJobTitle.TabIndex = 1;
+            // 
+            // lblJobTitle
+            // 
+            this.lblJobTitle.AutoSize = true;
+            this.lblJobTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblJobTitle.Location = new System.Drawing.Point(0, 6);
+            this.lblJobTitle.Name = "lblJobTitle";
+            this.lblJobTitle.Size = new System.Drawing.Size(65, 20);
+            this.lblJobTitle.TabIndex = 0;
+            this.lblJobTitle.Text = "Job Title";
+            // 
+            // pnlJoinDate
+            // 
+            this.pnlJoinDate.Controls.Add(this.dtpJoiningDate);
+            this.pnlJoinDate.Controls.Add(this.lblJoiningDate);
+            this.pnlJoinDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlJoinDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlJoinDate.Location = new System.Drawing.Point(430, 73);
+            this.pnlJoinDate.Name = "pnlJoinDate";
+            this.pnlJoinDate.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.pnlJoinDate.Size = new System.Drawing.Size(412, 54);
+            this.pnlJoinDate.TabIndex = 3;
+            // 
+            // dtpJoiningDate
+            // 
+            this.dtpJoiningDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpJoiningDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpJoiningDate.Location = new System.Drawing.Point(0, 26);
+            this.dtpJoiningDate.Name = "dtpJoiningDate";
+            this.dtpJoiningDate.Size = new System.Drawing.Size(412, 27);
+            this.dtpJoiningDate.TabIndex = 1;
+            // 
+            // lblJoiningDate
+            // 
+            this.lblJoiningDate.AutoSize = true;
+            this.lblJoiningDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblJoiningDate.Location = new System.Drawing.Point(0, 6);
+            this.lblJoiningDate.Name = "lblJoiningDate";
+            this.lblJoiningDate.Size = new System.Drawing.Size(92, 20);
+            this.lblJoiningDate.TabIndex = 0;
+            this.lblJoiningDate.Text = "Joining Date";
+            // 
+            // pnlEmploymentType
+            // 
+            this.pnlEmploymentType.Controls.Add(this.pnlSecurityAnswer);
+            this.pnlEmploymentType.Controls.Add(this.cmbEmploymentType);
+            this.pnlEmploymentType.Controls.Add(this.lblEmploymentType);
+            this.pnlEmploymentType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlEmploymentType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlEmploymentType.Location = new System.Drawing.Point(13, 133);
+            this.pnlEmploymentType.Name = "pnlEmploymentType";
+            this.pnlEmploymentType.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.pnlEmploymentType.Size = new System.Drawing.Size(411, 54);
+            this.pnlEmploymentType.TabIndex = 4;
+            // 
+            // pnlSecurityAnswer
+            // 
+            this.pnlSecurityAnswer.Location = new System.Drawing.Point(27, 53);
+            this.pnlSecurityAnswer.Name = "pnlSecurityAnswer";
+            this.pnlSecurityAnswer.Size = new System.Drawing.Size(200, 100);
+            this.pnlSecurityAnswer.TabIndex = 2;
+            // 
+            // cmbEmploymentType
+            // 
+            this.cmbEmploymentType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbEmploymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmploymentType.FormattingEnabled = true;
+            this.cmbEmploymentType.Items.AddRange(new object[] {
+            "Full-Time",
+            "Part-Time",
+            "Contract"});
+            this.cmbEmploymentType.Location = new System.Drawing.Point(0, 26);
+            this.cmbEmploymentType.Name = "cmbEmploymentType";
+            this.cmbEmploymentType.Size = new System.Drawing.Size(411, 28);
+            this.cmbEmploymentType.TabIndex = 1;
+            // 
+            // lblEmploymentType
+            // 
+            this.lblEmploymentType.AutoSize = true;
+            this.lblEmploymentType.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblEmploymentType.Location = new System.Drawing.Point(0, 6);
+            this.lblEmploymentType.Name = "lblEmploymentType";
+            this.lblEmploymentType.Size = new System.Drawing.Size(128, 20);
+            this.lblEmploymentType.TabIndex = 0;
+            this.lblEmploymentType.Text = "Employment Type";
+            // 
+            // pnlSalary
+            // 
+            this.pnlSalary.Controls.Add(this.txtSalary);
+            this.pnlSalary.Controls.Add(this.lblSalary);
+            this.pnlSalary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSalary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnlSalary.Location = new System.Drawing.Point(430, 133);
+            this.pnlSalary.Name = "pnlSalary";
+            this.pnlSalary.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
+            this.pnlSalary.Size = new System.Drawing.Size(412, 54);
+            this.pnlSalary.TabIndex = 5;
+            // 
+            // txtSalary
+            // 
+            this.txtSalary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSalary.Location = new System.Drawing.Point(0, 26);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(412, 27);
+            this.txtSalary.TabIndex = 1;
+            // 
+            // lblSalary
+            // 
+            this.lblSalary.AutoSize = true;
+            this.lblSalary.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSalary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalary.Location = new System.Drawing.Point(0, 6);
+            this.lblSalary.Name = "lblSalary";
+            this.lblSalary.Size = new System.Drawing.Size(49, 20);
+            this.lblSalary.TabIndex = 2;
+            this.lblSalary.Text = "Salary";
+            // 
+            // pnlSecutityAnsweremp
+            // 
+            this.pnlSecutityAnsweremp.Controls.Add(this.txtSecurityAnswer);
+            this.pnlSecutityAnsweremp.Controls.Add(this.lblSecurityAnswer);
+            this.pnlSecutityAnsweremp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSecutityAnsweremp.Location = new System.Drawing.Point(13, 193);
+            this.pnlSecutityAnsweremp.Name = "pnlSecutityAnsweremp";
+            this.pnlSecutityAnsweremp.Size = new System.Drawing.Size(411, 54);
+            this.pnlSecutityAnsweremp.TabIndex = 6;
+            // 
+            // txtSecurityAnswer
+            // 
+            this.txtSecurityAnswer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSecurityAnswer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecurityAnswer.Location = new System.Drawing.Point(0, 20);
+            this.txtSecurityAnswer.Name = "txtSecurityAnswer";
+            this.txtSecurityAnswer.Size = new System.Drawing.Size(411, 27);
+            this.txtSecurityAnswer.TabIndex = 2;
+            // 
+            // lblSecurityAnswer
+            // 
+            this.lblSecurityAnswer.AutoSize = true;
+            this.lblSecurityAnswer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSecurityAnswer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecurityAnswer.Location = new System.Drawing.Point(0, 0);
+            this.lblSecurityAnswer.Name = "lblSecurityAnswer";
+            this.lblSecurityAnswer.Size = new System.Drawing.Size(113, 20);
+            this.lblSecurityAnswer.TabIndex = 1;
+            this.lblSecurityAnswer.Text = "Security Answer";
+            // 
+            // pnlPassword
+            // 
+            this.pnlPassword.Controls.Add(this.txtPassword);
+            this.pnlPassword.Controls.Add(this.lblPassword);
+            this.pnlPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPassword.Location = new System.Drawing.Point(430, 193);
+            this.pnlPassword.Name = "pnlPassword";
+            this.pnlPassword.Size = new System.Drawing.Size(412, 54);
+            this.pnlPassword.TabIndex = 7;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPassword.Location = new System.Drawing.Point(0, 20);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(412, 30);
+            this.txtPassword.TabIndex = 3;
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(0, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(70, 20);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Password";
             // 
             // grpPersonalInfo
             // 
@@ -492,306 +793,6 @@
             this.lblAdress.TabIndex = 0;
             this.lblAdress.Text = "Address";
             // 
-            // pnlSecutityAnsweremp
-            // 
-            this.pnlSecutityAnsweremp.Controls.Add(this.txtSecurityAnswer);
-            this.pnlSecutityAnsweremp.Controls.Add(this.lblSecurityAnswer);
-            this.pnlSecutityAnsweremp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSecutityAnsweremp.Location = new System.Drawing.Point(13, 193);
-            this.pnlSecutityAnsweremp.Name = "pnlSecutityAnsweremp";
-            this.pnlSecutityAnsweremp.Size = new System.Drawing.Size(411, 54);
-            this.pnlSecutityAnsweremp.TabIndex = 6;
-            // 
-            // lblSecurityAnswer
-            // 
-            this.lblSecurityAnswer.AutoSize = true;
-            this.lblSecurityAnswer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSecurityAnswer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecurityAnswer.Location = new System.Drawing.Point(0, 0);
-            this.lblSecurityAnswer.Name = "lblSecurityAnswer";
-            this.lblSecurityAnswer.Size = new System.Drawing.Size(113, 20);
-            this.lblSecurityAnswer.TabIndex = 1;
-            this.lblSecurityAnswer.Text = "Security Answer";
-            // 
-            // txtSecurityAnswer
-            // 
-            this.txtSecurityAnswer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSecurityAnswer.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecurityAnswer.Location = new System.Drawing.Point(0, 20);
-            this.txtSecurityAnswer.Name = "txtSecurityAnswer";
-            this.txtSecurityAnswer.Size = new System.Drawing.Size(411, 27);
-            this.txtSecurityAnswer.TabIndex = 2;
-            // 
-            // pnlSalary
-            // 
-            this.pnlSalary.Controls.Add(this.txtSalary);
-            this.pnlSalary.Controls.Add(this.lblSalary);
-            this.pnlSalary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSalary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlSalary.Location = new System.Drawing.Point(430, 133);
-            this.pnlSalary.Name = "pnlSalary";
-            this.pnlSalary.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlSalary.Size = new System.Drawing.Size(412, 54);
-            this.pnlSalary.TabIndex = 5;
-            // 
-            // lblSalary
-            // 
-            this.lblSalary.AutoSize = true;
-            this.lblSalary.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSalary.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalary.Location = new System.Drawing.Point(0, 6);
-            this.lblSalary.Name = "lblSalary";
-            this.lblSalary.Size = new System.Drawing.Size(49, 20);
-            this.lblSalary.TabIndex = 2;
-            this.lblSalary.Text = "Salary";
-            // 
-            // txtSalary
-            // 
-            this.txtSalary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSalary.Location = new System.Drawing.Point(0, 26);
-            this.txtSalary.Name = "txtSalary";
-            this.txtSalary.Size = new System.Drawing.Size(412, 27);
-            this.txtSalary.TabIndex = 1;
-            // 
-            // pnlEmploymentType
-            // 
-            this.pnlEmploymentType.Controls.Add(this.pnlSecurityAnswer);
-            this.pnlEmploymentType.Controls.Add(this.cmbEmploymentType);
-            this.pnlEmploymentType.Controls.Add(this.lblEmploymentType);
-            this.pnlEmploymentType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlEmploymentType.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlEmploymentType.Location = new System.Drawing.Point(13, 133);
-            this.pnlEmploymentType.Name = "pnlEmploymentType";
-            this.pnlEmploymentType.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlEmploymentType.Size = new System.Drawing.Size(411, 54);
-            this.pnlEmploymentType.TabIndex = 4;
-            // 
-            // lblEmploymentType
-            // 
-            this.lblEmploymentType.AutoSize = true;
-            this.lblEmploymentType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblEmploymentType.Location = new System.Drawing.Point(0, 6);
-            this.lblEmploymentType.Name = "lblEmploymentType";
-            this.lblEmploymentType.Size = new System.Drawing.Size(128, 20);
-            this.lblEmploymentType.TabIndex = 0;
-            this.lblEmploymentType.Text = "Employment Type";
-            // 
-            // cmbEmploymentType
-            // 
-            this.cmbEmploymentType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbEmploymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmploymentType.FormattingEnabled = true;
-            this.cmbEmploymentType.Items.AddRange(new object[] {
-            "Full-Time",
-            "Part-Time",
-            "Contract"});
-            this.cmbEmploymentType.Location = new System.Drawing.Point(0, 26);
-            this.cmbEmploymentType.Name = "cmbEmploymentType";
-            this.cmbEmploymentType.Size = new System.Drawing.Size(411, 28);
-            this.cmbEmploymentType.TabIndex = 1;
-            // 
-            // pnlSecurityAnswer
-            // 
-            this.pnlSecurityAnswer.Location = new System.Drawing.Point(27, 53);
-            this.pnlSecurityAnswer.Name = "pnlSecurityAnswer";
-            this.pnlSecurityAnswer.Size = new System.Drawing.Size(200, 100);
-            this.pnlSecurityAnswer.TabIndex = 2;
-            // 
-            // pnlJoinDate
-            // 
-            this.pnlJoinDate.Controls.Add(this.dtpJoiningDate);
-            this.pnlJoinDate.Controls.Add(this.lblJoiningDate);
-            this.pnlJoinDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlJoinDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlJoinDate.Location = new System.Drawing.Point(430, 73);
-            this.pnlJoinDate.Name = "pnlJoinDate";
-            this.pnlJoinDate.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlJoinDate.Size = new System.Drawing.Size(412, 54);
-            this.pnlJoinDate.TabIndex = 3;
-            // 
-            // lblJoiningDate
-            // 
-            this.lblJoiningDate.AutoSize = true;
-            this.lblJoiningDate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblJoiningDate.Location = new System.Drawing.Point(0, 6);
-            this.lblJoiningDate.Name = "lblJoiningDate";
-            this.lblJoiningDate.Size = new System.Drawing.Size(92, 20);
-            this.lblJoiningDate.TabIndex = 0;
-            this.lblJoiningDate.Text = "Joining Date";
-            // 
-            // dtpJoiningDate
-            // 
-            this.dtpJoiningDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpJoiningDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpJoiningDate.Location = new System.Drawing.Point(0, 26);
-            this.dtpJoiningDate.Name = "dtpJoiningDate";
-            this.dtpJoiningDate.Size = new System.Drawing.Size(412, 27);
-            this.dtpJoiningDate.TabIndex = 1;
-            // 
-            // pnlJobTitle
-            // 
-            this.pnlJobTitle.Controls.Add(this.cmbJobTitle);
-            this.pnlJobTitle.Controls.Add(this.lblJobTitle);
-            this.pnlJobTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlJobTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlJobTitle.Location = new System.Drawing.Point(13, 73);
-            this.pnlJobTitle.Name = "pnlJobTitle";
-            this.pnlJobTitle.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlJobTitle.Size = new System.Drawing.Size(411, 54);
-            this.pnlJobTitle.TabIndex = 2;
-            // 
-            // lblJobTitle
-            // 
-            this.lblJobTitle.AutoSize = true;
-            this.lblJobTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblJobTitle.Location = new System.Drawing.Point(0, 6);
-            this.lblJobTitle.Name = "lblJobTitle";
-            this.lblJobTitle.Size = new System.Drawing.Size(65, 20);
-            this.lblJobTitle.TabIndex = 0;
-            this.lblJobTitle.Text = "Job Title";
-            // 
-            // cmbJobTitle
-            // 
-            this.cmbJobTitle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbJobTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbJobTitle.FormattingEnabled = true;
-            this.cmbJobTitle.Items.AddRange(new object[] {
-            "Manager",
-            "Software Engineer",
-            "HR Executive",
-            "Accountant",
-            "Intern"});
-            this.cmbJobTitle.Location = new System.Drawing.Point(0, 26);
-            this.cmbJobTitle.Name = "cmbJobTitle";
-            this.cmbJobTitle.Size = new System.Drawing.Size(411, 28);
-            this.cmbJobTitle.TabIndex = 1;
-            // 
-            // pnlDepartment
-            // 
-            this.pnlDepartment.Controls.Add(this.cmbDepartment);
-            this.pnlDepartment.Controls.Add(this.lblDepartment);
-            this.pnlDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlDepartment.Location = new System.Drawing.Point(430, 13);
-            this.pnlDepartment.Name = "pnlDepartment";
-            this.pnlDepartment.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlDepartment.Size = new System.Drawing.Size(412, 54);
-            this.pnlDepartment.TabIndex = 1;
-            // 
-            // lblDepartment
-            // 
-            this.lblDepartment.AutoSize = true;
-            this.lblDepartment.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblDepartment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartment.Location = new System.Drawing.Point(0, 6);
-            this.lblDepartment.Name = "lblDepartment";
-            this.lblDepartment.Size = new System.Drawing.Size(89, 20);
-            this.lblDepartment.TabIndex = 0;
-            this.lblDepartment.Text = "Department";
-            // 
-            // cmbDepartment
-            // 
-            this.cmbDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmbDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDepartment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Items.AddRange(new object[] {
-            "HR",
-            "IT",
-            "Finance",
-            "Marketing",
-            "Operations"});
-            this.cmbDepartment.Location = new System.Drawing.Point(0, 26);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(412, 28);
-            this.cmbDepartment.TabIndex = 1;
-            // 
-            // pnlSecurityQuestion
-            // 
-            this.pnlSecurityQuestion.Controls.Add(this.txtSecurityQuestion);
-            this.pnlSecurityQuestion.Controls.Add(this.lblSecurityQuestion);
-            this.pnlSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlSecurityQuestion.Location = new System.Drawing.Point(13, 13);
-            this.pnlSecurityQuestion.Name = "pnlSecurityQuestion";
-            this.pnlSecurityQuestion.Padding = new System.Windows.Forms.Padding(0, 6, 0, 6);
-            this.pnlSecurityQuestion.Size = new System.Drawing.Size(411, 54);
-            this.pnlSecurityQuestion.TabIndex = 0;
-            // 
-            // lblSecurityQuestion
-            // 
-            this.lblSecurityQuestion.AutoSize = true;
-            this.lblSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblSecurityQuestion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecurityQuestion.Location = new System.Drawing.Point(0, 6);
-            this.lblSecurityQuestion.Name = "lblSecurityQuestion";
-            this.lblSecurityQuestion.Size = new System.Drawing.Size(124, 20);
-            this.lblSecurityQuestion.TabIndex = 0;
-            this.lblSecurityQuestion.Text = "Security Question";
-            // 
-            // txtSecurityQuestion
-            // 
-            this.txtSecurityQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSecurityQuestion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecurityQuestion.Location = new System.Drawing.Point(0, 26);
-            this.txtSecurityQuestion.Name = "txtSecurityQuestion";
-            this.txtSecurityQuestion.Size = new System.Drawing.Size(411, 27);
-            this.txtSecurityQuestion.TabIndex = 1;
-            // 
-            // tblEmploymentInfo
-            // 
-            this.tblEmploymentInfo.ColumnCount = 2;
-            this.tblEmploymentInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblEmploymentInfo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblEmploymentInfo.Controls.Add(this.pnlSecurityQuestion, 0, 0);
-            this.tblEmploymentInfo.Controls.Add(this.pnlDepartment, 1, 0);
-            this.tblEmploymentInfo.Controls.Add(this.pnlJobTitle, 0, 1);
-            this.tblEmploymentInfo.Controls.Add(this.pnlJoinDate, 1, 1);
-            this.tblEmploymentInfo.Controls.Add(this.pnlEmploymentType, 0, 2);
-            this.tblEmploymentInfo.Controls.Add(this.pnlSalary, 1, 2);
-            this.tblEmploymentInfo.Controls.Add(this.pnlSecutityAnsweremp, 0, 3);
-            this.tblEmploymentInfo.Controls.Add(this.pnlPassword, 1, 3);
-            this.tblEmploymentInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblEmploymentInfo.Location = new System.Drawing.Point(10, 33);
-            this.tblEmploymentInfo.Name = "tblEmploymentInfo";
-            this.tblEmploymentInfo.Padding = new System.Windows.Forms.Padding(10);
-            this.tblEmploymentInfo.RowCount = 6;
-            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblEmploymentInfo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tblEmploymentInfo.Size = new System.Drawing.Size(855, 230);
-            this.tblEmploymentInfo.TabIndex = 0;
-            // 
-            // pnlPassword
-            // 
-            this.pnlPassword.Controls.Add(this.txtPassword);
-            this.pnlPassword.Controls.Add(this.lblPassword);
-            this.pnlPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPassword.Location = new System.Drawing.Point(430, 193);
-            this.pnlPassword.Name = "pnlPassword";
-            this.pnlPassword.Size = new System.Drawing.Size(412, 54);
-            this.pnlPassword.TabIndex = 7;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(0, 0);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(70, 20);
-            this.lblPassword.TabIndex = 2;
-            this.lblPassword.Text = "Password";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPassword.Location = new System.Drawing.Point(0, 20);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(412, 30);
-            this.txtPassword.TabIndex = 3;
-            // 
             // RegisterForm
             // 
             this.AcceptButton = this.btnSubmit;
@@ -816,6 +817,23 @@
             this.pnlButtons.ResumeLayout(false);
             this.flowButtons.ResumeLayout(false);
             this.grpEmploymentInfo.ResumeLayout(false);
+            this.tblEmploymentInfo.ResumeLayout(false);
+            this.pnlSecurityQuestion.ResumeLayout(false);
+            this.pnlSecurityQuestion.PerformLayout();
+            this.pnlDepartment.ResumeLayout(false);
+            this.pnlDepartment.PerformLayout();
+            this.pnlJobTitle.ResumeLayout(false);
+            this.pnlJobTitle.PerformLayout();
+            this.pnlJoinDate.ResumeLayout(false);
+            this.pnlJoinDate.PerformLayout();
+            this.pnlEmploymentType.ResumeLayout(false);
+            this.pnlEmploymentType.PerformLayout();
+            this.pnlSalary.ResumeLayout(false);
+            this.pnlSalary.PerformLayout();
+            this.pnlSecutityAnsweremp.ResumeLayout(false);
+            this.pnlSecutityAnsweremp.PerformLayout();
+            this.pnlPassword.ResumeLayout(false);
+            this.pnlPassword.PerformLayout();
             this.grpPersonalInfo.ResumeLayout(false);
             this.tblPersonalInfo.ResumeLayout(false);
             this.pnlFullName.ResumeLayout(false);
@@ -832,23 +850,6 @@
             this.pnlPhone.PerformLayout();
             this.pnlAddress.ResumeLayout(false);
             this.pnlAddress.PerformLayout();
-            this.pnlSecutityAnsweremp.ResumeLayout(false);
-            this.pnlSecutityAnsweremp.PerformLayout();
-            this.pnlSalary.ResumeLayout(false);
-            this.pnlSalary.PerformLayout();
-            this.pnlEmploymentType.ResumeLayout(false);
-            this.pnlEmploymentType.PerformLayout();
-            this.pnlJoinDate.ResumeLayout(false);
-            this.pnlJoinDate.PerformLayout();
-            this.pnlJobTitle.ResumeLayout(false);
-            this.pnlJobTitle.PerformLayout();
-            this.pnlDepartment.ResumeLayout(false);
-            this.pnlDepartment.PerformLayout();
-            this.pnlSecurityQuestion.ResumeLayout(false);
-            this.pnlSecurityQuestion.PerformLayout();
-            this.tblEmploymentInfo.ResumeLayout(false);
-            this.pnlPassword.ResumeLayout(false);
-            this.pnlPassword.PerformLayout();
             this.ResumeLayout(false);
 
         }

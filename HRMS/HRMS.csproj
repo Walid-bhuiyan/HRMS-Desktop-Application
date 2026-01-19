@@ -257,6 +257,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HRAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRAttendance.Designer.cs">
+      <DependentUpon>HRAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HRChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRChangePassword.Designer.cs">
+      <DependentUpon>HRChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="HRManagerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +280,12 @@
     </Compile>
     <Compile Include="HRProfile.Designer.cs">
       <DependentUpon>HRProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR_DepartmentManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR_DepartmentManagement.Designer.cs">
+      <DependentUpon>HR_DepartmentManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="HR_EmployeeManagement.cs">
       <SubType>Form</SubType>
@@ -358,11 +376,20 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HRAttendance.resx">
+      <DependentUpon>HRAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HRChangePassword.resx">
+      <DependentUpon>HRChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HRManagerDashboard.resx">
       <DependentUpon>HRManagerDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HRProfile.resx">
       <DependentUpon>HRProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR_DepartmentManagement.resx">
+      <DependentUpon>HR_DepartmentManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR_EmployeeManagement.resx">
       <DependentUpon>HR_EmployeeManagement.cs</DependentUpon>

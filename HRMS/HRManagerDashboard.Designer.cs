@@ -34,7 +34,6 @@
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
             this.btnPayroll = new System.Windows.Forms.Button();
             this.btnLeaveManagementSP = new System.Windows.Forms.Button();
             this.btnAttendance = new System.Windows.Forms.Button();
@@ -42,6 +41,18 @@
             this.btnEmployees = new System.Windows.Forms.Button();
             this.btnDashboardSB = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.lblPendingLeavesValue = new System.Windows.Forms.Label();
+            this.lblPendingLeavesTitle = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTotalDepartmentsValue = new System.Windows.Forms.Label();
+            this.lblTotalDepartmentsTitle = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTodayPresentValue = new System.Windows.Forms.Label();
+            this.lblTodayPresentTitle = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTotalEmployeesValue = new System.Windows.Forms.Label();
+            this.lblTotalEmployeesTitle = new System.Windows.Forms.Label();
             this.pnlDashboard = new System.Windows.Forms.Panel();
             this.pnlDepartments = new System.Windows.Forms.Panel();
             this.lblDepartments = new System.Windows.Forms.Label();
@@ -57,6 +68,11 @@
             this.lblTotalEmployeesText = new System.Windows.Forms.Label();
             this.pnlTopHr.SuspendLayout();
             this.pnlSidebar.SuspendLayout();
+            this.pnlMain.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnlDashboard.SuspendLayout();
             this.pnlDepartments.SuspendLayout();
             this.pnlTodayPresent.SuspendLayout();
@@ -75,6 +91,7 @@
             this.pnlTopHr.Name = "pnlTopHr";
             this.pnlTopHr.Size = new System.Drawing.Size(800, 60);
             this.pnlTopHr.TabIndex = 8;
+            this.pnlTopHr.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlTopHr_Paint);
             // 
             // btnLogout
             // 
@@ -83,7 +100,7 @@
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.Ivory;
-            this.btnLogout.Location = new System.Drawing.Point(530, 6);
+            this.btnLogout.Location = new System.Drawing.Point(707, 13);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(91, 34);
@@ -109,19 +126,17 @@
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(41)))), ((int)(((byte)(51)))));
             this.pnlSidebar.Controls.Add(this.btnChangePassword);
             this.pnlSidebar.Controls.Add(this.btnProfile);
-            this.pnlSidebar.Controls.Add(this.btnReports);
             this.pnlSidebar.Controls.Add(this.btnPayroll);
             this.pnlSidebar.Controls.Add(this.btnLeaveManagementSP);
             this.pnlSidebar.Controls.Add(this.btnAttendance);
             this.pnlSidebar.Controls.Add(this.btnOrganization);
             this.pnlSidebar.Controls.Add(this.btnEmployees);
             this.pnlSidebar.Controls.Add(this.btnDashboardSB);
-            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Location = new System.Drawing.Point(0, 60);
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 56);
             this.pnlSidebar.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pnlSidebar.Size = new System.Drawing.Size(220, 444);
+            this.pnlSidebar.Size = new System.Drawing.Size(220, 448);
             this.pnlSidebar.TabIndex = 9;
             // 
             // btnChangePassword
@@ -131,7 +146,7 @@
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.White;
-            this.btnChangePassword.Location = new System.Drawing.Point(0, 378);
+            this.btnChangePassword.Location = new System.Drawing.Point(0, 332);
             this.btnChangePassword.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -140,6 +155,7 @@
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnChangePassword.UseVisualStyleBackColor = true;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // btnProfile
             // 
@@ -148,7 +164,7 @@
             this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfile.ForeColor = System.Drawing.Color.White;
-            this.btnProfile.Location = new System.Drawing.Point(0, 332);
+            this.btnProfile.Location = new System.Drawing.Point(0, 286);
             this.btnProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -158,23 +174,6 @@
             this.btnProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click_1);
-            // 
-            // btnReports
-            // 
-            this.btnReports.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReports.FlatAppearance.BorderSize = 0;
-            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReports.ForeColor = System.Drawing.Color.White;
-            this.btnReports.Location = new System.Drawing.Point(0, 286);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnReports.Size = new System.Drawing.Size(220, 46);
-            this.btnReports.TabIndex = 8;
-            this.btnReports.Text = "Reports";
-            this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.UseVisualStyleBackColor = true;
             // 
             // btnPayroll
             // 
@@ -226,6 +225,7 @@
             this.btnAttendance.Text = "Attendance";
             this.btnAttendance.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAttendance.UseVisualStyleBackColor = true;
+            this.btnAttendance.Click += new System.EventHandler(this.btnAttendance_Click);
             // 
             // btnOrganization
             // 
@@ -243,6 +243,7 @@
             this.btnOrganization.Text = "Organization";
             this.btnOrganization.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrganization.UseVisualStyleBackColor = true;
+            this.btnOrganization.Click += new System.EventHandler(this.btnOrganization_Click);
             // 
             // btnEmployees
             // 
@@ -278,19 +279,157 @@
             this.btnDashboardSB.Text = "Dashboard";
             this.btnDashboardSB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboardSB.UseVisualStyleBackColor = true;
-            this.btnDashboardSB.Click += new System.EventHandler(this.btnDashboardSB_Click);
             // 
             // pnlMain
             // 
-            this.pnlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlMain.BackColor = System.Drawing.Color.White;
             this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMain.Location = new System.Drawing.Point(165, 49);
+            this.pnlMain.Controls.Add(this.panel3);
+            this.pnlMain.Controls.Add(this.panel4);
+            this.pnlMain.Controls.Add(this.panel2);
+            this.pnlMain.Controls.Add(this.panel1);
+            this.pnlMain.Location = new System.Drawing.Point(235, 71);
             this.pnlMain.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(581, 390);
+            this.pnlMain.Size = new System.Drawing.Size(554, 397);
             this.pnlMain.TabIndex = 10;
-            this.pnlMain.Visible = false;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel3.Controls.Add(this.lblPendingLeavesValue);
+            this.panel3.Controls.Add(this.lblPendingLeavesTitle);
+            this.panel3.Location = new System.Drawing.Point(21, 221);
+            this.panel3.Margin = new System.Windows.Forms.Padding(15);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 110);
+            this.panel3.TabIndex = 4;
+            // 
+            // lblPendingLeavesValue
+            // 
+            this.lblPendingLeavesValue.AutoSize = true;
+            this.lblPendingLeavesValue.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingLeavesValue.ForeColor = System.Drawing.Color.White;
+            this.lblPendingLeavesValue.Location = new System.Drawing.Point(74, 44);
+            this.lblPendingLeavesValue.Name = "lblPendingLeavesValue";
+            this.lblPendingLeavesValue.Size = new System.Drawing.Size(39, 45);
+            this.lblPendingLeavesValue.TabIndex = 1;
+            this.lblPendingLeavesValue.Text = "0";
+            this.lblPendingLeavesValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPendingLeavesTitle
+            // 
+            this.lblPendingLeavesTitle.AutoSize = true;
+            this.lblPendingLeavesTitle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingLeavesTitle.ForeColor = System.Drawing.Color.White;
+            this.lblPendingLeavesTitle.Location = new System.Drawing.Point(29, 11);
+            this.lblPendingLeavesTitle.Name = "lblPendingLeavesTitle";
+            this.lblPendingLeavesTitle.Size = new System.Drawing.Size(132, 23);
+            this.lblPendingLeavesTitle.TabIndex = 0;
+            this.lblPendingLeavesTitle.Text = "Pending Leaves";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel4.Controls.Add(this.lblTotalDepartmentsValue);
+            this.panel4.Controls.Add(this.lblTotalDepartmentsTitle);
+            this.panel4.Location = new System.Drawing.Point(337, 221);
+            this.panel4.Margin = new System.Windows.Forms.Padding(15);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 110);
+            this.panel4.TabIndex = 5;
+            // 
+            // lblTotalDepartmentsValue
+            // 
+            this.lblTotalDepartmentsValue.AutoSize = true;
+            this.lblTotalDepartmentsValue.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDepartmentsValue.ForeColor = System.Drawing.Color.White;
+            this.lblTotalDepartmentsValue.Location = new System.Drawing.Point(80, 44);
+            this.lblTotalDepartmentsValue.Name = "lblTotalDepartmentsValue";
+            this.lblTotalDepartmentsValue.Size = new System.Drawing.Size(39, 45);
+            this.lblTotalDepartmentsValue.TabIndex = 1;
+            this.lblTotalDepartmentsValue.Text = "0";
+            this.lblTotalDepartmentsValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTotalDepartmentsTitle
+            // 
+            this.lblTotalDepartmentsTitle.AutoSize = true;
+            this.lblTotalDepartmentsTitle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDepartmentsTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTotalDepartmentsTitle.Location = new System.Drawing.Point(24, 11);
+            this.lblTotalDepartmentsTitle.Name = "lblTotalDepartmentsTitle";
+            this.lblTotalDepartmentsTitle.Size = new System.Drawing.Size(159, 23);
+            this.lblTotalDepartmentsTitle.TabIndex = 0;
+            this.lblTotalDepartmentsTitle.Text = "Total Departments";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel2.Controls.Add(this.lblTodayPresentValue);
+            this.panel2.Controls.Add(this.lblTodayPresentTitle);
+            this.panel2.Location = new System.Drawing.Point(337, 56);
+            this.panel2.Margin = new System.Windows.Forms.Padding(15);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 110);
+            this.panel2.TabIndex = 6;
+            // 
+            // lblTodayPresentValue
+            // 
+            this.lblTodayPresentValue.AutoSize = true;
+            this.lblTodayPresentValue.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTodayPresentValue.ForeColor = System.Drawing.Color.White;
+            this.lblTodayPresentValue.Location = new System.Drawing.Point(74, 44);
+            this.lblTodayPresentValue.Name = "lblTodayPresentValue";
+            this.lblTodayPresentValue.Size = new System.Drawing.Size(39, 45);
+            this.lblTodayPresentValue.TabIndex = 1;
+            this.lblTodayPresentValue.Text = "0";
+            this.lblTodayPresentValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTodayPresentTitle
+            // 
+            this.lblTodayPresentTitle.AutoSize = true;
+            this.lblTodayPresentTitle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTodayPresentTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTodayPresentTitle.Location = new System.Drawing.Point(29, 11);
+            this.lblTodayPresentTitle.Name = "lblTodayPresentTitle";
+            this.lblTodayPresentTitle.Size = new System.Drawing.Size(133, 23);
+            this.lblTodayPresentTitle.TabIndex = 0;
+            this.lblTodayPresentTitle.Text = "Today’s Present";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.lblTotalEmployeesValue);
+            this.panel1.Controls.Add(this.lblTotalEmployeesTitle);
+            this.panel1.Location = new System.Drawing.Point(21, 56);
+            this.panel1.Margin = new System.Windows.Forms.Padding(15);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 110);
+            this.panel1.TabIndex = 3;
+            // 
+            // lblTotalEmployeesValue
+            // 
+            this.lblTotalEmployeesValue.AutoSize = true;
+            this.lblTotalEmployeesValue.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEmployeesValue.ForeColor = System.Drawing.Color.White;
+            this.lblTotalEmployeesValue.Location = new System.Drawing.Point(74, 44);
+            this.lblTotalEmployeesValue.Name = "lblTotalEmployeesValue";
+            this.lblTotalEmployeesValue.Size = new System.Drawing.Size(39, 45);
+            this.lblTotalEmployeesValue.TabIndex = 1;
+            this.lblTotalEmployeesValue.Text = "0";
+            this.lblTotalEmployeesValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTotalEmployeesTitle
+            // 
+            this.lblTotalEmployeesTitle.AutoSize = true;
+            this.lblTotalEmployeesTitle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEmployeesTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTotalEmployeesTitle.Location = new System.Drawing.Point(29, 11);
+            this.lblTotalEmployeesTitle.Name = "lblTotalEmployeesTitle";
+            this.lblTotalEmployeesTitle.Size = new System.Drawing.Size(139, 23);
+            this.lblTotalEmployeesTitle.TabIndex = 0;
+            this.lblTotalEmployeesTitle.Text = "Total Employees";
             // 
             // pnlDashboard
             // 
@@ -445,15 +584,25 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 504);
-            this.Controls.Add(this.pnlMain);
-            this.Controls.Add(this.pnlSidebar);
             this.Controls.Add(this.pnlTopHr);
+            this.Controls.Add(this.pnlSidebar);
+            this.Controls.Add(this.pnlMain);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HRManagerDashboard";
             this.Text = "HRManagerDashboard";
+            this.Load += new System.EventHandler(this.HRManagerDashboard_Load);
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();
             this.pnlSidebar.ResumeLayout(false);
+            this.pnlMain.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlDashboard.ResumeLayout(false);
             this.pnlDepartments.ResumeLayout(false);
             this.pnlDepartments.PerformLayout();
@@ -477,7 +626,6 @@
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button btnOrganization;
         private System.Windows.Forms.Button btnEmployees;
-        private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnPayroll;
         private System.Windows.Forms.Button btnAttendance;
         private System.Windows.Forms.Button btnChangePassword;
@@ -496,5 +644,17 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblTodayPresent;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblPendingLeavesValue;
+        private System.Windows.Forms.Label lblPendingLeavesTitle;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label lblTotalDepartmentsValue;
+        private System.Windows.Forms.Label lblTotalDepartmentsTitle;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblTodayPresentValue;
+        private System.Windows.Forms.Label lblTodayPresentTitle;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblTotalEmployeesValue;
+        private System.Windows.Forms.Label lblTotalEmployeesTitle;
     }
 }
