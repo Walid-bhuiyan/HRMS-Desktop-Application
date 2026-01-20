@@ -13,11 +13,24 @@ namespace HRMS
 {
     public partial class ApplyforLeave : Form
     {
+        // 🔒 logged-in employee id
+        private int employeeId;
+
+        // old variables (kept structure)
+        private string reason;
+
+        // ================= DEFAULT =================
         public ApplyforLeave()
         {
             InitializeComponent();
         }
-        private String empId, fromD, toD, reason;
+
+        // ================= EMPLOYEE CONSTRUCTOR =================
+        public ApplyforLeave(int id)
+        {
+            InitializeComponent();
+            employeeId = id;
+        }
 
         private SqlConnection Connect()
         {
@@ -27,9 +40,16 @@ namespace HRMS
             return conn;
         }
 
+        private void ApplyforLeave_Load(object sender, EventArgs e)
+        {
+            // ✅ auto set employee id & lock it
+            txtId.Text = employeeId.ToString();
+            txtId.ReadOnly = true;
+        }
+
         private void btnCheck_Click(object sender, EventArgs e)
         {
-            LeaveStatus ls= new LeaveStatus();
+            LeaveStatus ls = new LeaveStatus(employeeId);
             ls.Show();
             this.Hide();
         }
@@ -38,19 +58,20 @@ namespace HRMS
         {
             try
             {
-                SqlConnection conn = Connect();
+                using (SqlConnection conn = Connect())
+                {
+                    string query = @"INSERT INTO LeaveRequests 
+                                    (EmployeeID, FromDate, ToDate, Reason, Status) 
+                                     VALUES (@id, @from, @to, @reason, 'Pending')";
 
-                
-                DateTime fromDate = Convert.ToDateTime(dateTimePicker1.Text);
-                DateTime toDate = Convert.ToDateTime(dateTimePicker2.Text);
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", employeeId);
+                    cmd.Parameters.AddWithValue("@from", dateTimePicker1.Value);
+                    cmd.Parameters.AddWithValue("@to", dateTimePicker2.Value);
+                    cmd.Parameters.AddWithValue("@reason", reason);
 
-               
-                string query = "INSERT INTO LeaveRequests (EmployeeID, FromDate, ToDate, Reason, Status) " +
-                               "VALUES('" + empId + "','" + fromDate.ToString("yyyy-MM-dd") + "','" + toDate.ToString("yyyy-MM-dd") + "','" + reason + "','Pending')";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                    cmd.ExecuteNonQuery();
+                }
 
                 MessageBox.Show("Leave request submitted successfully!");
             }
@@ -62,21 +83,18 @@ namespace HRMS
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            EmployeeDashboard ed = new EmployeeDashboard();
+            EmployeeDashboard ed = new EmployeeDashboard(employeeId);
             ed.Show();
             this.Hide();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            empId = txtId.Text;
-            fromD = dateTimePicker1.Text;
-            toD = dateTimePicker2.Text;
-            reason = richTextBox1.Text;
+            reason = richTextBox1.Text.Trim();
 
-            if (empId == "" || reason == "")
+            if (reason == "")
             {
-                MessageBox.Show("All fields are required");
+                MessageBox.Show("Reason is required");
                 return;
             }
 
@@ -86,12 +104,8 @@ namespace HRMS
                 return;
             }
 
-            insertIntoLeaveRequest();  
-
+            insertIntoLeaveRequest();
             richTextBox1.Text = "";
-
         }
-
-        
     }
 }

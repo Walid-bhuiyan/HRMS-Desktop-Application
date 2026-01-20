@@ -7,40 +7,31 @@ namespace HRMS
 {
     public partial class HRAttendance : Form
     {
-        private void btnBack_Click_1(object sender, EventArgs e)
-        {
-            btnBack_Click(sender, e); // forward to real back button
-        }
-
-        private void btnLoad_Click(object sender, EventArgs e)
-        {
-            btnLoadEmployees_Click(sender, e); // forward to real load logic
-        }
-
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+        int hrId;
 
-        public HRAttendance()
+        // ================= CONSTRUCTOR =================
+        public HRAttendance(int id)
         {
             InitializeComponent();
+            hrId = id;
         }
 
         // ================= BACK =================
         private void btnBack_Click(object sender, EventArgs e)
         {
-            HRManagerDashboard n = new HRManagerDashboard();
-            n.Show();
-            this.Hide();
+            
         }
 
-        // ================= LOAD USERS (ADMIN-LIKE) =================
-        private void btnLoadEmployees_Click(object sender, EventArgs e)
+        // ================= LOAD USERS =================
+        private void btnLoad_Click(object sender, EventArgs e)
         {
             try
             {
                 string tableName = "";
                 string userType = "";
                 string idColumn = "";
-                string nameColumn = "name";
+                string nameColumn = "";
 
                 switch (cmbDepartment.Text)
                 {
@@ -48,12 +39,14 @@ namespace HRMS
                         tableName = "Admins";
                         userType = "Admin";
                         idColumn = "id";
+                        nameColumn = "name";
                         break;
 
                     case "Manager":
                         tableName = "HRManagers";
                         userType = "HRManager";
                         idColumn = "hrId";
+                        nameColumn = "Name";
                         break;
 
                     case "Employee":
@@ -66,7 +59,8 @@ namespace HRMS
                     case "Accountant":
                         tableName = "Accountants";
                         userType = "Accountant";
-                        idColumn = "id";
+                        idColumn = "AccountantID";
+                        nameColumn = "FullName";
                         break;
 
                     default:
@@ -83,42 +77,29 @@ namespace HRMS
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
 
-                    if (!dt.Columns.Contains("UserType"))
-                        dt.Columns.Add("UserType", typeof(string));
-
-                    foreach (DataRow row in dt.Rows)
-                        row["UserType"] = userType;
-
-                    if (!dt.Columns.Contains("Present"))
-                        dt.Columns.Add("Present", typeof(bool));
+                    dt.Columns.Add("UserType", typeof(string));
+                    dt.Columns.Add("Present", typeof(bool));
 
                     DateTime selectedDate = dtpDate.Value.Date;
 
                     foreach (DataRow row in dt.Rows)
                     {
+                        row["UserType"] = userType;
                         int userId = Convert.ToInt32(row["Id"]);
 
-                        string checkQuery =
-                            "SELECT Status FROM Attendance WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+                        string checkQuery = @"SELECT Status FROM Attendance 
+                                              WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
 
-                        SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
-                        checkCmd.Parameters.AddWithValue("@UserId", userId);
-                        checkCmd.Parameters.AddWithValue("@UserType", userType);
-                        checkCmd.Parameters.AddWithValue("@AttendanceDate", selectedDate);
+                        SqlCommand cmd = new SqlCommand(checkQuery, conn);
+                        cmd.Parameters.AddWithValue("@uid", userId);
+                        cmd.Parameters.AddWithValue("@ut", userType);
+                        cmd.Parameters.AddWithValue("@dt", selectedDate);
 
-                        object result = checkCmd.ExecuteScalar();
+                        object result = cmd.ExecuteScalar();
                         row["Present"] = (result != null && result.ToString() == "Present");
                     }
 
                     dataGridView1.DataSource = dt;
-
-                    foreach (DataGridViewColumn col in dataGridView1.Columns)
-                        col.Visible = false;
-
-                    dataGridView1.Columns["Id"].Visible = true;
-                    dataGridView1.Columns["Name"].Visible = true;
-                    dataGridView1.Columns["UserType"].Visible = true;
-                    dataGridView1.Columns["Present"].Visible = true;
                 }
             }
             catch (Exception ex)
@@ -127,17 +108,11 @@ namespace HRMS
             }
         }
 
-        // ================= SAVE ATTENDANCE (ADMIN-LIKE) =================
+        // ================= SAVE ATTENDANCE =================
         private void btnSaveAttendance_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.Rows.Count == 0)
-                {
-                    MessageBox.Show("No data to save!");
-                    return;
-                }
-
                 using (SqlConnection conn = new SqlConnection(conStr))
                 {
                     conn.Open();
@@ -150,49 +125,49 @@ namespace HRMS
                         int userId = Convert.ToInt32(row.Cells["Id"].Value);
                         string name = row.Cells["Name"].Value.ToString();
                         string userType = row.Cells["UserType"].Value.ToString();
+                        bool present = Convert.ToBoolean(row.Cells["Present"].Value);
+                        string status = present ? "Present" : "Absent";
 
-                        bool isPresent = Convert.ToBoolean(row.Cells["Present"].Value);
-                        string status = isPresent ? "Present" : "Absent";
+                        string check = @"SELECT COUNT(*) FROM Attendance 
+                                         WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
 
-                        string checkQuery =
-                            "SELECT COUNT(*) FROM Attendance WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+                        SqlCommand checkCmd = new SqlCommand(check, conn);
+                        checkCmd.Parameters.AddWithValue("@uid", userId);
+                        checkCmd.Parameters.AddWithValue("@ut", userType);
+                        checkCmd.Parameters.AddWithValue("@dt", selectedDate);
 
-                        SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
-                        checkCmd.Parameters.AddWithValue("@UserId", userId);
-                        checkCmd.Parameters.AddWithValue("@UserType", userType);
-                        checkCmd.Parameters.AddWithValue("@AttendanceDate", selectedDate);
-
-                        int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                        int count = (int)checkCmd.ExecuteScalar();
 
                         if (count > 0)
                         {
-                            string updateQuery =
-                                "UPDATE Attendance SET Status=@Status WHERE UserId=@UserId AND UserType=@UserType AND AttendanceDate=@AttendanceDate";
+                            string update = @"UPDATE Attendance SET Status=@st 
+                                              WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
 
-                            SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
-                            updateCmd.Parameters.AddWithValue("@Status", status);
-                            updateCmd.Parameters.AddWithValue("@UserId", userId);
-                            updateCmd.Parameters.AddWithValue("@UserType", userType);
-                            updateCmd.Parameters.AddWithValue("@AttendanceDate", selectedDate);
-                            updateCmd.ExecuteNonQuery();
+                            SqlCommand up = new SqlCommand(update, conn);
+                            up.Parameters.AddWithValue("@st", status);
+                            up.Parameters.AddWithValue("@uid", userId);
+                            up.Parameters.AddWithValue("@ut", userType);
+                            up.Parameters.AddWithValue("@dt", selectedDate);
+                            up.ExecuteNonQuery();
                         }
                         else
                         {
-                            string insertQuery =
-                                "INSERT INTO Attendance (UserId,UserType,Name,Status,AttendanceDate) VALUES (@UserId,@UserType,@Name,@Status,@AttendanceDate)";
+                            string insert = @"INSERT INTO Attendance 
+                            (UserId,UserType,Name,Status,AttendanceDate)
+                            VALUES(@uid,@ut,@nm,@st,@dt)";
 
-                            SqlCommand insertCmd = new SqlCommand(insertQuery, conn);
-                            insertCmd.Parameters.AddWithValue("@UserId", userId);
-                            insertCmd.Parameters.AddWithValue("@UserType", userType);
-                            insertCmd.Parameters.AddWithValue("@Name", name);
-                            insertCmd.Parameters.AddWithValue("@Status", status);
-                            insertCmd.Parameters.AddWithValue("@AttendanceDate", selectedDate);
-                            insertCmd.ExecuteNonQuery();
+                            SqlCommand ins = new SqlCommand(insert, conn);
+                            ins.Parameters.AddWithValue("@uid", userId);
+                            ins.Parameters.AddWithValue("@ut", userType);
+                            ins.Parameters.AddWithValue("@nm", name);
+                            ins.Parameters.AddWithValue("@st", status);
+                            ins.Parameters.AddWithValue("@dt", selectedDate);
+                            ins.ExecuteNonQuery();
                         }
                     }
                 }
 
-                MessageBox.Show("Attendance saved successfully!");
+                MessageBox.Show("Attendance saved successfully ✅");
             }
             catch (Exception ex)
             {
@@ -200,36 +175,64 @@ namespace HRMS
             }
         }
 
-        // ================= VIEW ATTENDANCE =================
-        private void btnViewAttendance_Click(object sender, EventArgs e)
+        private void btnBack_Click_1(object sender, EventArgs e)
         {
+            new HRManagerDashboard(hrId).Show();
+            this.Hide();
+
+        }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            if (cmbDepartment.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a department!");
+                return;
+            }
+
+            string userType = "";
+
+            switch (cmbDepartment.Text)
+            {
+                case "Admin": userType = "Admin"; break;
+                case "Manager": userType = "HRManager"; break;
+                case "Employee": userType = "Employee"; break;
+                case "Accountant": userType = "Accountant"; break;
+                default:
+                    MessageBox.Show("Invalid department!");
+                    return;
+            }
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(conStr))
                 {
                     conn.Open();
-                    DateTime selectedDate = dtpDate.Value.Date;
 
-                    string query =
-                        "SELECT AttendanceId AS Id, UserId, Name, Status, AttendanceDate FROM Attendance WHERE AttendanceDate=@AttendanceDate";
+                    string query = @"
+                SELECT 
+                    UserId AS ID,
+                    Name,
+                    UserType,
+                    Status,
+                    AttendanceDate
+                FROM Attendance
+                WHERE UserType = @ut
+                  AND AttendanceDate = @dt";
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@AttendanceDate", selectedDate);
+                    SqlDataAdapter adp = new SqlDataAdapter(query, conn);
+                    adp.SelectCommand.Parameters.AddWithValue("@ut", userType);
+                    adp.SelectCommand.Parameters.AddWithValue("@dt", dtpDate.Value.Date);
 
-                    SqlDataAdapter adp = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     adp.Fill(dt);
 
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No attendance found for this date and department.");
+                    }
+
                     dataGridView1.DataSource = dt;
-
-                    foreach (DataGridViewColumn col in dataGridView1.Columns)
-                        col.Visible = false;
-
-                    dataGridView1.Columns["Id"].Visible = true;
-                    dataGridView1.Columns["UserId"].Visible = true;
-                    dataGridView1.Columns["Name"].Visible = true;
-                    dataGridView1.Columns["Status"].Visible = true;
-                    dataGridView1.Columns["AttendanceDate"].Visible = true;
                 }
             }
             catch (Exception ex)
@@ -237,5 +240,6 @@ namespace HRMS
                 MessageBox.Show("Error viewing attendance: " + ex.Message);
             }
         }
+
     }
 }

@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HRMS
@@ -10,14 +17,14 @@ namespace HRMS
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
-        // ✅ Constructor must receive employeeId
+        
         public Profile(int id)
         {
             InitializeComponent();
             employeeId = id;
         }
 
-        // ================= LOAD PROFILE =================
+       
         private void ShowProfile()
         {
             using (SqlConnection conn = new SqlConnection(conStr))
@@ -49,7 +56,7 @@ namespace HRMS
             }
         }
 
-        // ================= READ ONLY =================
+       
         private void SetReadOnly()
         {
             txtId.ReadOnly = true;
@@ -63,19 +70,24 @@ namespace HRMS
             txtdepartment.ReadOnly = true;
         }
 
-        // ================= FORM LOAD =================
+       
         private void Profile_Load(object sender, EventArgs e)
         {
             ShowProfile();
             SetReadOnly();
         }
-
-        // ================= BACK =================
+ 
+       
         private void btnback_Click(object sender, EventArgs e)
         {
             EmployeeDashboard ed = new EmployeeDashboard(employeeId);
             ed.Show();
             this.Hide();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

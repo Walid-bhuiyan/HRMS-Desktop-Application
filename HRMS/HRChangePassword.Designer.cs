@@ -32,6 +32,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.topHeaderLogin = new System.Windows.Forms.Label();
             this.resetpasspanel = new System.Windows.Forms.Panel();
+            this.chbShowPass = new System.Windows.Forms.CheckBox();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtConfirmPass = new System.Windows.Forms.TextBox();
@@ -41,7 +42,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.chbShowPass = new System.Windows.Forms.CheckBox();
             this.pnlTopHr.SuspendLayout();
             this.resetpasspanel.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +72,7 @@
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnLogout_Click);
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // topHeaderLogin
             // 
@@ -103,6 +103,19 @@
             this.resetpasspanel.Name = "resetpasspanel";
             this.resetpasspanel.Size = new System.Drawing.Size(457, 286);
             this.resetpasspanel.TabIndex = 17;
+            // 
+            // chbShowPass
+            // 
+            this.chbShowPass.AutoSize = true;
+            this.chbShowPass.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbShowPass.ForeColor = System.Drawing.Color.White;
+            this.chbShowPass.Location = new System.Drawing.Point(295, 173);
+            this.chbShowPass.Name = "chbShowPass";
+            this.chbShowPass.Size = new System.Drawing.Size(125, 21);
+            this.chbShowPass.TabIndex = 10;
+            this.chbShowPass.Text = "Show Password";
+            this.chbShowPass.UseVisualStyleBackColor = true;
+            this.chbShowPass.CheckedChanged += new System.EventHandler(this.chbShowPass_CheckedChanged);
             // 
             // txtusername
             // 
@@ -196,19 +209,6 @@
             this.label1.Size = new System.Drawing.Size(129, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Old Password :";
-            // 
-            // chbShowPass
-            // 
-            this.chbShowPass.AutoSize = true;
-            this.chbShowPass.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbShowPass.ForeColor = System.Drawing.Color.White;
-            this.chbShowPass.Location = new System.Drawing.Point(295, 173);
-            this.chbShowPass.Name = "chbShowPass";
-            this.chbShowPass.Size = new System.Drawing.Size(125, 21);
-            this.chbShowPass.TabIndex = 10;
-            this.chbShowPass.Text = "Show Password";
-            this.chbShowPass.UseVisualStyleBackColor = true;
-            this.chbShowPass.CheckedChanged += new System.EventHandler(this.chbShowPass_CheckedChanged);
             // 
             // HRChangePassword
             // 

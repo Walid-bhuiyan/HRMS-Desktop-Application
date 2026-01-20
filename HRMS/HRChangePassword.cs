@@ -8,9 +8,10 @@ namespace HRMS
 {
     public partial class HRChangePassword : Form
     {
-        int hrId;
+        private int hrId;
 
-        string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
+        private string conStr =
+            @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
 
         // ✅ Constructor must receive hrId
         public HRChangePassword(int id)
@@ -19,7 +20,7 @@ namespace HRMS
             hrId = id;
         }
 
-        // 🔐 HASH FUNCTION (same as login)
+        // 🔐 HASH FUNCTION
         private string HashPassword(string password)
         {
             using (SHA256 sha = SHA256.Create())
@@ -32,7 +33,7 @@ namespace HRMS
             }
         }
 
-        // ✅ CHANGE PASSWORD BUTTON
+        // ✅ CHANGE PASSWORD
         private void btnChange_Click(object sender, EventArgs e)
         {
             if (txtOldPass.Text == "" || txtNewPass.Text == "" || txtConfirmPass.Text == "")
@@ -47,6 +48,13 @@ namespace HRMS
                 return;
             }
 
+            // 🚫 Prevent same old & new password
+            if (txtOldPass.Text.Trim() == txtNewPass.Text.Trim())
+            {
+                MessageBox.Show("New password cannot be the same as old password!");
+                return;
+            }
+
             string oldHash = HashPassword(txtOldPass.Text.Trim());
             string newHash = HashPassword(txtNewPass.Text.Trim());
 
@@ -56,7 +64,7 @@ namespace HRMS
                 {
                     con.Open();
 
-                    // 1️⃣ Check old password from Users
+                    // 1️⃣ Check old password
                     string checkQuery = @"SELECT COUNT(*) FROM Users 
                                           WHERE RefId=@id AND Role='HRManager' AND Password=@oldpass";
 
@@ -64,7 +72,7 @@ namespace HRMS
                     checkCmd.Parameters.AddWithValue("@id", hrId);
                     checkCmd.Parameters.AddWithValue("@oldpass", oldHash);
 
-                    int exists = (int)checkCmd.ExecuteScalar();
+                    int exists = Convert.ToInt32(checkCmd.ExecuteScalar());
 
                     if (exists == 0)
                     {
@@ -72,8 +80,9 @@ namespace HRMS
                         return;
                     }
 
-                    // 2️⃣ Update Users table
-                    string updateUsers = @"UPDATE Users SET Password=@newpass 
+                    // 2️⃣ Update Users
+                    string updateUsers = @"UPDATE Users 
+                                           SET Password=@newpass 
                                            WHERE RefId=@id AND Role='HRManager'";
 
                     SqlCommand cmd1 = new SqlCommand(updateUsers, con);
@@ -81,8 +90,9 @@ namespace HRMS
                     cmd1.Parameters.AddWithValue("@id", hrId);
                     cmd1.ExecuteNonQuery();
 
-                    // 3️⃣ Update HRManagers table
-                    string updateHR = @"UPDATE HRManagers SET Password=@newpass 
+                    // 3️⃣ Update HRManagers
+                    string updateHR = @"UPDATE HRManagers 
+                                        SET Password=@newpass 
                                         WHERE hrId=@id";
 
                     SqlCommand cmd2 = new SqlCommand(updateHR, con);
@@ -90,7 +100,9 @@ namespace HRMS
                     cmd2.Parameters.AddWithValue("@id", hrId);
                     cmd2.ExecuteNonQuery();
 
-                    MessageBox.Show("Password changed successfully!");
+                    MessageBox.Show("✅ Password changed successfully!");
+
+                    new HRManagerDashboard(hrId).Show();
                     this.Close();
                 }
             }
@@ -100,28 +112,27 @@ namespace HRMS
             }
         }
 
-        // 🔙 BACK / LOGOUT BUTTON
+        // 🔙 LOGOUT
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            HRManagerDashboard n = new HRManagerDashboard();
-            n.Show();
+            new HRManagerDashboard(hrId).Show();
             this.Hide();
         }
 
+        // 👁 SHOW / HIDE PASSWORD
         private void chbShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            if (chbShowPass.Checked)
-            {
-                txtOldPass.PasswordChar = '\0';
-                txtNewPass.PasswordChar = '\0';
-                txtConfirmPass.PasswordChar = '\0';
-            }
-            else
-            {
-                txtOldPass.PasswordChar = '*';
-                txtNewPass.PasswordChar = '*';
-                txtConfirmPass.PasswordChar = '*';
-            }
+            char c = chbShowPass.Checked ? '\0' : '*';
+            txtOldPass.PasswordChar = c;
+            txtNewPass.PasswordChar = c;
+            txtConfirmPass.PasswordChar = c;
+        }
+
+        // 🔙 BACK
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            new HRManagerDashboard(hrId).Show();
+            this.Hide();
         }
     }
 }

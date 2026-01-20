@@ -32,8 +32,6 @@
             this.btnchangepassword = new System.Windows.Forms.Button();
             this.btnattendance = new System.Windows.Forms.Button();
             this.btnprofile = new System.Windows.Forms.Button();
-            this.btnreport = new System.Windows.Forms.Button();
-            this.btnpayslip = new System.Windows.Forms.Button();
             this.btnpayment = new System.Windows.Forms.Button();
             this.btnpayroll = new System.Windows.Forms.Button();
             this.listPanel = new System.Windows.Forms.Panel();
@@ -83,6 +81,40 @@
             this.lblempname = new System.Windows.Forms.Label();
             this.lblempid = new System.Windows.Forms.Label();
             this.payrollProcessingPanel = new System.Windows.Forms.Panel();
+            this.viewemppayrollPanel = new System.Windows.Forms.Panel();
+            this.txtpayrollid = new System.Windows.Forms.TextBox();
+            this.lblpayrollid = new System.Windows.Forms.Label();
+            this.btnback = new System.Windows.Forms.Button();
+            this.lblerroryearpayroll = new System.Windows.Forms.Label();
+            this.lblerrormonthpayroll = new System.Windows.Forms.Label();
+            this.lblerrorempidpayroll = new System.Windows.Forms.Label();
+            this.lblpayrollbreakdown = new System.Windows.Forms.Label();
+            this.lblempinfopayroll = new System.Windows.Forms.Label();
+            this.txtnetsalarypayroll = new System.Windows.Forms.TextBox();
+            this.lblnetsalarypayroll = new System.Windows.Forms.Label();
+            this.txttotaldeductionpayroll = new System.Windows.Forms.TextBox();
+            this.lbltotaldeductionpayroll = new System.Windows.Forms.Label();
+            this.txtgrosssalarypayroll = new System.Windows.Forms.TextBox();
+            this.lblgrosssalarypayroll = new System.Windows.Forms.Label();
+            this.txtyearpayroll = new System.Windows.Forms.TextBox();
+            this.lblyearpayroll = new System.Windows.Forms.Label();
+            this.txtmonthpayroll = new System.Windows.Forms.TextBox();
+            this.lblmonthpayroll = new System.Windows.Forms.Label();
+            this.txtjobtitlepayroll = new System.Windows.Forms.TextBox();
+            this.lbljobtitlepayroll = new System.Windows.Forms.Label();
+            this.txtdepartmentpayroll = new System.Windows.Forms.TextBox();
+            this.lbldepartmentpayroll = new System.Windows.Forms.Label();
+            this.txtempnamepayroll = new System.Windows.Forms.TextBox();
+            this.lblempnamepayroll = new System.Windows.Forms.Label();
+            this.btnresetpayroll = new System.Windows.Forms.Button();
+            this.cmbselectmonthpayroll = new System.Windows.Forms.ComboBox();
+            this.lblselectmonthpayroll = new System.Windows.Forms.Label();
+            this.lblselectyearpayroll = new System.Windows.Forms.Label();
+            this.txtempidpayroll = new System.Windows.Forms.TextBox();
+            this.cmbselectyearpayroll = new System.Windows.Forms.ComboBox();
+            this.btnsearch2 = new System.Windows.Forms.Button();
+            this.lblempidpayroll = new System.Windows.Forms.Label();
+            this.lblviewemppayroll = new System.Windows.Forms.Label();
             this.lblerroryear = new System.Windows.Forms.Label();
             this.lblerrormonth = new System.Windows.Forms.Label();
             this.btnreset2 = new System.Windows.Forms.Button();
@@ -95,78 +127,75 @@
             this.lblpayrollprocessing = new System.Windows.Forms.Label();
             this.lblselectyear = new System.Windows.Forms.Label();
             this.lblselectmonth = new System.Windows.Forms.Label();
-            this.viewemppayrollPanel = new System.Windows.Forms.Panel();
-            this.cmbselectyearpayroll = new System.Windows.Forms.ComboBox();
-            this.btnsearch2 = new System.Windows.Forms.Button();
-            this.lblempidpayroll = new System.Windows.Forms.Label();
-            this.lblviewemppayroll = new System.Windows.Forms.Label();
-            this.txtempidpayroll = new System.Windows.Forms.TextBox();
-            this.lblselectyearpayroll = new System.Windows.Forms.Label();
-            this.lblselectmonthpayroll = new System.Windows.Forms.Label();
-            this.cmbselectmonthpayroll = new System.Windows.Forms.ComboBox();
-            this.btnresetpayroll = new System.Windows.Forms.Button();
-            this.txtempnamepayroll = new System.Windows.Forms.TextBox();
-            this.lblempnamepayroll = new System.Windows.Forms.Label();
-            this.txtdepartmentpayroll = new System.Windows.Forms.TextBox();
-            this.lbldepartmentpayroll = new System.Windows.Forms.Label();
-            this.txtjobtitlepayroll = new System.Windows.Forms.TextBox();
-            this.lbljobtitlepayroll = new System.Windows.Forms.Label();
-            this.txtmonthpayroll = new System.Windows.Forms.TextBox();
-            this.lblmonthpayroll = new System.Windows.Forms.Label();
-            this.txtyearpayroll = new System.Windows.Forms.TextBox();
-            this.lblyearpayroll = new System.Windows.Forms.Label();
-            this.txtgrosssalarypayroll = new System.Windows.Forms.TextBox();
-            this.lblgrosssalarypayroll = new System.Windows.Forms.Label();
-            this.txttotaldeductionpayroll = new System.Windows.Forms.TextBox();
-            this.lbltotaldeductionpayroll = new System.Windows.Forms.Label();
-            this.txtnetsalarypayroll = new System.Windows.Forms.TextBox();
-            this.lblnetsalarypayroll = new System.Windows.Forms.Label();
-            this.lblempinfopayroll = new System.Windows.Forms.Label();
-            this.lblpayrollbreakdown = new System.Windows.Forms.Label();
-            this.lblerrorempidpayroll = new System.Windows.Forms.Label();
-            this.lblerrormonthpayroll = new System.Windows.Forms.Label();
-            this.lblerroryearpayroll = new System.Windows.Forms.Label();
-            this.btnback = new System.Windows.Forms.Button();
-            this.txtpayrollid = new System.Windows.Forms.TextBox();
-            this.lblpayrollid = new System.Windows.Forms.Label();
-            this.paymentmanagementPanel = new System.Windows.Forms.Panel();
-            this.txtnetsalarypm = new System.Windows.Forms.TextBox();
-            this.lblnetsalarypm = new System.Windows.Forms.Label();
-            this.lblerroryearpm = new System.Windows.Forms.Label();
-            this.lblerrormonthpm = new System.Windows.Forms.Label();
-            this.lblerrorempidpm = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblpaydatepm = new System.Windows.Forms.Label();
-            this.lblpaymethodpm = new System.Windows.Forms.Label();
-            this.txtjobtitlepm = new System.Windows.Forms.TextBox();
-            this.lbljobtitlepm = new System.Windows.Forms.Label();
-            this.txtdepartmentpm = new System.Windows.Forms.TextBox();
-            this.lbldepartmentpm = new System.Windows.Forms.Label();
-            this.txtempnamepm = new System.Windows.Forms.TextBox();
-            this.lblempnamepm = new System.Windows.Forms.Label();
-            this.btnresetpm = new System.Windows.Forms.Button();
-            this.cmbmonthpm = new System.Windows.Forms.ComboBox();
-            this.lblmonthpm = new System.Windows.Forms.Label();
-            this.lblyearpm = new System.Windows.Forms.Label();
-            this.txtempidpm = new System.Windows.Forms.TextBox();
-            this.cmbyearpm = new System.Windows.Forms.ComboBox();
-            this.btnsearchpm = new System.Windows.Forms.Button();
-            this.lblempidpm = new System.Windows.Forms.Label();
             this.lblpaymentmanagement = new System.Windows.Forms.Label();
+            this.lblempidpm = new System.Windows.Forms.Label();
+            this.btnsearchpm = new System.Windows.Forms.Button();
+            this.cmbyearpm = new System.Windows.Forms.ComboBox();
+            this.txtempidpm = new System.Windows.Forms.TextBox();
+            this.lblyearpm = new System.Windows.Forms.Label();
+            this.lblmonthpm = new System.Windows.Forms.Label();
+            this.cmbmonthpm = new System.Windows.Forms.ComboBox();
+            this.btnresetpm = new System.Windows.Forms.Button();
+            this.lblempnamepm = new System.Windows.Forms.Label();
+            this.txtempnamepm = new System.Windows.Forms.TextBox();
+            this.lbldepartmentpm = new System.Windows.Forms.Label();
+            this.txtdepartmentpm = new System.Windows.Forms.TextBox();
+            this.lbljobtitlepm = new System.Windows.Forms.Label();
+            this.txtjobtitlepm = new System.Windows.Forms.TextBox();
+            this.lblpaymethodpm = new System.Windows.Forms.Label();
+            this.lblpaydatepm = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblerrorempidpm = new System.Windows.Forms.Label();
+            this.lblerrormonthpm = new System.Windows.Forms.Label();
+            this.lblerroryearpm = new System.Windows.Forms.Label();
+            this.lblnetsalarypm = new System.Windows.Forms.Label();
+            this.txtnetsalarypm = new System.Windows.Forms.TextBox();
             this.cmbpaymethodpm = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnviewpaymentspm = new System.Windows.Forms.Button();
             this.btnpaysalarypm = new System.Windows.Forms.Button();
+            this.paymentmanagementPanel = new System.Windows.Forms.Panel();
+            this.viewpaymentsPanel = new System.Windows.Forms.Panel();
+            this.btnsearchvp = new System.Windows.Forms.Button();
+            this.btnbackvp = new System.Windows.Forms.Button();
+            this.txtpaydatevp = new System.Windows.Forms.TextBox();
+            this.lblpaymentdatevp = new System.Windows.Forms.Label();
+            this.txtpaystatusvp = new System.Windows.Forms.TextBox();
+            this.lblpaymentstatusvp = new System.Windows.Forms.Label();
+            this.txtpayyearvp = new System.Windows.Forms.TextBox();
+            this.lblpaymentyearvp = new System.Windows.Forms.Label();
+            this.txtpaymonthvp = new System.Windows.Forms.TextBox();
+            this.lblpaymentmonthvp = new System.Windows.Forms.Label();
+            this.txtpaymentidvp = new System.Windows.Forms.TextBox();
+            this.lblpaymentidvp = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.txtnetsalaryvp = new System.Windows.Forms.TextBox();
+            this.lblnetsalaryvp = new System.Windows.Forms.Label();
+            this.lblerrorempidvp = new System.Windows.Forms.Label();
+            this.txtjobtitlevp = new System.Windows.Forms.TextBox();
+            this.lbljobtitlevp = new System.Windows.Forms.Label();
+            this.txtdepartmentvp = new System.Windows.Forms.TextBox();
+            this.lbldepartmentvp = new System.Windows.Forms.Label();
+            this.txtempnamevp = new System.Windows.Forms.TextBox();
+            this.lblempnamevp = new System.Windows.Forms.Label();
+            this.btnresetvp = new System.Windows.Forms.Button();
+            this.txtempidvp = new System.Windows.Forms.TextBox();
+            this.btnshowvp = new System.Windows.Forms.Button();
+            this.lblempidvp = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblerrorpaymethodpm = new System.Windows.Forms.Label();
             this.listPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.showpanel.SuspendLayout();
             this.SalaryManagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.payrollProcessingPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.viewemppayrollPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.paymentmanagementPanel.SuspendLayout();
+            this.viewpaymentsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnsalary
@@ -175,8 +204,9 @@
             this.btnsalary.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnsalary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnsalary.Location = new System.Drawing.Point(0, 0);
+            this.btnsalary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnsalary.Name = "btnsalary";
-            this.btnsalary.Size = new System.Drawing.Size(283, 45);
+            this.btnsalary.Size = new System.Drawing.Size(252, 36);
             this.btnsalary.TabIndex = 0;
             this.btnsalary.TabStop = false;
             this.btnsalary.Text = "Salary Management";
@@ -188,9 +218,10 @@
             this.btnchangepassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnchangepassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnchangepassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnchangepassword.Location = new System.Drawing.Point(0, 315);
+            this.btnchangepassword.Location = new System.Drawing.Point(0, 180);
+            this.btnchangepassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnchangepassword.Name = "btnchangepassword";
-            this.btnchangepassword.Size = new System.Drawing.Size(283, 45);
+            this.btnchangepassword.Size = new System.Drawing.Size(252, 36);
             this.btnchangepassword.TabIndex = 9;
             this.btnchangepassword.TabStop = false;
             this.btnchangepassword.Text = "Change Password";
@@ -202,9 +233,10 @@
             this.btnattendance.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnattendance.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnattendance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnattendance.Location = new System.Drawing.Point(0, 270);
+            this.btnattendance.Location = new System.Drawing.Point(0, 144);
+            this.btnattendance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnattendance.Name = "btnattendance";
-            this.btnattendance.Size = new System.Drawing.Size(283, 45);
+            this.btnattendance.Size = new System.Drawing.Size(252, 36);
             this.btnattendance.TabIndex = 6;
             this.btnattendance.TabStop = false;
             this.btnattendance.Text = "Attendance";
@@ -215,48 +247,24 @@
             this.btnprofile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnprofile.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnprofile.Location = new System.Drawing.Point(0, 225);
+            this.btnprofile.Location = new System.Drawing.Point(0, 108);
+            this.btnprofile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnprofile.Name = "btnprofile";
-            this.btnprofile.Size = new System.Drawing.Size(283, 45);
+            this.btnprofile.Size = new System.Drawing.Size(252, 36);
             this.btnprofile.TabIndex = 8;
             this.btnprofile.TabStop = false;
             this.btnprofile.Text = "Profile";
             this.btnprofile.UseVisualStyleBackColor = true;
-            // 
-            // btnreport
-            // 
-            this.btnreport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnreport.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnreport.Location = new System.Drawing.Point(0, 180);
-            this.btnreport.Name = "btnreport";
-            this.btnreport.Size = new System.Drawing.Size(283, 45);
-            this.btnreport.TabIndex = 5;
-            this.btnreport.TabStop = false;
-            this.btnreport.Text = "Finantial Reports";
-            this.btnreport.UseVisualStyleBackColor = true;
-            // 
-            // btnpayslip
-            // 
-            this.btnpayslip.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnpayslip.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnpayslip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnpayslip.Location = new System.Drawing.Point(0, 135);
-            this.btnpayslip.Name = "btnpayslip";
-            this.btnpayslip.Size = new System.Drawing.Size(283, 45);
-            this.btnpayslip.TabIndex = 4;
-            this.btnpayslip.TabStop = false;
-            this.btnpayslip.Text = "Payslip Generation";
-            this.btnpayslip.UseVisualStyleBackColor = true;
             // 
             // btnpayment
             // 
             this.btnpayment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnpayment.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnpayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnpayment.Location = new System.Drawing.Point(0, 90);
+            this.btnpayment.Location = new System.Drawing.Point(0, 72);
+            this.btnpayment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnpayment.Name = "btnpayment";
-            this.btnpayment.Size = new System.Drawing.Size(283, 45);
+            this.btnpayment.Size = new System.Drawing.Size(252, 36);
             this.btnpayment.TabIndex = 3;
             this.btnpayment.TabStop = false;
             this.btnpayment.Text = "Payment Management";
@@ -268,9 +276,10 @@
             this.btnpayroll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnpayroll.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnpayroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnpayroll.Location = new System.Drawing.Point(0, 45);
+            this.btnpayroll.Location = new System.Drawing.Point(0, 36);
+            this.btnpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnpayroll.Name = "btnpayroll";
-            this.btnpayroll.Size = new System.Drawing.Size(283, 45);
+            this.btnpayroll.Size = new System.Drawing.Size(252, 36);
             this.btnpayroll.TabIndex = 1;
             this.btnpayroll.TabStop = false;
             this.btnpayroll.Text = "Payroll Processing";
@@ -283,15 +292,14 @@
             this.listPanel.Controls.Add(this.btnchangepassword);
             this.listPanel.Controls.Add(this.btnattendance);
             this.listPanel.Controls.Add(this.btnprofile);
-            this.listPanel.Controls.Add(this.btnreport);
-            this.listPanel.Controls.Add(this.btnpayslip);
             this.listPanel.Controls.Add(this.btnpayment);
             this.listPanel.Controls.Add(this.btnpayroll);
             this.listPanel.Controls.Add(this.btnsalary);
             this.listPanel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listPanel.Location = new System.Drawing.Point(0, 84);
+            this.listPanel.Location = new System.Drawing.Point(0, 67);
+            this.listPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(283, 451);
+            this.listPanel.Size = new System.Drawing.Size(252, 361);
             this.listPanel.TabIndex = 16;
             // 
             // label1
@@ -299,9 +307,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(492, 20);
+            this.label1.Location = new System.Drawing.Point(450, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(404, 45);
+            this.label1.Size = new System.Drawing.Size(341, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "HR Management System";
             // 
@@ -312,9 +320,8 @@
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1458, 84);
+            this.panel1.Size = new System.Drawing.Size(1296, 67);
             this.panel1.TabIndex = 17;
             this.panel1.Click += new System.EventHandler(this.panel1_Click);
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
@@ -337,9 +344,10 @@
             this.showpanel.Controls.Add(this.lblmonthlypayroll);
             this.showpanel.Controls.Add(this.lblemployees);
             this.showpanel.Controls.Add(this.lblenumber);
-            this.showpanel.Location = new System.Drawing.Point(292, 87);
+            this.showpanel.Location = new System.Drawing.Point(260, 70);
+            this.showpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.showpanel.Name = "showpanel";
-            this.showpanel.Size = new System.Drawing.Size(1154, 879);
+            this.showpanel.Size = new System.Drawing.Size(1026, 703);
             this.showpanel.TabIndex = 33;
             // 
             // lblppnumber
@@ -347,9 +355,9 @@
             this.lblppnumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblppnumber.AutoSize = true;
             this.lblppnumber.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblppnumber.Location = new System.Drawing.Point(518, 431);
+            this.lblppnumber.Location = new System.Drawing.Point(410, 345);
             this.lblppnumber.Name = "lblppnumber";
-            this.lblppnumber.Size = new System.Drawing.Size(33, 38);
+            this.lblppnumber.Size = new System.Drawing.Size(28, 32);
             this.lblppnumber.TabIndex = 24;
             this.lblppnumber.Text = "3";
             this.lblppnumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -363,10 +371,9 @@
             this.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnlogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlogout.ForeColor = System.Drawing.Color.White;
-            this.btnlogout.Location = new System.Drawing.Point(466, 716);
-            this.btnlogout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnlogout.Location = new System.Drawing.Point(414, 573);
             this.btnlogout.Name = "btnlogout";
-            this.btnlogout.Size = new System.Drawing.Size(238, 44);
+            this.btnlogout.Size = new System.Drawing.Size(212, 35);
             this.btnlogout.TabIndex = 1;
             this.btnlogout.TabStop = false;
             this.btnlogout.Text = "Logout";
@@ -378,9 +385,9 @@
             this.lblnetpayabletk.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblnetpayabletk.AutoSize = true;
             this.lblnetpayabletk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnetpayabletk.Location = new System.Drawing.Point(708, 259);
+            this.lblnetpayabletk.Location = new System.Drawing.Point(629, 207);
             this.lblnetpayabletk.Name = "lblnetpayabletk";
-            this.lblnetpayabletk.Size = new System.Drawing.Size(0, 38);
+            this.lblnetpayabletk.Size = new System.Drawing.Size(0, 32);
             this.lblnetpayabletk.TabIndex = 23;
             this.lblnetpayabletk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -388,9 +395,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(675, 257);
+            this.label3.Location = new System.Drawing.Point(600, 206);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 38);
+            this.label3.Size = new System.Drawing.Size(33, 32);
             this.label3.TabIndex = 22;
             this.label3.Text = "৳";
             // 
@@ -399,9 +406,9 @@
             this.lbldeductionstk.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbldeductionstk.AutoSize = true;
             this.lbldeductionstk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldeductionstk.Location = new System.Drawing.Point(299, 262);
+            this.lbldeductionstk.Location = new System.Drawing.Point(266, 210);
             this.lbldeductionstk.Name = "lbldeductionstk";
-            this.lbldeductionstk.Size = new System.Drawing.Size(0, 38);
+            this.lbldeductionstk.Size = new System.Drawing.Size(0, 32);
             this.lbldeductionstk.TabIndex = 21;
             this.lbldeductionstk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -409,9 +416,9 @@
             // 
             this.lbldtk.AutoSize = true;
             this.lbldtk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldtk.Location = new System.Drawing.Point(270, 260);
+            this.lbldtk.Location = new System.Drawing.Point(240, 208);
             this.lbldtk.Name = "lbldtk";
-            this.lbldtk.Size = new System.Drawing.Size(40, 38);
+            this.lbldtk.Size = new System.Drawing.Size(33, 32);
             this.lbldtk.TabIndex = 20;
             this.lbldtk.Text = "৳";
             // 
@@ -420,9 +427,9 @@
             this.lblmonthlypayrolltk.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblmonthlypayrolltk.AutoSize = true;
             this.lblmonthlypayrolltk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmonthlypayrolltk.Location = new System.Drawing.Point(704, 93);
+            this.lblmonthlypayrolltk.Location = new System.Drawing.Point(626, 74);
             this.lblmonthlypayrolltk.Name = "lblmonthlypayrolltk";
-            this.lblmonthlypayrolltk.Size = new System.Drawing.Size(0, 38);
+            this.lblmonthlypayrolltk.Size = new System.Drawing.Size(0, 32);
             this.lblmonthlypayrolltk.TabIndex = 19;
             this.lblmonthlypayrolltk.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -430,9 +437,9 @@
             // 
             this.lblmptk.AutoSize = true;
             this.lblmptk.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmptk.Location = new System.Drawing.Point(671, 93);
+            this.lblmptk.Location = new System.Drawing.Point(596, 74);
             this.lblmptk.Name = "lblmptk";
-            this.lblmptk.Size = new System.Drawing.Size(40, 38);
+            this.lblmptk.Size = new System.Drawing.Size(33, 32);
             this.lblmptk.TabIndex = 18;
             this.lblmptk.Text = "৳";
             // 
@@ -441,9 +448,9 @@
             this.lblpendingpayments.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblpendingpayments.AutoSize = true;
             this.lblpendingpayments.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpendingpayments.Location = new System.Drawing.Point(415, 367);
+            this.lblpendingpayments.Location = new System.Drawing.Point(369, 294);
             this.lblpendingpayments.Name = "lblpendingpayments";
-            this.lblpendingpayments.Size = new System.Drawing.Size(259, 38);
+            this.lblpendingpayments.Size = new System.Drawing.Size(225, 32);
             this.lblpendingpayments.TabIndex = 17;
             this.lblpendingpayments.Text = "Pending Payments";
             // 
@@ -452,9 +459,9 @@
             this.lblnetpayable.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblnetpayable.AutoSize = true;
             this.lblnetpayable.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnetpayable.Location = new System.Drawing.Point(686, 208);
+            this.lblnetpayable.Location = new System.Drawing.Point(610, 166);
             this.lblnetpayable.Name = "lblnetpayable";
-            this.lblnetpayable.Size = new System.Drawing.Size(174, 38);
+            this.lblnetpayable.Size = new System.Drawing.Size(150, 32);
             this.lblnetpayable.TabIndex = 16;
             this.lblnetpayable.Text = "Net Payable";
             // 
@@ -463,9 +470,9 @@
             this.lbldeductions.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbldeductions.AutoSize = true;
             this.lbldeductions.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldeductions.Location = new System.Drawing.Point(264, 211);
+            this.lbldeductions.Location = new System.Drawing.Point(235, 169);
             this.lbldeductions.Name = "lbldeductions";
-            this.lbldeductions.Size = new System.Drawing.Size(165, 38);
+            this.lbldeductions.Size = new System.Drawing.Size(144, 32);
             this.lbldeductions.TabIndex = 15;
             this.lbldeductions.Text = "Deductions";
             // 
@@ -474,9 +481,9 @@
             this.lblmonthlypayroll.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblmonthlypayroll.AutoSize = true;
             this.lblmonthlypayroll.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmonthlypayroll.Location = new System.Drawing.Point(656, 42);
+            this.lblmonthlypayroll.Location = new System.Drawing.Point(583, 34);
             this.lblmonthlypayroll.Name = "lblmonthlypayroll";
-            this.lblmonthlypayroll.Size = new System.Drawing.Size(227, 38);
+            this.lblmonthlypayroll.Size = new System.Drawing.Size(196, 32);
             this.lblmonthlypayroll.TabIndex = 14;
             this.lblmonthlypayroll.Text = "Monthly Payroll";
             // 
@@ -485,9 +492,9 @@
             this.lblemployees.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblemployees.AutoSize = true;
             this.lblemployees.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblemployees.Location = new System.Drawing.Point(257, 45);
+            this.lblemployees.Location = new System.Drawing.Point(228, 36);
             this.lblemployees.Name = "lblemployees";
-            this.lblemployees.Size = new System.Drawing.Size(157, 38);
+            this.lblemployees.Size = new System.Drawing.Size(136, 32);
             this.lblemployees.TabIndex = 12;
             this.lblemployees.Text = "Employees";
             // 
@@ -496,9 +503,9 @@
             this.lblenumber.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblenumber.AutoSize = true;
             this.lblenumber.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblenumber.Location = new System.Drawing.Point(310, 96);
+            this.lblenumber.Location = new System.Drawing.Point(276, 77);
             this.lblenumber.Name = "lblenumber";
-            this.lblenumber.Size = new System.Drawing.Size(0, 38);
+            this.lblenumber.Size = new System.Drawing.Size(0, 32);
             this.lblenumber.TabIndex = 13;
             this.lblenumber.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -532,9 +539,10 @@
             this.SalaryManagementPanel.Controls.Add(this.lblempname);
             this.SalaryManagementPanel.Controls.Add(this.lblempid);
             this.SalaryManagementPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.SalaryManagementPanel.Location = new System.Drawing.Point(292, 87);
+            this.SalaryManagementPanel.Location = new System.Drawing.Point(260, 70);
+            this.SalaryManagementPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SalaryManagementPanel.Name = "SalaryManagementPanel";
-            this.SalaryManagementPanel.Size = new System.Drawing.Size(1154, 879);
+            this.SalaryManagementPanel.Size = new System.Drawing.Size(1026, 703);
             this.SalaryManagementPanel.TabIndex = 34;
             // 
             // lblerrorempid
@@ -542,9 +550,9 @@
             this.lblerrorempid.AutoSize = true;
             this.lblerrorempid.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblerrorempid.ForeColor = System.Drawing.Color.Red;
-            this.lblerrorempid.Location = new System.Drawing.Point(195, 132);
+            this.lblerrorempid.Location = new System.Drawing.Point(173, 106);
             this.lblerrorempid.Name = "lblerrorempid";
-            this.lblerrorempid.Size = new System.Drawing.Size(0, 21);
+            this.lblerrorempid.Size = new System.Drawing.Size(0, 19);
             this.lblerrorempid.TabIndex = 26;
             // 
             // btnaddallowances
@@ -552,9 +560,10 @@
             this.btnaddallowances.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btnaddallowances.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnaddallowances.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnaddallowances.Location = new System.Drawing.Point(793, 467);
+            this.btnaddallowances.Location = new System.Drawing.Point(705, 374);
+            this.btnaddallowances.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnaddallowances.Name = "btnaddallowances";
-            this.btnaddallowances.Size = new System.Drawing.Size(269, 40);
+            this.btnaddallowances.Size = new System.Drawing.Size(239, 32);
             this.btnaddallowances.TabIndex = 25;
             this.btnaddallowances.Text = "Add Allowances";
             this.btnaddallowances.UseVisualStyleBackColor = false;
@@ -562,53 +571,57 @@
             // 
             // txttotalsalary
             // 
-            this.txttotalsalary.Location = new System.Drawing.Point(793, 412);
+            this.txttotalsalary.Location = new System.Drawing.Point(705, 330);
+            this.txttotalsalary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txttotalsalary.Multiline = true;
             this.txttotalsalary.Name = "txttotalsalary";
-            this.txttotalsalary.Size = new System.Drawing.Size(342, 40);
+            this.txttotalsalary.Size = new System.Drawing.Size(304, 33);
             this.txttotalsalary.TabIndex = 24;
             // 
             // lbltotalsalary
             // 
             this.lbltotalsalary.AutoSize = true;
             this.lbltotalsalary.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotalsalary.Location = new System.Drawing.Point(647, 415);
+            this.lbltotalsalary.Location = new System.Drawing.Point(575, 332);
             this.lbltotalsalary.Name = "lbltotalsalary";
-            this.lbltotalsalary.Size = new System.Drawing.Size(124, 28);
+            this.lbltotalsalary.Size = new System.Drawing.Size(104, 23);
             this.lbltotalsalary.TabIndex = 23;
             this.lbltotalsalary.Text = "Total Salary";
             // 
             // txttransport
             // 
-            this.txttransport.Location = new System.Drawing.Point(793, 347);
+            this.txttransport.Location = new System.Drawing.Point(705, 278);
+            this.txttransport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txttransport.Multiline = true;
             this.txttransport.Name = "txttransport";
-            this.txttransport.Size = new System.Drawing.Size(342, 40);
+            this.txttransport.Size = new System.Drawing.Size(304, 33);
             this.txttransport.TabIndex = 22;
             // 
             // txtmedical
             // 
-            this.txtmedical.Location = new System.Drawing.Point(793, 284);
+            this.txtmedical.Location = new System.Drawing.Point(705, 227);
+            this.txtmedical.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtmedical.Multiline = true;
             this.txtmedical.Name = "txtmedical";
-            this.txtmedical.Size = new System.Drawing.Size(342, 40);
+            this.txtmedical.Size = new System.Drawing.Size(304, 33);
             this.txtmedical.TabIndex = 21;
             // 
             // txthouserent
             // 
-            this.txthouserent.Location = new System.Drawing.Point(793, 222);
+            this.txthouserent.Location = new System.Drawing.Point(705, 178);
+            this.txthouserent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txthouserent.Multiline = true;
             this.txthouserent.Name = "txthouserent";
-            this.txthouserent.Size = new System.Drawing.Size(342, 40);
+            this.txthouserent.Size = new System.Drawing.Size(304, 33);
             this.txthouserent.TabIndex = 20;
             // 
             // lbltransport
             // 
             this.lbltransport.AutoSize = true;
             this.lbltransport.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltransport.Location = new System.Drawing.Point(647, 350);
+            this.lbltransport.Location = new System.Drawing.Point(575, 280);
             this.lbltransport.Name = "lbltransport";
-            this.lbltransport.Size = new System.Drawing.Size(103, 28);
+            this.lbltransport.Size = new System.Drawing.Size(87, 23);
             this.lbltransport.TabIndex = 19;
             this.lbltransport.Text = "Transport";
             // 
@@ -616,9 +629,9 @@
             // 
             this.lblmedical.AutoSize = true;
             this.lblmedical.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmedical.Location = new System.Drawing.Point(647, 287);
+            this.lblmedical.Location = new System.Drawing.Point(575, 230);
             this.lblmedical.Name = "lblmedical";
-            this.lblmedical.Size = new System.Drawing.Size(87, 28);
+            this.lblmedical.Size = new System.Drawing.Size(73, 23);
             this.lblmedical.TabIndex = 18;
             this.lblmedical.Text = "Medical";
             // 
@@ -626,9 +639,9 @@
             // 
             this.lblhouserent.AutoSize = true;
             this.lblhouserent.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblhouserent.Location = new System.Drawing.Point(647, 225);
+            this.lblhouserent.Location = new System.Drawing.Point(575, 180);
             this.lblhouserent.Name = "lblhouserent";
-            this.lblhouserent.Size = new System.Drawing.Size(121, 28);
+            this.lblhouserent.Size = new System.Drawing.Size(101, 23);
             this.lblhouserent.TabIndex = 17;
             this.lblhouserent.Text = "House Rent";
             // 
@@ -637,9 +650,10 @@
             this.btnreset.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btnreset.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnreset.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnreset.Location = new System.Drawing.Point(190, 467);
+            this.btnreset.Location = new System.Drawing.Point(169, 374);
+            this.btnreset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnreset.Name = "btnreset";
-            this.btnreset.Size = new System.Drawing.Size(166, 40);
+            this.btnreset.Size = new System.Drawing.Size(148, 32);
             this.btnreset.TabIndex = 16;
             this.btnreset.Text = "Reset";
             this.btnreset.UseVisualStyleBackColor = false;
@@ -650,9 +664,10 @@
             this.btnshow.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btnshow.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnshow.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnshow.Location = new System.Drawing.Point(455, 828);
+            this.btnshow.Location = new System.Drawing.Point(404, 662);
+            this.btnshow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnshow.Name = "btnshow";
-            this.btnshow.Size = new System.Drawing.Size(231, 40);
+            this.btnshow.Size = new System.Drawing.Size(205, 32);
             this.btnshow.TabIndex = 15;
             this.btnshow.Text = "Show";
             this.btnshow.UseVisualStyleBackColor = false;
@@ -661,11 +676,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 532);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 426);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1111, 286);
+            this.dataGridView1.Size = new System.Drawing.Size(988, 229);
             this.dataGridView1.TabIndex = 14;
             // 
             // btnsearch
@@ -673,9 +689,10 @@
             this.btnsearch.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.btnsearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsearch.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnsearch.Location = new System.Drawing.Point(366, 467);
+            this.btnsearch.Location = new System.Drawing.Point(325, 374);
+            this.btnsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(166, 40);
+            this.btnsearch.Size = new System.Drawing.Size(148, 32);
             this.btnsearch.TabIndex = 13;
             this.btnsearch.Text = "Search";
             this.btnsearch.UseVisualStyleBackColor = false;
@@ -683,50 +700,56 @@
             // 
             // txtsalary
             // 
-            this.txtsalary.Location = new System.Drawing.Point(190, 409);
+            this.txtsalary.Location = new System.Drawing.Point(169, 327);
+            this.txtsalary.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtsalary.Multiline = true;
             this.txtsalary.Name = "txtsalary";
-            this.txtsalary.Size = new System.Drawing.Size(342, 40);
+            this.txtsalary.Size = new System.Drawing.Size(304, 33);
             this.txtsalary.TabIndex = 12;
             // 
             // txtphone
             // 
-            this.txtphone.Location = new System.Drawing.Point(190, 347);
+            this.txtphone.Location = new System.Drawing.Point(169, 278);
+            this.txtphone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtphone.Multiline = true;
             this.txtphone.Name = "txtphone";
-            this.txtphone.Size = new System.Drawing.Size(342, 40);
+            this.txtphone.Size = new System.Drawing.Size(304, 33);
             this.txtphone.TabIndex = 11;
             // 
             // txtjobtitle
             // 
-            this.txtjobtitle.Location = new System.Drawing.Point(190, 284);
+            this.txtjobtitle.Location = new System.Drawing.Point(169, 227);
+            this.txtjobtitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtjobtitle.Multiline = true;
             this.txtjobtitle.Name = "txtjobtitle";
-            this.txtjobtitle.Size = new System.Drawing.Size(342, 40);
+            this.txtjobtitle.Size = new System.Drawing.Size(304, 33);
             this.txtjobtitle.TabIndex = 10;
             // 
             // txtdept
             // 
-            this.txtdept.Location = new System.Drawing.Point(190, 219);
+            this.txtdept.Location = new System.Drawing.Point(169, 175);
+            this.txtdept.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdept.Multiline = true;
             this.txtdept.Name = "txtdept";
-            this.txtdept.Size = new System.Drawing.Size(342, 40);
+            this.txtdept.Size = new System.Drawing.Size(304, 33);
             this.txtdept.TabIndex = 9;
             // 
             // txtempname
             // 
-            this.txtempname.Location = new System.Drawing.Point(190, 156);
+            this.txtempname.Location = new System.Drawing.Point(169, 125);
+            this.txtempname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtempname.Multiline = true;
             this.txtempname.Name = "txtempname";
-            this.txtempname.Size = new System.Drawing.Size(342, 40);
+            this.txtempname.Size = new System.Drawing.Size(304, 33);
             this.txtempname.TabIndex = 8;
             // 
             // txtempid
             // 
-            this.txtempid.Location = new System.Drawing.Point(190, 84);
+            this.txtempid.Location = new System.Drawing.Point(169, 67);
+            this.txtempid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtempid.Multiline = true;
             this.txtempid.Name = "txtempid";
-            this.txtempid.Size = new System.Drawing.Size(342, 40);
+            this.txtempid.Size = new System.Drawing.Size(304, 33);
             this.txtempid.TabIndex = 7;
             // 
             // lblsalarymanagement
@@ -734,9 +757,9 @@
             this.lblsalarymanagement.AutoSize = true;
             this.lblsalarymanagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsalarymanagement.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblsalarymanagement.Location = new System.Drawing.Point(405, 17);
+            this.lblsalarymanagement.Location = new System.Drawing.Point(360, 14);
             this.lblsalarymanagement.Name = "lblsalarymanagement";
-            this.lblsalarymanagement.Size = new System.Drawing.Size(281, 38);
+            this.lblsalarymanagement.Size = new System.Drawing.Size(242, 32);
             this.lblsalarymanagement.TabIndex = 6;
             this.lblsalarymanagement.Text = "Salary Management";
             // 
@@ -744,9 +767,9 @@
             // 
             this.lblsalary.AutoSize = true;
             this.lblsalary.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsalary.Location = new System.Drawing.Point(15, 412);
+            this.lblsalary.Location = new System.Drawing.Point(13, 330);
             this.lblsalary.Name = "lblsalary";
-            this.lblsalary.Size = new System.Drawing.Size(71, 28);
+            this.lblsalary.Size = new System.Drawing.Size(60, 23);
             this.lblsalary.TabIndex = 5;
             this.lblsalary.Text = "Salary";
             // 
@@ -754,9 +777,9 @@
             // 
             this.lblphone.AutoSize = true;
             this.lblphone.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblphone.Location = new System.Drawing.Point(15, 350);
+            this.lblphone.Location = new System.Drawing.Point(13, 280);
             this.lblphone.Name = "lblphone";
-            this.lblphone.Size = new System.Drawing.Size(71, 28);
+            this.lblphone.Size = new System.Drawing.Size(59, 23);
             this.lblphone.TabIndex = 4;
             this.lblphone.Text = "Phone";
             // 
@@ -764,9 +787,9 @@
             // 
             this.lbljobtitle.AutoSize = true;
             this.lbljobtitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljobtitle.Location = new System.Drawing.Point(15, 287);
+            this.lbljobtitle.Location = new System.Drawing.Point(13, 230);
             this.lbljobtitle.Name = "lbljobtitle";
-            this.lbljobtitle.Size = new System.Drawing.Size(94, 28);
+            this.lbljobtitle.Size = new System.Drawing.Size(80, 23);
             this.lbljobtitle.TabIndex = 3;
             this.lbljobtitle.Text = "Job Title";
             // 
@@ -774,9 +797,9 @@
             // 
             this.lbldept.AutoSize = true;
             this.lbldept.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldept.Location = new System.Drawing.Point(15, 222);
+            this.lbldept.Location = new System.Drawing.Point(13, 178);
             this.lbldept.Name = "lbldept";
-            this.lbldept.Size = new System.Drawing.Size(127, 28);
+            this.lbldept.Size = new System.Drawing.Size(108, 23);
             this.lbldept.TabIndex = 2;
             this.lbldept.Text = "Department";
             // 
@@ -784,9 +807,9 @@
             // 
             this.lblempname.AutoSize = true;
             this.lblempname.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblempname.Location = new System.Drawing.Point(15, 159);
+            this.lblempname.Location = new System.Drawing.Point(13, 127);
             this.lblempname.Name = "lblempname";
-            this.lblempname.Size = new System.Drawing.Size(166, 28);
+            this.lblempname.Size = new System.Drawing.Size(140, 23);
             this.lblempname.TabIndex = 1;
             this.lblempname.Text = "Employee Name";
             // 
@@ -794,9 +817,9 @@
             // 
             this.lblempid.AutoSize = true;
             this.lblempid.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblempid.Location = new System.Drawing.Point(15, 87);
+            this.lblempid.Location = new System.Drawing.Point(13, 70);
             this.lblempid.Name = "lblempid";
-            this.lblempid.Size = new System.Drawing.Size(131, 28);
+            this.lblempid.Size = new System.Drawing.Size(111, 23);
             this.lblempid.TabIndex = 0;
             this.lblempid.Text = "Employee ID";
             // 
@@ -816,164 +839,11 @@
             this.payrollProcessingPanel.Controls.Add(this.lblselectyear);
             this.payrollProcessingPanel.Controls.Add(this.lblselectmonth);
             this.payrollProcessingPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.payrollProcessingPanel.Location = new System.Drawing.Point(292, 87);
+            this.payrollProcessingPanel.Location = new System.Drawing.Point(260, 70);
+            this.payrollProcessingPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.payrollProcessingPanel.Name = "payrollProcessingPanel";
-            this.payrollProcessingPanel.Size = new System.Drawing.Size(1154, 879);
+            this.payrollProcessingPanel.Size = new System.Drawing.Size(1026, 703);
             this.payrollProcessingPanel.TabIndex = 36;
-            // 
-            // lblerroryear
-            // 
-            this.lblerroryear.AutoSize = true;
-            this.lblerroryear.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerroryear.ForeColor = System.Drawing.Color.Red;
-            this.lblerroryear.Location = new System.Drawing.Point(195, 212);
-            this.lblerroryear.Name = "lblerroryear";
-            this.lblerroryear.Size = new System.Drawing.Size(0, 21);
-            this.lblerroryear.TabIndex = 30;
-            // 
-            // lblerrormonth
-            // 
-            this.lblerrormonth.AutoSize = true;
-            this.lblerrormonth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerrormonth.ForeColor = System.Drawing.Color.Red;
-            this.lblerrormonth.Location = new System.Drawing.Point(195, 132);
-            this.lblerrormonth.Name = "lblerrormonth";
-            this.lblerrormonth.Size = new System.Drawing.Size(0, 21);
-            this.lblerrormonth.TabIndex = 29;
-            // 
-            // btnreset2
-            // 
-            this.btnreset2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnreset2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnreset2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnreset2.Location = new System.Drawing.Point(20, 804);
-            this.btnreset2.Name = "btnreset2";
-            this.btnreset2.Size = new System.Drawing.Size(337, 40);
-            this.btnreset2.TabIndex = 28;
-            this.btnreset2.Text = "Reset";
-            this.btnreset2.UseVisualStyleBackColor = false;
-            this.btnreset2.Click += new System.EventHandler(this.btnreset2_Click);
-            // 
-            // cmbselectyear
-            // 
-            this.cmbselectyear.FormattingEnabled = true;
-            this.cmbselectyear.Items.AddRange(new object[] {
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030",
-            "2031",
-            "2032",
-            "2033",
-            "2034",
-            "2035"});
-            this.cmbselectyear.Location = new System.Drawing.Point(190, 173);
-            this.cmbselectyear.Name = "cmbselectyear";
-            this.cmbselectyear.Size = new System.Drawing.Size(259, 36);
-            this.cmbselectyear.TabIndex = 27;
-            // 
-            // cmbselectmonth
-            // 
-            this.cmbselectmonth.FormattingEnabled = true;
-            this.cmbselectmonth.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.cmbselectmonth.Location = new System.Drawing.Point(190, 94);
-            this.cmbselectmonth.Name = "cmbselectmonth";
-            this.cmbselectmonth.Size = new System.Drawing.Size(259, 36);
-            this.cmbselectmonth.TabIndex = 26;
-            // 
-            // btngeneratepayroll
-            // 
-            this.btngeneratepayroll.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btngeneratepayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btngeneratepayroll.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btngeneratepayroll.Location = new System.Drawing.Point(190, 252);
-            this.btngeneratepayroll.Name = "btngeneratepayroll";
-            this.btngeneratepayroll.Size = new System.Drawing.Size(236, 40);
-            this.btngeneratepayroll.TabIndex = 25;
-            this.btngeneratepayroll.Text = "Generate Payroll";
-            this.btngeneratepayroll.UseVisualStyleBackColor = false;
-            this.btngeneratepayroll.Click += new System.EventHandler(this.btngeneratepayroll_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button3.Location = new System.Drawing.Point(412, 804);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(337, 40);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Show";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(20, 347);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(1111, 427);
-            this.dataGridView2.TabIndex = 14;
-            // 
-            // btnviewemppayroll
-            // 
-            this.btnviewemppayroll.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnviewemppayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnviewemppayroll.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnviewemppayroll.Location = new System.Drawing.Point(798, 804);
-            this.btnviewemppayroll.Name = "btnviewemppayroll";
-            this.btnviewemppayroll.Size = new System.Drawing.Size(337, 40);
-            this.btnviewemppayroll.TabIndex = 13;
-            this.btnviewemppayroll.Text = "View Employee Payroll ";
-            this.btnviewemppayroll.UseVisualStyleBackColor = false;
-            this.btnviewemppayroll.Click += new System.EventHandler(this.btnviewemppayroll_Click);
-            // 
-            // lblpayrollprocessing
-            // 
-            this.lblpayrollprocessing.AutoSize = true;
-            this.lblpayrollprocessing.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpayrollprocessing.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblpayrollprocessing.Location = new System.Drawing.Point(405, 17);
-            this.lblpayrollprocessing.Name = "lblpayrollprocessing";
-            this.lblpayrollprocessing.Size = new System.Drawing.Size(254, 38);
-            this.lblpayrollprocessing.TabIndex = 6;
-            this.lblpayrollprocessing.Text = "Payroll Processing";
-            // 
-            // lblselectyear
-            // 
-            this.lblselectyear.AutoSize = true;
-            this.lblselectyear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblselectyear.Location = new System.Drawing.Point(15, 174);
-            this.lblselectyear.Name = "lblselectyear";
-            this.lblselectyear.Size = new System.Drawing.Size(115, 28);
-            this.lblselectyear.TabIndex = 1;
-            this.lblselectyear.Text = "Select Year";
-            // 
-            // lblselectmonth
-            // 
-            this.lblselectmonth.AutoSize = true;
-            this.lblselectmonth.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblselectmonth.Location = new System.Drawing.Point(15, 96);
-            this.lblselectmonth.Name = "lblselectmonth";
-            this.lblselectmonth.Size = new System.Drawing.Size(138, 28);
-            this.lblselectmonth.TabIndex = 0;
-            this.lblselectmonth.Text = "Select Month";
             // 
             // viewemppayrollPanel
             // 
@@ -1011,92 +881,255 @@
             this.viewemppayrollPanel.Controls.Add(this.lblempidpayroll);
             this.viewemppayrollPanel.Controls.Add(this.lblviewemppayroll);
             this.viewemppayrollPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.viewemppayrollPanel.Location = new System.Drawing.Point(8, 8);
+            this.viewemppayrollPanel.Location = new System.Drawing.Point(7, 6);
+            this.viewemppayrollPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.viewemppayrollPanel.Name = "viewemppayrollPanel";
-            this.viewemppayrollPanel.Size = new System.Drawing.Size(1154, 879);
+            this.viewemppayrollPanel.Size = new System.Drawing.Size(1026, 703);
             this.viewemppayrollPanel.TabIndex = 38;
             this.viewemppayrollPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.viewemppayrollPanel_Paint);
             // 
-            // cmbselectyearpayroll
+            // txtpayrollid
             // 
-            this.cmbselectyearpayroll.FormattingEnabled = true;
-            this.cmbselectyearpayroll.Items.AddRange(new object[] {
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030",
-            "2031",
-            "2032",
-            "2033",
-            "2034",
-            "2035"});
-            this.cmbselectyearpayroll.Location = new System.Drawing.Point(182, 262);
-            this.cmbselectyearpayroll.Name = "cmbselectyearpayroll";
-            this.cmbselectyearpayroll.Size = new System.Drawing.Size(303, 36);
-            this.cmbselectyearpayroll.TabIndex = 33;
+            this.txtpayrollid.Location = new System.Drawing.Point(177, 399);
+            this.txtpayrollid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpayrollid.Name = "txtpayrollid";
+            this.txtpayrollid.Size = new System.Drawing.Size(231, 30);
+            this.txtpayrollid.TabIndex = 62;
             // 
-            // btnsearch2
+            // lblpayrollid
             // 
-            this.btnsearch2.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnsearch2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsearch2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnsearch2.Location = new System.Drawing.Point(270, 352);
-            this.btnsearch2.Name = "btnsearch2";
-            this.btnsearch2.Size = new System.Drawing.Size(215, 43);
-            this.btnsearch2.TabIndex = 32;
-            this.btnsearch2.Text = "Search";
-            this.btnsearch2.UseVisualStyleBackColor = false;
-            this.btnsearch2.Click += new System.EventHandler(this.btnsearch2_Click);
+            this.lblpayrollid.AutoSize = true;
+            this.lblpayrollid.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpayrollid.Location = new System.Drawing.Point(17, 402);
+            this.lblpayrollid.Name = "lblpayrollid";
+            this.lblpayrollid.Size = new System.Drawing.Size(88, 23);
+            this.lblpayrollid.TabIndex = 61;
+            this.lblpayrollid.Text = "Payroll ID";
             // 
-            // lblempidpayroll
+            // btnback
             // 
-            this.lblempidpayroll.AutoSize = true;
-            this.lblempidpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblempidpayroll.Location = new System.Drawing.Point(19, 119);
-            this.lblempidpayroll.Name = "lblempidpayroll";
-            this.lblempidpayroll.Size = new System.Drawing.Size(131, 28);
-            this.lblempidpayroll.TabIndex = 31;
-            this.lblempidpayroll.Text = "Employee ID";
+            this.btnback.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnback.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnback.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnback.Location = new System.Drawing.Point(359, 626);
+            this.btnback.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(191, 34);
+            this.btnback.TabIndex = 60;
+            this.btnback.Text = "Back";
+            this.btnback.UseVisualStyleBackColor = false;
+            this.btnback.Click += new System.EventHandler(this.btnback_Click);
             // 
-            // lblviewemppayroll
+            // lblerroryearpayroll
             // 
-            this.lblviewemppayroll.AutoSize = true;
-            this.lblviewemppayroll.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblviewemppayroll.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblviewemppayroll.Location = new System.Drawing.Point(405, 17);
-            this.lblviewemppayroll.Name = "lblviewemppayroll";
-            this.lblviewemppayroll.Size = new System.Drawing.Size(315, 38);
-            this.lblviewemppayroll.TabIndex = 6;
-            this.lblviewemppayroll.Text = "View Employee Payroll";
+            this.lblerroryearpayroll.AutoSize = true;
+            this.lblerroryearpayroll.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerroryearpayroll.ForeColor = System.Drawing.Color.Red;
+            this.lblerroryearpayroll.Location = new System.Drawing.Point(166, 241);
+            this.lblerroryearpayroll.Name = "lblerroryearpayroll";
+            this.lblerroryearpayroll.Size = new System.Drawing.Size(0, 19);
+            this.lblerroryearpayroll.TabIndex = 59;
             // 
-            // txtempidpayroll
+            // lblerrormonthpayroll
             // 
-            this.txtempidpayroll.Location = new System.Drawing.Point(182, 116);
-            this.txtempidpayroll.Name = "txtempidpayroll";
-            this.txtempidpayroll.Size = new System.Drawing.Size(303, 34);
-            this.txtempidpayroll.TabIndex = 34;
+            this.lblerrormonthpayroll.AutoSize = true;
+            this.lblerrormonthpayroll.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrormonthpayroll.ForeColor = System.Drawing.Color.Red;
+            this.lblerrormonthpayroll.Location = new System.Drawing.Point(166, 182);
+            this.lblerrormonthpayroll.Name = "lblerrormonthpayroll";
+            this.lblerrormonthpayroll.Size = new System.Drawing.Size(0, 19);
+            this.lblerrormonthpayroll.TabIndex = 58;
             // 
-            // lblselectyearpayroll
+            // lblerrorempidpayroll
             // 
-            this.lblselectyearpayroll.AutoSize = true;
-            this.lblselectyearpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblselectyearpayroll.Location = new System.Drawing.Point(19, 265);
-            this.lblselectyearpayroll.Name = "lblselectyearpayroll";
-            this.lblselectyearpayroll.Size = new System.Drawing.Size(115, 28);
-            this.lblselectyearpayroll.TabIndex = 35;
-            this.lblselectyearpayroll.Text = "Select Year";
+            this.lblerrorempidpayroll.AutoSize = true;
+            this.lblerrorempidpayroll.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorempidpayroll.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorempidpayroll.Location = new System.Drawing.Point(166, 122);
+            this.lblerrorempidpayroll.Name = "lblerrorempidpayroll";
+            this.lblerrorempidpayroll.Size = new System.Drawing.Size(0, 19);
+            this.lblerrorempidpayroll.TabIndex = 57;
             // 
-            // lblselectmonthpayroll
+            // lblpayrollbreakdown
             // 
-            this.lblselectmonthpayroll.AutoSize = true;
-            this.lblselectmonthpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblselectmonthpayroll.Location = new System.Drawing.Point(19, 192);
-            this.lblselectmonthpayroll.Name = "lblselectmonthpayroll";
-            this.lblselectmonthpayroll.Size = new System.Drawing.Size(138, 28);
-            this.lblselectmonthpayroll.TabIndex = 36;
-            this.lblselectmonthpayroll.Text = "Select Month";
+            this.lblpayrollbreakdown.AutoSize = true;
+            this.lblpayrollbreakdown.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpayrollbreakdown.ForeColor = System.Drawing.Color.Navy;
+            this.lblpayrollbreakdown.Location = new System.Drawing.Point(676, 323);
+            this.lblpayrollbreakdown.Name = "lblpayrollbreakdown";
+            this.lblpayrollbreakdown.Size = new System.Drawing.Size(161, 23);
+            this.lblpayrollbreakdown.TabIndex = 56;
+            this.lblpayrollbreakdown.Text = "Payroll Breakdown";
+            // 
+            // lblempinfopayroll
+            // 
+            this.lblempinfopayroll.AutoSize = true;
+            this.lblempinfopayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempinfopayroll.ForeColor = System.Drawing.Color.Navy;
+            this.lblempinfopayroll.Location = new System.Drawing.Point(111, 352);
+            this.lblempinfopayroll.Name = "lblempinfopayroll";
+            this.lblempinfopayroll.Size = new System.Drawing.Size(189, 23);
+            this.lblempinfopayroll.TabIndex = 55;
+            this.lblempinfopayroll.Text = "Employee Information";
+            // 
+            // txtnetsalarypayroll
+            // 
+            this.txtnetsalarypayroll.Location = new System.Drawing.Point(725, 557);
+            this.txtnetsalarypayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtnetsalarypayroll.Name = "txtnetsalarypayroll";
+            this.txtnetsalarypayroll.Size = new System.Drawing.Size(231, 30);
+            this.txtnetsalarypayroll.TabIndex = 54;
+            // 
+            // lblnetsalarypayroll
+            // 
+            this.lblnetsalarypayroll.AutoSize = true;
+            this.lblnetsalarypayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnetsalarypayroll.Location = new System.Drawing.Point(568, 559);
+            this.lblnetsalarypayroll.Name = "lblnetsalarypayroll";
+            this.lblnetsalarypayroll.Size = new System.Drawing.Size(94, 23);
+            this.lblnetsalarypayroll.TabIndex = 53;
+            this.lblnetsalarypayroll.Text = "Net Salary";
+            // 
+            // txttotaldeductionpayroll
+            // 
+            this.txttotaldeductionpayroll.Location = new System.Drawing.Point(725, 511);
+            this.txttotaldeductionpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txttotaldeductionpayroll.Name = "txttotaldeductionpayroll";
+            this.txttotaldeductionpayroll.Size = new System.Drawing.Size(231, 30);
+            this.txttotaldeductionpayroll.TabIndex = 52;
+            // 
+            // lbltotaldeductionpayroll
+            // 
+            this.lbltotaldeductionpayroll.AutoSize = true;
+            this.lbltotaldeductionpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltotaldeductionpayroll.Location = new System.Drawing.Point(568, 514);
+            this.lbltotaldeductionpayroll.Name = "lbltotaldeductionpayroll";
+            this.lbltotaldeductionpayroll.Size = new System.Drawing.Size(137, 23);
+            this.lbltotaldeductionpayroll.TabIndex = 51;
+            this.lbltotaldeductionpayroll.Text = "Total Deduction";
+            // 
+            // txtgrosssalarypayroll
+            // 
+            this.txtgrosssalarypayroll.Location = new System.Drawing.Point(725, 466);
+            this.txtgrosssalarypayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtgrosssalarypayroll.Name = "txtgrosssalarypayroll";
+            this.txtgrosssalarypayroll.Size = new System.Drawing.Size(231, 30);
+            this.txtgrosssalarypayroll.TabIndex = 50;
+            // 
+            // lblgrosssalarypayroll
+            // 
+            this.lblgrosssalarypayroll.AutoSize = true;
+            this.lblgrosssalarypayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblgrosssalarypayroll.Location = new System.Drawing.Point(568, 469);
+            this.lblgrosssalarypayroll.Name = "lblgrosssalarypayroll";
+            this.lblgrosssalarypayroll.Size = new System.Drawing.Size(108, 23);
+            this.lblgrosssalarypayroll.TabIndex = 49;
+            this.lblgrosssalarypayroll.Text = "Gross Salary";
+            // 
+            // txtyearpayroll
+            // 
+            this.txtyearpayroll.Location = new System.Drawing.Point(725, 421);
+            this.txtyearpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtyearpayroll.Name = "txtyearpayroll";
+            this.txtyearpayroll.Size = new System.Drawing.Size(231, 30);
+            this.txtyearpayroll.TabIndex = 48;
+            // 
+            // lblyearpayroll
+            // 
+            this.lblyearpayroll.AutoSize = true;
+            this.lblyearpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblyearpayroll.Location = new System.Drawing.Point(568, 423);
+            this.lblyearpayroll.Name = "lblyearpayroll";
+            this.lblyearpayroll.Size = new System.Drawing.Size(43, 23);
+            this.lblyearpayroll.TabIndex = 47;
+            this.lblyearpayroll.Text = "Year";
+            this.lblyearpayroll.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // txtmonthpayroll
+            // 
+            this.txtmonthpayroll.Location = new System.Drawing.Point(725, 374);
+            this.txtmonthpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtmonthpayroll.Name = "txtmonthpayroll";
+            this.txtmonthpayroll.Size = new System.Drawing.Size(231, 30);
+            this.txtmonthpayroll.TabIndex = 46;
+            // 
+            // lblmonthpayroll
+            // 
+            this.lblmonthpayroll.AutoSize = true;
+            this.lblmonthpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmonthpayroll.Location = new System.Drawing.Point(568, 376);
+            this.lblmonthpayroll.Name = "lblmonthpayroll";
+            this.lblmonthpayroll.Size = new System.Drawing.Size(63, 23);
+            this.lblmonthpayroll.TabIndex = 45;
+            this.lblmonthpayroll.Text = "Month";
+            // 
+            // txtjobtitlepayroll
+            // 
+            this.txtjobtitlepayroll.Location = new System.Drawing.Point(178, 558);
+            this.txtjobtitlepayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtjobtitlepayroll.Name = "txtjobtitlepayroll";
+            this.txtjobtitlepayroll.Size = new System.Drawing.Size(231, 30);
+            this.txtjobtitlepayroll.TabIndex = 44;
+            // 
+            // lbljobtitlepayroll
+            // 
+            this.lbljobtitlepayroll.AutoSize = true;
+            this.lbljobtitlepayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljobtitlepayroll.Location = new System.Drawing.Point(17, 560);
+            this.lbljobtitlepayroll.Name = "lbljobtitlepayroll";
+            this.lbljobtitlepayroll.Size = new System.Drawing.Size(80, 23);
+            this.lbljobtitlepayroll.TabIndex = 43;
+            this.lbljobtitlepayroll.Text = "Job Title";
+            // 
+            // txtdepartmentpayroll
+            // 
+            this.txtdepartmentpayroll.Location = new System.Drawing.Point(178, 503);
+            this.txtdepartmentpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtdepartmentpayroll.Name = "txtdepartmentpayroll";
+            this.txtdepartmentpayroll.Size = new System.Drawing.Size(231, 30);
+            this.txtdepartmentpayroll.TabIndex = 42;
+            // 
+            // lbldepartmentpayroll
+            // 
+            this.lbldepartmentpayroll.AutoSize = true;
+            this.lbldepartmentpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldepartmentpayroll.Location = new System.Drawing.Point(17, 506);
+            this.lbldepartmentpayroll.Name = "lbldepartmentpayroll";
+            this.lbldepartmentpayroll.Size = new System.Drawing.Size(108, 23);
+            this.lbldepartmentpayroll.TabIndex = 41;
+            this.lbldepartmentpayroll.Text = "Department";
+            // 
+            // txtempnamepayroll
+            // 
+            this.txtempnamepayroll.Location = new System.Drawing.Point(177, 447);
+            this.txtempnamepayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtempnamepayroll.Name = "txtempnamepayroll";
+            this.txtempnamepayroll.Size = new System.Drawing.Size(231, 30);
+            this.txtempnamepayroll.TabIndex = 40;
+            // 
+            // lblempnamepayroll
+            // 
+            this.lblempnamepayroll.AutoSize = true;
+            this.lblempnamepayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempnamepayroll.Location = new System.Drawing.Point(17, 450);
+            this.lblempnamepayroll.Name = "lblempnamepayroll";
+            this.lblempnamepayroll.Size = new System.Drawing.Size(140, 23);
+            this.lblempnamepayroll.TabIndex = 39;
+            this.lblempnamepayroll.Text = "Employee Name";
+            // 
+            // btnresetpayroll
+            // 
+            this.btnresetpayroll.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnresetpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnresetpayroll.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnresetpayroll.Location = new System.Drawing.Point(21, 282);
+            this.btnresetpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnresetpayroll.Name = "btnresetpayroll";
+            this.btnresetpayroll.Size = new System.Drawing.Size(191, 34);
+            this.btnresetpayroll.TabIndex = 38;
+            this.btnresetpayroll.Text = "Reset";
+            this.btnresetpayroll.UseVisualStyleBackColor = false;
+            this.btnresetpayroll.Click += new System.EventHandler(this.btnresetpayroll_Click);
             // 
             // cmbselectmonthpayroll
             // 
@@ -1114,245 +1147,572 @@
             "October",
             "November",
             "December"});
-            this.cmbselectmonthpayroll.Location = new System.Drawing.Point(182, 189);
+            this.cmbselectmonthpayroll.Location = new System.Drawing.Point(162, 151);
+            this.cmbselectmonthpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbselectmonthpayroll.Name = "cmbselectmonthpayroll";
-            this.cmbselectmonthpayroll.Size = new System.Drawing.Size(303, 36);
+            this.cmbselectmonthpayroll.Size = new System.Drawing.Size(270, 31);
             this.cmbselectmonthpayroll.TabIndex = 37;
             // 
-            // btnresetpayroll
+            // lblselectmonthpayroll
             // 
-            this.btnresetpayroll.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnresetpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnresetpayroll.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnresetpayroll.Location = new System.Drawing.Point(24, 353);
-            this.btnresetpayroll.Name = "btnresetpayroll";
-            this.btnresetpayroll.Size = new System.Drawing.Size(215, 43);
-            this.btnresetpayroll.TabIndex = 38;
-            this.btnresetpayroll.Text = "Reset";
-            this.btnresetpayroll.UseVisualStyleBackColor = false;
-            this.btnresetpayroll.Click += new System.EventHandler(this.btnresetpayroll_Click);
+            this.lblselectmonthpayroll.AutoSize = true;
+            this.lblselectmonthpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblselectmonthpayroll.Location = new System.Drawing.Point(17, 154);
+            this.lblselectmonthpayroll.Name = "lblselectmonthpayroll";
+            this.lblselectmonthpayroll.Size = new System.Drawing.Size(116, 23);
+            this.lblselectmonthpayroll.TabIndex = 36;
+            this.lblselectmonthpayroll.Text = "Select Month";
             // 
-            // txtempnamepayroll
+            // lblselectyearpayroll
             // 
-            this.txtempnamepayroll.Location = new System.Drawing.Point(199, 559);
-            this.txtempnamepayroll.Name = "txtempnamepayroll";
-            this.txtempnamepayroll.Size = new System.Drawing.Size(259, 34);
-            this.txtempnamepayroll.TabIndex = 40;
+            this.lblselectyearpayroll.AutoSize = true;
+            this.lblselectyearpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblselectyearpayroll.Location = new System.Drawing.Point(17, 212);
+            this.lblselectyearpayroll.Name = "lblselectyearpayroll";
+            this.lblselectyearpayroll.Size = new System.Drawing.Size(96, 23);
+            this.lblselectyearpayroll.TabIndex = 35;
+            this.lblselectyearpayroll.Text = "Select Year";
             // 
-            // lblempnamepayroll
+            // txtempidpayroll
             // 
-            this.lblempnamepayroll.AutoSize = true;
-            this.lblempnamepayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblempnamepayroll.Location = new System.Drawing.Point(19, 562);
-            this.lblempnamepayroll.Name = "lblempnamepayroll";
-            this.lblempnamepayroll.Size = new System.Drawing.Size(166, 28);
-            this.lblempnamepayroll.TabIndex = 39;
-            this.lblempnamepayroll.Text = "Employee Name";
+            this.txtempidpayroll.Location = new System.Drawing.Point(162, 93);
+            this.txtempidpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtempidpayroll.Name = "txtempidpayroll";
+            this.txtempidpayroll.Size = new System.Drawing.Size(270, 30);
+            this.txtempidpayroll.TabIndex = 34;
             // 
-            // txtdepartmentpayroll
+            // cmbselectyearpayroll
             // 
-            this.txtdepartmentpayroll.Location = new System.Drawing.Point(200, 629);
-            this.txtdepartmentpayroll.Name = "txtdepartmentpayroll";
-            this.txtdepartmentpayroll.Size = new System.Drawing.Size(259, 34);
-            this.txtdepartmentpayroll.TabIndex = 42;
+            this.cmbselectyearpayroll.FormattingEnabled = true;
+            this.cmbselectyearpayroll.Items.AddRange(new object[] {
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030",
+            "2031",
+            "2032",
+            "2033",
+            "2034",
+            "2035"});
+            this.cmbselectyearpayroll.Location = new System.Drawing.Point(162, 210);
+            this.cmbselectyearpayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbselectyearpayroll.Name = "cmbselectyearpayroll";
+            this.cmbselectyearpayroll.Size = new System.Drawing.Size(270, 31);
+            this.cmbselectyearpayroll.TabIndex = 33;
             // 
-            // lbldepartmentpayroll
+            // btnsearch2
             // 
-            this.lbldepartmentpayroll.AutoSize = true;
-            this.lbldepartmentpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldepartmentpayroll.Location = new System.Drawing.Point(19, 632);
-            this.lbldepartmentpayroll.Name = "lbldepartmentpayroll";
-            this.lbldepartmentpayroll.Size = new System.Drawing.Size(127, 28);
-            this.lbldepartmentpayroll.TabIndex = 41;
-            this.lbldepartmentpayroll.Text = "Department";
+            this.btnsearch2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnsearch2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsearch2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnsearch2.Location = new System.Drawing.Point(240, 282);
+            this.btnsearch2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnsearch2.Name = "btnsearch2";
+            this.btnsearch2.Size = new System.Drawing.Size(191, 34);
+            this.btnsearch2.TabIndex = 32;
+            this.btnsearch2.Text = "Search";
+            this.btnsearch2.UseVisualStyleBackColor = false;
+            this.btnsearch2.Click += new System.EventHandler(this.btnsearch2_Click);
             // 
-            // txtjobtitlepayroll
+            // lblempidpayroll
             // 
-            this.txtjobtitlepayroll.Location = new System.Drawing.Point(200, 697);
-            this.txtjobtitlepayroll.Name = "txtjobtitlepayroll";
-            this.txtjobtitlepayroll.Size = new System.Drawing.Size(259, 34);
-            this.txtjobtitlepayroll.TabIndex = 44;
+            this.lblempidpayroll.AutoSize = true;
+            this.lblempidpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempidpayroll.Location = new System.Drawing.Point(17, 95);
+            this.lblempidpayroll.Name = "lblempidpayroll";
+            this.lblempidpayroll.Size = new System.Drawing.Size(111, 23);
+            this.lblempidpayroll.TabIndex = 31;
+            this.lblempidpayroll.Text = "Employee ID";
             // 
-            // lbljobtitlepayroll
+            // lblviewemppayroll
             // 
-            this.lbljobtitlepayroll.AutoSize = true;
-            this.lbljobtitlepayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljobtitlepayroll.Location = new System.Drawing.Point(19, 700);
-            this.lbljobtitlepayroll.Name = "lbljobtitlepayroll";
-            this.lbljobtitlepayroll.Size = new System.Drawing.Size(94, 28);
-            this.lbljobtitlepayroll.TabIndex = 43;
-            this.lbljobtitlepayroll.Text = "Job Title";
+            this.lblviewemppayroll.AutoSize = true;
+            this.lblviewemppayroll.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblviewemppayroll.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblviewemppayroll.Location = new System.Drawing.Point(360, 14);
+            this.lblviewemppayroll.Name = "lblviewemppayroll";
+            this.lblviewemppayroll.Size = new System.Drawing.Size(273, 32);
+            this.lblviewemppayroll.TabIndex = 6;
+            this.lblviewemppayroll.Text = "View Employee Payroll";
             // 
-            // txtmonthpayroll
+            // lblerroryear
             // 
-            this.txtmonthpayroll.Location = new System.Drawing.Point(816, 467);
-            this.txtmonthpayroll.Name = "txtmonthpayroll";
-            this.txtmonthpayroll.Size = new System.Drawing.Size(259, 34);
-            this.txtmonthpayroll.TabIndex = 46;
+            this.lblerroryear.AutoSize = true;
+            this.lblerroryear.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerroryear.ForeColor = System.Drawing.Color.Red;
+            this.lblerroryear.Location = new System.Drawing.Point(173, 170);
+            this.lblerroryear.Name = "lblerroryear";
+            this.lblerroryear.Size = new System.Drawing.Size(0, 19);
+            this.lblerroryear.TabIndex = 30;
             // 
-            // lblmonthpayroll
+            // lblerrormonth
             // 
-            this.lblmonthpayroll.AutoSize = true;
-            this.lblmonthpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmonthpayroll.Location = new System.Drawing.Point(639, 470);
-            this.lblmonthpayroll.Name = "lblmonthpayroll";
-            this.lblmonthpayroll.Size = new System.Drawing.Size(75, 28);
-            this.lblmonthpayroll.TabIndex = 45;
-            this.lblmonthpayroll.Text = "Month";
+            this.lblerrormonth.AutoSize = true;
+            this.lblerrormonth.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrormonth.ForeColor = System.Drawing.Color.Red;
+            this.lblerrormonth.Location = new System.Drawing.Point(173, 106);
+            this.lblerrormonth.Name = "lblerrormonth";
+            this.lblerrormonth.Size = new System.Drawing.Size(0, 19);
+            this.lblerrormonth.TabIndex = 29;
             // 
-            // txtyearpayroll
+            // btnreset2
             // 
-            this.txtyearpayroll.Location = new System.Drawing.Point(816, 526);
-            this.txtyearpayroll.Name = "txtyearpayroll";
-            this.txtyearpayroll.Size = new System.Drawing.Size(259, 34);
-            this.txtyearpayroll.TabIndex = 48;
+            this.btnreset2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnreset2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnreset2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnreset2.Location = new System.Drawing.Point(18, 643);
+            this.btnreset2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnreset2.Name = "btnreset2";
+            this.btnreset2.Size = new System.Drawing.Size(300, 32);
+            this.btnreset2.TabIndex = 28;
+            this.btnreset2.Text = "Reset";
+            this.btnreset2.UseVisualStyleBackColor = false;
+            this.btnreset2.Click += new System.EventHandler(this.btnreset2_Click);
             // 
-            // lblyearpayroll
+            // cmbselectyear
             // 
-            this.lblyearpayroll.AutoSize = true;
-            this.lblyearpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblyearpayroll.Location = new System.Drawing.Point(639, 529);
-            this.lblyearpayroll.Name = "lblyearpayroll";
-            this.lblyearpayroll.Size = new System.Drawing.Size(52, 28);
-            this.lblyearpayroll.TabIndex = 47;
-            this.lblyearpayroll.Text = "Year";
-            this.lblyearpayroll.Click += new System.EventHandler(this.label7_Click);
+            this.cmbselectyear.FormattingEnabled = true;
+            this.cmbselectyear.Items.AddRange(new object[] {
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030",
+            "2031",
+            "2032",
+            "2033",
+            "2034",
+            "2035"});
+            this.cmbselectyear.Location = new System.Drawing.Point(169, 138);
+            this.cmbselectyear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbselectyear.Name = "cmbselectyear";
+            this.cmbselectyear.Size = new System.Drawing.Size(231, 31);
+            this.cmbselectyear.TabIndex = 27;
             // 
-            // txtgrosssalarypayroll
+            // cmbselectmonth
             // 
-            this.txtgrosssalarypayroll.Location = new System.Drawing.Point(816, 583);
-            this.txtgrosssalarypayroll.Name = "txtgrosssalarypayroll";
-            this.txtgrosssalarypayroll.Size = new System.Drawing.Size(259, 34);
-            this.txtgrosssalarypayroll.TabIndex = 50;
+            this.cmbselectmonth.FormattingEnabled = true;
+            this.cmbselectmonth.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.cmbselectmonth.Location = new System.Drawing.Point(169, 75);
+            this.cmbselectmonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbselectmonth.Name = "cmbselectmonth";
+            this.cmbselectmonth.Size = new System.Drawing.Size(231, 31);
+            this.cmbselectmonth.TabIndex = 26;
             // 
-            // lblgrosssalarypayroll
+            // btngeneratepayroll
             // 
-            this.lblgrosssalarypayroll.AutoSize = true;
-            this.lblgrosssalarypayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblgrosssalarypayroll.Location = new System.Drawing.Point(639, 586);
-            this.lblgrosssalarypayroll.Name = "lblgrosssalarypayroll";
-            this.lblgrosssalarypayroll.Size = new System.Drawing.Size(129, 28);
-            this.lblgrosssalarypayroll.TabIndex = 49;
-            this.lblgrosssalarypayroll.Text = "Gross Salary";
+            this.btngeneratepayroll.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btngeneratepayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btngeneratepayroll.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btngeneratepayroll.Location = new System.Drawing.Point(169, 202);
+            this.btngeneratepayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btngeneratepayroll.Name = "btngeneratepayroll";
+            this.btngeneratepayroll.Size = new System.Drawing.Size(210, 32);
+            this.btngeneratepayroll.TabIndex = 25;
+            this.btngeneratepayroll.Text = "Generate Payroll";
+            this.btngeneratepayroll.UseVisualStyleBackColor = false;
+            this.btngeneratepayroll.Click += new System.EventHandler(this.btngeneratepayroll_Click);
             // 
-            // txttotaldeductionpayroll
+            // button3
             // 
-            this.txttotaldeductionpayroll.Location = new System.Drawing.Point(816, 639);
-            this.txttotaldeductionpayroll.Name = "txttotaldeductionpayroll";
-            this.txttotaldeductionpayroll.Size = new System.Drawing.Size(259, 34);
-            this.txttotaldeductionpayroll.TabIndex = 52;
+            this.button3.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.button3.Location = new System.Drawing.Point(366, 643);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(300, 32);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "Show";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // lbltotaldeductionpayroll
+            // dataGridView2
             // 
-            this.lbltotaldeductionpayroll.AutoSize = true;
-            this.lbltotaldeductionpayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltotaldeductionpayroll.Location = new System.Drawing.Point(639, 642);
-            this.lbltotaldeductionpayroll.Name = "lbltotaldeductionpayroll";
-            this.lbltotaldeductionpayroll.Size = new System.Drawing.Size(163, 28);
-            this.lbltotaldeductionpayroll.TabIndex = 51;
-            this.lbltotaldeductionpayroll.Text = "Total Deduction";
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(18, 278);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowTemplate.Height = 28;
+            this.dataGridView2.Size = new System.Drawing.Size(988, 342);
+            this.dataGridView2.TabIndex = 14;
             // 
-            // txtnetsalarypayroll
+            // btnviewemppayroll
             // 
-            this.txtnetsalarypayroll.Location = new System.Drawing.Point(816, 696);
-            this.txtnetsalarypayroll.Name = "txtnetsalarypayroll";
-            this.txtnetsalarypayroll.Size = new System.Drawing.Size(259, 34);
-            this.txtnetsalarypayroll.TabIndex = 54;
+            this.btnviewemppayroll.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnviewemppayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnviewemppayroll.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnviewemppayroll.Location = new System.Drawing.Point(709, 643);
+            this.btnviewemppayroll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnviewemppayroll.Name = "btnviewemppayroll";
+            this.btnviewemppayroll.Size = new System.Drawing.Size(300, 32);
+            this.btnviewemppayroll.TabIndex = 13;
+            this.btnviewemppayroll.Text = "View Employee Payroll ";
+            this.btnviewemppayroll.UseVisualStyleBackColor = false;
+            this.btnviewemppayroll.Click += new System.EventHandler(this.btnviewemppayroll_Click);
             // 
-            // lblnetsalarypayroll
+            // lblpayrollprocessing
             // 
-            this.lblnetsalarypayroll.AutoSize = true;
-            this.lblnetsalarypayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnetsalarypayroll.Location = new System.Drawing.Point(639, 699);
-            this.lblnetsalarypayroll.Name = "lblnetsalarypayroll";
-            this.lblnetsalarypayroll.Size = new System.Drawing.Size(112, 28);
-            this.lblnetsalarypayroll.TabIndex = 53;
-            this.lblnetsalarypayroll.Text = "Net Salary";
+            this.lblpayrollprocessing.AutoSize = true;
+            this.lblpayrollprocessing.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpayrollprocessing.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblpayrollprocessing.Location = new System.Drawing.Point(360, 14);
+            this.lblpayrollprocessing.Name = "lblpayrollprocessing";
+            this.lblpayrollprocessing.Size = new System.Drawing.Size(224, 32);
+            this.lblpayrollprocessing.TabIndex = 6;
+            this.lblpayrollprocessing.Text = "Payroll Processing";
             // 
-            // lblempinfopayroll
+            // lblselectyear
             // 
-            this.lblempinfopayroll.AutoSize = true;
-            this.lblempinfopayroll.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblempinfopayroll.ForeColor = System.Drawing.Color.Navy;
-            this.lblempinfopayroll.Location = new System.Drawing.Point(125, 440);
-            this.lblempinfopayroll.Name = "lblempinfopayroll";
-            this.lblempinfopayroll.Size = new System.Drawing.Size(223, 28);
-            this.lblempinfopayroll.TabIndex = 55;
-            this.lblempinfopayroll.Text = "Employee Information";
+            this.lblselectyear.AutoSize = true;
+            this.lblselectyear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblselectyear.Location = new System.Drawing.Point(13, 139);
+            this.lblselectyear.Name = "lblselectyear";
+            this.lblselectyear.Size = new System.Drawing.Size(96, 23);
+            this.lblselectyear.TabIndex = 1;
+            this.lblselectyear.Text = "Select Year";
             // 
-            // lblpayrollbreakdown
+            // lblselectmonth
             // 
-            this.lblpayrollbreakdown.AutoSize = true;
-            this.lblpayrollbreakdown.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpayrollbreakdown.ForeColor = System.Drawing.Color.Navy;
-            this.lblpayrollbreakdown.Location = new System.Drawing.Point(761, 404);
-            this.lblpayrollbreakdown.Name = "lblpayrollbreakdown";
-            this.lblpayrollbreakdown.Size = new System.Drawing.Size(190, 28);
-            this.lblpayrollbreakdown.TabIndex = 56;
-            this.lblpayrollbreakdown.Text = "Payroll Breakdown";
+            this.lblselectmonth.AutoSize = true;
+            this.lblselectmonth.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblselectmonth.Location = new System.Drawing.Point(13, 77);
+            this.lblselectmonth.Name = "lblselectmonth";
+            this.lblselectmonth.Size = new System.Drawing.Size(116, 23);
+            this.lblselectmonth.TabIndex = 0;
+            this.lblselectmonth.Text = "Select Month";
             // 
-            // lblerrorempidpayroll
+            // lblpaymentmanagement
             // 
-            this.lblerrorempidpayroll.AutoSize = true;
-            this.lblerrorempidpayroll.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerrorempidpayroll.ForeColor = System.Drawing.Color.Red;
-            this.lblerrorempidpayroll.Location = new System.Drawing.Point(187, 153);
-            this.lblerrorempidpayroll.Name = "lblerrorempidpayroll";
-            this.lblerrorempidpayroll.Size = new System.Drawing.Size(0, 21);
-            this.lblerrorempidpayroll.TabIndex = 57;
+            this.lblpaymentmanagement.AutoSize = true;
+            this.lblpaymentmanagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpaymentmanagement.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblpaymentmanagement.Location = new System.Drawing.Point(360, 14);
+            this.lblpaymentmanagement.Name = "lblpaymentmanagement";
+            this.lblpaymentmanagement.Size = new System.Drawing.Size(271, 32);
+            this.lblpaymentmanagement.TabIndex = 6;
+            this.lblpaymentmanagement.Text = "Payment Management";
             // 
-            // lblerrormonthpayroll
+            // lblempidpm
             // 
-            this.lblerrormonthpayroll.AutoSize = true;
-            this.lblerrormonthpayroll.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerrormonthpayroll.ForeColor = System.Drawing.Color.Red;
-            this.lblerrormonthpayroll.Location = new System.Drawing.Point(187, 228);
-            this.lblerrormonthpayroll.Name = "lblerrormonthpayroll";
-            this.lblerrormonthpayroll.Size = new System.Drawing.Size(0, 21);
-            this.lblerrormonthpayroll.TabIndex = 58;
+            this.lblempidpm.AutoSize = true;
+            this.lblempidpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempidpm.Location = new System.Drawing.Point(17, 95);
+            this.lblempidpm.Name = "lblempidpm";
+            this.lblempidpm.Size = new System.Drawing.Size(111, 23);
+            this.lblempidpm.TabIndex = 31;
+            this.lblempidpm.Text = "Employee ID";
             // 
-            // lblerroryearpayroll
+            // btnsearchpm
             // 
-            this.lblerroryearpayroll.AutoSize = true;
-            this.lblerroryearpayroll.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerroryearpayroll.ForeColor = System.Drawing.Color.Red;
-            this.lblerroryearpayroll.Location = new System.Drawing.Point(187, 301);
-            this.lblerroryearpayroll.Name = "lblerroryearpayroll";
-            this.lblerroryearpayroll.Size = new System.Drawing.Size(0, 21);
-            this.lblerroryearpayroll.TabIndex = 59;
+            this.btnsearchpm.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnsearchpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsearchpm.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnsearchpm.Location = new System.Drawing.Point(240, 282);
+            this.btnsearchpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnsearchpm.Name = "btnsearchpm";
+            this.btnsearchpm.Size = new System.Drawing.Size(191, 34);
+            this.btnsearchpm.TabIndex = 32;
+            this.btnsearchpm.Text = "Search";
+            this.btnsearchpm.UseVisualStyleBackColor = false;
+            this.btnsearchpm.Click += new System.EventHandler(this.btnsearchpm_Click);
             // 
-            // btnback
+            // cmbyearpm
             // 
-            this.btnback.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnback.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnback.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnback.Location = new System.Drawing.Point(404, 782);
-            this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(215, 43);
-            this.btnback.TabIndex = 60;
-            this.btnback.Text = "Back";
-            this.btnback.UseVisualStyleBackColor = false;
-            this.btnback.Click += new System.EventHandler(this.btnback_Click);
+            this.cmbyearpm.FormattingEnabled = true;
+            this.cmbyearpm.Items.AddRange(new object[] {
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030",
+            "2031",
+            "2032",
+            "2033",
+            "2034",
+            "2035"});
+            this.cmbyearpm.Location = new System.Drawing.Point(162, 210);
+            this.cmbyearpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbyearpm.Name = "cmbyearpm";
+            this.cmbyearpm.Size = new System.Drawing.Size(270, 31);
+            this.cmbyearpm.TabIndex = 33;
             // 
-            // txtpayrollid
+            // txtempidpm
             // 
-            this.txtpayrollid.Location = new System.Drawing.Point(199, 499);
-            this.txtpayrollid.Name = "txtpayrollid";
-            this.txtpayrollid.Size = new System.Drawing.Size(259, 34);
-            this.txtpayrollid.TabIndex = 62;
+            this.txtempidpm.Location = new System.Drawing.Point(162, 93);
+            this.txtempidpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtempidpm.Name = "txtempidpm";
+            this.txtempidpm.Size = new System.Drawing.Size(270, 30);
+            this.txtempidpm.TabIndex = 34;
             // 
-            // lblpayrollid
+            // lblyearpm
             // 
-            this.lblpayrollid.AutoSize = true;
-            this.lblpayrollid.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpayrollid.Location = new System.Drawing.Point(19, 502);
-            this.lblpayrollid.Name = "lblpayrollid";
-            this.lblpayrollid.Size = new System.Drawing.Size(105, 28);
-            this.lblpayrollid.TabIndex = 61;
-            this.lblpayrollid.Text = "Payroll ID";
+            this.lblyearpm.AutoSize = true;
+            this.lblyearpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblyearpm.Location = new System.Drawing.Point(17, 212);
+            this.lblyearpm.Name = "lblyearpm";
+            this.lblyearpm.Size = new System.Drawing.Size(96, 23);
+            this.lblyearpm.TabIndex = 35;
+            this.lblyearpm.Text = "Select Year";
+            // 
+            // lblmonthpm
+            // 
+            this.lblmonthpm.AutoSize = true;
+            this.lblmonthpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmonthpm.Location = new System.Drawing.Point(17, 154);
+            this.lblmonthpm.Name = "lblmonthpm";
+            this.lblmonthpm.Size = new System.Drawing.Size(116, 23);
+            this.lblmonthpm.TabIndex = 36;
+            this.lblmonthpm.Text = "Select Month";
+            // 
+            // cmbmonthpm
+            // 
+            this.cmbmonthpm.FormattingEnabled = true;
+            this.cmbmonthpm.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.cmbmonthpm.Location = new System.Drawing.Point(162, 151);
+            this.cmbmonthpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbmonthpm.Name = "cmbmonthpm";
+            this.cmbmonthpm.Size = new System.Drawing.Size(270, 31);
+            this.cmbmonthpm.TabIndex = 37;
+            // 
+            // btnresetpm
+            // 
+            this.btnresetpm.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnresetpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnresetpm.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnresetpm.Location = new System.Drawing.Point(21, 282);
+            this.btnresetpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnresetpm.Name = "btnresetpm";
+            this.btnresetpm.Size = new System.Drawing.Size(191, 34);
+            this.btnresetpm.TabIndex = 38;
+            this.btnresetpm.Text = "Reset";
+            this.btnresetpm.UseVisualStyleBackColor = false;
+            this.btnresetpm.Click += new System.EventHandler(this.btnresetpm_Click);
+            // 
+            // lblempnamepm
+            // 
+            this.lblempnamepm.AutoSize = true;
+            this.lblempnamepm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempnamepm.Location = new System.Drawing.Point(17, 402);
+            this.lblempnamepm.Name = "lblempnamepm";
+            this.lblempnamepm.Size = new System.Drawing.Size(140, 23);
+            this.lblempnamepm.TabIndex = 39;
+            this.lblempnamepm.Text = "Employee Name";
+            // 
+            // txtempnamepm
+            // 
+            this.txtempnamepm.Location = new System.Drawing.Point(177, 400);
+            this.txtempnamepm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtempnamepm.Name = "txtempnamepm";
+            this.txtempnamepm.Size = new System.Drawing.Size(231, 30);
+            this.txtempnamepm.TabIndex = 40;
+            // 
+            // lbldepartmentpm
+            // 
+            this.lbldepartmentpm.AutoSize = true;
+            this.lbldepartmentpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldepartmentpm.Location = new System.Drawing.Point(17, 458);
+            this.lbldepartmentpm.Name = "lbldepartmentpm";
+            this.lbldepartmentpm.Size = new System.Drawing.Size(108, 23);
+            this.lbldepartmentpm.TabIndex = 41;
+            this.lbldepartmentpm.Text = "Department";
+            // 
+            // txtdepartmentpm
+            // 
+            this.txtdepartmentpm.Location = new System.Drawing.Point(178, 456);
+            this.txtdepartmentpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtdepartmentpm.Name = "txtdepartmentpm";
+            this.txtdepartmentpm.Size = new System.Drawing.Size(231, 30);
+            this.txtdepartmentpm.TabIndex = 42;
+            // 
+            // lbljobtitlepm
+            // 
+            this.lbljobtitlepm.AutoSize = true;
+            this.lbljobtitlepm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljobtitlepm.Location = new System.Drawing.Point(17, 513);
+            this.lbljobtitlepm.Name = "lbljobtitlepm";
+            this.lbljobtitlepm.Size = new System.Drawing.Size(80, 23);
+            this.lbljobtitlepm.TabIndex = 43;
+            this.lbljobtitlepm.Text = "Job Title";
+            // 
+            // txtjobtitlepm
+            // 
+            this.txtjobtitlepm.Location = new System.Drawing.Point(178, 510);
+            this.txtjobtitlepm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtjobtitlepm.Name = "txtjobtitlepm";
+            this.txtjobtitlepm.Size = new System.Drawing.Size(231, 30);
+            this.txtjobtitlepm.TabIndex = 44;
+            // 
+            // lblpaymethodpm
+            // 
+            this.lblpaymethodpm.AutoSize = true;
+            this.lblpaymethodpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpaymethodpm.Location = new System.Drawing.Point(539, 376);
+            this.lblpaymethodpm.Name = "lblpaymethodpm";
+            this.lblpaymethodpm.Size = new System.Drawing.Size(148, 23);
+            this.lblpaymethodpm.TabIndex = 45;
+            this.lblpaymethodpm.Text = "Payment Method";
+            // 
+            // lblpaydatepm
+            // 
+            this.lblpaydatepm.AutoSize = true;
+            this.lblpaydatepm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpaydatepm.Location = new System.Drawing.Point(539, 438);
+            this.lblpaydatepm.Name = "lblpaydatepm";
+            this.lblpaydatepm.Size = new System.Drawing.Size(123, 23);
+            this.lblpaydatepm.TabIndex = 47;
+            this.lblpaydatepm.Text = "Payment Date";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Navy;
+            this.label8.Location = new System.Drawing.Point(111, 352);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(189, 23);
+            this.label8.TabIndex = 55;
+            this.label8.Text = "Employee Information";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Navy;
+            this.label7.Location = new System.Drawing.Point(705, 314);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(143, 23);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "Payment Process";
+            // 
+            // lblerrorempidpm
+            // 
+            this.lblerrorempidpm.AutoSize = true;
+            this.lblerrorempidpm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorempidpm.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorempidpm.Location = new System.Drawing.Point(166, 122);
+            this.lblerrorempidpm.Name = "lblerrorempidpm";
+            this.lblerrorempidpm.Size = new System.Drawing.Size(0, 19);
+            this.lblerrorempidpm.TabIndex = 57;
+            // 
+            // lblerrormonthpm
+            // 
+            this.lblerrormonthpm.AutoSize = true;
+            this.lblerrormonthpm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrormonthpm.ForeColor = System.Drawing.Color.Red;
+            this.lblerrormonthpm.Location = new System.Drawing.Point(166, 182);
+            this.lblerrormonthpm.Name = "lblerrormonthpm";
+            this.lblerrormonthpm.Size = new System.Drawing.Size(0, 19);
+            this.lblerrormonthpm.TabIndex = 58;
+            // 
+            // lblerroryearpm
+            // 
+            this.lblerroryearpm.AutoSize = true;
+            this.lblerroryearpm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerroryearpm.ForeColor = System.Drawing.Color.Red;
+            this.lblerroryearpm.Location = new System.Drawing.Point(166, 241);
+            this.lblerroryearpm.Name = "lblerroryearpm";
+            this.lblerroryearpm.Size = new System.Drawing.Size(0, 19);
+            this.lblerroryearpm.TabIndex = 59;
+            // 
+            // lblnetsalarypm
+            // 
+            this.lblnetsalarypm.AutoSize = true;
+            this.lblnetsalarypm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnetsalarypm.Location = new System.Drawing.Point(17, 566);
+            this.lblnetsalarypm.Name = "lblnetsalarypm";
+            this.lblnetsalarypm.Size = new System.Drawing.Size(94, 23);
+            this.lblnetsalarypm.TabIndex = 61;
+            this.lblnetsalarypm.Text = "Net Salary";
+            // 
+            // txtnetsalarypm
+            // 
+            this.txtnetsalarypm.Location = new System.Drawing.Point(177, 564);
+            this.txtnetsalarypm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtnetsalarypm.Name = "txtnetsalarypm";
+            this.txtnetsalarypm.Size = new System.Drawing.Size(231, 30);
+            this.txtnetsalarypm.TabIndex = 62;
+            // 
+            // cmbpaymethodpm
+            // 
+            this.cmbpaymethodpm.FormattingEnabled = true;
+            this.cmbpaymethodpm.Items.AddRange(new object[] {
+            "Cash"});
+            this.cmbpaymethodpm.Location = new System.Drawing.Point(703, 374);
+            this.cmbpaymethodpm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbpaymethodpm.Name = "cmbpaymethodpm";
+            this.cmbpaymethodpm.Size = new System.Drawing.Size(299, 31);
+            this.cmbpaymethodpm.TabIndex = 63;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(703, 435);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(299, 30);
+            this.dateTimePicker1.TabIndex = 64;
+            // 
+            // btnviewpaymentspm
+            // 
+            this.btnviewpaymentspm.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnviewpaymentspm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnviewpaymentspm.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnviewpaymentspm.Location = new System.Drawing.Point(543, 500);
+            this.btnviewpaymentspm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnviewpaymentspm.Name = "btnviewpaymentspm";
+            this.btnviewpaymentspm.Size = new System.Drawing.Size(221, 34);
+            this.btnviewpaymentspm.TabIndex = 65;
+            this.btnviewpaymentspm.Text = "View Payments";
+            this.btnviewpaymentspm.UseVisualStyleBackColor = false;
+            this.btnviewpaymentspm.Click += new System.EventHandler(this.btnviewpaymentspm_Click);
+            // 
+            // btnpaysalarypm
+            // 
+            this.btnpaysalarypm.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnpaysalarypm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnpaysalarypm.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnpaysalarypm.Location = new System.Drawing.Point(780, 500);
+            this.btnpaysalarypm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnpaysalarypm.Name = "btnpaysalarypm";
+            this.btnpaysalarypm.Size = new System.Drawing.Size(221, 34);
+            this.btnpaysalarypm.TabIndex = 66;
+            this.btnpaysalarypm.Text = "Pay Salary";
+            this.btnpaysalarypm.UseVisualStyleBackColor = false;
+            this.btnpaysalarypm.Click += new System.EventHandler(this.btnpaysalarypm_Click);
             // 
             // paymentmanagementPanel
             // 
+            this.paymentmanagementPanel.Controls.Add(this.viewpaymentsPanel);
+            this.paymentmanagementPanel.Controls.Add(this.lblerrorpaymethodpm);
             this.paymentmanagementPanel.Controls.Add(this.btnpaysalarypm);
             this.paymentmanagementPanel.Controls.Add(this.btnviewpaymentspm);
             this.paymentmanagementPanel.Controls.Add(this.dateTimePicker1);
@@ -1382,319 +1742,338 @@
             this.paymentmanagementPanel.Controls.Add(this.lblempidpm);
             this.paymentmanagementPanel.Controls.Add(this.lblpaymentmanagement);
             this.paymentmanagementPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.paymentmanagementPanel.Location = new System.Drawing.Point(292, 87);
+            this.paymentmanagementPanel.Location = new System.Drawing.Point(260, 70);
+            this.paymentmanagementPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.paymentmanagementPanel.Name = "paymentmanagementPanel";
-            this.paymentmanagementPanel.Size = new System.Drawing.Size(1154, 879);
+            this.paymentmanagementPanel.Size = new System.Drawing.Size(1026, 703);
             this.paymentmanagementPanel.TabIndex = 64;
             // 
-            // txtnetsalarypm
+            // viewpaymentsPanel
             // 
-            this.txtnetsalarypm.Location = new System.Drawing.Point(199, 705);
-            this.txtnetsalarypm.Name = "txtnetsalarypm";
-            this.txtnetsalarypm.Size = new System.Drawing.Size(259, 34);
-            this.txtnetsalarypm.TabIndex = 62;
+            this.viewpaymentsPanel.Controls.Add(this.btnsearchvp);
+            this.viewpaymentsPanel.Controls.Add(this.btnbackvp);
+            this.viewpaymentsPanel.Controls.Add(this.txtpaydatevp);
+            this.viewpaymentsPanel.Controls.Add(this.lblpaymentdatevp);
+            this.viewpaymentsPanel.Controls.Add(this.txtpaystatusvp);
+            this.viewpaymentsPanel.Controls.Add(this.lblpaymentstatusvp);
+            this.viewpaymentsPanel.Controls.Add(this.txtpayyearvp);
+            this.viewpaymentsPanel.Controls.Add(this.lblpaymentyearvp);
+            this.viewpaymentsPanel.Controls.Add(this.txtpaymonthvp);
+            this.viewpaymentsPanel.Controls.Add(this.lblpaymentmonthvp);
+            this.viewpaymentsPanel.Controls.Add(this.txtpaymentidvp);
+            this.viewpaymentsPanel.Controls.Add(this.lblpaymentidvp);
+            this.viewpaymentsPanel.Controls.Add(this.dataGridView3);
+            this.viewpaymentsPanel.Controls.Add(this.txtnetsalaryvp);
+            this.viewpaymentsPanel.Controls.Add(this.lblnetsalaryvp);
+            this.viewpaymentsPanel.Controls.Add(this.lblerrorempidvp);
+            this.viewpaymentsPanel.Controls.Add(this.txtjobtitlevp);
+            this.viewpaymentsPanel.Controls.Add(this.lbljobtitlevp);
+            this.viewpaymentsPanel.Controls.Add(this.txtdepartmentvp);
+            this.viewpaymentsPanel.Controls.Add(this.lbldepartmentvp);
+            this.viewpaymentsPanel.Controls.Add(this.txtempnamevp);
+            this.viewpaymentsPanel.Controls.Add(this.lblempnamevp);
+            this.viewpaymentsPanel.Controls.Add(this.btnresetvp);
+            this.viewpaymentsPanel.Controls.Add(this.txtempidvp);
+            this.viewpaymentsPanel.Controls.Add(this.btnshowvp);
+            this.viewpaymentsPanel.Controls.Add(this.lblempidvp);
+            this.viewpaymentsPanel.Controls.Add(this.label19);
+            this.viewpaymentsPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.viewpaymentsPanel.Location = new System.Drawing.Point(8, 8);
+            this.viewpaymentsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.viewpaymentsPanel.Name = "viewpaymentsPanel";
+            this.viewpaymentsPanel.Size = new System.Drawing.Size(1026, 703);
+            this.viewpaymentsPanel.TabIndex = 72;
             // 
-            // lblnetsalarypm
+            // btnsearchvp
             // 
-            this.lblnetsalarypm.AutoSize = true;
-            this.lblnetsalarypm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnetsalarypm.Location = new System.Drawing.Point(19, 708);
-            this.lblnetsalarypm.Name = "lblnetsalarypm";
-            this.lblnetsalarypm.Size = new System.Drawing.Size(112, 28);
-            this.lblnetsalarypm.TabIndex = 61;
-            this.lblnetsalarypm.Text = "Net Salary";
+            this.btnsearchvp.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnsearchvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsearchvp.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnsearchvp.Location = new System.Drawing.Point(252, 374);
+            this.btnsearchvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnsearchvp.Name = "btnsearchvp";
+            this.btnsearchvp.Size = new System.Drawing.Size(191, 34);
+            this.btnsearchvp.TabIndex = 76;
+            this.btnsearchvp.Text = "Search";
+            this.btnsearchvp.UseVisualStyleBackColor = false;
+            this.btnsearchvp.Click += new System.EventHandler(this.btnsearchvp_Click);
             // 
-            // lblerroryearpm
+            // btnbackvp
             // 
-            this.lblerroryearpm.AutoSize = true;
-            this.lblerroryearpm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerroryearpm.ForeColor = System.Drawing.Color.Red;
-            this.lblerroryearpm.Location = new System.Drawing.Point(187, 301);
-            this.lblerroryearpm.Name = "lblerroryearpm";
-            this.lblerroryearpm.Size = new System.Drawing.Size(236, 21);
-            this.lblerroryearpm.TabIndex = 59;
-            this.lblerroryearpm.Text = "*** Year Selection is Required.";
+            this.btnbackvp.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnbackvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbackvp.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnbackvp.Location = new System.Drawing.Point(177, 653);
+            this.btnbackvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnbackvp.Name = "btnbackvp";
+            this.btnbackvp.Size = new System.Drawing.Size(191, 34);
+            this.btnbackvp.TabIndex = 75;
+            this.btnbackvp.Text = "Back";
+            this.btnbackvp.UseVisualStyleBackColor = false;
+            this.btnbackvp.Click += new System.EventHandler(this.btnbackvp_Click);
             // 
-            // lblerrormonthpm
+            // txtpaydatevp
             // 
-            this.lblerrormonthpm.AutoSize = true;
-            this.lblerrormonthpm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerrormonthpm.ForeColor = System.Drawing.Color.Red;
-            this.lblerrormonthpm.Location = new System.Drawing.Point(187, 228);
-            this.lblerrormonthpm.Name = "lblerrormonthpm";
-            this.lblerrormonthpm.Size = new System.Drawing.Size(254, 21);
-            this.lblerrormonthpm.TabIndex = 58;
-            this.lblerrormonthpm.Text = "*** Month Selection is Required.";
+            this.txtpaydatevp.Location = new System.Drawing.Point(725, 319);
+            this.txtpaydatevp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpaydatevp.Name = "txtpaydatevp";
+            this.txtpaydatevp.Size = new System.Drawing.Size(270, 30);
+            this.txtpaydatevp.TabIndex = 74;
             // 
-            // lblerrorempidpm
+            // lblpaymentdatevp
             // 
-            this.lblerrorempidpm.AutoSize = true;
-            this.lblerrorempidpm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblerrorempidpm.ForeColor = System.Drawing.Color.Red;
-            this.lblerrorempidpm.Location = new System.Drawing.Point(187, 153);
-            this.lblerrorempidpm.Name = "lblerrorempidpm";
-            this.lblerrorempidpm.Size = new System.Drawing.Size(298, 21);
-            this.lblerrorempidpm.TabIndex = 57;
-            this.lblerrorempidpm.Text = "*** The Employee ID Field is Required.";
+            this.lblpaymentdatevp.AutoSize = true;
+            this.lblpaymentdatevp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpaymentdatevp.Location = new System.Drawing.Point(565, 322);
+            this.lblpaymentdatevp.Name = "lblpaymentdatevp";
+            this.lblpaymentdatevp.Size = new System.Drawing.Size(123, 23);
+            this.lblpaymentdatevp.TabIndex = 73;
+            this.lblpaymentdatevp.Text = "Payment Date";
             // 
-            // label7
+            // txtpaystatusvp
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Navy;
-            this.label7.Location = new System.Drawing.Point(793, 392);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(172, 28);
-            this.label7.TabIndex = 56;
-            this.label7.Text = "Payment Process";
+            this.txtpaystatusvp.Location = new System.Drawing.Point(726, 266);
+            this.txtpaystatusvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpaystatusvp.Name = "txtpaystatusvp";
+            this.txtpaystatusvp.Size = new System.Drawing.Size(270, 30);
+            this.txtpaystatusvp.TabIndex = 71;
             // 
-            // label8
+            // lblpaymentstatusvp
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Navy;
-            this.label8.Location = new System.Drawing.Point(125, 440);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(223, 28);
-            this.label8.TabIndex = 55;
-            this.label8.Text = "Employee Information";
+            this.lblpaymentstatusvp.AutoSize = true;
+            this.lblpaymentstatusvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpaymentstatusvp.Location = new System.Drawing.Point(565, 268);
+            this.lblpaymentstatusvp.Name = "lblpaymentstatusvp";
+            this.lblpaymentstatusvp.Size = new System.Drawing.Size(135, 23);
+            this.lblpaymentstatusvp.TabIndex = 70;
+            this.lblpaymentstatusvp.Text = "Payment Status";
             // 
-            // lblpaydatepm
+            // txtpayyearvp
             // 
-            this.lblpaydatepm.AutoSize = true;
-            this.lblpaydatepm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpaydatepm.Location = new System.Drawing.Point(606, 531);
-            this.lblpaydatepm.Name = "lblpaydatepm";
-            this.lblpaydatepm.Size = new System.Drawing.Size(146, 28);
-            this.lblpaydatepm.TabIndex = 47;
-            this.lblpaydatepm.Text = "Payment Date";
+            this.txtpayyearvp.Location = new System.Drawing.Point(726, 211);
+            this.txtpayyearvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpayyearvp.Name = "txtpayyearvp";
+            this.txtpayyearvp.Size = new System.Drawing.Size(270, 30);
+            this.txtpayyearvp.TabIndex = 69;
             // 
-            // lblpaymethodpm
+            // lblpaymentyearvp
             // 
-            this.lblpaymethodpm.AutoSize = true;
-            this.lblpaymethodpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpaymethodpm.Location = new System.Drawing.Point(606, 470);
-            this.lblpaymethodpm.Name = "lblpaymethodpm";
-            this.lblpaymethodpm.Size = new System.Drawing.Size(175, 28);
-            this.lblpaymethodpm.TabIndex = 45;
-            this.lblpaymethodpm.Text = "Payment Method";
+            this.lblpaymentyearvp.AutoSize = true;
+            this.lblpaymentyearvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpaymentyearvp.Location = new System.Drawing.Point(565, 214);
+            this.lblpaymentyearvp.Name = "lblpaymentyearvp";
+            this.lblpaymentyearvp.Size = new System.Drawing.Size(118, 23);
+            this.lblpaymentyearvp.TabIndex = 68;
+            this.lblpaymentyearvp.Text = "Payment Year";
             // 
-            // txtjobtitlepm
+            // txtpaymonthvp
             // 
-            this.txtjobtitlepm.Location = new System.Drawing.Point(200, 638);
-            this.txtjobtitlepm.Name = "txtjobtitlepm";
-            this.txtjobtitlepm.Size = new System.Drawing.Size(259, 34);
-            this.txtjobtitlepm.TabIndex = 44;
+            this.txtpaymonthvp.Location = new System.Drawing.Point(725, 155);
+            this.txtpaymonthvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpaymonthvp.Name = "txtpaymonthvp";
+            this.txtpaymonthvp.Size = new System.Drawing.Size(270, 30);
+            this.txtpaymonthvp.TabIndex = 67;
             // 
-            // lbljobtitlepm
+            // lblpaymentmonthvp
             // 
-            this.lbljobtitlepm.AutoSize = true;
-            this.lbljobtitlepm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljobtitlepm.Location = new System.Drawing.Point(19, 641);
-            this.lbljobtitlepm.Name = "lbljobtitlepm";
-            this.lbljobtitlepm.Size = new System.Drawing.Size(94, 28);
-            this.lbljobtitlepm.TabIndex = 43;
-            this.lbljobtitlepm.Text = "Job Title";
+            this.lblpaymentmonthvp.AutoSize = true;
+            this.lblpaymentmonthvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpaymentmonthvp.Location = new System.Drawing.Point(565, 158);
+            this.lblpaymentmonthvp.Name = "lblpaymentmonthvp";
+            this.lblpaymentmonthvp.Size = new System.Drawing.Size(138, 23);
+            this.lblpaymentmonthvp.TabIndex = 66;
+            this.lblpaymentmonthvp.Text = "Payment Month";
             // 
-            // txtdepartmentpm
+            // txtpaymentidvp
             // 
-            this.txtdepartmentpm.Location = new System.Drawing.Point(200, 570);
-            this.txtdepartmentpm.Name = "txtdepartmentpm";
-            this.txtdepartmentpm.Size = new System.Drawing.Size(259, 34);
-            this.txtdepartmentpm.TabIndex = 42;
+            this.txtpaymentidvp.Location = new System.Drawing.Point(725, 98);
+            this.txtpaymentidvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtpaymentidvp.Name = "txtpaymentidvp";
+            this.txtpaymentidvp.Size = new System.Drawing.Size(270, 30);
+            this.txtpaymentidvp.TabIndex = 65;
             // 
-            // lbldepartmentpm
+            // lblpaymentidvp
             // 
-            this.lbldepartmentpm.AutoSize = true;
-            this.lbldepartmentpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldepartmentpm.Location = new System.Drawing.Point(19, 573);
-            this.lbldepartmentpm.Name = "lbldepartmentpm";
-            this.lbldepartmentpm.Size = new System.Drawing.Size(127, 28);
-            this.lbldepartmentpm.TabIndex = 41;
-            this.lbldepartmentpm.Text = "Department";
+            this.lblpaymentidvp.AutoSize = true;
+            this.lblpaymentidvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblpaymentidvp.Location = new System.Drawing.Point(565, 98);
+            this.lblpaymentidvp.Name = "lblpaymentidvp";
+            this.lblpaymentidvp.Size = new System.Drawing.Size(103, 23);
+            this.lblpaymentidvp.TabIndex = 64;
+            this.lblpaymentidvp.Text = "Payment ID";
             // 
-            // txtempnamepm
+            // dataGridView3
             // 
-            this.txtempnamepm.Location = new System.Drawing.Point(199, 500);
-            this.txtempnamepm.Name = "txtempnamepm";
-            this.txtempnamepm.Size = new System.Drawing.Size(259, 34);
-            this.txtempnamepm.TabIndex = 40;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(21, 430);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersWidth = 62;
+            this.dataGridView3.RowTemplate.Height = 28;
+            this.dataGridView3.Size = new System.Drawing.Size(977, 202);
+            this.dataGridView3.TabIndex = 63;
             // 
-            // lblempnamepm
+            // txtnetsalaryvp
             // 
-            this.lblempnamepm.AutoSize = true;
-            this.lblempnamepm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblempnamepm.Location = new System.Drawing.Point(19, 503);
-            this.lblempnamepm.Name = "lblempnamepm";
-            this.lblempnamepm.Size = new System.Drawing.Size(166, 28);
-            this.lblempnamepm.TabIndex = 39;
-            this.lblempnamepm.Text = "Employee Name";
+            this.txtnetsalaryvp.Location = new System.Drawing.Point(177, 317);
+            this.txtnetsalaryvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtnetsalaryvp.Name = "txtnetsalaryvp";
+            this.txtnetsalaryvp.Size = new System.Drawing.Size(270, 30);
+            this.txtnetsalaryvp.TabIndex = 62;
             // 
-            // btnresetpm
+            // lblnetsalaryvp
             // 
-            this.btnresetpm.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnresetpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnresetpm.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnresetpm.Location = new System.Drawing.Point(24, 353);
-            this.btnresetpm.Name = "btnresetpm";
-            this.btnresetpm.Size = new System.Drawing.Size(215, 43);
-            this.btnresetpm.TabIndex = 38;
-            this.btnresetpm.Text = "Reset";
-            this.btnresetpm.UseVisualStyleBackColor = false;
+            this.lblnetsalaryvp.AutoSize = true;
+            this.lblnetsalaryvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnetsalaryvp.Location = new System.Drawing.Point(17, 319);
+            this.lblnetsalaryvp.Name = "lblnetsalaryvp";
+            this.lblnetsalaryvp.Size = new System.Drawing.Size(94, 23);
+            this.lblnetsalaryvp.TabIndex = 61;
+            this.lblnetsalaryvp.Text = "Net Salary";
             // 
-            // cmbmonthpm
+            // lblerrorempidvp
             // 
-            this.cmbmonthpm.FormattingEnabled = true;
-            this.cmbmonthpm.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.cmbmonthpm.Location = new System.Drawing.Point(182, 189);
-            this.cmbmonthpm.Name = "cmbmonthpm";
-            this.cmbmonthpm.Size = new System.Drawing.Size(303, 36);
-            this.cmbmonthpm.TabIndex = 37;
+            this.lblerrorempidvp.AutoSize = true;
+            this.lblerrorempidvp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorempidvp.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorempidvp.Location = new System.Drawing.Point(179, 125);
+            this.lblerrorempidvp.Name = "lblerrorempidvp";
+            this.lblerrorempidvp.Size = new System.Drawing.Size(0, 19);
+            this.lblerrorempidvp.TabIndex = 57;
             // 
-            // lblmonthpm
+            // txtjobtitlevp
             // 
-            this.lblmonthpm.AutoSize = true;
-            this.lblmonthpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblmonthpm.Location = new System.Drawing.Point(19, 192);
-            this.lblmonthpm.Name = "lblmonthpm";
-            this.lblmonthpm.Size = new System.Drawing.Size(138, 28);
-            this.lblmonthpm.TabIndex = 36;
-            this.lblmonthpm.Text = "Select Month";
+            this.txtjobtitlevp.Location = new System.Drawing.Point(178, 263);
+            this.txtjobtitlevp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtjobtitlevp.Name = "txtjobtitlevp";
+            this.txtjobtitlevp.Size = new System.Drawing.Size(270, 30);
+            this.txtjobtitlevp.TabIndex = 44;
             // 
-            // lblyearpm
+            // lbljobtitlevp
             // 
-            this.lblyearpm.AutoSize = true;
-            this.lblyearpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblyearpm.Location = new System.Drawing.Point(19, 265);
-            this.lblyearpm.Name = "lblyearpm";
-            this.lblyearpm.Size = new System.Drawing.Size(115, 28);
-            this.lblyearpm.TabIndex = 35;
-            this.lblyearpm.Text = "Select Year";
+            this.lbljobtitlevp.AutoSize = true;
+            this.lbljobtitlevp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljobtitlevp.Location = new System.Drawing.Point(17, 266);
+            this.lbljobtitlevp.Name = "lbljobtitlevp";
+            this.lbljobtitlevp.Size = new System.Drawing.Size(80, 23);
+            this.lbljobtitlevp.TabIndex = 43;
+            this.lbljobtitlevp.Text = "Job Title";
             // 
-            // txtempidpm
+            // txtdepartmentvp
             // 
-            this.txtempidpm.Location = new System.Drawing.Point(182, 116);
-            this.txtempidpm.Name = "txtempidpm";
-            this.txtempidpm.Size = new System.Drawing.Size(303, 34);
-            this.txtempidpm.TabIndex = 34;
+            this.txtdepartmentvp.Location = new System.Drawing.Point(178, 209);
+            this.txtdepartmentvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtdepartmentvp.Name = "txtdepartmentvp";
+            this.txtdepartmentvp.Size = new System.Drawing.Size(270, 30);
+            this.txtdepartmentvp.TabIndex = 42;
             // 
-            // cmbyearpm
+            // lbldepartmentvp
             // 
-            this.cmbyearpm.FormattingEnabled = true;
-            this.cmbyearpm.Items.AddRange(new object[] {
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030",
-            "2031",
-            "2032",
-            "2033",
-            "2034",
-            "2035"});
-            this.cmbyearpm.Location = new System.Drawing.Point(182, 262);
-            this.cmbyearpm.Name = "cmbyearpm";
-            this.cmbyearpm.Size = new System.Drawing.Size(303, 36);
-            this.cmbyearpm.TabIndex = 33;
+            this.lbldepartmentvp.AutoSize = true;
+            this.lbldepartmentvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldepartmentvp.Location = new System.Drawing.Point(17, 211);
+            this.lbldepartmentvp.Name = "lbldepartmentvp";
+            this.lbldepartmentvp.Size = new System.Drawing.Size(108, 23);
+            this.lbldepartmentvp.TabIndex = 41;
+            this.lbldepartmentvp.Text = "Department";
             // 
-            // btnsearchpm
+            // txtempnamevp
             // 
-            this.btnsearchpm.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnsearchpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsearchpm.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnsearchpm.Location = new System.Drawing.Point(270, 352);
-            this.btnsearchpm.Name = "btnsearchpm";
-            this.btnsearchpm.Size = new System.Drawing.Size(215, 43);
-            this.btnsearchpm.TabIndex = 32;
-            this.btnsearchpm.Text = "Search";
-            this.btnsearchpm.UseVisualStyleBackColor = false;
+            this.txtempnamevp.Location = new System.Drawing.Point(177, 153);
+            this.txtempnamevp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtempnamevp.Name = "txtempnamevp";
+            this.txtempnamevp.Size = new System.Drawing.Size(270, 30);
+            this.txtempnamevp.TabIndex = 40;
             // 
-            // lblempidpm
+            // lblempnamevp
             // 
-            this.lblempidpm.AutoSize = true;
-            this.lblempidpm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblempidpm.Location = new System.Drawing.Point(19, 119);
-            this.lblempidpm.Name = "lblempidpm";
-            this.lblempidpm.Size = new System.Drawing.Size(131, 28);
-            this.lblempidpm.TabIndex = 31;
-            this.lblempidpm.Text = "Employee ID";
+            this.lblempnamevp.AutoSize = true;
+            this.lblempnamevp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempnamevp.Location = new System.Drawing.Point(17, 155);
+            this.lblempnamevp.Name = "lblempnamevp";
+            this.lblempnamevp.Size = new System.Drawing.Size(140, 23);
+            this.lblempnamevp.TabIndex = 39;
+            this.lblempnamevp.Text = "Employee Name";
             // 
-            // lblpaymentmanagement
+            // btnresetvp
             // 
-            this.lblpaymentmanagement.AutoSize = true;
-            this.lblpaymentmanagement.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblpaymentmanagement.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblpaymentmanagement.Location = new System.Drawing.Point(405, 17);
-            this.lblpaymentmanagement.Name = "lblpaymentmanagement";
-            this.lblpaymentmanagement.Size = new System.Drawing.Size(315, 38);
-            this.lblpaymentmanagement.TabIndex = 6;
-            this.lblpaymentmanagement.Text = "Payment Management";
+            this.btnresetvp.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnresetvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnresetvp.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnresetvp.Location = new System.Drawing.Point(21, 374);
+            this.btnresetvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnresetvp.Name = "btnresetvp";
+            this.btnresetvp.Size = new System.Drawing.Size(191, 34);
+            this.btnresetvp.TabIndex = 38;
+            this.btnresetvp.Text = "Reset";
+            this.btnresetvp.UseVisualStyleBackColor = false;
+            this.btnresetvp.Click += new System.EventHandler(this.btnresetvp_Click);
             // 
-            // cmbpaymethodpm
+            // txtempidvp
             // 
-            this.cmbpaymethodpm.FormattingEnabled = true;
-            this.cmbpaymethodpm.Items.AddRange(new object[] {
-            "Cash"});
-            this.cmbpaymethodpm.Location = new System.Drawing.Point(791, 468);
-            this.cmbpaymethodpm.Name = "cmbpaymethodpm";
-            this.cmbpaymethodpm.Size = new System.Drawing.Size(336, 36);
-            this.cmbpaymethodpm.TabIndex = 63;
+            this.txtempidvp.Location = new System.Drawing.Point(177, 95);
+            this.txtempidvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtempidvp.Name = "txtempidvp";
+            this.txtempidvp.Size = new System.Drawing.Size(270, 30);
+            this.txtempidvp.TabIndex = 34;
             // 
-            // dateTimePicker1
+            // btnshowvp
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(791, 527);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(336, 34);
-            this.dateTimePicker1.TabIndex = 64;
+            this.btnshowvp.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnshowvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnshowvp.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnshowvp.Location = new System.Drawing.Point(572, 653);
+            this.btnshowvp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnshowvp.Name = "btnshowvp";
+            this.btnshowvp.Size = new System.Drawing.Size(191, 34);
+            this.btnshowvp.TabIndex = 32;
+            this.btnshowvp.Text = "Show";
+            this.btnshowvp.UseVisualStyleBackColor = false;
+            this.btnshowvp.Click += new System.EventHandler(this.btnshowvp_Click);
             // 
-            // btnviewpaymentspm
+            // lblempidvp
             // 
-            this.btnviewpaymentspm.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnviewpaymentspm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnviewpaymentspm.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnviewpaymentspm.Location = new System.Drawing.Point(611, 625);
-            this.btnviewpaymentspm.Name = "btnviewpaymentspm";
-            this.btnviewpaymentspm.Size = new System.Drawing.Size(249, 43);
-            this.btnviewpaymentspm.TabIndex = 65;
-            this.btnviewpaymentspm.Text = "View Payments";
-            this.btnviewpaymentspm.UseVisualStyleBackColor = false;
+            this.lblempidvp.AutoSize = true;
+            this.lblempidvp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempidvp.Location = new System.Drawing.Point(17, 95);
+            this.lblempidvp.Name = "lblempidvp";
+            this.lblempidvp.Size = new System.Drawing.Size(111, 23);
+            this.lblempidvp.TabIndex = 31;
+            this.lblempidvp.Text = "Employee ID";
             // 
-            // btnpaysalarypm
+            // label19
             // 
-            this.btnpaysalarypm.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.btnpaysalarypm.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnpaysalarypm.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnpaysalarypm.Location = new System.Drawing.Point(878, 625);
-            this.btnpaysalarypm.Name = "btnpaysalarypm";
-            this.btnpaysalarypm.Size = new System.Drawing.Size(249, 43);
-            this.btnpaysalarypm.TabIndex = 66;
-            this.btnpaysalarypm.Text = "Pay Salary";
-            this.btnpaysalarypm.UseVisualStyleBackColor = false;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label19.Location = new System.Drawing.Point(360, 14);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(186, 32);
+            this.label19.TabIndex = 6;
+            this.label19.Text = "View Payments";
+            // 
+            // lblerrorpaymethodpm
+            // 
+            this.lblerrorpaymethodpm.AutoSize = true;
+            this.lblerrorpaymethodpm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorpaymethodpm.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorpaymethodpm.Location = new System.Drawing.Point(705, 406);
+            this.lblerrorpaymethodpm.Name = "lblerrorpaymethodpm";
+            this.lblerrorpaymethodpm.Size = new System.Drawing.Size(0, 19);
+            this.lblerrorpaymethodpm.TabIndex = 67;
             // 
             // AccountantDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1458, 978);
+            this.ClientSize = new System.Drawing.Size(1296, 782);
             this.Controls.Add(this.paymentmanagementPanel);
             this.Controls.Add(this.payrollProcessingPanel);
             this.Controls.Add(this.SalaryManagementPanel);
             this.Controls.Add(this.showpanel);
             this.Controls.Add(this.listPanel);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AccountantDashboard";
             this.Text = "AccountantDashboard";
             this.Load += new System.EventHandler(this.AccountantDashboard_Load);
@@ -1708,11 +2087,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.payrollProcessingPanel.ResumeLayout(false);
             this.payrollProcessingPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.viewemppayrollPanel.ResumeLayout(false);
             this.viewemppayrollPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.paymentmanagementPanel.ResumeLayout(false);
             this.paymentmanagementPanel.PerformLayout();
+            this.viewpaymentsPanel.ResumeLayout(false);
+            this.viewpaymentsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1723,8 +2105,6 @@
         private System.Windows.Forms.Button btnchangepassword;
         private System.Windows.Forms.Button btnattendance;
         private System.Windows.Forms.Button btnprofile;
-        private System.Windows.Forms.Button btnreport;
-        private System.Windows.Forms.Button btnpayslip;
         private System.Windows.Forms.Button btnpayment;
         private System.Windows.Forms.Button btnpayroll;
         private System.Windows.Forms.Panel listPanel;
@@ -1820,34 +2200,63 @@
         private System.Windows.Forms.Button btnback;
         private System.Windows.Forms.TextBox txtpayrollid;
         private System.Windows.Forms.Label lblpayrollid;
-        private System.Windows.Forms.Panel paymentmanagementPanel;
-        private System.Windows.Forms.TextBox txtnetsalarypm;
-        private System.Windows.Forms.Label lblnetsalarypm;
-        private System.Windows.Forms.Label lblerroryearpm;
-        private System.Windows.Forms.Label lblerrormonthpm;
-        private System.Windows.Forms.Label lblerrorempidpm;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblpaydatepm;
-        private System.Windows.Forms.Label lblpaymethodpm;
-        private System.Windows.Forms.TextBox txtjobtitlepm;
-        private System.Windows.Forms.Label lbljobtitlepm;
-        private System.Windows.Forms.TextBox txtdepartmentpm;
-        private System.Windows.Forms.Label lbldepartmentpm;
-        private System.Windows.Forms.TextBox txtempnamepm;
-        private System.Windows.Forms.Label lblempnamepm;
-        private System.Windows.Forms.Button btnresetpm;
-        private System.Windows.Forms.ComboBox cmbmonthpm;
-        private System.Windows.Forms.Label lblmonthpm;
-        private System.Windows.Forms.Label lblyearpm;
-        private System.Windows.Forms.TextBox txtempidpm;
-        private System.Windows.Forms.ComboBox cmbyearpm;
-        private System.Windows.Forms.Button btnsearchpm;
-        private System.Windows.Forms.Label lblempidpm;
         private System.Windows.Forms.Label lblpaymentmanagement;
-        private System.Windows.Forms.Button btnviewpaymentspm;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lblempidpm;
+        private System.Windows.Forms.Button btnsearchpm;
+        private System.Windows.Forms.ComboBox cmbyearpm;
+        private System.Windows.Forms.TextBox txtempidpm;
+        private System.Windows.Forms.Label lblyearpm;
+        private System.Windows.Forms.Label lblmonthpm;
+        private System.Windows.Forms.ComboBox cmbmonthpm;
+        private System.Windows.Forms.Button btnresetpm;
+        private System.Windows.Forms.Label lblempnamepm;
+        private System.Windows.Forms.TextBox txtempnamepm;
+        private System.Windows.Forms.Label lbldepartmentpm;
+        private System.Windows.Forms.TextBox txtdepartmentpm;
+        private System.Windows.Forms.Label lbljobtitlepm;
+        private System.Windows.Forms.TextBox txtjobtitlepm;
+        private System.Windows.Forms.Label lblpaymethodpm;
+        private System.Windows.Forms.Label lblpaydatepm;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblerrorempidpm;
+        private System.Windows.Forms.Label lblerrormonthpm;
+        private System.Windows.Forms.Label lblerroryearpm;
+        private System.Windows.Forms.Label lblnetsalarypm;
+        private System.Windows.Forms.TextBox txtnetsalarypm;
         private System.Windows.Forms.ComboBox cmbpaymethodpm;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnviewpaymentspm;
         private System.Windows.Forms.Button btnpaysalarypm;
+        private System.Windows.Forms.Panel paymentmanagementPanel;
+        private System.Windows.Forms.Label lblerrorpaymethodpm;
+        private System.Windows.Forms.Panel viewpaymentsPanel;
+        private System.Windows.Forms.Button btnsearchvp;
+        private System.Windows.Forms.Button btnbackvp;
+        private System.Windows.Forms.TextBox txtpaydatevp;
+        private System.Windows.Forms.Label lblpaymentdatevp;
+        private System.Windows.Forms.TextBox txtpaystatusvp;
+        private System.Windows.Forms.Label lblpaymentstatusvp;
+        private System.Windows.Forms.TextBox txtpayyearvp;
+        private System.Windows.Forms.Label lblpaymentyearvp;
+        private System.Windows.Forms.TextBox txtpaymonthvp;
+        private System.Windows.Forms.Label lblpaymentmonthvp;
+        private System.Windows.Forms.TextBox txtpaymentidvp;
+        private System.Windows.Forms.Label lblpaymentidvp;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox txtnetsalaryvp;
+        private System.Windows.Forms.Label lblnetsalaryvp;
+        private System.Windows.Forms.Label lblerrorempidvp;
+        private System.Windows.Forms.TextBox txtjobtitlevp;
+        private System.Windows.Forms.Label lbljobtitlevp;
+        private System.Windows.Forms.TextBox txtdepartmentvp;
+        private System.Windows.Forms.Label lbldepartmentvp;
+        private System.Windows.Forms.TextBox txtempnamevp;
+        private System.Windows.Forms.Label lblempnamevp;
+        private System.Windows.Forms.Button btnresetvp;
+        private System.Windows.Forms.TextBox txtempidvp;
+        private System.Windows.Forms.Button btnshowvp;
+        private System.Windows.Forms.Label lblempidvp;
+        private System.Windows.Forms.Label label19;
     }
 }

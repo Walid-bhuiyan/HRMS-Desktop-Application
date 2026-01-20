@@ -269,6 +269,7 @@
             this.Controls.Add(this.pnlTopHr);
             this.Name = "EmployeeDashboard";
             this.Text = "EmployeeDashboard";
+            this.Load += new System.EventHandler(this.EmployeeDashboard_Load);
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();
             this.pnlSideBar.ResumeLayout(false);
