@@ -13,92 +13,97 @@ namespace HRMS
 {
     public partial class LeaveStatus : Form
     {
-        private String empID;
-        private String reason;
-        private String status;
-        private String LeaveID;
-        
+        private int employeeId;
+        private string reason, status, LeaveID;
+
+        string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+
+        // ================= DEFAULT =================
         public LeaveStatus()
         {
             InitializeComponent();
         }
+
+        // ================= EMPLOYEE CONSTRUCTOR =================
+        public LeaveStatus(int id)
+        {
+            InitializeComponent();
+            employeeId = id;
+        }
+
         private SqlConnection Connect()
         {
-            string connectionString = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
-            SqlConnection conn = new SqlConnection(connectionString);
+            SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
             return conn;
         }
-        private void View ()
+
+        // ================= LOAD =================
+        private void LeaveStatus_Load(object sender, EventArgs e)
+        {
+            if (employeeId == 0)
+            {
+                MessageBox.Show("Session error: Employee not logged in.");
+                this.Close();
+                return;
+            }
+
+            txtId.Text = employeeId.ToString();
+            txtId.ReadOnly = true;
+
+            dataGridView1.DataSource = null; // start empty
+        }
+
+
+        // ================= VIEW =================
+        private void View()
         {
             try
             {
-               
-                empID = txtId.Text; 
-
-                
-                if (empID=="")
+                using (SqlConnection conn = Connect())
                 {
-                    MessageBox.Show("Please enter your Employee ID");
-                    return;
-                }
+                    string query = @"SELECT EmployeeID, LeaveID, FromDate, ToDate, Reason, Status
+                                     FROM LeaveRequests 
+                                     WHERE EmployeeID = @id";
 
-                SqlConnection conn = Connect();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", employeeId);
 
-                
-                string query = "SELECT EmployeeID,LeaveID, FromDate, ToDate, Reason, Status " +
-                               "FROM LeaveRequests WHERE EmployeeID='" + empID + "'";
+                    SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-                SqlDataAdapter adp = new SqlDataAdapter(cmd);
-
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-
-               
-                if (dt.Rows.Count == 0)
-                {
-                    MessageBox.Show("No leave request has been submitted for this Employee ID");
-                    dataGridView1.DataSource = null;
-                }
-                else
-                {
                     dataGridView1.DataSource = dt;
-                    dataGridView1.AutoGenerateColumns = true;
                 }
-
-                conn.Close();
             }
-            
             catch (Exception ex)
             {
                 MessageBox.Show("Unexpected error: " + ex.Message);
             }
         }
 
-        private void Search ()
+        // ================= SEARCH (only his leaves) =================
+        private void Search()
         {
-            
-
+            if (txtLeaveId.Text.Trim() == "")
+            {
+                MessageBox.Show("Please enter Leave ID to search.");
+                return;
+            }
             try
             {
-                SqlConnection conn = Connect();
-
-                empID = txtId.Text;
-                if (empID == "")
+                using (SqlConnection conn = Connect())
                 {
-                    MessageBox.Show("Enter Your Employee ID");
-                    return;
-                }
-                string query = "Select EmployeeID,LeaveID,FromDate,ToDate,Reason,Status FROM LeaveRequests WHERE EmployeeID='" + empID + "'";
-                SqlCommand cmd = new SqlCommand(query, conn);
+                    string query = @"SELECT EmployeeID, LeaveID, FromDate, ToDate, Reason, Status 
+                                     FROM LeaveRequests 
+                                     WHERE EmployeeID=@id AND LeaveID=@leaveId";
 
-                
-                SqlDataReader reader = cmd.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", employeeId);
+                    cmd.Parameters.AddWithValue("@leaveId", txtLeaveId.Text);
 
-                if (reader.HasRows)
-                {
-                   
+                    SqlDataReader reader = cmd.ExecuteReader();
+
                     if (reader.Read())
                     {
                         txtId.Text = reader["EmployeeID"].ToString();
@@ -108,31 +113,108 @@ namespace HRMS
                         richTextBox1.Text = reader["Reason"].ToString();
                         txtstatus.Text = reader["Status"].ToString();
                     }
+                    else
+                    {
+                        MessageBox.Show("No leave record found.");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("No leave record found for this Employee ID");
-                    
-                    txtId.Text = "";
-                    txtLeaveId.Text = "";
-                   
-                    richTextBox1.Text = "";
-                    txtstatus.Text = "";
-                }
-
-                reader.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: "+ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        // ================= GRID CLICK =================
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            EmployeeDashboard ed = new EmployeeDashboard();
-            ed.Show();
-            this.Hide();
+            if (e.RowIndex < 0) return;
+
+            txtId.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            txtLeaveId.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
+            dateTimePicker2.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
+            richTextBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtstatus.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+        }
+
+        // ================= UPDATE =================
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtstatus.Text.ToUpper() != "PENDING")
+                {
+                    MessageBox.Show("You can only edit leave when status is Pending.");
+                    return;
+                }
+
+
+                using (SqlConnection conn = Connect())
+                {
+                    string query = @"UPDATE LeaveRequests 
+                                     SET FromDate=@from, ToDate=@to, Reason=@reason 
+                                     WHERE LeaveID=@leaveId AND EmployeeID=@id";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@from", dateTimePicker1.Value);
+                    cmd.Parameters.AddWithValue("@to", dateTimePicker2.Value);
+                    cmd.Parameters.AddWithValue("@reason", richTextBox1.Text);
+                    cmd.Parameters.AddWithValue("@leaveId", txtLeaveId.Text);
+                    cmd.Parameters.AddWithValue("@id", employeeId);
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Leave Request Updated");
+                View();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        // ================= DELETE =================
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtstatus.Text.ToUpper() != "PENDING")
+                {
+                    MessageBox.Show("You can only delete leave when status is Pending.");
+                    return;
+                }
+
+                if (MessageBox.Show("Are you sure?", "Confirm",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    return;
+
+                using (SqlConnection conn = Connect())
+                {
+                    string query = "DELETE FROM LeaveRequests WHERE LeaveID=@leaveId AND EmployeeID=@id";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@leaveId", txtLeaveId.Text);
+                    cmd.Parameters.AddWithValue("@id", employeeId);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Leave deleted");
+                btnReset_Click(null, null);
+                View();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        // ================= RESET =================
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtLeaveId.Text = richTextBox1.Text = txtstatus.Text = "";
+            dateTimePicker1.Value = dateTimePicker2.Value = DateTime.Now;
+            dataGridView1.DataSource = null;
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -142,128 +224,14 @@ namespace HRMS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Search();   
+            Search();
         }
 
-      
-        private void LeaveStatus_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            txtId.Text = txtLeaveId.Text =richTextBox1.Text= txtstatus.Text = "";
-            dateTimePicker1.Value = dateTimePicker2.Value = DateTime.Now;
-            dataGridView1.DataSource = null;
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-            empID = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            LeaveID = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-
-            txtId.Text = empID;
-            txtLeaveId.Text = LeaveID;
-
-            dateTimePicker1.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[2].Value);
-            dateTimePicker2.Value = Convert.ToDateTime(dataGridView1.Rows[e.RowIndex].Cells[3].Value);
-
-            richTextBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtstatus.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                status=txtstatus.Text;
-                empID=txtId.Text;
-                LeaveID=txtLeaveId.Text;
-
-                if(txtstatus.Text.ToUpper()=="ACCEPTED")
-                {
-                    MessageBox.Show("No edit is possible,Leave request is accepted");
-                    return;
-                }
-
-                if (empID == "" || LeaveID == "")
-                {
-                    MessageBox.Show("Please select a leave request first.");
-                    return;
-                }
-
-                SqlConnection conn = Connect();
-                reason = richTextBox1.Text;
-
-                DateTime fromDate = Convert.ToDateTime(dateTimePicker1.Text);
-                DateTime toDate = Convert.ToDateTime(dateTimePicker2.Text);
-
-
-                string query = "UPDATE  LeaveRequests set EmployeeID='" + empID + "',FromDate='" + fromDate.ToString("yyyy-MM-dd") + "',ToDate='" + toDate.ToString("yyyy-MM-dd") + "',Reason='" +reason+ "' WHERE LeaveID='"+LeaveID+"' and EmployeeID='"+empID+"' ";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-
-                MessageBox.Show("Leave Request Updated");
-                View();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                status = txtstatus.Text;
-                empID = txtId.Text;
-                LeaveID = txtLeaveId.Text;
-
-                if (txtstatus.Text.ToUpper() == "ACCEPTED")
-                {
-                    MessageBox.Show("Cannot delete. Leave request is already accepted.");
-                    return;
-                }
-
-                if (empID == "" || LeaveID == "")
-                {
-                    MessageBox.Show("Please select a leave request first.");
-                    return;
-                }
-
-                if (MessageBox.Show("Are you sure you want to delete this leave request?",
-                                    "Confirm Delete",
-                                    MessageBoxButtons.YesNo,
-                                    MessageBoxIcon.Warning) == DialogResult.No)
-                {
-                    return;
-                }
-
-                SqlConnection conn = Connect();
-
-                string query = "DELETE FROM LeaveRequests WHERE LeaveID='" + LeaveID + "' AND EmployeeID='" + empID + "'";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-
-                MessageBox.Show("Leave Request Deleted Successfully");
-
-                
-                btnReset_Click(null, null);
-                View();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            EmployeeDashboard ed = new EmployeeDashboard(employeeId);
+            ed.Show();
+            this.Hide();
         }
     }
 }

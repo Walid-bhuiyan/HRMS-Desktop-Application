@@ -68,7 +68,9 @@ namespace HRMS
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            HRManagerDashboard n = new HRManagerDashboard(hrId);
+            n.Show();
+            this.Hide();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)

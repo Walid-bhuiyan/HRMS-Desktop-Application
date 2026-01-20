@@ -293,6 +293,24 @@
     <Compile Include="HR_EmployeeManagement.Designer.cs">
       <DependentUpon>HR_EmployeeManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="HR_LeaveManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR_LeaveManagement.Designer.cs">
+      <DependentUpon>HR_LeaveManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR_PayrollManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR_PayrollManagement.Designer.cs">
+      <DependentUpon>HR_PayrollManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR_ViewEmployeePayroll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR_ViewEmployeePayroll.Designer.cs">
+      <DependentUpon>HR_ViewEmployeePayroll.cs</DependentUpon>
+    </Compile>
     <Compile Include="LeaveStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +414,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HR_EmployeeManagement.resx">
       <DependentUpon>HR_EmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR_LeaveManagement.resx">
+      <DependentUpon>HR_LeaveManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR_PayrollManagement.resx">
+      <DependentUpon>HR_PayrollManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR_ViewEmployeePayroll.resx">
+      <DependentUpon>HR_ViewEmployeePayroll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LeaveStatus.resx">
       <DependentUpon>LeaveStatus.cs</DependentUpon>

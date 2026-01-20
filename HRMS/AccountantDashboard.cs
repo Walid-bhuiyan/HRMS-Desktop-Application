@@ -22,7 +22,7 @@ namespace HRMS
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void HideAllPanels()
@@ -78,7 +78,20 @@ namespace HRMS
             int currentMonth = DateTime.Now.Month;
             int currentYear = DateTime.Now.Year;
             LoadMonthlyPayrollDashboard(currentMonth, currentYear);
+
+            LoadPendingPayments(currentMonth, currentYear);
         }
+
+        private void RefreshDashboard()
+        {
+            int currentMonth = DateTime.Now.Month;
+            int currentYear = DateTime.Now.Year;
+
+            LoadTotalEmployees();
+            LoadMonthlyPayrollDashboard(currentMonth, currentYear);
+            LoadPendingPayments(currentMonth, currentYear);
+        }
+
 
         private void LoadMonthlyPayrollDashboard(int month, int year)
         {
@@ -86,13 +99,7 @@ namespace HRMS
             {
                 using (SqlConnection conn = Connect())
                 {
-                    string query = @"
-                    SELECT 
-                        ISNULL(SUM(GrossSalary), 0) AS TotalMonthlyPayroll,
-                        ISNULL(SUM(TotalDeduction), 0) AS TotalDeductions,
-                        ISNULL(SUM(NetSalary), 0) AS NetSalaryPayable
-                    FROM Payroll
-                    WHERE Month = @Month AND Year = @Year";
+                    string query = @" SELECT ISNULL(SUM(GrossSalary), 0) AS TotalMonthlyPayroll, ISNULL(SUM(TotalDeduction), 0) AS TotalDeductions, ISNULL(SUM(NetSalary), 0) AS NetSalaryPayable FROM Payroll WHERE Month = @Month AND Year = @Year";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@Month", month);
@@ -115,6 +122,22 @@ namespace HRMS
             }
         }
 
+        void LoadPendingPayments(int month, int year)
+        {
+            using (SqlConnection conn = Connect())
+            {
+                string query = @"SELECT COUNT(*) FROM Payroll p WHERE p.Month = @Month AND p.Year = @Year AND NOT EXISTS ( SELECT 1 FROM Payment pay WHERE pay.EmployeeID = p.EmployeeID AND pay.PayMonth = p.Month AND pay.PayYear = p.Year AND pay.PaymentStatus = 'Paid')";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Month", month);
+                cmd.Parameters.AddWithValue("@Year", year);
+
+                int pendingCount = Convert.ToInt32(cmd.ExecuteScalar());
+
+                lblppnumber.Text = pendingCount + " Employees";
+            }
+        }
+
 
         private void btnchangepassword_Click(object sender, EventArgs e)
         {
@@ -130,6 +153,9 @@ namespace HRMS
         {
             HideAllPanels();
             showpanel.Visible = true;
+
+            RefreshDashboard();
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -238,7 +264,7 @@ namespace HRMS
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -268,13 +294,13 @@ namespace HRMS
         {
             lblerrorempid.Text = "";
 
-            if(txtempid.Text == "")
+            if (txtempid.Text == "")
             {
                 lblerrorempid.Text = "*** The Employee ID Field is Required.";
                 return;
             }
 
-            if(txtempid.Text != "" && txtempname.Text == "" || txtdept.Text == "" || txtjobtitle.Text == "" || txtphone.Text == "" || txtsalary.Text == "")
+            if (txtempid.Text != "" && txtempname.Text == "" || txtdept.Text == "" || txtjobtitle.Text == "" || txtphone.Text == "" || txtsalary.Text == "")
             {
                 MessageBox.Show("Information Fields are empty. Click Search.");
                 return;
@@ -283,7 +309,7 @@ namespace HRMS
             try
             {
                 decimal salary = 0, house = 0, medical = 0, transport = 0;
-                decimal.TryParse(txtsalary.Text, out salary); 
+                decimal.TryParse(txtsalary.Text, out salary);
                 decimal.TryParse(txthouserent.Text, out house);
                 decimal.TryParse(txtmedical.Text, out medical);
                 decimal.TryParse(txttransport.Text, out transport);
@@ -294,23 +320,7 @@ namespace HRMS
 
                 using (SqlConnection conn = Connect())
                 {
-                    string query = @"
-                    IF EXISTS (SELECT 1 FROM SalaryManagement WHERE EmployeeID = @EmpID)
-                    BEGIN
-                        UPDATE SalaryManagement
-                        SET HouseRent = @HouseRent,
-                            Medical = @Medical,
-                            Transport = @Transport,
-                            Salary = @Salary
-                        WHERE EmployeeID = @EmpID
-                    END
-                    ELSE
-                    BEGIN
-                        INSERT INTO SalaryManagement
-                        (EmployeeID, EmpName, Department, JobTitle, Phone, Salary, HouseRent, Medical, Transport)
-                        VALUES
-                        (@EmpID, @EmpName, @Department, @JobTitle, @Phone, @Salary, @HouseRent, @Medical, @Transport)
-                    END";
+                    string query = @" IF EXISTS (SELECT 1 FROM SalaryManagement WHERE EmployeeID = @EmpID) BEGIN UPDATE SalaryManagement SET HouseRent = @HouseRent, Medical = @Medical, Transport = @Transport, Salary = @Salary WHERE EmployeeID = @EmpID END ELSE BEGIN INSERT INTO SalaryManagement (EmployeeID, EmpName, Department, JobTitle, Phone, Salary, HouseRent, Medical, Transport) VALUES (@EmpID, @EmpName, @Department, @JobTitle, @Phone, @Salary, @HouseRent, @Medical, @Transport) END";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@EmpID", txtempid.Text);
@@ -368,6 +378,17 @@ namespace HRMS
             this.Hide();
         }
 
+        void SyncPaymentWithPayroll()
+        {
+            using (SqlConnection conn = Connect())
+            {
+                string query = @"UPDATE pay SET pay.NetSalary = p.NetSalary FROM Payment pay INNER JOIN Payroll p ON pay.EmployeeID = p.EmployeeID AND pay.PayMonth = p.Month AND pay.PayYear = p.Year WHERE pay.PaymentStatus = 'Unpaid'";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         private void btngeneratepayroll_Click(object sender, EventArgs e)
         {
             lblerroryear.Text = lblerrormonth.Text = "";
@@ -395,11 +416,7 @@ namespace HRMS
 
                 using (SqlConnection conn = Connect())
                 {
-                    string checkQuery = @"
-                    SELECT COUNT(*) 
-                    FROM Attendance
-                    WHERE MONTH(AttendanceDate) = @Month
-                      AND YEAR(AttendanceDate) = @Year";
+                    string checkQuery = @" SELECT COUNT(*)  FROM Attendance WHERE MONTH(AttendanceDate) = @Month AND YEAR(AttendanceDate) = @Year";
 
                     SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
                     checkCmd.Parameters.AddWithValue("@Month", month);
@@ -431,6 +448,7 @@ namespace HRMS
 
                     reader.Close();
                 }
+                SyncPaymentWithPayroll();
 
                 MessageBox.Show("Payroll generated and saved successfully.");
             }
@@ -464,13 +482,7 @@ namespace HRMS
             {
                 using (SqlConnection conn = Connect())
                 {
-                    string query = @"
-                    SELECT COUNT(*) 
-                    FROM Attendance
-                    WHERE UserID = @UserID
-                      AND LTRIM(RTRIM(Status)) = 'Absent'
-                      AND MONTH(AttendanceDate) = @Month
-                      AND YEAR(AttendanceDate) = @Year";
+                    string query = @" SELECT COUNT(*) FROM Attendance WHERE UserID = @UserID AND LTRIM(RTRIM(Status)) = 'Absent' AND MONTH(AttendanceDate) = @Month AND YEAR(AttendanceDate) = @Year";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@UserID", empId);
@@ -492,39 +504,28 @@ namespace HRMS
         {
             using (SqlConnection conn = Connect())
             {
-                string query = @"
-                IF EXISTS (
-                    SELECT 1 FROM Payroll 
-                    WHERE EmployeeID=@EmpID AND Month=@Month AND Year=@Year
-                )
-                BEGIN
-                    
-                    UPDATE Payroll
-                    SET GrossSalary = @Gross,
-                        TotalDeduction = @Deduction,
-                        NetSalary = @Net
-                    WHERE EmployeeID=@EmpID AND Month=@Month AND Year=@Year
-                END
-                ELSE
-                BEGIN
+                string payrollQuery = @"IF EXISTS (SELECT 1 FROM Payroll WHERE EmployeeID=@EmpID AND Month=@Month AND Year=@Year) BEGIN UPDATE Payroll SET GrossSalary=@Gross, TotalDeduction=@Deduction, NetSalary=@Net WHERE EmployeeID=@EmpID AND Month=@Month AND Year=@Year END ELSE BEGIN INSERT INTO Payroll (EmployeeID, Month, Year, GrossSalary, TotalDeduction, NetSalary) VALUES (@EmpID, @Month, @Year, @Gross, @Deduction, @Net) END";
 
-                    INSERT INTO Payroll
-                    (EmployeeID, Month, Year, GrossSalary, TotalDeduction, NetSalary)
-                    VALUES
-                    (@EmpID, @Month, @Year, @Gross, @Deduction, @Net)
-                END";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand cmd = new SqlCommand(payrollQuery, conn);
                 cmd.Parameters.AddWithValue("@EmpID", empId);
                 cmd.Parameters.AddWithValue("@Month", month);
                 cmd.Parameters.AddWithValue("@Year", year);
                 cmd.Parameters.AddWithValue("@Gross", salary);
                 cmd.Parameters.AddWithValue("@Deduction", deduction);
                 cmd.Parameters.AddWithValue("@Net", net);
-
                 cmd.ExecuteNonQuery();
+
+                string paymentQuery = @" IF NOT EXISTS (SELECT 1 FROM Payment WHERE EmployeeID=@EmpID AND PayMonth=@Month AND PayYear=@Year) BEGIN INSERT INTO Payment (EmployeeID, PayMonth, PayYear, NetSalary, PaymentStatus) VALUES (@EmpID, @Month, @Year, @Net, 'Unpaid') END";
+
+                SqlCommand payCmd = new SqlCommand(paymentQuery, conn);
+                payCmd.Parameters.AddWithValue("@EmpID", empId);
+                payCmd.Parameters.AddWithValue("@Month", month);
+                payCmd.Parameters.AddWithValue("@Year", year);
+                payCmd.Parameters.AddWithValue("@Net", net);
+                payCmd.ExecuteNonQuery();
             }
         }
+
 
         private void showPayroll()
         {
@@ -568,6 +569,8 @@ namespace HRMS
             txtempidpayroll.Text = txtpayrollid.Text = txtempnamepayroll.Text = txtdepartmentpayroll.Text = txtjobtitlepayroll.Text = txtmonthpayroll.Text = txtyearpayroll.Text = txtgrosssalarypayroll.Text = txttotaldeductionpayroll.Text = txtnetsalarypayroll.Text = "";
             cmbselectmonthpayroll.SelectedIndex = cmbselectyearpayroll.SelectedIndex = -1;
 
+            lblerrorempidpayroll.Text = lblerrormonthpayroll.Text = lblerroryearpayroll.Text = "";
+
             OpenFields2();
         }
 
@@ -582,7 +585,7 @@ namespace HRMS
 
             if (txtempidpayroll.Text == "" || cmbselectmonthpayroll.SelectedIndex == -1 || cmbselectyearpayroll.SelectedIndex == -1)
             {
-                if(txtempidpayroll.Text == "")
+                if (txtempidpayroll.Text == "")
                 {
                     lblerrorempidpayroll.Text = "*** The Employee ID Field is Required.";
                 }
@@ -597,7 +600,11 @@ namespace HRMS
                 return;
             }
 
-            int empId = Convert.ToInt32(txtempidpayroll.Text);
+            if (!int.TryParse(txtempidpayroll.Text, out int empId))
+            {
+                lblerrorempidpayroll.Text = "*** Employee ID must be a number.";
+                return;
+            }
             int month = cmbselectmonthpayroll.SelectedIndex + 1;
             int year = Convert.ToInt32(cmbselectyearpayroll.Text);
 
@@ -605,22 +612,7 @@ namespace HRMS
             {
                 using (SqlConnection conn = Connect())
                 {
-                    string query = @"
-                    SELECT 
-                        p.PayrollID,
-                        e.FullName,
-                        e.Department,
-                        e.JobTitle,
-                        p.Month,
-                        p.Year,
-                        p.GrossSalary,
-                        p.TotalDeduction,
-                        p.NetSalary
-                    FROM Payroll p
-                    INNER JOIN Employees_Info e ON e.EmployeeID = p.EmployeeID
-                    WHERE p.EmployeeID = @EmpID
-                      AND p.Month = @Month
-                      AND p.Year = @Year";
+                    string query = @" SELECT p.PayrollID, e.FullName, e.Department, e.JobTitle,  p.Month,  p.Year, p.GrossSalary, p.TotalDeduction, p.NetSalary FROM Payroll p INNER JOIN Employees_Info e ON e.EmployeeID = p.EmployeeID WHERE p.EmployeeID = @EmpID AND p.Month = @Month AND p.Year = @Year";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@EmpID", empId);
@@ -710,6 +702,7 @@ namespace HRMS
             cmbselectmonth.SelectedIndex = cmbselectyear.SelectedIndex = -1;
             dataGridView2.DataSource = null;
 
+            lblerrormonth.Text = lblerroryear.Text = "";
         }
 
         private void btnpayment_Click(object sender, EventArgs e)
@@ -735,10 +728,14 @@ namespace HRMS
 
             lblerrorempidpm.Text = lblerrormonthpm.Text = lblerroryearpm.Text = lblerrorpaymethodpm.Text = lblerrorempidvp.Text = "";
             dataGridView3.DataSource = null;
+
+            txtempidpm.Text = txtempnamepm.Text = txtdepartmentpm.Text = txtjobtitlepm.Text = txtnetsalarypm.Text = "";
+            cmbmonthpm.SelectedIndex = cmbyearpm.SelectedIndex = cmbpaymethodpm.SelectedIndex = -1;
         }
 
         private void LockFields3()
         {
+            txtempidpm.ReadOnly = true;
             txtempnamepm.ReadOnly = true;
             txtdepartmentpm.ReadOnly = true;
             txtjobtitlepm.ReadOnly = true;
@@ -747,6 +744,7 @@ namespace HRMS
 
         private void OpenFields3()
         {
+            txtempidpm.ReadOnly = false;
             txtempnamepm.ReadOnly = false;
             txtdepartmentpm.ReadOnly = false;
             txtjobtitlepm.ReadOnly = false;
@@ -756,21 +754,7 @@ namespace HRMS
         {
             using (SqlConnection conn = Connect())
             {
-                string query = @"
-                SELECT
-                    pay.PaymentID,
-                    e.EmployeeID,
-                    e.FullName,
-                    e.Department,
-                    e.JobTitle,
-                    pay.NetSalary,
-                    pay.PayMonth,
-                    pay.PayYear,
-                    pay.PaymentStatus,
-                    pay.PaymentDate
-                FROM Payment pay
-                JOIN Employees_Info e ON e.EmployeeID = pay.EmployeeID
-                ORDER BY pay.PayYear DESC, pay.PayMonth DESC";
+                string query = @" SELECT pay.PaymentID, e.EmployeeID, e.FullName, e.Department, e.JobTitle, pay.NetSalary, pay.PayMonth, pay.PayYear, pay.PaymentStatus, pay.PaymentDate FROM Payment pay JOIN Employees_Info e ON e.EmployeeID = pay.EmployeeID ORDER BY pay.PayYear DESC, pay.PayMonth DESC";
 
                 SqlDataAdapter da = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -805,7 +789,7 @@ namespace HRMS
                 {
                     lblerroryearpm.Text = "*** Year Selection is Required.";
                 }
-                if(cmbpaymethodpm.SelectedIndex == -1)
+                if (cmbpaymethodpm.SelectedIndex == -1)
                 {
                     lblerrorpaymethodpm.Text = "*** Payment Method Selection is Required.";
                 }
@@ -824,37 +808,49 @@ namespace HRMS
 
             using (SqlConnection conn = Connect())
             {
-                string query = @"
-                UPDATE Payment
-                SET PaymentStatus = 'Paid',
-                    PaymentMethod = @Method,
-                    PaymentDate = @Date
-                WHERE EmployeeID = @EmpID
-                  AND PayMonth = @Month
-                  AND PayYear = @Year
-                  AND PaymentStatus = 'Unpaid'";
+                string checkQuery = @" SELECT PaymentStatus FROM Payment WHERE EmployeeID = @EmpID AND PayMonth = @Month AND PayYear = @Year";
 
-                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                checkCmd.Parameters.AddWithValue("@EmpID", empId);
+                checkCmd.Parameters.AddWithValue("@Month", month);
+                checkCmd.Parameters.AddWithValue("@Year", year);
+
+                object statusObj = checkCmd.ExecuteScalar();
+
+                if (statusObj == null)
+                {
+                    MessageBox.Show("No payroll record found for this employee.");
+                    return;
+                }
+
+                if (statusObj.ToString() == "Paid")
+                {
+                    MessageBox.Show("Salary has already been paid for this employee.");
+                    return;
+                }
+
+                string updateQuery = @" UPDATE Payment SET PaymentStatus = 'Paid', PaymentMethod = @Method, PaymentDate = @Date WHERE EmployeeID = @EmpID AND PayMonth = @Month AND PayYear = @Year";
+
+                SqlCommand cmd = new SqlCommand(updateQuery, conn);
                 cmd.Parameters.AddWithValue("@Method", cmbpaymethodpm.Text);
                 cmd.Parameters.AddWithValue("@Date", dateTimePicker1.Value.Date);
                 cmd.Parameters.AddWithValue("@EmpID", empId);
                 cmd.Parameters.AddWithValue("@Month", month);
                 cmd.Parameters.AddWithValue("@Year", year);
 
-                int rows = cmd.ExecuteNonQuery();
+                int rowsAffected = cmd.ExecuteNonQuery();
 
-                if (rows > 0)
+                if (rowsAffected > 0)
                 {
                     MessageBox.Show("Salary paid successfully.");
-                    btnpaysalarypm.Enabled = false;
                 }
                 else
                 {
-                    MessageBox.Show("Salary already paid or payment record not found.");
+                    MessageBox.Show("Payment failed. Please try again.");
                 }
             }
-        }
 
+        }
 
         private void btnsearchpm_Click(object sender, EventArgs e)
         {
@@ -862,92 +858,70 @@ namespace HRMS
 
             if (txtempidpm.Text == "" || cmbmonthpm.SelectedIndex == -1 || cmbyearpm.SelectedIndex == -1)
             {
-                if(txtempidpm.Text == "")
+                if (txtempidpm.Text == "")
                 {
                     lblerrorempidpm.Text = "*** The Employee ID Field is Required.";
                 }
-                if(cmbmonthpm.SelectedIndex == -1)
+                if (cmbmonthpm.SelectedIndex == -1)
                 {
                     lblerrormonthpm.Text = "*** Month Selection is Required.";
                 }
-                if(cmbyearpm.SelectedIndex == -1)
+                if (cmbyearpm.SelectedIndex == -1)
                 {
                     lblerroryearpm.Text = "*** Year Selection is Required.";
                 }
                 return;
             }
 
-            int empId = Convert.ToInt32(txtempidpm.Text);
+            if (!int.TryParse(txtempidpm.Text, out int empId))
+            {
+                lblerrorempidpm.Text = "*** Employee ID must be a number.";
+                return;
+            }
             int month = cmbmonthpm.SelectedIndex + 1;
             int year = Convert.ToInt32(cmbyearpm.Text);
 
-            using (SqlConnection conn = Connect())
+            try
             {
-                string ensurePaymentQuery = @"
-                IF NOT EXISTS (
-                    SELECT 1 FROM Payment
-                    WHERE EmployeeID = @EmpID
-                      AND PayMonth = @Month
-                      AND PayYear = @Year
-                )
-                BEGIN
-                    INSERT INTO Payment (EmployeeID, PayMonth, PayYear, NetSalary)
-                    SELECT EmployeeID, Month, Year, NetSalary
-                    FROM Payroll
-                    WHERE EmployeeID = @EmpID
-                      AND Month = @Month
-                      AND Year = @Year
-                END";
-
-                SqlCommand ensureCmd = new SqlCommand(ensurePaymentQuery, conn);
-                ensureCmd.Parameters.AddWithValue("@EmpID", empId);
-                ensureCmd.Parameters.AddWithValue("@Month", month);
-                ensureCmd.Parameters.AddWithValue("@Year", year);
-                ensureCmd.ExecuteNonQuery();
-
-                string query = @"
-                SELECT
-                    e.FullName,
-                    e.Department,
-                    e.JobTitle,
-                    p.NetSalary,
-                    pay.PaymentStatus
-                FROM Payroll p
-                INNER JOIN Employees_Info e ON e.EmployeeID = p.EmployeeID
-                INNER JOIN Payment pay 
-                    ON pay.EmployeeID = p.EmployeeID
-                   AND pay.PayMonth = p.Month
-                   AND pay.PayYear = p.Year
-                WHERE p.EmployeeID = @EmpID
-                  AND p.Month = @Month
-                  AND p.Year = @Year";
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@EmpID", empId);
-                cmd.Parameters.AddWithValue("@Month", month);
-                cmd.Parameters.AddWithValue("@Year", year);
-
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                using (SqlConnection conn = Connect())
                 {
-                    txtempnamepm.Text = dr["FullName"].ToString();
-                    txtdepartmentpm.Text = dr["Department"].ToString();
-                    txtjobtitlepm.Text = dr["JobTitle"].ToString();
-                    txtnetsalarypm.Text = dr["NetSalary"].ToString();
+                    string query = @"SELECT e.FullName, e.Department, e.JobTitle, pay.NetSalary, pay.PaymentStatus FROM Payment pay INNER JOIN Employees_Info e ON e.EmployeeID = pay.EmployeeID WHERE pay.EmployeeID = @EmpID AND pay.PayMonth = @Month AND pay.PayYear = @Year";
 
-                    string status = dr["PaymentStatus"].ToString();
-                    btnpaysalarypm.Enabled = (status == "Unpaid");
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@EmpID", empId);
+                    cmd.Parameters.AddWithValue("@Month", month);
+                    cmd.Parameters.AddWithValue("@Year", year);
 
-                    LockFields3();
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        txtempnamepm.Text = dr["FullName"].ToString();
+                        txtdepartmentpm.Text = dr["Department"].ToString();
+                        txtjobtitlepm.Text = dr["JobTitle"].ToString();
+                        txtnetsalarypm.Text = dr["NetSalary"].ToString();
+
+                        string status = dr["PaymentStatus"].ToString();
+
+                        LockFields3();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Payroll not generated or payment record not found.");
+
+                        txtempidpm.Text = txtempnamepm.Text = txtdepartmentpm.Text =
+                        txtjobtitlepm.Text = txtnetsalarypm.Text = "";
+
+                        cmbmonthpm.SelectedIndex = cmbyearpm.SelectedIndex =
+                        cmbpaymethodpm.SelectedIndex = -1;
+                    }
+
+                    dr.Close();
                 }
-                else
-                {
-                    MessageBox.Show("Payroll not generated for this employee.");
-
-                    txtempidpm.Text = txtempnamepm.Text = txtdepartmentpm.Text = txtjobtitlepm.Text = txtnetsalarypm.Text = "";
-                    cmbmonthpm.SelectedIndex = cmbyearpm.SelectedIndex = cmbpaymethodpm.SelectedIndex = -1;
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading payment info: " + ex.Message);
             }
         }
 
@@ -985,24 +959,7 @@ namespace HRMS
 
             using (SqlConnection conn = Connect())
             {
-                string query = @"
-                SELECT
-                    pay.PaymentID,
-                    pay.EmployeeID,
-                    e.FullName,
-                    e.Department,
-                    e.JobTitle,
-                    pay.NetSalary,
-                    pay.PayMonth,
-                    pay.PayYear,
-                    pay.PaymentStatus,
-                    pay.PaymentMethod,
-                    pay.PaymentDate
-                FROM Payment pay
-                INNER JOIN Employees_Info e
-                    ON e.EmployeeID = pay.EmployeeID
-                WHERE pay.EmployeeID = @EmpID
-                ORDER BY pay.PaymentDate DESC";
+                string query = @"SELECT pay.PaymentID, pay.EmployeeID, e.FullName, e.Department, e.JobTitle, pay.NetSalary, pay.PayMonth, pay.PayYear, pay.PaymentStatus, pay.PaymentMethod, pay.PaymentDate FROM Payment pay INNER JOIN Employees_Info e ON e.EmployeeID = pay.EmployeeID WHERE pay.EmployeeID = @EmpID ORDER BY pay.PaymentDate DESC";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@EmpID", empId);
@@ -1027,7 +984,7 @@ namespace HRMS
                 txtpaymonthvp.Text = row["PayMonth"].ToString();
                 txtpayyearvp.Text = row["PayYear"].ToString();
                 txtpaystatusvp.Text = row["PaymentStatus"].ToString();
-                txtpaydatevp.Text = row["PaymentDate"] == DBNull.Value? "" : Convert.ToDateTime(row["PaymentDate"]).ToShortDateString();
+                txtpaydatevp.Text = row["PaymentDate"] == DBNull.Value ? "" : Convert.ToDateTime(row["PaymentDate"]).ToShortDateString();
 
                 LockFields4();
 
@@ -1052,7 +1009,7 @@ namespace HRMS
 
         private void LockFields4()
         {
-            txtempidvp.ReadOnly = true ;
+            txtempidvp.ReadOnly = true;
             txtempnamevp.ReadOnly = true;
             txtdepartmentvp.ReadOnly = true;
             txtjobtitlevp.ReadOnly = true;
@@ -1070,6 +1027,9 @@ namespace HRMS
             paymentmanagementPanel.Visible = true;
 
             lblerrorempidpm.Text = lblerrormonthpm.Text = lblerroryearpm.Text = lblerrorpaymethodpm.Text = lblerrorempidvp.Text = "";
+
+            txtempidvp.Text = txtempnamevp.Text = txtdepartmentvp.Text = txtjobtitlevp.Text = txtnetsalaryvp.Text = txtpaymentidvp.Text = txtpaymonthvp.Text = txtpayyearvp.Text = txtpaystatusvp.Text = txtpaydatevp.Text = "";
+            OpenFields3();
         }
 
         private void btnresetvp_Click(object sender, EventArgs e)

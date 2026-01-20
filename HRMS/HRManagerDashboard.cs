@@ -8,7 +8,7 @@ namespace HRMS
     {
         private int hrId = 0;
 
-        // ✅ Your database connection
+        // ✅ Database connection
         private string conStr =
             @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
@@ -57,8 +57,10 @@ namespace HRMS
                         "SELECT COUNT(*) FROM Departments", conn);
                     lblTotalDepartmentsValue.Text = cmdDept.ExecuteScalar().ToString();
 
-                    // 🔹 PENDING LEAVES (NO TABLE YET)
-                    lblPendingLeavesValue.Text = "0";
+                    // 🔹 PENDING LEAVES ✅ (FIXED)
+                    SqlCommand cmdPending = new SqlCommand(
+                        "SELECT COUNT(*) FROM LeaveRequests WHERE Status='Pending'", conn);
+                    lblPendingLeavesValue.Text = cmdPending.ExecuteScalar().ToString();
                 }
             }
             catch (Exception ex)
@@ -86,6 +88,7 @@ namespace HRMS
 
         private void btnProfile_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
             btnProfile_Click(sender, e);
         }
 
@@ -93,7 +96,7 @@ namespace HRMS
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            HR_EmployeeManagement empForm = new HR_EmployeeManagement();
+            HR_EmployeeManagement empForm = new HR_EmployeeManagement(hrId);
             empForm.Show();
             this.Hide();
         }
@@ -102,7 +105,7 @@ namespace HRMS
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
-            HRAttendance hrAtt = new HRAttendance();
+            HRAttendance hrAtt = new HRAttendance(hrId);
             hrAtt.Show();
             this.Hide();
         }
@@ -116,17 +119,38 @@ namespace HRMS
             this.Hide();
         }
 
+        // ================= ORGANIZATION =================
+
+        private void btnOrganization_Click(object sender, EventArgs e)
+        {
+            HR_DepartmentManagement n = new HR_DepartmentManagement(hrId);
+            n.Show();
+            this.Hide();
+        }
+
+        // ================= LEAVE MANAGEMENT =================
+
+        private void btnLeaveManagementSP_Click(object sender, EventArgs e)
+        {
+            HR_LeaveManagement lm = new HR_LeaveManagement(hrId);
+            lm.Show();
+            this.Hide();
+        }
+
+        // ================= PAYROLL =================
+
+        private void btnPayroll_Click(object sender, EventArgs e)
+        {
+            HR_PayrollManagement ht = new HR_PayrollManagement(hrId);
+            ht.Show();
+            this.Hide();
+        }
+
         // ================= EMPTY EVENTS =================
 
         private void pnlTopHr_Paint(object sender, PaintEventArgs e) { }
         private void panelDashboard_Paint(object sender, PaintEventArgs e) { }
         private void pnlMain_Paint(object sender, PaintEventArgs e) { }
-
-        private void btnOrganization_Click(object sender, EventArgs e)
-        {
-            HR_DepartmentManagement n= new HR_DepartmentManagement();
-            n.Show();
-            this.Hide();
-        }
+        private void btnDashboardSB_Click(object sender, EventArgs e) { }
     }
 }

@@ -9,17 +9,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace HRMS
 {
     public partial class SalaryDetails : Form
     {
-        private string empID;
+        // 🔒 logged-in employee id
+        private int employeeId;
 
+        // ================= DEFAULT =================
         public SalaryDetails()
         {
             InitializeComponent();
         }
 
+        // ================= EMPLOYEE CONSTRUCTOR =================
+        public SalaryDetails(int id)
+        {
+            InitializeComponent();
+            employeeId = id;
+        }
+
+        // ================= DB CONNECTION =================
         private SqlConnection Connect()
         {
             SqlConnection conn = new SqlConnection(
@@ -28,42 +39,69 @@ namespace HRMS
             return conn;
         }
 
+        // ================= FORM LOAD =================
+        private void SalaryDetails_Load(object sender, EventArgs e)
+        {
+            if (employeeId != 0)
+            {
+                txtId.Text = employeeId.ToString();
+            }
+            else
+            {
+                // ✅ Otherwise, use whatever is already in txtId (your old system)
+                if (txtId.Text != "")
+                {
+                    employeeId = Convert.ToInt32(txtId.Text);
+                }
+            }
+
+            txtId.ReadOnly = true;
+
+            // ❌ don’t close form anymore
+            // ❌ no “session error”
+
+            if (employeeId != 0)
+            {
+                showSalary();
+            }
+
+            setReadOnly();
+        }
+
+        // ================= SHOW SALARY =================
         private void showSalary()
         {
             try
             {
-               
-                empID = txtId.Text;
-
-                
-                if (empID == "")
+                using (SqlConnection conn = Connect())
                 {
-                    MessageBox.Show("Please enter Employee ID");
-                    return;
+                    string query = @"SELECT Salary, HouseRent, Medical, Transport, TotalSalary 
+                             FROM SalaryManagement 
+                             WHERE EmployeeID = @id";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", employeeId);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        txtSalary.Text = reader["Salary"].ToString();
+                        txtHouseRent.Text = reader["HouseRent"].ToString();
+                        txtMedical.Text = reader["Medical"].ToString();
+                        txtTransport.Text = reader["Transport"].ToString();
+                        txtTotalSalary.Text = reader["TotalSalary"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Salary details not found.");
+                        txtSalary.Clear();
+                        txtHouseRent.Clear();
+                        txtMedical.Clear();
+                        txtTransport.Clear();
+                        txtTotalSalary.Clear();
+                    }
                 }
-
-               
-                SqlConnection conn = Connect();
-
-               
-                string query = "SELECT Salary FROM Employees_Info WHERE EmployeeID='" + empID + "'";
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-               
-                if (reader.Read())
-                {
-                    txtSalary.Text = reader["Salary"].ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Salary record not found");
-                    txtSalary.Text = "";
-                }
-
-                reader.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -71,20 +109,35 @@ namespace HRMS
             }
         }
 
+
+        // ================= READ ONLY =================
         private void setReadOnly()
         {
             txtSalary.ReadOnly = true;
+            txtId.ReadOnly = true;
         }
 
+        // ================= REFRESH =================
         private void btnShow_Click(object sender, EventArgs e)
         {
+            if (employeeId == 0 && txtId.Text != "")
+            {
+                employeeId = Convert.ToInt32(txtId.Text);
+            }
+
+            if (employeeId == 0)
+            {
+                MessageBox.Show("Employee ID not found.");
+                return;
+            }
+
             showSalary();
-            setReadOnly();
         }
 
+        // ================= BACK =================
         private void btnback_Click(object sender, EventArgs e)
         {
-            EmployeeDashboard ed = new EmployeeDashboard();
+            EmployeeDashboard ed = new EmployeeDashboard(employeeId);
             ed.Show();
             this.Hide();
         }

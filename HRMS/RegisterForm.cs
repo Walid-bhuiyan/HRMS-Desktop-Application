@@ -30,7 +30,6 @@ namespace HRMS
             InitializeComponent();
         }
 
-        // ✅ role-aware constructor
         public RegisterForm(string role, int id)
         {
             InitializeComponent();
@@ -42,7 +41,6 @@ namespace HRMS
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            // ⬅ go back to Employee Management with same role
             HR_EmployeeManagement w = new HR_EmployeeManagement(callerRole, callerId);
             w.Show();
             this.Hide();
@@ -64,6 +62,33 @@ namespace HRMS
                 foreach (byte b in bytes)
                     sb.Append(b.ToString("x2"));
                 return sb.ToString();
+            }
+        }
+
+        // -------------------- EMAIL HELPERS --------------------
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool EmailExists(string email)
+        {
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                string q = "SELECT COUNT(*) FROM Users WHERE Email=@em";
+                SqlCommand cmd = new SqlCommand(q, con);
+                cmd.Parameters.AddWithValue("@em", email);
+                con.Open();
+                return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
             }
         }
 
@@ -89,9 +114,13 @@ namespace HRMS
 
             if (string.IsNullOrEmpty(fullName)) { MessageBox.Show("Enter full name"); return; }
             if (gender == "") { MessageBox.Show("Select gender"); return; }
-            if (dtpDOB.Value.Date >= DateTime.Today) { MessageBox.Show("Invalid DOB"); return; }
+            if (dtpDOB.Value.Date >= DateTime.Today) { MessageBox.Show("Invalid date of birth"); return; }
+
             if (string.IsNullOrEmpty(email)) { MessageBox.Show("Enter email"); return; }
-            if (string.IsNullOrEmpty(phone)) { MessageBox.Show("Enter phone"); return; }
+            if (!IsValidEmail(email)) { MessageBox.Show("Enter a valid email address"); return; }
+            if (EmailExists(email)) { MessageBox.Show("This email is already registered"); return; }
+
+            if (string.IsNullOrEmpty(phone)) { MessageBox.Show("Enter phone number"); return; }
             if (string.IsNullOrEmpty(address)) { MessageBox.Show("Enter address"); return; }
             if (string.IsNullOrEmpty(securityQuestion)) { MessageBox.Show("Enter security question"); return; }
             if (string.IsNullOrEmpty(securityAnswer)) { MessageBox.Show("Enter security answer"); return; }
@@ -121,7 +150,6 @@ namespace HRMS
                     int refId = 0;
                     string role = "";
 
-                    // ================= ACCOUNTANT =================
                     if (jobTitle.Trim().ToLower() == "accountant")
                     {
                         string q = @"
@@ -139,8 +167,6 @@ namespace HRMS
                         refId = Convert.ToInt32(cmd.ExecuteScalar());
                         role = "Accountant";
                     }
-
-                    // ================= EMPLOYEE =================
                     else
                     {
                         string q = @"
@@ -159,7 +185,6 @@ namespace HRMS
                         role = "Employee";
                     }
 
-                    // ================= USERS =================
                     string uq = @"INSERT INTO Users (RefId, Role, Email, Password, SecurityAns)
                                   VALUES (@RefId, @Role, @Email, @Password, @SecurityAns)";
 

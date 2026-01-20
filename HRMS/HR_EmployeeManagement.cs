@@ -11,10 +11,19 @@ namespace HRMS
         string selectedTable = ""; // "EMP" or "ACC"
 
         // 🔑 who opened this form
-        string callerRole = "";
-        int callerId = 0;
+        string callerRole = "";   // "ADMIN" or "HR"
+        int callerId = 0;         // adminId or hrId
 
-        // ================= DEFAULT =================
+        // ================= DEFAULT (NOT USED FOR HR FLOW) =================
+        public HR_EmployeeManagement(int hrid)
+        {
+            InitializeComponent();
+            dataGridViewEmployees.DataSource = null;
+            dataGridViewAccountants.DataSource = null;
+
+            callerRole = "HR";
+            callerId = hrid;
+        }
         public HR_EmployeeManagement()
         {
             InitializeComponent();
@@ -30,14 +39,7 @@ namespace HRMS
             dataGridViewAccountants.DataSource = null;
 
             callerRole = role;   // "ADMIN" or "HR"
-            callerId = id;
-        }
-
-        // ================= FORM LOAD =================
-        private void HR_EmployeeManagement_Load(object sender, EventArgs e)
-        {
-            // optional auto load
-            // ShowEmployees();
+            callerId = id;       // adminId or hrId
         }
 
         // ================= SHOW EMPLOYEES =================
@@ -72,7 +74,7 @@ namespace HRMS
             }
         }
 
-        // ================= SHOW BUTTONS =================
+        // ================= BUTTONS =================
         private void btnShowEmployees_Click(object sender, EventArgs e)
         {
             ShowEmployees();
@@ -174,7 +176,7 @@ namespace HRMS
                 cmd.Parameters.AddWithValue("@address", txtAddress.Text);
 
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Updated successfully ✅");
+                MessageBox.Show("Updated successfully.");
 
                 if (selectedTable == "EMP") ShowEmployees();
                 else ShowAccountants();
@@ -186,13 +188,13 @@ namespace HRMS
         {
             if (string.IsNullOrWhiteSpace(txtId.Text))
             {
-                MessageBox.Show("Please enter an ID to search.");
+                MessageBox.Show("Please enter an ID.");
                 return;
             }
 
             if (!int.TryParse(txtId.Text.Trim(), out int id))
             {
-                MessageBox.Show("ID must be a number.");
+                MessageBox.Show("ID must be numeric.");
                 return;
             }
 
@@ -200,13 +202,12 @@ namespace HRMS
             {
                 conn.Open();
 
-                // try employees
+                // try employee
                 string empQuery = @"SELECT EmployeeID, FullName, Email, Gender, DOB, Phone, Address
                                     FROM Employees_Info WHERE EmployeeID=@id";
 
                 SqlDataAdapter adp = new SqlDataAdapter(empQuery, conn);
                 adp.SelectCommand.Parameters.AddWithValue("@id", id);
-
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
 
@@ -218,13 +219,12 @@ namespace HRMS
                     return;
                 }
 
-                // try accountants
+                // try accountant
                 string accQuery = @"SELECT AccountantID, FullName, Email, Gender, DOB, Phone, Address
                                     FROM Accountants WHERE AccountantID=@id";
 
                 SqlDataAdapter adp2 = new SqlDataAdapter(accQuery, conn);
                 adp2.SelectCommand.Parameters.AddWithValue("@id", id);
-
                 DataTable dt2 = new DataTable();
                 adp2.Fill(dt2);
 
@@ -236,7 +236,7 @@ namespace HRMS
                     return;
                 }
 
-                MessageBox.Show("No employee or accountant found with this ID.");
+                MessageBox.Show("No record found.");
             }
         }
 
@@ -252,6 +252,86 @@ namespace HRMS
             txtPhone.Text = r["Phone"].ToString();
             txtAddress.Text = r["Address"].ToString();
         }
+
+        // ================= DELETE =================
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtId.Text) || selectedTable == "")
+            {
+                MessageBox.Show("Please select a record first.");
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show(
+                "This will permanently delete the record and related data. Continue?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (dr != DialogResult.Yes) return;
+
+            using (SqlConnection conn = new SqlConnection(conStr))
+            {
+                conn.Open();
+                SqlTransaction tran = conn.BeginTransaction();
+
+                try
+                {
+                    if (selectedTable == "EMP")
+                    {
+                        // ✅ DELETE LOGIN FIRST
+                        new SqlCommand(
+                            "DELETE FROM Users WHERE RefId=@id AND Role='Employee'",
+                            conn, tran)
+                        { Parameters = { new SqlParameter("@id", txtId.Text) } }
+                        .ExecuteNonQuery();
+
+                        // other related tables
+                        new SqlCommand("DELETE FROM Payment WHERE EmployeeID=@id", conn, tran)
+                        { Parameters = { new SqlParameter("@id", txtId.Text) } }.ExecuteNonQuery();
+
+                        new SqlCommand("DELETE FROM Payroll WHERE EmployeeID=@id", conn, tran)
+                        { Parameters = { new SqlParameter("@id", txtId.Text) } }.ExecuteNonQuery();
+
+                        new SqlCommand("DELETE FROM Attendance WHERE UserID=@id AND UserType='Employee'", conn, tran)
+                        { Parameters = { new SqlParameter("@id", txtId.Text) } }.ExecuteNonQuery();
+
+                        new SqlCommand("DELETE FROM LeaveRequests WHERE EmployeeID=@id", conn, tran)
+                        { Parameters = { new SqlParameter("@id", txtId.Text) } }.ExecuteNonQuery();
+
+                        // main table last
+                        new SqlCommand("DELETE FROM Employees_Info WHERE EmployeeID=@id", conn, tran)
+                        { Parameters = { new SqlParameter("@id", txtId.Text) } }.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        // ✅ DELETE LOGIN FIRST
+                        new SqlCommand(
+                            "DELETE FROM Users WHERE RefId=@id AND Role='Accountant'",
+                            conn, tran)
+                        { Parameters = { new SqlParameter("@id", txtId.Text) } }
+                        .ExecuteNonQuery();
+
+                        new SqlCommand("DELETE FROM Accountants WHERE AccountantID=@id", conn, tran)
+                        { Parameters = { new SqlParameter("@id", txtId.Text) } }.ExecuteNonQuery();
+                    }
+
+                    tran.Commit();
+                    MessageBox.Show("Deleted successfully.");
+
+                    ClearBoxes();
+
+                    if (selectedTable == "EMP") ShowEmployees();
+                    else ShowAccountants();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show("Delete failed: " + ex.Message);
+                }
+            }
+        }
+
 
         // ================= BACK =================
         private void btnBack_Click(object sender, EventArgs e)

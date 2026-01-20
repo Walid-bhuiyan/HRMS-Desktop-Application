@@ -10,9 +10,12 @@ namespace HRMS
         // ✅ Connection string (same style as your project)
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
 
-        public HR_DepartmentManagement()
+        int hrId;
+
+        public HR_DepartmentManagement(int id)
         {
             InitializeComponent();
+            hrId = id;
         }
 
         // ================= FORM LOAD =================
@@ -158,14 +161,14 @@ namespace HRMS
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            HRManagerDashboard h = new HRManagerDashboard(0);
+            HRManagerDashboard h = new HRManagerDashboard(hrId);
             h.Show();
             this.Hide();
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
         {
-            HRManagerDashboard hd=new HRManagerDashboard(0);
+            HRManagerDashboard hd=new HRManagerDashboard(hrId);
             hd.Show();
             this.Hide();
         }

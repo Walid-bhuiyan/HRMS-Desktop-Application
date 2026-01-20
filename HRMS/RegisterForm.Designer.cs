@@ -143,7 +143,6 @@
             this.panelMain.Padding = new System.Windows.Forms.Padding(20);
             this.panelMain.Size = new System.Drawing.Size(957, 682);
             this.panelMain.TabIndex = 9;
-            //this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
             // panelCard
             // 

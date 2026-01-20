@@ -211,6 +211,7 @@
             this.Controls.Add(this.btnback);
             this.Name = "ApplyforLeave";
             this.Text = "ApplyforLeave";
+            this.Load += new System.EventHandler(this.ApplyforLeave_Load);
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();
             this.ResumeLayout(false);

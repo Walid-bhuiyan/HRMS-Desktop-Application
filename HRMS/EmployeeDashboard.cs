@@ -41,7 +41,7 @@ namespace HRMS
 
         private void btnsalarydetails_Click(object sender, EventArgs e)
         {
-            SalaryDetails SD=new SalaryDetails();
+            SalaryDetails SD=new SalaryDetails(employeeId);
             SD.Show();
             this.Hide();
         }
@@ -76,14 +76,14 @@ namespace HRMS
 
         private void btnapplyforleave_Click(object sender, EventArgs e)
         {
-            ApplyforLeave al = new ApplyforLeave();
+            ApplyforLeave al = new ApplyforLeave(employeeId);
             al.Show();
             this.Hide();
         }
 
         private void btnleavestatus_Click(object sender, EventArgs e)
         {
-            LeaveStatus ls=new LeaveStatus(); 
+            LeaveStatus ls=new LeaveStatus(employeeId); 
             ls.Show();
             this.Hide();
         }
@@ -107,6 +107,11 @@ namespace HRMS
             ComplainBox CB=new ComplainBox();
             CB.Show();
             this.Hide();
+        }
+
+        private void EmployeeDashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -191,6 +191,7 @@
             this.btnPayroll.Text = "Payroll";
             this.btnPayroll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPayroll.UseVisualStyleBackColor = true;
+            this.btnPayroll.Click += new System.EventHandler(this.btnPayroll_Click);
             // 
             // btnLeaveManagementSP
             // 
@@ -208,6 +209,7 @@
             this.btnLeaveManagementSP.Text = "Leave Management ";
             this.btnLeaveManagementSP.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLeaveManagementSP.UseVisualStyleBackColor = true;
+            this.btnLeaveManagementSP.Click += new System.EventHandler(this.btnLeaveManagementSP_Click);
             // 
             // btnAttendance
             // 
@@ -279,6 +281,7 @@
             this.btnDashboardSB.Text = "Dashboard";
             this.btnDashboardSB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboardSB.UseVisualStyleBackColor = true;
+            this.btnDashboardSB.Click += new System.EventHandler(this.btnDashboardSB_Click);
             // 
             // pnlMain
             // 
