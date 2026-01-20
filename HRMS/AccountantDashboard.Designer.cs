@@ -1,4 +1,4 @@
-﻿namespace HRMS
+namespace HRMS
 {
     partial class AccountantDashboard
     {
