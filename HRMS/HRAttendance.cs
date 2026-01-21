@@ -10,20 +10,16 @@ namespace HRMS
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
         int hrId;
 
-        // ================= CONSTRUCTOR =================
         public HRAttendance(int id)
         {
             InitializeComponent();
             hrId = id;
         }
 
-        // ================= BACK =================
         private void btnBack_Click(object sender, EventArgs e)
         {
-            
         }
 
-        // ================= LOAD USERS =================
         private void btnLoad_Click(object sender, EventArgs e)
         {
             try
@@ -87,8 +83,7 @@ namespace HRMS
                         row["UserType"] = userType;
                         int userId = Convert.ToInt32(row["Id"]);
 
-                        string checkQuery = @"SELECT Status FROM Attendance 
-                                              WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
+                        string checkQuery = @"SELECT Status FROM Attendance WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
 
                         SqlCommand cmd = new SqlCommand(checkQuery, conn);
                         cmd.Parameters.AddWithValue("@uid", userId);
@@ -108,7 +103,6 @@ namespace HRMS
             }
         }
 
-        // ================= SAVE ATTENDANCE =================
         private void btnSaveAttendance_Click(object sender, EventArgs e)
         {
             try
@@ -128,8 +122,7 @@ namespace HRMS
                         bool present = Convert.ToBoolean(row.Cells["Present"].Value);
                         string status = present ? "Present" : "Absent";
 
-                        string check = @"SELECT COUNT(*) FROM Attendance 
-                                         WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
+                        string check = @"SELECT COUNT(*) FROM Attendance WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
 
                         SqlCommand checkCmd = new SqlCommand(check, conn);
                         checkCmd.Parameters.AddWithValue("@uid", userId);
@@ -140,8 +133,7 @@ namespace HRMS
 
                         if (count > 0)
                         {
-                            string update = @"UPDATE Attendance SET Status=@st 
-                                              WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
+                            string update = @"UPDATE Attendance SET Status=@st  WHERE UserId=@uid AND UserType=@ut AND AttendanceDate=@dt";
 
                             SqlCommand up = new SqlCommand(update, conn);
                             up.Parameters.AddWithValue("@st", status);
@@ -152,9 +144,7 @@ namespace HRMS
                         }
                         else
                         {
-                            string insert = @"INSERT INTO Attendance 
-                            (UserId,UserType,Name,Status,AttendanceDate)
-                            VALUES(@uid,@ut,@nm,@st,@dt)";
+                            string insert = @"INSERT INTO Attendance (UserId,UserType,Name,Status,AttendanceDate) VALUES(@uid,@ut,@nm,@st,@dt)";
 
                             SqlCommand ins = new SqlCommand(insert, conn);
                             ins.Parameters.AddWithValue("@uid", userId);
@@ -167,7 +157,7 @@ namespace HRMS
                     }
                 }
 
-                MessageBox.Show("Attendance saved successfully ✅");
+                MessageBox.Show("Attendance saved successfully");
             }
             catch (Exception ex)
             {
@@ -179,7 +169,6 @@ namespace HRMS
         {
             new HRManagerDashboard(hrId).Show();
             this.Hide();
-
         }
 
         private void btnView_Click(object sender, EventArgs e)
@@ -209,16 +198,7 @@ namespace HRMS
                 {
                     conn.Open();
 
-                    string query = @"
-                SELECT 
-                    UserId AS ID,
-                    Name,
-                    UserType,
-                    Status,
-                    AttendanceDate
-                FROM Attendance
-                WHERE UserType = @ut
-                  AND AttendanceDate = @dt";
+                    string query = @" SELECT UserId AS ID,Name,UserType,Status,AttendanceDate FROM Attendance  WHERE UserType = @ut AND AttendanceDate = @dt";
 
                     SqlDataAdapter adp = new SqlDataAdapter(query, conn);
                     adp.SelectCommand.Parameters.AddWithValue("@ut", userType);
@@ -240,6 +220,5 @@ namespace HRMS
                 MessageBox.Show("Error viewing attendance: " + ex.Message);
             }
         }
-
     }
 }

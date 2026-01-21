@@ -691,6 +691,7 @@
             this.Controls.Add(this.payrollProcessingPanel);
             this.Controls.Add(this.topLoginPanel);
             this.Name = "HR_PayrollManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HR_PayrollManagement";
             this.Load += new System.EventHandler(this.HR_PayrollManagement_Load);
             this.topLoginPanel.ResumeLayout(false);

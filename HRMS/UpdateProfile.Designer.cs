@@ -116,7 +116,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(803, 444);
             this.panel2.TabIndex = 20;
-            //this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // dateTimePickerDOB
             // 
@@ -150,6 +149,7 @@
             this.txtdepartment.Location = new System.Drawing.Point(498, 54);
             this.txtdepartment.Margin = new System.Windows.Forms.Padding(4);
             this.txtdepartment.Name = "txtdepartment";
+            this.txtdepartment.ReadOnly = true;
             this.txtdepartment.Size = new System.Drawing.Size(251, 22);
             this.txtdepartment.TabIndex = 46;
             // 
@@ -169,6 +169,7 @@
             this.txtJobtitle.Location = new System.Drawing.Point(498, 115);
             this.txtJobtitle.Margin = new System.Windows.Forms.Padding(4);
             this.txtJobtitle.Name = "txtJobtitle";
+            this.txtJobtitle.ReadOnly = true;
             this.txtJobtitle.Size = new System.Drawing.Size(251, 22);
             this.txtJobtitle.TabIndex = 44;
             // 

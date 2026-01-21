@@ -51,29 +51,29 @@
             // pnlTopHr
             // 
             this.pnlTopHr.BackColor = System.Drawing.Color.SteelBlue;
-            this.pnlTopHr.Controls.Add(this.btnBack);
             this.pnlTopHr.Controls.Add(this.topHeaderLogin);
             this.pnlTopHr.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopHr.Location = new System.Drawing.Point(0, 0);
             this.pnlTopHr.Margin = new System.Windows.Forms.Padding(2);
             this.pnlTopHr.Name = "pnlTopHr";
-            this.pnlTopHr.Size = new System.Drawing.Size(800, 60);
+            this.pnlTopHr.Size = new System.Drawing.Size(1035, 60);
             this.pnlTopHr.TabIndex = 9;
             // 
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.SteelBlue;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.Ivory;
-            this.btnBack.Location = new System.Drawing.Point(707, 13);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(932, 483);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(91, 34);
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
             // topHeaderLogin
@@ -81,11 +81,11 @@
             this.topHeaderLogin.AutoSize = true;
             this.topHeaderLogin.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topHeaderLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.topHeaderLogin.Location = new System.Drawing.Point(228, 9);
+            this.topHeaderLogin.Location = new System.Drawing.Point(341, 9);
             this.topHeaderLogin.Name = "topHeaderLogin";
-            this.topHeaderLogin.Size = new System.Drawing.Size(341, 38);
+            this.topHeaderLogin.Size = new System.Drawing.Size(360, 38);
             this.topHeaderLogin.TabIndex = 0;
-            this.topHeaderLogin.Text = "HR Management System";
+            this.topHeaderLogin.Text = "Department Management";
             // 
             // panel1
             // 
@@ -209,11 +209,11 @@
             // dataGridViewDepartments
             // 
             this.dataGridViewDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDepartments.Location = new System.Drawing.Point(505, 94);
+            this.dataGridViewDepartments.Location = new System.Drawing.Point(528, 74);
             this.dataGridViewDepartments.Name = "dataGridViewDepartments";
             this.dataGridViewDepartments.RowHeadersWidth = 51;
             this.dataGridViewDepartments.RowTemplate.Height = 24;
-            this.dataGridViewDepartments.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewDepartments.Size = new System.Drawing.Size(495, 180);
             this.dataGridViewDepartments.TabIndex = 11;
             this.dataGridViewDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDepartments_CellClick);
             // 
@@ -223,7 +223,7 @@
             this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShow.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShow.ForeColor = System.Drawing.Color.White;
-            this.btnShow.Location = new System.Drawing.Point(583, 277);
+            this.btnShow.Location = new System.Drawing.Point(734, 274);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(83, 35);
             this.btnShow.TabIndex = 16;
@@ -235,12 +235,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1035, 528);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dataGridViewDepartments);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTopHr);
             this.Name = "HR_DepartmentManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HR_DepartmentManagement";
             this.Load += new System.EventHandler(this.HR_DepartmentManagement_Load);
             this.pnlTopHr.ResumeLayout(false);

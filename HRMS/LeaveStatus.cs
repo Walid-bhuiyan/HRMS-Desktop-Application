@@ -18,13 +18,13 @@ namespace HRMS
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
-        // ================= DEFAULT =================
+        
         public LeaveStatus()
         {
             InitializeComponent();
         }
 
-        // ================= EMPLOYEE CONSTRUCTOR =================
+        
         public LeaveStatus(int id)
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace HRMS
             return conn;
         }
 
-        // ================= LOAD =================
+        
         private void LeaveStatus_Load(object sender, EventArgs e)
         {
             if (employeeId == 0)
@@ -51,11 +51,11 @@ namespace HRMS
             txtId.Text = employeeId.ToString();
             txtId.ReadOnly = true;
 
-            dataGridView1.DataSource = null; // start empty
+            dataGridView1.DataSource = null; 
         }
 
 
-        // ================= VIEW =================
+        
         private void View()
         {
             try
@@ -82,7 +82,7 @@ namespace HRMS
             }
         }
 
-        // ================= SEARCH (only his leaves) =================
+        
         private void Search()
         {
             if (txtLeaveId.Text.Trim() == "")
@@ -125,7 +125,7 @@ namespace HRMS
             }
         }
 
-        // ================= GRID CLICK =================
+        
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -138,7 +138,7 @@ namespace HRMS
             txtstatus.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
-        // ================= UPDATE =================
+        
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -175,7 +175,7 @@ namespace HRMS
             }
         }
 
-        // ================= DELETE =================
+        
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -209,7 +209,7 @@ namespace HRMS
             }
         }
 
-        // ================= RESET =================
+        
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtLeaveId.Text = richTextBox1.Text = txtstatus.Text = "";

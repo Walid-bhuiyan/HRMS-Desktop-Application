@@ -281,6 +281,12 @@
     <Compile Include="HRProfile.Designer.cs">
       <DependentUpon>HRProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="HR_ComplaintManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR_ComplaintManagement.Designer.cs">
+      <DependentUpon>HR_ComplaintManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="HR_DepartmentManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HRProfile.resx">
       <DependentUpon>HRProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR_ComplaintManagement.resx">
+      <DependentUpon>HR_ComplaintManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR_DepartmentManagement.resx">
       <DependentUpon>HR_DepartmentManagement.cs</DependentUpon>

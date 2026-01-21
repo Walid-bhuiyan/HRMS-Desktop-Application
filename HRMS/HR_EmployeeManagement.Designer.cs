@@ -56,7 +56,6 @@
             // topLoginPanel
             // 
             this.topLoginPanel.BackColor = System.Drawing.Color.SteelBlue;
-            this.topLoginPanel.Controls.Add(this.btnBack);
             this.topLoginPanel.Controls.Add(this.topHeaderLogin);
             this.topLoginPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topLoginPanel.Location = new System.Drawing.Point(0, 0);
@@ -68,17 +67,18 @@
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.SteelBlue;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.Ivory;
-            this.btnBack.Location = new System.Drawing.Point(903, 0);
+            this.btnBack.Location = new System.Drawing.Point(903, 636);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(81, 45);
+            this.btnBack.Size = new System.Drawing.Size(81, 35);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // topHeaderLogin
@@ -328,7 +328,7 @@
             this.btnAddEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEmployee.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnAddEmployee.Location = new System.Drawing.Point(423, 621);
+            this.btnAddEmployee.Location = new System.Drawing.Point(424, 608);
             this.btnAddEmployee.Name = "btnAddEmployee";
             this.btnAddEmployee.Size = new System.Drawing.Size(181, 37);
             this.btnAddEmployee.TabIndex = 14;
@@ -414,6 +414,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(996, 692);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblAcc);
             this.Controls.Add(this.dataGridViewAccountants);
             this.Controls.Add(this.btnShow2);
@@ -428,7 +429,6 @@
             this.Name = "HR_EmployeeManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee Management";
-            //this.Load += new System.EventHandler(this.HR_EmployeeManagement_Load);
             this.topLoginPanel.ResumeLayout(false);
             this.topLoginPanel.PerformLayout();
             this.panel2.ResumeLayout(false);

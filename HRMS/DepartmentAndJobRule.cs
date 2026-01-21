@@ -13,42 +13,35 @@ namespace HRMS
 {
     public partial class DepartmentAndJobRule : Form
     {
-        private String empID;
-        public DepartmentAndJobRule()
+        int employeeId;
+
+        string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
+
+        
+        public DepartmentAndJobRule(int id)
         {
             InitializeComponent();
-        }
-        private SqlConnection Connect()
-        {
-            SqlConnection conn = new SqlConnection(
-                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
-            conn.Open();
-            return conn;
+            employeeId = id;
         }
 
-        private void showDetails()
+
+        private void ShowDetails()
         {
-            try
+            using (SqlConnection conn = new SqlConnection(conStr))
             {
-                empID = txtId.Text;
-
-                if (empID == "")
-                {
-                    MessageBox.Show("Please enter Employee ID");
-                    return;
-                }
-
-                SqlConnection conn = Connect();
-
-                string query =
-                    "SELECT JobTitle, Department, JoinDate, EmploymentType " +
-                    "FROM Employees_Info WHERE EmployeeID='" + empID + "'";
+                string query = @"SELECT JobTitle, Department, JoinDate, EmploymentType 
+                                 FROM Employees_Info 
+                                 WHERE EmployeeID = @id";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", employeeId);
+
+                conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
                 {
+                    txtId.Text = employeeId.ToString();
                     txtJobTitle.Text = reader["JobTitle"].ToString();
                     txtdepartment.Text = reader["Department"].ToString();
                     txtEmployeementType.Text = reader["EmploymentType"].ToString();
@@ -57,42 +50,36 @@ namespace HRMS
                 else
                 {
                     MessageBox.Show("Employee record not found");
-
-                    txtJobTitle.Text = "";
-                    txtdepartment.Text = "";
-                    txtEmployeementType.Text = "";
-                    txtJoinDate.Text = "";
                 }
 
                 reader.Close();
                 conn.Close();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
         }
 
-        private void setReadOnly()
+        
+        private void SetReadOnly()
         {
+            txtId.ReadOnly = true;
             txtJobTitle.ReadOnly = true;
             txtdepartment.ReadOnly = true;
             txtEmployeementType.ReadOnly = true;
             txtJoinDate.ReadOnly = true;
         }
 
-
-        private void btnback_Click(object sender, EventArgs e)
+        
+        private void DepartmentAndJobRule_Load(object sender, EventArgs e)
         {
-            EmployeeDashboard ed = new EmployeeDashboard();
-            ed.Show();
-            this.Hide();
+            ShowDetails();
+            SetReadOnly();
         }
 
-        private void btnshow_Click(object sender, EventArgs e)
+        
+        private void btnback_Click(object sender, EventArgs e)
         {
-            showDetails();
-            setReadOnly();
+            EmployeeDashboard ed = new EmployeeDashboard(employeeId);
+            ed.Show();
+            this.Hide();
         }
     }
 }

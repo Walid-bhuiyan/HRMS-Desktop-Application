@@ -14,23 +14,23 @@ namespace HRMS
 {
     public partial class SalaryDetails : Form
     {
-        // 🔒 logged-in employee id
+        
         private int employeeId;
 
-        // ================= DEFAULT =================
+        
         public SalaryDetails()
         {
             InitializeComponent();
         }
 
-        // ================= EMPLOYEE CONSTRUCTOR =================
+        
         public SalaryDetails(int id)
         {
             InitializeComponent();
             employeeId = id;
         }
 
-        // ================= DB CONNECTION =================
+        
         private SqlConnection Connect()
         {
             SqlConnection conn = new SqlConnection(
@@ -39,7 +39,7 @@ namespace HRMS
             return conn;
         }
 
-        // ================= FORM LOAD =================
+        
         private void SalaryDetails_Load(object sender, EventArgs e)
         {
             if (employeeId != 0)
@@ -48,7 +48,7 @@ namespace HRMS
             }
             else
             {
-                // ✅ Otherwise, use whatever is already in txtId (your old system)
+                
                 if (txtId.Text != "")
                 {
                     employeeId = Convert.ToInt32(txtId.Text);
@@ -57,8 +57,8 @@ namespace HRMS
 
             txtId.ReadOnly = true;
 
-            // ❌ don’t close form anymore
-            // ❌ no “session error”
+            
+            
 
             if (employeeId != 0)
             {
@@ -68,7 +68,7 @@ namespace HRMS
             setReadOnly();
         }
 
-        // ================= SHOW SALARY =================
+        
         private void showSalary()
         {
             try
@@ -110,14 +110,14 @@ namespace HRMS
         }
 
 
-        // ================= READ ONLY =================
+        
         private void setReadOnly()
         {
             txtSalary.ReadOnly = true;
             txtId.ReadOnly = true;
         }
 
-        // ================= REFRESH =================
+        
         private void btnShow_Click(object sender, EventArgs e)
         {
             if (employeeId == 0 && txtId.Text != "")
@@ -134,7 +134,7 @@ namespace HRMS
             showSalary();
         }
 
-        // ================= BACK =================
+        
         private void btnback_Click(object sender, EventArgs e)
         {
             EmployeeDashboard ed = new EmployeeDashboard(employeeId);

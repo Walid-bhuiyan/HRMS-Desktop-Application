@@ -7,9 +7,7 @@ namespace HRMS
 {
     public partial class HR_LeaveManagement : Form
     {
-        // ✅ your real database
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
-
         int hrId;
 
         public HR_LeaveManagement(int id)
@@ -18,14 +16,11 @@ namespace HRMS
             hrId = id;
         }
 
-        // ================= FORM LOAD =================
         private void HR_LeaveManagement_Load(object sender, EventArgs e)
         {
-            //LoadLeaves();
             ClearFields();
         }
 
-        // ================= VIEW ALL =================
         private void btnView_Click(object sender, EventArgs e)
         {
             LoadLeaves();
@@ -43,7 +38,6 @@ namespace HRMS
             }
         }
 
-        // ================= GRID CLICK =================
         private void dataGridViewLeaves_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -59,7 +53,6 @@ namespace HRMS
             }
         }
 
-        // ================= SEARCH =================
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtLeaveID.Text.Trim() == "")
@@ -71,8 +64,8 @@ namespace HRMS
             using (SqlConnection con = new SqlConnection(conStr))
             {
                 string query = @"SELECT LeaveID, EmployeeID, FromDate, ToDate, Reason, Status 
-                         FROM LeaveRequests 
-                         WHERE LeaveID = @lid";
+                                 FROM LeaveRequests 
+                                 WHERE LeaveID = @lid";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@lid", txtLeaveID.Text.Trim());
@@ -97,14 +90,11 @@ namespace HRMS
             }
         }
 
-
-        // ================= APPROVE =================
         private void btnApprove_Click(object sender, EventArgs e)
         {
             ChangeStatus("Approved");
         }
 
-        // ================= REJECT =================
         private void btnReject_Click(object sender, EventArgs e)
         {
             ChangeStatus("Rejected");
@@ -134,7 +124,6 @@ namespace HRMS
             ClearFields();
         }
 
-        // ================= RESET =================
         private void btnReset_Click(object sender, EventArgs e)
         {
             ClearFields();
@@ -150,7 +139,6 @@ namespace HRMS
             dtTo.Value = DateTime.Now;
         }
 
-        // ================= BACK =================
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();

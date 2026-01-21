@@ -196,7 +196,7 @@
             this.btnshow.TabIndex = 56;
             this.btnshow.Text = "Show";
             this.btnshow.UseVisualStyleBackColor = false;
-            this.btnshow.Click += new System.EventHandler(this.btnshow_Click);
+            //this.btnshow.Click += new System.EventHandler(this.btnshow_Click);
             // 
             // DepartmentAndJobRule
             // 
@@ -220,6 +220,7 @@
             this.Controls.Add(this.btnback);
             this.Name = "DepartmentAndJobRule";
             this.Text = "DepartmentAndJobRule";
+            this.Load += new System.EventHandler(this.DepartmentAndJobRule_Load);
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();
             this.ResumeLayout(false);

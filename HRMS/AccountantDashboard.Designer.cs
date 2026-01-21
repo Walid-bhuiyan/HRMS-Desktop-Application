@@ -185,6 +185,52 @@
             this.lblempidvp = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.lblerrorpaymethodpm = new System.Windows.Forms.Label();
+            this.accountantProfilePanel = new System.Windows.Forms.Panel();
+            this.rtxtapaddress = new System.Windows.Forms.RichTextBox();
+            this.lbladdress = new System.Windows.Forms.Label();
+            this.txtapdob = new System.Windows.Forms.TextBox();
+            this.lblapdob = new System.Windows.Forms.Label();
+            this.txtapphone = new System.Windows.Forms.TextBox();
+            this.lblapphone = new System.Windows.Forms.Label();
+            this.txtapemail = new System.Windows.Forms.TextBox();
+            this.lblapemail = new System.Windows.Forms.Label();
+            this.txtapgender = new System.Windows.Forms.TextBox();
+            this.lblapgender = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtapjobtitle = new System.Windows.Forms.TextBox();
+            this.lblapjobtitle = new System.Windows.Forms.Label();
+            this.txtapdepartment = new System.Windows.Forms.TextBox();
+            this.lblapdepartment = new System.Windows.Forms.Label();
+            this.txtapname = new System.Windows.Forms.TextBox();
+            this.lblapname = new System.Windows.Forms.Label();
+            this.txtapid = new System.Windows.Forms.TextBox();
+            this.lblapid = new System.Windows.Forms.Label();
+            this.lblprofile = new System.Windows.Forms.Label();
+            this.EmployeeAttendancePanel = new System.Windows.Forms.Panel();
+            this.btnshowea = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.btnresetea = new System.Windows.Forms.Button();
+            this.btnsearchea = new System.Windows.Forms.Button();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.lblerrorempidea = new System.Windows.Forms.Label();
+            this.lbldateea = new System.Windows.Forms.Label();
+            this.txtempidea = new System.Windows.Forms.TextBox();
+            this.lblempidea = new System.Windows.Forms.Label();
+            this.lblempattendance = new System.Windows.Forms.Label();
+            this.changepasswordPanel = new System.Windows.Forms.Panel();
+            this.cbshowpasscp = new System.Windows.Forms.CheckBox();
+            this.lblerrorcurrentpasscp = new System.Windows.Forms.Label();
+            this.txtnewpasscp = new System.Windows.Forms.TextBox();
+            this.lblnewpasscp = new System.Windows.Forms.Label();
+            this.lblerrorconfirmnewpasscp = new System.Windows.Forms.Label();
+            this.txtconfirmnewpasscp = new System.Windows.Forms.TextBox();
+            this.lblconfirmnewpasscp = new System.Windows.Forms.Label();
+            this.btnresetcp = new System.Windows.Forms.Button();
+            this.btnsubmitcp = new System.Windows.Forms.Button();
+            this.lblerrornewpasscp = new System.Windows.Forms.Label();
+            this.txtcurrentpasscp = new System.Windows.Forms.TextBox();
+            this.lblcurrentpasscp = new System.Windows.Forms.Label();
+            this.lblchangepassword = new System.Windows.Forms.Label();
             this.listPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.showpanel.SuspendLayout();
@@ -196,6 +242,10 @@
             this.paymentmanagementPanel.SuspendLayout();
             this.viewpaymentsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.accountantProfilePanel.SuspendLayout();
+            this.EmployeeAttendancePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.changepasswordPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnsalary
@@ -241,6 +291,7 @@
             this.btnattendance.TabStop = false;
             this.btnattendance.Text = "Attendance";
             this.btnattendance.UseVisualStyleBackColor = true;
+            this.btnattendance.Click += new System.EventHandler(this.btnattendance_Click);
             // 
             // btnprofile
             // 
@@ -255,6 +306,7 @@
             this.btnprofile.TabStop = false;
             this.btnprofile.Text = "Profile";
             this.btnprofile.UseVisualStyleBackColor = true;
+            this.btnprofile.Click += new System.EventHandler(this.btnprofile_Click);
             // 
             // btnpayment
             // 
@@ -2062,11 +2114,531 @@
             this.lblerrorpaymethodpm.Size = new System.Drawing.Size(0, 19);
             this.lblerrorpaymethodpm.TabIndex = 67;
             // 
+            // accountantProfilePanel
+            // 
+            this.accountantProfilePanel.Controls.Add(this.rtxtapaddress);
+            this.accountantProfilePanel.Controls.Add(this.lbladdress);
+            this.accountantProfilePanel.Controls.Add(this.txtapdob);
+            this.accountantProfilePanel.Controls.Add(this.lblapdob);
+            this.accountantProfilePanel.Controls.Add(this.txtapphone);
+            this.accountantProfilePanel.Controls.Add(this.lblapphone);
+            this.accountantProfilePanel.Controls.Add(this.txtapemail);
+            this.accountantProfilePanel.Controls.Add(this.lblapemail);
+            this.accountantProfilePanel.Controls.Add(this.txtapgender);
+            this.accountantProfilePanel.Controls.Add(this.lblapgender);
+            this.accountantProfilePanel.Controls.Add(this.label11);
+            this.accountantProfilePanel.Controls.Add(this.txtapjobtitle);
+            this.accountantProfilePanel.Controls.Add(this.lblapjobtitle);
+            this.accountantProfilePanel.Controls.Add(this.txtapdepartment);
+            this.accountantProfilePanel.Controls.Add(this.lblapdepartment);
+            this.accountantProfilePanel.Controls.Add(this.txtapname);
+            this.accountantProfilePanel.Controls.Add(this.lblapname);
+            this.accountantProfilePanel.Controls.Add(this.txtapid);
+            this.accountantProfilePanel.Controls.Add(this.lblapid);
+            this.accountantProfilePanel.Controls.Add(this.lblprofile);
+            this.accountantProfilePanel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.accountantProfilePanel.Location = new System.Drawing.Point(260, 70);
+            this.accountantProfilePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.accountantProfilePanel.Name = "accountantProfilePanel";
+            this.accountantProfilePanel.Size = new System.Drawing.Size(1026, 703);
+            this.accountantProfilePanel.TabIndex = 74;
+            // 
+            // rtxtapaddress
+            // 
+            this.rtxtapaddress.Location = new System.Drawing.Point(172, 544);
+            this.rtxtapaddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rtxtapaddress.Name = "rtxtapaddress";
+            this.rtxtapaddress.ReadOnly = true;
+            this.rtxtapaddress.Size = new System.Drawing.Size(337, 85);
+            this.rtxtapaddress.TabIndex = 71;
+            this.rtxtapaddress.Text = "";
+            // 
+            // lbladdress
+            // 
+            this.lbladdress.AutoSize = true;
+            this.lbladdress.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbladdress.Location = new System.Drawing.Point(17, 544);
+            this.lbladdress.Name = "lbladdress";
+            this.lbladdress.Size = new System.Drawing.Size(74, 23);
+            this.lbladdress.TabIndex = 70;
+            this.lbladdress.Text = "Address";
+            // 
+            // txtapdob
+            // 
+            this.txtapdob.Location = new System.Drawing.Point(172, 487);
+            this.txtapdob.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtapdob.Name = "txtapdob";
+            this.txtapdob.ReadOnly = true;
+            this.txtapdob.Size = new System.Drawing.Size(338, 30);
+            this.txtapdob.TabIndex = 69;
+            // 
+            // lblapdob
+            // 
+            this.lblapdob.AutoSize = true;
+            this.lblapdob.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapdob.Location = new System.Drawing.Point(17, 490);
+            this.lblapdob.Name = "lblapdob";
+            this.lblapdob.Size = new System.Drawing.Size(115, 23);
+            this.lblapdob.TabIndex = 68;
+            this.lblapdob.Text = "Date of Birth";
+            // 
+            // txtapphone
+            // 
+            this.txtapphone.Location = new System.Drawing.Point(171, 431);
+            this.txtapphone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtapphone.Name = "txtapphone";
+            this.txtapphone.ReadOnly = true;
+            this.txtapphone.Size = new System.Drawing.Size(338, 30);
+            this.txtapphone.TabIndex = 67;
+            // 
+            // lblapphone
+            // 
+            this.lblapphone.AutoSize = true;
+            this.lblapphone.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapphone.Location = new System.Drawing.Point(17, 434);
+            this.lblapphone.Name = "lblapphone";
+            this.lblapphone.Size = new System.Drawing.Size(59, 23);
+            this.lblapphone.TabIndex = 66;
+            this.lblapphone.Text = "Phone";
+            // 
+            // txtapemail
+            // 
+            this.txtapemail.Location = new System.Drawing.Point(171, 374);
+            this.txtapemail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtapemail.Name = "txtapemail";
+            this.txtapemail.ReadOnly = true;
+            this.txtapemail.Size = new System.Drawing.Size(338, 30);
+            this.txtapemail.TabIndex = 65;
+            // 
+            // lblapemail
+            // 
+            this.lblapemail.AutoSize = true;
+            this.lblapemail.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapemail.Location = new System.Drawing.Point(17, 374);
+            this.lblapemail.Name = "lblapemail";
+            this.lblapemail.Size = new System.Drawing.Size(54, 23);
+            this.lblapemail.TabIndex = 64;
+            this.lblapemail.Text = "Email";
+            // 
+            // txtapgender
+            // 
+            this.txtapgender.Location = new System.Drawing.Point(171, 317);
+            this.txtapgender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtapgender.Name = "txtapgender";
+            this.txtapgender.ReadOnly = true;
+            this.txtapgender.Size = new System.Drawing.Size(338, 30);
+            this.txtapgender.TabIndex = 62;
+            // 
+            // lblapgender
+            // 
+            this.lblapgender.AutoSize = true;
+            this.lblapgender.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapgender.Location = new System.Drawing.Point(17, 319);
+            this.lblapgender.Name = "lblapgender";
+            this.lblapgender.Size = new System.Drawing.Size(68, 23);
+            this.lblapgender.TabIndex = 61;
+            this.lblapgender.Text = "Gender";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(179, 125);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 19);
+            this.label11.TabIndex = 57;
+            // 
+            // txtapjobtitle
+            // 
+            this.txtapjobtitle.Location = new System.Drawing.Point(172, 263);
+            this.txtapjobtitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtapjobtitle.Name = "txtapjobtitle";
+            this.txtapjobtitle.ReadOnly = true;
+            this.txtapjobtitle.Size = new System.Drawing.Size(338, 30);
+            this.txtapjobtitle.TabIndex = 44;
+            // 
+            // lblapjobtitle
+            // 
+            this.lblapjobtitle.AutoSize = true;
+            this.lblapjobtitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapjobtitle.Location = new System.Drawing.Point(17, 266);
+            this.lblapjobtitle.Name = "lblapjobtitle";
+            this.lblapjobtitle.Size = new System.Drawing.Size(80, 23);
+            this.lblapjobtitle.TabIndex = 43;
+            this.lblapjobtitle.Text = "Job Title";
+            // 
+            // txtapdepartment
+            // 
+            this.txtapdepartment.Location = new System.Drawing.Point(172, 209);
+            this.txtapdepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtapdepartment.Name = "txtapdepartment";
+            this.txtapdepartment.ReadOnly = true;
+            this.txtapdepartment.Size = new System.Drawing.Size(338, 30);
+            this.txtapdepartment.TabIndex = 42;
+            // 
+            // lblapdepartment
+            // 
+            this.lblapdepartment.AutoSize = true;
+            this.lblapdepartment.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapdepartment.Location = new System.Drawing.Point(17, 211);
+            this.lblapdepartment.Name = "lblapdepartment";
+            this.lblapdepartment.Size = new System.Drawing.Size(108, 23);
+            this.lblapdepartment.TabIndex = 41;
+            this.lblapdepartment.Text = "Department";
+            // 
+            // txtapname
+            // 
+            this.txtapname.Location = new System.Drawing.Point(171, 153);
+            this.txtapname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtapname.Name = "txtapname";
+            this.txtapname.ReadOnly = true;
+            this.txtapname.Size = new System.Drawing.Size(338, 30);
+            this.txtapname.TabIndex = 40;
+            // 
+            // lblapname
+            // 
+            this.lblapname.AutoSize = true;
+            this.lblapname.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapname.Location = new System.Drawing.Point(17, 155);
+            this.lblapname.Name = "lblapname";
+            this.lblapname.Size = new System.Drawing.Size(57, 23);
+            this.lblapname.TabIndex = 39;
+            this.lblapname.Text = "Name";
+            // 
+            // txtapid
+            // 
+            this.txtapid.Location = new System.Drawing.Point(171, 95);
+            this.txtapid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtapid.Name = "txtapid";
+            this.txtapid.ReadOnly = true;
+            this.txtapid.Size = new System.Drawing.Size(338, 30);
+            this.txtapid.TabIndex = 34;
+            // 
+            // lblapid
+            // 
+            this.lblapid.AutoSize = true;
+            this.lblapid.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblapid.Location = new System.Drawing.Point(17, 95);
+            this.lblapid.Name = "lblapid";
+            this.lblapid.Size = new System.Drawing.Size(28, 23);
+            this.lblapid.TabIndex = 31;
+            this.lblapid.Text = "ID";
+            // 
+            // lblprofile
+            // 
+            this.lblprofile.AutoSize = true;
+            this.lblprofile.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblprofile.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblprofile.Location = new System.Drawing.Point(397, 17);
+            this.lblprofile.Name = "lblprofile";
+            this.lblprofile.Size = new System.Drawing.Size(175, 32);
+            this.lblprofile.TabIndex = 6;
+            this.lblprofile.Text = "Profile Details";
+            // 
+            // EmployeeAttendancePanel
+            // 
+            this.EmployeeAttendancePanel.Controls.Add(this.btnshowea);
+            this.EmployeeAttendancePanel.Controls.Add(this.dataGridView4);
+            this.EmployeeAttendancePanel.Controls.Add(this.btnresetea);
+            this.EmployeeAttendancePanel.Controls.Add(this.btnsearchea);
+            this.EmployeeAttendancePanel.Controls.Add(this.dateTimePicker2);
+            this.EmployeeAttendancePanel.Controls.Add(this.lblerrorempidea);
+            this.EmployeeAttendancePanel.Controls.Add(this.lbldateea);
+            this.EmployeeAttendancePanel.Controls.Add(this.txtempidea);
+            this.EmployeeAttendancePanel.Controls.Add(this.lblempidea);
+            this.EmployeeAttendancePanel.Controls.Add(this.lblempattendance);
+            this.EmployeeAttendancePanel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.EmployeeAttendancePanel.Location = new System.Drawing.Point(260, 70);
+            this.EmployeeAttendancePanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.EmployeeAttendancePanel.Name = "EmployeeAttendancePanel";
+            this.EmployeeAttendancePanel.Size = new System.Drawing.Size(1026, 703);
+            this.EmployeeAttendancePanel.TabIndex = 76;
+            // 
+            // btnshowea
+            // 
+            this.btnshowea.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnshowea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnshowea.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnshowea.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnshowea.Location = new System.Drawing.Point(423, 621);
+            this.btnshowea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnshowea.Name = "btnshowea";
+            this.btnshowea.Size = new System.Drawing.Size(191, 34);
+            this.btnshowea.TabIndex = 80;
+            this.btnshowea.Text = "Show";
+            this.btnshowea.UseVisualStyleBackColor = false;
+            this.btnshowea.Click += new System.EventHandler(this.btnshowea_Click);
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(29, 326);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowHeadersWidth = 62;
+            this.dataGridView4.RowTemplate.Height = 28;
+            this.dataGridView4.Size = new System.Drawing.Size(972, 266);
+            this.dataGridView4.TabIndex = 79;
+            // 
+            // btnresetea
+            // 
+            this.btnresetea.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnresetea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnresetea.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnresetea.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnresetea.Location = new System.Drawing.Point(29, 202);
+            this.btnresetea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnresetea.Name = "btnresetea";
+            this.btnresetea.Size = new System.Drawing.Size(191, 34);
+            this.btnresetea.TabIndex = 78;
+            this.btnresetea.Text = "Reset";
+            this.btnresetea.UseVisualStyleBackColor = false;
+            this.btnresetea.Click += new System.EventHandler(this.btnresetea_Click);
+            // 
+            // btnsearchea
+            // 
+            this.btnsearchea.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnsearchea.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsearchea.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsearchea.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnsearchea.Location = new System.Drawing.Point(264, 202);
+            this.btnsearchea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnsearchea.Name = "btnsearchea";
+            this.btnsearchea.Size = new System.Drawing.Size(191, 34);
+            this.btnsearchea.TabIndex = 77;
+            this.btnsearchea.Text = "Search";
+            this.btnsearchea.UseVisualStyleBackColor = false;
+            this.btnsearchea.Click += new System.EventHandler(this.btnsearchea_Click);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(669, 97);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(333, 30);
+            this.dateTimePicker2.TabIndex = 58;
+            // 
+            // lblerrorempidea
+            // 
+            this.lblerrorempidea.AutoSize = true;
+            this.lblerrorempidea.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorempidea.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorempidea.Location = new System.Drawing.Point(174, 129);
+            this.lblerrorempidea.Name = "lblerrorempidea";
+            this.lblerrorempidea.Size = new System.Drawing.Size(0, 19);
+            this.lblerrorempidea.TabIndex = 57;
+            // 
+            // lbldateea
+            // 
+            this.lbldateea.AutoSize = true;
+            this.lbldateea.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldateea.Location = new System.Drawing.Point(594, 99);
+            this.lbldateea.Name = "lbldateea";
+            this.lbldateea.Size = new System.Drawing.Size(48, 23);
+            this.lbldateea.TabIndex = 39;
+            this.lbldateea.Text = "Date";
+            // 
+            // txtempidea
+            // 
+            this.txtempidea.Location = new System.Drawing.Point(171, 95);
+            this.txtempidea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtempidea.Name = "txtempidea";
+            this.txtempidea.Size = new System.Drawing.Size(285, 30);
+            this.txtempidea.TabIndex = 34;
+            // 
+            // lblempidea
+            // 
+            this.lblempidea.AutoSize = true;
+            this.lblempidea.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempidea.Location = new System.Drawing.Point(17, 95);
+            this.lblempidea.Name = "lblempidea";
+            this.lblempidea.Size = new System.Drawing.Size(111, 23);
+            this.lblempidea.TabIndex = 31;
+            this.lblempidea.Text = "Employee ID";
+            // 
+            // lblempattendance
+            // 
+            this.lblempattendance.AutoSize = true;
+            this.lblempattendance.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblempattendance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblempattendance.Location = new System.Drawing.Point(368, 17);
+            this.lblempattendance.Name = "lblempattendance";
+            this.lblempattendance.Size = new System.Drawing.Size(263, 32);
+            this.lblempattendance.TabIndex = 6;
+            this.lblempattendance.Text = "Employee Attendance";
+            // 
+            // changepasswordPanel
+            // 
+            this.changepasswordPanel.Controls.Add(this.cbshowpasscp);
+            this.changepasswordPanel.Controls.Add(this.lblerrorcurrentpasscp);
+            this.changepasswordPanel.Controls.Add(this.txtnewpasscp);
+            this.changepasswordPanel.Controls.Add(this.lblnewpasscp);
+            this.changepasswordPanel.Controls.Add(this.lblerrorconfirmnewpasscp);
+            this.changepasswordPanel.Controls.Add(this.txtconfirmnewpasscp);
+            this.changepasswordPanel.Controls.Add(this.lblconfirmnewpasscp);
+            this.changepasswordPanel.Controls.Add(this.btnresetcp);
+            this.changepasswordPanel.Controls.Add(this.btnsubmitcp);
+            this.changepasswordPanel.Controls.Add(this.lblerrornewpasscp);
+            this.changepasswordPanel.Controls.Add(this.txtcurrentpasscp);
+            this.changepasswordPanel.Controls.Add(this.lblcurrentpasscp);
+            this.changepasswordPanel.Controls.Add(this.lblchangepassword);
+            this.changepasswordPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.changepasswordPanel.Location = new System.Drawing.Point(260, 70);
+            this.changepasswordPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.changepasswordPanel.Name = "changepasswordPanel";
+            this.changepasswordPanel.Size = new System.Drawing.Size(1026, 703);
+            this.changepasswordPanel.TabIndex = 83;
+            // 
+            // cbshowpasscp
+            // 
+            this.cbshowpasscp.AutoSize = true;
+            this.cbshowpasscp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbshowpasscp.Location = new System.Drawing.Point(318, 355);
+            this.cbshowpasscp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbshowpasscp.Name = "cbshowpasscp";
+            this.cbshowpasscp.Size = new System.Drawing.Size(135, 23);
+            this.cbshowpasscp.TabIndex = 87;
+            this.cbshowpasscp.Text = "Show Password";
+            this.cbshowpasscp.UseVisualStyleBackColor = true;
+            this.cbshowpasscp.Click += new System.EventHandler(this.cbshowpasscp_CheckedChanged);
+            // 
+            // lblerrorcurrentpasscp
+            // 
+            this.lblerrorcurrentpasscp.AutoSize = true;
+            this.lblerrorcurrentpasscp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorcurrentpasscp.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorcurrentpasscp.Location = new System.Drawing.Point(41, 157);
+            this.lblerrorcurrentpasscp.Name = "lblerrorcurrentpasscp";
+            this.lblerrorcurrentpasscp.Size = new System.Drawing.Size(0, 19);
+            this.lblerrorcurrentpasscp.TabIndex = 86;
+            // 
+            // txtnewpasscp
+            // 
+            this.txtnewpasscp.Location = new System.Drawing.Point(37, 212);
+            this.txtnewpasscp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtnewpasscp.Name = "txtnewpasscp";
+            this.txtnewpasscp.PasswordChar = '*';
+            this.txtnewpasscp.Size = new System.Drawing.Size(418, 30);
+            this.txtnewpasscp.TabIndex = 85;
+            // 
+            // lblnewpasscp
+            // 
+            this.lblnewpasscp.AutoSize = true;
+            this.lblnewpasscp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblnewpasscp.Location = new System.Drawing.Point(33, 181);
+            this.lblnewpasscp.Name = "lblnewpasscp";
+            this.lblnewpasscp.Size = new System.Drawing.Size(183, 23);
+            this.lblnewpasscp.TabIndex = 84;
+            this.lblnewpasscp.Text = "Create New Password";
+            // 
+            // lblerrorconfirmnewpasscp
+            // 
+            this.lblerrorconfirmnewpasscp.AutoSize = true;
+            this.lblerrorconfirmnewpasscp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrorconfirmnewpasscp.ForeColor = System.Drawing.Color.Red;
+            this.lblerrorconfirmnewpasscp.Location = new System.Drawing.Point(41, 330);
+            this.lblerrorconfirmnewpasscp.Name = "lblerrorconfirmnewpasscp";
+            this.lblerrorconfirmnewpasscp.Size = new System.Drawing.Size(0, 19);
+            this.lblerrorconfirmnewpasscp.TabIndex = 83;
+            // 
+            // txtconfirmnewpasscp
+            // 
+            this.txtconfirmnewpasscp.Location = new System.Drawing.Point(37, 298);
+            this.txtconfirmnewpasscp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtconfirmnewpasscp.Name = "txtconfirmnewpasscp";
+            this.txtconfirmnewpasscp.PasswordChar = '*';
+            this.txtconfirmnewpasscp.Size = new System.Drawing.Size(418, 30);
+            this.txtconfirmnewpasscp.TabIndex = 82;
+            // 
+            // lblconfirmnewpasscp
+            // 
+            this.lblconfirmnewpasscp.AutoSize = true;
+            this.lblconfirmnewpasscp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblconfirmnewpasscp.Location = new System.Drawing.Point(33, 269);
+            this.lblconfirmnewpasscp.Name = "lblconfirmnewpasscp";
+            this.lblconfirmnewpasscp.Size = new System.Drawing.Size(197, 23);
+            this.lblconfirmnewpasscp.TabIndex = 81;
+            this.lblconfirmnewpasscp.Text = "Confirm New Password";
+            // 
+            // btnresetcp
+            // 
+            this.btnresetcp.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnresetcp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnresetcp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnresetcp.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnresetcp.Location = new System.Drawing.Point(37, 422);
+            this.btnresetcp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnresetcp.Name = "btnresetcp";
+            this.btnresetcp.Size = new System.Drawing.Size(191, 34);
+            this.btnresetcp.TabIndex = 78;
+            this.btnresetcp.Text = "Reset";
+            this.btnresetcp.UseVisualStyleBackColor = false;
+            this.btnresetcp.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnsubmitcp
+            // 
+            this.btnsubmitcp.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnsubmitcp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsubmitcp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsubmitcp.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnsubmitcp.Location = new System.Drawing.Point(263, 422);
+            this.btnsubmitcp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnsubmitcp.Name = "btnsubmitcp";
+            this.btnsubmitcp.Size = new System.Drawing.Size(191, 34);
+            this.btnsubmitcp.TabIndex = 77;
+            this.btnsubmitcp.Text = "Submit";
+            this.btnsubmitcp.UseVisualStyleBackColor = false;
+            this.btnsubmitcp.Click += new System.EventHandler(this.btnsubmitcp_Click);
+            // 
+            // lblerrornewpasscp
+            // 
+            this.lblerrornewpasscp.AutoSize = true;
+            this.lblerrornewpasscp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblerrornewpasscp.ForeColor = System.Drawing.Color.Red;
+            this.lblerrornewpasscp.Location = new System.Drawing.Point(41, 244);
+            this.lblerrornewpasscp.Name = "lblerrornewpasscp";
+            this.lblerrornewpasscp.Size = new System.Drawing.Size(0, 19);
+            this.lblerrornewpasscp.TabIndex = 57;
+            // 
+            // txtcurrentpasscp
+            // 
+            this.txtcurrentpasscp.Location = new System.Drawing.Point(37, 125);
+            this.txtcurrentpasscp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtcurrentpasscp.Name = "txtcurrentpasscp";
+            this.txtcurrentpasscp.PasswordChar = '*';
+            this.txtcurrentpasscp.Size = new System.Drawing.Size(418, 30);
+            this.txtcurrentpasscp.TabIndex = 34;
+            // 
+            // lblcurrentpasscp
+            // 
+            this.lblcurrentpasscp.AutoSize = true;
+            this.lblcurrentpasscp.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcurrentpasscp.Location = new System.Drawing.Point(33, 95);
+            this.lblcurrentpasscp.Name = "lblcurrentpasscp";
+            this.lblcurrentpasscp.Size = new System.Drawing.Size(151, 23);
+            this.lblcurrentpasscp.TabIndex = 31;
+            this.lblcurrentpasscp.Text = "Current Password";
+            // 
+            // lblchangepassword
+            // 
+            this.lblchangepassword.AutoSize = true;
+            this.lblchangepassword.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblchangepassword.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblchangepassword.Location = new System.Drawing.Point(388, 17);
+            this.lblchangepassword.Name = "lblchangepassword";
+            this.lblchangepassword.Size = new System.Drawing.Size(214, 32);
+            this.lblchangepassword.TabIndex = 6;
+            this.lblchangepassword.Text = "Change Password";
+            // 
             // AccountantDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1296, 782);
+            this.Controls.Add(this.changepasswordPanel);
+            this.Controls.Add(this.EmployeeAttendancePanel);
+            this.Controls.Add(this.accountantProfilePanel);
             this.Controls.Add(this.paymentmanagementPanel);
             this.Controls.Add(this.payrollProcessingPanel);
             this.Controls.Add(this.SalaryManagementPanel);
@@ -2095,6 +2667,13 @@
             this.viewpaymentsPanel.ResumeLayout(false);
             this.viewpaymentsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.accountantProfilePanel.ResumeLayout(false);
+            this.accountantProfilePanel.PerformLayout();
+            this.EmployeeAttendancePanel.ResumeLayout(false);
+            this.EmployeeAttendancePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            this.changepasswordPanel.ResumeLayout(false);
+            this.changepasswordPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2258,5 +2837,51 @@
         private System.Windows.Forms.Button btnshowvp;
         private System.Windows.Forms.Label lblempidvp;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Panel accountantProfilePanel;
+        private System.Windows.Forms.RichTextBox rtxtapaddress;
+        private System.Windows.Forms.Label lbladdress;
+        private System.Windows.Forms.TextBox txtapdob;
+        private System.Windows.Forms.Label lblapdob;
+        private System.Windows.Forms.TextBox txtapphone;
+        private System.Windows.Forms.Label lblapphone;
+        private System.Windows.Forms.TextBox txtapemail;
+        private System.Windows.Forms.Label lblapemail;
+        private System.Windows.Forms.TextBox txtapgender;
+        private System.Windows.Forms.Label lblapgender;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtapjobtitle;
+        private System.Windows.Forms.Label lblapjobtitle;
+        private System.Windows.Forms.TextBox txtapdepartment;
+        private System.Windows.Forms.Label lblapdepartment;
+        private System.Windows.Forms.TextBox txtapname;
+        private System.Windows.Forms.Label lblapname;
+        private System.Windows.Forms.TextBox txtapid;
+        private System.Windows.Forms.Label lblapid;
+        private System.Windows.Forms.Label lblprofile;
+        private System.Windows.Forms.Panel EmployeeAttendancePanel;
+        private System.Windows.Forms.Button btnshowea;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Button btnresetea;
+        private System.Windows.Forms.Button btnsearchea;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label lblerrorempidea;
+        private System.Windows.Forms.Label lbldateea;
+        private System.Windows.Forms.TextBox txtempidea;
+        private System.Windows.Forms.Label lblempidea;
+        private System.Windows.Forms.Label lblempattendance;
+        private System.Windows.Forms.Panel changepasswordPanel;
+        private System.Windows.Forms.CheckBox cbshowpasscp;
+        private System.Windows.Forms.Label lblerrorcurrentpasscp;
+        private System.Windows.Forms.TextBox txtnewpasscp;
+        private System.Windows.Forms.Label lblnewpasscp;
+        private System.Windows.Forms.Label lblerrorconfirmnewpasscp;
+        private System.Windows.Forms.TextBox txtconfirmnewpasscp;
+        private System.Windows.Forms.Label lblconfirmnewpasscp;
+        private System.Windows.Forms.Button btnresetcp;
+        private System.Windows.Forms.Button btnsubmitcp;
+        private System.Windows.Forms.Label lblerrornewpasscp;
+        private System.Windows.Forms.TextBox txtcurrentpasscp;
+        private System.Windows.Forms.Label lblcurrentpasscp;
+        private System.Windows.Forms.Label lblchangepassword;
     }
 }

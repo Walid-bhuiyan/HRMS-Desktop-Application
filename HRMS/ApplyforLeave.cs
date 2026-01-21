@@ -13,19 +13,19 @@ namespace HRMS
 {
     public partial class ApplyforLeave : Form
     {
-        // 🔒 logged-in employee id
+       
         private int employeeId;
 
-        // old variables (kept structure)
+       
         private string reason;
 
-        // ================= DEFAULT =================
+        
         public ApplyforLeave()
         {
             InitializeComponent();
         }
 
-        // ================= EMPLOYEE CONSTRUCTOR =================
+        
         public ApplyforLeave(int id)
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace HRMS
 
         private void ApplyforLeave_Load(object sender, EventArgs e)
         {
-            // ✅ auto set employee id & lock it
+            
             txtId.Text = employeeId.ToString();
             txtId.ReadOnly = true;
         }
@@ -60,9 +60,7 @@ namespace HRMS
             {
                 using (SqlConnection conn = Connect())
                 {
-                    string query = @"INSERT INTO LeaveRequests 
-                                    (EmployeeID, FromDate, ToDate, Reason, Status) 
-                                     VALUES (@id, @from, @to, @reason, 'Pending')";
+                    string query = @"INSERT INTO LeaveRequests  (EmployeeID, FromDate, ToDate, Reason, Status)  VALUES (@id, @from, @to, @reason, 'Pending')";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@id", employeeId);

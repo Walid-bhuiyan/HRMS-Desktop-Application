@@ -62,14 +62,14 @@ namespace HRMS
 
         private void btndeptjobrule_Click(object sender, EventArgs e)
         {
-            DepartmentAndJobRule djr=new DepartmentAndJobRule();
+            DepartmentAndJobRule djr=new DepartmentAndJobRule(employeeId);
             djr.Show();
             this.Hide();
         }
 
         private void btnattendancerecord_Click(object sender, EventArgs e)
         {
-            AttendanceRecord ar= new AttendanceRecord();
+            AttendanceRecord ar= new AttendanceRecord(employeeId);
             ar.Show();
             this.Hide();
         }
@@ -90,21 +90,21 @@ namespace HRMS
 
         private void btnpayslip_Click(object sender, EventArgs e)
         {
-            Payslip PS=new Payslip();
+            Payslip PS=new Payslip(employeeId);
             PS.Show();
             this.Hide();
         }
 
         private void btnnotice_Click(object sender, EventArgs e)
         {
-            Notice notice=new Notice();
+            Notice notice=new Notice(employeeId);
             notice.Show();
             this.Hide();
         }
 
         private void btncomplainbox_Click(object sender, EventArgs e)
         {
-            ComplainBox CB=new ComplainBox();
+            ComplainBox CB=new ComplainBox(employeeId);
             CB.Show();
             this.Hide();
         }

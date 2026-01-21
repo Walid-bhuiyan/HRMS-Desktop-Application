@@ -49,7 +49,6 @@
             // pnlTopHr
             // 
             this.pnlTopHr.BackColor = System.Drawing.Color.SteelBlue;
-            this.pnlTopHr.Controls.Add(this.btnBack);
             this.pnlTopHr.Controls.Add(this.topHeaderLogin);
             this.pnlTopHr.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopHr.Location = new System.Drawing.Point(0, 0);
@@ -61,17 +60,18 @@
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.SteelBlue;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.Ivory;
-            this.btnBack.Location = new System.Drawing.Point(707, 13);
+            this.btnBack.Location = new System.Drawing.Point(698, 405);
             this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(91, 34);
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // topHeaderLogin
@@ -215,9 +215,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.resetpasspanel);
             this.Controls.Add(this.pnlTopHr);
             this.Name = "HRChangePassword";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HRChangePassword";
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();

@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HRMS
@@ -10,14 +17,14 @@ namespace HRMS
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
-        // ✅ Constructor receives employeeId
+        
         public UpdateProfile(int id)
         {
             InitializeComponent();
             employeeId = id;
         }
 
-        // ================= LOAD PROFILE =================
+        
         private void LoadProfile()
         {
             try
@@ -57,7 +64,7 @@ namespace HRMS
             }
         }
 
-        // ================= UPDATE =================
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -106,7 +113,7 @@ namespace HRMS
             }
         }
 
-        // ================= FORM LOAD =================
+        
         private void UpdateProfile_Load(object sender, EventArgs e)
         {
             txtId.Text = employeeId.ToString();
@@ -114,7 +121,7 @@ namespace HRMS
             LoadProfile();
         }
 
-        // ================= BACK =================
+        
         private void btnback_Click(object sender, EventArgs e)
         {
             EmployeeDashboard ed = new EmployeeDashboard(employeeId);
