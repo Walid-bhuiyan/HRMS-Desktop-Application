@@ -14,8 +14,6 @@ namespace HRMS
         {
             InitializeComponent();
         }
-
-        // ================= HASH =================
         private string HashPassword(string password)
         {
             using (SHA256 sha = SHA256.Create())
@@ -27,15 +25,20 @@ namespace HRMS
                 return sb.ToString();
             }
         }
-
-        // ================= LOGIN =================
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtuname.Text.Trim() == "" || txtpass.Text.Trim() == "")
+            if (txtuname.Text.Trim() == "")
             {
-                MessageBox.Show("Username and Password required!");
+                MessageBox.Show("Username required!");
                 return;
             }
+
+            if (txtpass.Text.Trim() == "")
+            {
+                MessageBox.Show("Password required!");
+                return;
+            }
+
 
             if (cmbLoginAs.SelectedIndex == -1)
             {
@@ -55,8 +58,7 @@ namespace HRMS
                 {
                     conn.Open();
 
-                    string query = @"SELECT RefId, Role FROM Users 
-                                     WHERE Email=@Email AND Password=@Password AND Role=@Role";
+                    string query = @"SELECT RefId, Role FROM Users WHERE Email=@Email AND Password=@Password AND Role=@Role";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@Email", email);
@@ -73,13 +75,22 @@ namespace HRMS
                         MessageBox.Show("Login Successful!");
 
                         if (role == "Admin")
+                        {
                             new btnadminoperations(refId, email).Show();
+                        }
                         else if (role == "Employee")
+                        {
                             new EmployeeDashboard(refId).Show();
+                        }
                         else if (role == "HRManager")
+                        {
                             new HRManagerDashboard(refId).Show();
+                        }
                         else if (role == "Accountant")
-                            new AccountantDashboard().Show();
+                        {
+                            new AccountantDashboard(refId).Show();
+                        }
+
 
                         this.Hide();
                     }
@@ -94,14 +105,18 @@ namespace HRMS
                 MessageBox.Show("Login error: " + ex.Message);
             }
         }
-
-        // ================= SHOW / HIDE PASSWORD =================
         private void chbshowpass_CheckedChanged(object sender, EventArgs e)
         {
-            txtpass.PasswordChar = chbshowpass.Checked ? '\0' : '*';
-        }
+            if (chbshowpass.Checked)
+            {
+                txtpass.PasswordChar = '\0';
+            }
+            else
+            {
+                txtpass.PasswordChar = '*';
+            }
 
-        // ================= FORGOT PASSWORD =================
+        }
         private void btnupdatepass_Click(object sender, EventArgs e)
         {
             string email = txtemail.Text.Trim();
@@ -122,8 +137,7 @@ namespace HRMS
                 {
                     conn.Open();
 
-                    string checkQuery = @"SELECT RefId FROM Users 
-                                          WHERE Email=@Email AND SecurityAns=@SecAns";
+                    string checkQuery = @"SELECT RefId, Role FROM Users WHERE Email=@Email AND SecurityAns=@SecAns";
 
                     SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
                     checkCmd.Parameters.AddWithValue("@Email", email);
@@ -133,6 +147,9 @@ namespace HRMS
 
                     if (dr.Read())
                     {
+                        int refId = Convert.ToInt32(dr["RefId"]);
+                        string role = dr["Role"].ToString();
+
                         dr.Close();
 
                         string updateUserQuery = @"UPDATE Users SET Password=@NewPass WHERE Email=@Email";
@@ -140,6 +157,24 @@ namespace HRMS
                         updateUserCmd.Parameters.AddWithValue("@NewPass", hashedNewPass);
                         updateUserCmd.Parameters.AddWithValue("@Email", email);
                         updateUserCmd.ExecuteNonQuery();
+
+                        if (role == "Admin")
+                        {
+                            string q = "UPDATE Admins SET password=@p WHERE id=@id";
+                            SqlCommand cmd = new SqlCommand(q, conn);
+                            cmd.Parameters.AddWithValue("@p", hashedNewPass);
+                            cmd.Parameters.AddWithValue("@id", refId);
+                            cmd.ExecuteNonQuery();
+                        }
+
+                        else if (role == "HRManager")
+                        {
+                            string q = "UPDATE HRManagers SET Password=@p WHERE hrId=@id";
+                            SqlCommand cmd = new SqlCommand(q, conn);
+                            cmd.Parameters.AddWithValue("@p", hashedNewPass);
+                            cmd.Parameters.AddWithValue("@id", refId);
+                            cmd.ExecuteNonQuery();
+                        }
 
                         MessageBox.Show("Password updated successfully!");
                         Forgetpasspanel.Visible = false;
@@ -157,7 +192,6 @@ namespace HRMS
             }
         }
 
-        // ================= UI =================
         private void lblForgotPassword_Click(object sender, EventArgs e)
         {
             Forgetpasspanel.Visible = true;
@@ -174,24 +208,44 @@ namespace HRMS
             PanelLogin.Visible = true;
         }
 
-        // =====================================================
-        // 🔧 DESIGNER FIX METHODS (EMPTY BUT REQUIRED)
-        // =====================================================
+        private void Forgetpasspanel_Paint(object sender, PaintEventArgs e) 
+        { 
+        
+        }
 
-        private void Forgetpasspanel_Paint(object sender, PaintEventArgs e) { }
+        private void txtemail_TextChanged(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void txtemail_TextChanged(object sender, EventArgs e) { }
+        private void txtsecurityans_TextChanged(object sender, EventArgs e)
+        {
 
-        private void txtsecurityans_TextChanged(object sender, EventArgs e) { }
+        }
 
-        private void cmbLoginAs_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void cmbLoginAs_SelectedIndexChanged(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void lblLoginAs_Click(object sender, EventArgs e) { }
+        private void lblLoginAs_Click(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void txtemail_TextChanged_1(object sender, EventArgs e) { }
+        private void txtemail_TextChanged_1(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void txtuname_TextChanged(object sender, EventArgs e) { }
+        private void txtuname_TextChanged(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void txtpass_TextChanged(object sender, EventArgs e) { }
+        private void txtpass_TextChanged(object sender, EventArgs e) 
+        {
+        
+        }
     }
 }

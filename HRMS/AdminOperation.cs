@@ -13,7 +13,6 @@ namespace HRMS
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
-        // ✅ REQUIRED CONSTRUCTOR
         public AdminOperation(int id, string email)
         {
             InitializeComponent();
@@ -21,7 +20,6 @@ namespace HRMS
             adminEmail = email;
         }
 
-        // ================= SHOW ADMINS =================
         private void show()
         {
             using (SqlConnection conn = new SqlConnection(conStr))
@@ -31,11 +29,11 @@ namespace HRMS
                 SqlDataAdapter adp = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
-                dataGridView1.DataSource = dt;
+                 dataGridView1.DataSource = dt;
             }
         }
 
-        // ================= BACK =================
+
         private void btnback_Click(object sender, EventArgs e)
         {
             btnadminoperations btnadmnop = new btnadminoperations(adminId, adminEmail);
@@ -43,13 +41,11 @@ namespace HRMS
             this.Close();
         }
 
-        // ================= SHOW =================
         private void txtshow_Click(object sender, EventArgs e)
         {
             show();
         }
 
-        // ================= INSERT =================
         private void txtinsert_Click(object sender, EventArgs e)
         {
             AdminInsertionForm admninsertion = new AdminInsertionForm(adminId, adminEmail);
@@ -57,7 +53,6 @@ namespace HRMS
             this.Close();
         }
 
-        // ================= SEARCH =================
         private void btnsearch_Click(object sender, EventArgs e)
         {
             if (txtid.Text == "")
@@ -91,7 +86,6 @@ namespace HRMS
             }
         }
 
-        // ================= UPDATE =================
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtid.Text))
@@ -107,10 +101,7 @@ namespace HRMS
 
                 try
                 {
-                    string checkQuery = @"SELECT COUNT(*) 
-                                          FROM Users 
-                                          WHERE Email=@email 
-                                          AND NOT (RefId=@id AND Role='Admin')";
+                    string checkQuery = @"SELECT COUNT(*) FROM Users WHERE Email=@email AND NOT (RefId=@id AND Role='Admin')";
 
                     SqlCommand checkCmd = new SqlCommand(checkQuery, conn, tran);
                     checkCmd.Parameters.AddWithValue("@email", txtemail.Text);
@@ -124,15 +115,7 @@ namespace HRMS
                         tran.Rollback();
                         return;
                     }
-
-                    string q1 = @"UPDATE Admins SET 
-                                    name=@name,
-                                    email=@email,
-                                    phone=@phone,
-                                    gender=@gender,
-                                    address=@address,
-                                    dob=@dob
-                                  WHERE id=@id";
+                    string q1 = @"UPDATE Admins SET name=@name, email=@email, phone=@phone, gender=@gender, address=@address, dob=@dob WHERE id=@id";
 
                     SqlCommand cmd1 = new SqlCommand(q1, conn, tran);
                     cmd1.Parameters.AddWithValue("@id", txtid.Text);
@@ -144,8 +127,7 @@ namespace HRMS
                     cmd1.Parameters.AddWithValue("@dob", Convert.ToDateTime(txtdob.Text));
                     cmd1.ExecuteNonQuery();
 
-                    string q2 = @"UPDATE Users SET Email=@email 
-                                  WHERE RefId=@id AND Role='Admin'";
+                    string q2 = @"UPDATE Users SET Email=@email WHERE RefId=@id AND Role='Admin'";
 
                     SqlCommand cmd2 = new SqlCommand(q2, conn, tran);
                     cmd2.Parameters.AddWithValue("@id", txtid.Text);
@@ -153,18 +135,17 @@ namespace HRMS
                     cmd2.ExecuteNonQuery();
 
                     tran.Commit();
-                    MessageBox.Show("✅ Admin updated successfully!");
+                    MessageBox.Show("Admin updated successfully!");
                     show();
                 }
                 catch (Exception ex)
                 {
                     tran.Rollback();
-                    MessageBox.Show("❌ Update failed: " + ex.Message);
+                    MessageBox.Show("Update failed: " + ex.Message);
                 }
             }
         }
 
-        // ================= DELETE =================
         private void btndelete_Click(object sender, EventArgs e)
         {
             using (SqlConnection conn = new SqlConnection(conStr))
@@ -172,13 +153,11 @@ namespace HRMS
                 conn.Open();
                 try
                 {
-                    SqlCommand cmdUser = new SqlCommand(
-                        "DELETE FROM Users WHERE RefId=@id AND Role='Admin'", conn);
+                    SqlCommand cmdUser = new SqlCommand("DELETE FROM Users WHERE RefId=@id AND Role='Admin'", conn);
                     cmdUser.Parameters.AddWithValue("@id", txtid.Text);
                     cmdUser.ExecuteNonQuery();
 
-                    SqlCommand cmd = new SqlCommand(
-                        "DELETE FROM Admins WHERE ID=@id", conn);
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Admins WHERE ID=@id", conn);
                     cmd.Parameters.AddWithValue("@id", txtid.Text);
                     cmd.ExecuteNonQuery();
 
@@ -198,7 +177,6 @@ namespace HRMS
             }
         }
 
-        // ================= GRID CLICK =================
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;

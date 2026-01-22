@@ -53,7 +53,6 @@
             // pnlTopHr
             // 
             this.pnlTopHr.BackColor = System.Drawing.Color.SteelBlue;
-            this.pnlTopHr.Controls.Add(this.btnBack);
             this.pnlTopHr.Controls.Add(this.topHeaderLogin);
             this.pnlTopHr.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopHr.Location = new System.Drawing.Point(0, 0);
@@ -64,16 +63,17 @@
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.SteelBlue;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.Ivory;
-            this.btnBack.Location = new System.Drawing.Point(661, 8);
+            this.btnBack.Location = new System.Drawing.Point(656, 558);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(90, 35);
             this.btnBack.TabIndex = 1;
             this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
             // topHeaderLogin
@@ -252,11 +252,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 587);
+            this.ClientSize = new System.Drawing.Size(755, 605);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelFilters);
             this.Controls.Add(this.pnlTopHr);
             this.Name = "HRAttendance";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HRAttendance";
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();

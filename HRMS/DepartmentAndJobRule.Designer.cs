@@ -220,6 +220,7 @@
             this.Controls.Add(this.btnback);
             this.Name = "DepartmentAndJobRule";
             this.Text = "DepartmentAndJobRule";
+            this.Load += new System.EventHandler(this.DepartmentAndJobRule_Load);
             this.pnlTopHr.ResumeLayout(false);
             this.pnlTopHr.PerformLayout();
             this.ResumeLayout(false);

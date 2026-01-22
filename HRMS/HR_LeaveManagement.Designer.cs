@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.topLoginPanel = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
             this.topHeaderLogin = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
             this.dtFrom = new System.Windows.Forms.DateTimePicker();
@@ -57,7 +57,6 @@
             // topLoginPanel
             // 
             this.topLoginPanel.BackColor = System.Drawing.Color.SteelBlue;
-            this.topLoginPanel.Controls.Add(this.btnBack);
             this.topLoginPanel.Controls.Add(this.topHeaderLogin);
             this.topLoginPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topLoginPanel.Location = new System.Drawing.Point(0, 0);
@@ -66,33 +65,34 @@
             this.topLoginPanel.Size = new System.Drawing.Size(858, 59);
             this.topLoginPanel.TabIndex = 9;
             // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.Ivory;
-            this.btnBack.Location = new System.Drawing.Point(774, 9);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(81, 45);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // topHeaderLogin
             // 
             this.topHeaderLogin.AutoSize = true;
             this.topHeaderLogin.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.topHeaderLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.topHeaderLogin.Location = new System.Drawing.Point(281, 9);
+            this.topHeaderLogin.Location = new System.Drawing.Point(287, 9);
             this.topHeaderLogin.Name = "topHeaderLogin";
             this.topHeaderLogin.Size = new System.Drawing.Size(274, 38);
             this.topHeaderLogin.TabIndex = 0;
             this.topHeaderLogin.Text = "Leave Management";
             this.topHeaderLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Ivory;
+            this.btnBack.Location = new System.Drawing.Point(765, 612);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(81, 35);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // label1
             // 
@@ -293,6 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(858, 658);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.dtTo);
             this.Controls.Add(this.dtFrom);
             this.Controls.Add(this.dataGridViewLeaves);
@@ -314,6 +315,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.topLoginPanel);
             this.Name = "HR_LeaveManagement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HR_LeaveManagement";
             this.Load += new System.EventHandler(this.HR_LeaveManagement_Load);
             this.topLoginPanel.ResumeLayout(false);

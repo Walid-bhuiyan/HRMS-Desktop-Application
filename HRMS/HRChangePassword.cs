@@ -13,14 +13,12 @@ namespace HRMS
         private string conStr =
             @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
 
-        // ✅ Constructor must receive hrId
         public HRChangePassword(int id)
         {
             InitializeComponent();
             hrId = id;
         }
 
-        // 🔐 HASH FUNCTION
         private string HashPassword(string password)
         {
             using (SHA256 sha = SHA256.Create())
@@ -33,7 +31,6 @@ namespace HRMS
             }
         }
 
-        // ✅ CHANGE PASSWORD
         private void btnChange_Click(object sender, EventArgs e)
         {
             if (txtOldPass.Text == "" || txtNewPass.Text == "" || txtConfirmPass.Text == "")
@@ -48,7 +45,6 @@ namespace HRMS
                 return;
             }
 
-            // 🚫 Prevent same old & new password
             if (txtOldPass.Text.Trim() == txtNewPass.Text.Trim())
             {
                 MessageBox.Show("New password cannot be the same as old password!");
@@ -64,9 +60,7 @@ namespace HRMS
                 {
                     con.Open();
 
-                    // 1️⃣ Check old password
-                    string checkQuery = @"SELECT COUNT(*) FROM Users 
-                                          WHERE RefId=@id AND Role='HRManager' AND Password=@oldpass";
+                    string checkQuery = @"SELECT COUNT(*) FROM Users WHERE RefId=@id AND Role='HRManager' AND Password=@oldpass";
 
                     SqlCommand checkCmd = new SqlCommand(checkQuery, con);
                     checkCmd.Parameters.AddWithValue("@id", hrId);
@@ -80,27 +74,21 @@ namespace HRMS
                         return;
                     }
 
-                    // 2️⃣ Update Users
-                    string updateUsers = @"UPDATE Users 
-                                           SET Password=@newpass 
-                                           WHERE RefId=@id AND Role='HRManager'";
+                    string updateUsers = @"UPDATE Users SET Password=@newpass WHERE RefId=@id AND Role='HRManager'";
 
                     SqlCommand cmd1 = new SqlCommand(updateUsers, con);
                     cmd1.Parameters.AddWithValue("@newpass", newHash);
                     cmd1.Parameters.AddWithValue("@id", hrId);
                     cmd1.ExecuteNonQuery();
 
-                    // 3️⃣ Update HRManagers
-                    string updateHR = @"UPDATE HRManagers 
-                                        SET Password=@newpass 
-                                        WHERE hrId=@id";
+                    string updateHR = @"UPDATE HRManagers SET Password=@newpass WHERE hrId=@id";
 
                     SqlCommand cmd2 = new SqlCommand(updateHR, con);
                     cmd2.Parameters.AddWithValue("@newpass", newHash);
                     cmd2.Parameters.AddWithValue("@id", hrId);
                     cmd2.ExecuteNonQuery();
 
-                    MessageBox.Show("✅ Password changed successfully!");
+                    MessageBox.Show("Password changed successfully!");
 
                     new HRManagerDashboard(hrId).Show();
                     this.Close();
@@ -112,14 +100,12 @@ namespace HRMS
             }
         }
 
-        // 🔙 LOGOUT
         private void btnLogout_Click(object sender, EventArgs e)
         {
             new HRManagerDashboard(hrId).Show();
             this.Hide();
         }
 
-        // 👁 SHOW / HIDE PASSWORD
         private void chbShowPass_CheckedChanged(object sender, EventArgs e)
         {
             char c = chbShowPass.Checked ? '\0' : '*';
@@ -128,7 +114,6 @@ namespace HRMS
             txtConfirmPass.PasswordChar = c;
         }
 
-        // 🔙 BACK
         private void btnBack_Click(object sender, EventArgs e)
         {
             new HRManagerDashboard(hrId).Show();

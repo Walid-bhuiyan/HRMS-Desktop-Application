@@ -19,7 +19,6 @@ namespace HRMS
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
-        // ✅ REQUIRED CONSTRUCTOR
         public AdminOpHRManager(int id, string emailLogged)
         {
             InitializeComponent();
@@ -27,13 +26,11 @@ namespace HRMS
             adminEmail = emailLogged;
         }
 
-        // ================= LOAD =================
         private void AdminOpHRManager_Load(object sender, EventArgs e)
         {
             panel1.Visible = false;
         }
 
-        // ================= BACK =================
         private void btnback_Click(object sender, EventArgs e)
         {
             btnadminoperations admin = new btnadminoperations(adminId, adminEmail);
@@ -41,7 +38,6 @@ namespace HRMS
             this.Close();
         }
 
-        // ================= SHOW PANEL =================
         private void btninsertmanager_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
@@ -53,7 +49,6 @@ namespace HRMS
             panel1.Visible = false;
         }
 
-        // ================= SHOW HR MANAGERS =================
         private void showHRManagers()
         {
             using (SqlConnection conn = new SqlConnection(conStr))
@@ -71,7 +66,6 @@ namespace HRMS
             showHRManagers();
         }
 
-        // ================= RESET =================
         private void btnreset_Click(object sender, EventArgs e)
         {
             txtId.Clear();
@@ -84,7 +78,6 @@ namespace HRMS
             txtSalary.Clear();
         }
 
-        // ================= SEARCH =================
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtId.Text.Trim() == "")
@@ -115,7 +108,6 @@ namespace HRMS
             }
         }
 
-        // ================= DELETE =================
         private void btndelete_Click(object sender, EventArgs e)
         {
             if (txtId.Text == "") return;
@@ -151,7 +143,6 @@ namespace HRMS
             }
         }
 
-        // ================= UPDATE =================
         private void btnupdate_Click(object sender, EventArgs e)
         {
             if (txtId.Text == "")
@@ -173,10 +164,8 @@ namespace HRMS
 
                 try
                 {
-                    string q1 = @"UPDATE HRManagers SET 
-                                  name=@name,email=@email,phone=@phone,
-                                  gender=@gender,address=@address,
-                                  dob=@dob,salary=@salary WHERE hrId=@id";
+                    string q1 = @"UPDATE HRManagers SET name=@name,email=@email,phone=@phone, gender=@gender,address=@address, dob=@dob,salary=@salary WHERE hrId=@id";
+
 
                     SqlCommand cmd = new SqlCommand(q1, conn, tran);
 
@@ -208,8 +197,12 @@ namespace HRMS
             }
         }
 
-        // ================= GRID CLICK =================
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
@@ -224,7 +217,6 @@ namespace HRMS
             txtSalary.Text = r.Cells[9].Value.ToString();
         }
 
-        // ================= INSERT HR =================
         private string HashPassword(string p)
         {
             using (SHA256 sha = SHA256.Create())
@@ -243,10 +235,8 @@ namespace HRMS
 
                 try
                 {
-                    string q1 = @"INSERT INTO HRManagers
-                        (name,email,phone,gender,address,dob,salary,securityans,password)
-                        VALUES (@n,@e,@p,@g,@a,@d,@s,@sec,@pass);
-                        SELECT SCOPE_IDENTITY();";
+                    string q1 = @"INSERT INTO HRManagers (name,email,phone,gender,address,dob,salary,securityans,password) 
+                                VALUES (@n,@e,@p,@g,@a,@d,@s,@sec,@pass); SELECT SCOPE_IDENTITY();";
 
                     SqlCommand cmd = new SqlCommand(q1, conn, tran);
 
@@ -262,9 +252,7 @@ namespace HRMS
 
                     int hrId = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    string q2 = @"INSERT INTO Users
-                        (RefId,Role,Email,Password,SecurityAns)
-                        VALUES (@id,'HRManager',@e,@p,@sec)";
+                    string q2 = @"INSERT INTO Users (RefId,Role,Email,Password,SecurityAns) VALUES (@id,'HRManager',@e,@p,@sec)";
 
                     SqlCommand cmd2 = new SqlCommand(q2, conn, tran);
                     cmd2.Parameters.AddWithValue("@id", hrId);
@@ -288,7 +276,7 @@ namespace HRMS
             }
         }
 
-        // ================= SUBMIT HR =================
+
         private void btnsubmithr_Click(object sender, EventArgs e)
         {
             name = textname.Text.Trim();
@@ -298,18 +286,40 @@ namespace HRMS
             securityans = textquestionans.Text.Trim();
             pass = textpass.Text.Trim();
 
-            if (!int.TryParse(textsalary.Text, out salary))
+            dob = dateTimePicker.Value;
+            if (rbmales.Checked)
             {
-                MessageBox.Show("Salary must be numeric");
-                return;
+                gender = "Male";
+            }
+            else if (rbfemales.Checked)
+            {
+                gender = "Female";
+            }
+            else
+            {
+                gender = "";
             }
 
-            dob = dateTimePicker.Value;
-            gender = rbmales.Checked ? "Male" : rbfemales.Checked ? "Female" : "";
 
             if (name == "" || email == "" || phone == "" || pass == "" || securityans == "" || address == "" || gender == "")
             {
                 MessageBox.Show("All fields required!");
+                return;
+            }
+
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c) && c != ' ')
+                {
+                    MessageBox.Show("Name can contain only letters and spaces!");
+                    return;
+                }
+            }
+
+
+            if (!phone.All(char.IsDigit) || phone.Length < 6 || phone.Length > 15)
+            {
+                MessageBox.Show("Phone number must be numeric");
                 return;
             }
 
@@ -319,15 +329,18 @@ namespace HRMS
                 return;
             }
 
-            if (!phone.All(char.IsDigit) || phone.Length < 6 || phone.Length > 15)
+            if (!textsalary.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Invalid phone!");
+                MessageBox.Show("Salary must be Digits");
                 return;
             }
 
+            salary = int.Parse(textsalary.Text);
+
+
             if (pass.Length < 4 || !pass.Any(c => "#@$%&*".Contains(c)))
             {
-                MessageBox.Show("Weak password!");
+                MessageBox.Show("Weak password! use special chararter");
                 return;
             }
 

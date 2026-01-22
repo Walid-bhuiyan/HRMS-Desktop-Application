@@ -204,6 +204,12 @@
     <Compile Include="AdminOpHRManager.Designer.cs">
       <DependentUpon>AdminOpHRManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_PayrollManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_PayrollManagement.Designer.cs">
+      <DependentUpon>Admin_PayrollManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplyforLeave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -280,6 +286,12 @@
     </Compile>
     <Compile Include="HRProfile.Designer.cs">
       <DependentUpon>HRProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR_ComplaintManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR_ComplaintManagement.Designer.cs">
+      <DependentUpon>HR_ComplaintManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="HR_DepartmentManagement.cs">
       <SubType>Form</SubType>
@@ -373,6 +385,9 @@
     <EmbeddedResource Include="AdminOpHRManager.resx">
       <DependentUpon>AdminOpHRManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin_PayrollManagement.resx">
+      <DependentUpon>Admin_PayrollManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ApplyforLeave.resx">
       <DependentUpon>ApplyforLeave.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HRProfile.resx">
       <DependentUpon>HRProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR_ComplaintManagement.resx">
+      <DependentUpon>HR_ComplaintManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HR_DepartmentManagement.resx">
       <DependentUpon>HR_DepartmentManagement.cs</DependentUpon>

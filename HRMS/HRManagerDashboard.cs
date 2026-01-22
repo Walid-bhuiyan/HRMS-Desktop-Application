@@ -8,11 +8,7 @@ namespace HRMS
     {
         private int hrId = 0;
 
-        // ✅ Database connection
-        private string conStr =
-            @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
-
-        // ================= CONSTRUCTORS =================
+        private string conStr =@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
         public HRManagerDashboard()
         {
@@ -25,14 +21,10 @@ namespace HRMS
             hrId = id;
         }
 
-        // ================= FORM LOAD =================
-
         private void HRManagerDashboard_Load(object sender, EventArgs e)
         {
             LoadDashboardData();
         }
-
-        // ================= DASHBOARD DATA =================
 
         private void LoadDashboardData()
         {
@@ -42,24 +34,16 @@ namespace HRMS
                 {
                     conn.Open();
 
-                    // 🔹 TOTAL EMPLOYEES
-                    SqlCommand cmdEmp = new SqlCommand(
-                        "SELECT COUNT(*) FROM Employees_Info", conn);
+                    SqlCommand cmdEmp = new SqlCommand("SELECT COUNT(*) FROM Employees_Info", conn);
                     lblTotalEmployeesValue.Text = cmdEmp.ExecuteScalar().ToString();
 
-                    // 🔹 TODAY'S PRESENT
-                    SqlCommand cmdPresent = new SqlCommand(
-                        "SELECT COUNT(*) FROM Attendance WHERE AttendanceDate = CAST(GETDATE() AS DATE) AND Status='Present'", conn);
+                    SqlCommand cmdPresent = new SqlCommand("SELECT COUNT(*) FROM Attendance WHERE AttendanceDate = CAST(GETDATE() AS DATE) AND Status='Present'", conn);
                     lblTodayPresentValue.Text = cmdPresent.ExecuteScalar().ToString();
 
-                    // 🔹 TOTAL DEPARTMENTS
-                    SqlCommand cmdDept = new SqlCommand(
-                        "SELECT COUNT(*) FROM Departments", conn);
+                    SqlCommand cmdDept = new SqlCommand("SELECT COUNT(*) FROM Departments", conn);
                     lblTotalDepartmentsValue.Text = cmdDept.ExecuteScalar().ToString();
 
-                    // 🔹 PENDING LEAVES ✅ (FIXED)
-                    SqlCommand cmdPending = new SqlCommand(
-                        "SELECT COUNT(*) FROM LeaveRequests WHERE Status='Pending'", conn);
+                    SqlCommand cmdPending = new SqlCommand("SELECT COUNT(*) FROM LeaveRequests WHERE Status='Pending'", conn);
                     lblPendingLeavesValue.Text = cmdPending.ExecuteScalar().ToString();
                 }
             }
@@ -69,16 +53,12 @@ namespace HRMS
             }
         }
 
-        // ================= LOGOUT =================
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             loginframe login = new loginframe();
             login.Show();
             this.Hide();
         }
-
-        // ================= PROFILE =================
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
@@ -92,16 +72,12 @@ namespace HRMS
             btnProfile_Click(sender, e);
         }
 
-        // ================= EMPLOYEES =================
-
         private void btnEmployees_Click(object sender, EventArgs e)
         {
             HR_EmployeeManagement empForm = new HR_EmployeeManagement(hrId);
             empForm.Show();
             this.Hide();
         }
-
-        // ================= ATTENDANCE =================
 
         private void btnAttendance_Click(object sender, EventArgs e)
         {
@@ -110,16 +86,12 @@ namespace HRMS
             this.Hide();
         }
 
-        // ================= CHANGE PASSWORD =================
-
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             HRChangePassword cp = new HRChangePassword(hrId);
             cp.Show();
             this.Hide();
         }
-
-        // ================= ORGANIZATION =================
 
         private void btnOrganization_Click(object sender, EventArgs e)
         {
@@ -128,8 +100,6 @@ namespace HRMS
             this.Hide();
         }
 
-        // ================= LEAVE MANAGEMENT =================
-
         private void btnLeaveManagementSP_Click(object sender, EventArgs e)
         {
             HR_LeaveManagement lm = new HR_LeaveManagement(hrId);
@@ -137,17 +107,18 @@ namespace HRMS
             this.Hide();
         }
 
-        // ================= PAYROLL =================
-
         private void btnPayroll_Click(object sender, EventArgs e)
         {
             HR_PayrollManagement ht = new HR_PayrollManagement(hrId);
             ht.Show();
             this.Hide();
         }
-
-        // ================= EMPTY EVENTS =================
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HR_ComplaintManagement n = new HR_ComplaintManagement(hrId);
+            n.Show();
+            this.Hide();
+        }
         private void pnlTopHr_Paint(object sender, PaintEventArgs e) { }
         private void panelDashboard_Paint(object sender, PaintEventArgs e) { }
         private void pnlMain_Paint(object sender, PaintEventArgs e) { }

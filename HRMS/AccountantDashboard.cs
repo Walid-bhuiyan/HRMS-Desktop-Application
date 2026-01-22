@@ -5,7 +5,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Contexts;
 using System.Security;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,9 +18,11 @@ namespace HRMS
 {
     public partial class AccountantDashboard : Form
     {
-        public AccountantDashboard()
+        private int accountantId;
+        public AccountantDashboard(int id)
         {
             InitializeComponent();
+            accountantId = id;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -33,6 +38,9 @@ namespace HRMS
             viewemppayrollPanel.Visible = false;
             paymentmanagementPanel.Visible = false;
             viewpaymentsPanel.Visible = false;
+            accountantProfilePanel.Visible = false;
+            EmployeeAttendancePanel.Visible = false;
+            changepasswordPanel.Visible = false;
         }
 
 
@@ -141,7 +149,14 @@ namespace HRMS
 
         private void btnchangepassword_Click(object sender, EventArgs e)
         {
+            HideAllPanels();
+            changepasswordPanel.Visible = true;
 
+            txtcurrentpasscp.Text = txtnewpasscp.Text = txtconfirmnewpasscp.Text = "";
+
+            lblerrorcurrentpasscp.Text = lblerrornewpasscp.Text = lblerrorconfirmnewpasscp.Text = "";
+
+            cbshowpasscp.Checked = false;
         }
 
         private void SalaryManagementPanel_Paint_1(object sender, PaintEventArgs e)
@@ -1040,6 +1055,252 @@ namespace HRMS
             lblerrorempidvp.Text = "";
 
             dataGridView3.DataSource = null;
+        }
+
+        private void btnprofile_Click(object sender, EventArgs e)
+        {
+            HideAllPanels();
+            accountantProfilePanel.Visible = true;
+            LoadAccountantProfile();
+        }
+
+        private void LoadAccountantProfile()
+        {
+            try
+            {
+                using (SqlConnection conn = Connect())
+                {
+                    string query = @"SELECT AccountantID, FullName, Department, JobTitle, Gender, Email, Phone, DOB, Address
+                             FROM Accountants
+                             WHERE accountantId = @EmpID";
+
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@EmpID", accountantId);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        txtapid.Text = dr["AccountantID"].ToString();
+                        txtapname.Text = dr["FullName"].ToString();
+                        txtapdepartment.Text = dr["Department"].ToString();
+                        txtapjobtitle.Text = dr["JobTitle"].ToString();
+                        txtapgender.Text = dr["Gender"].ToString();
+                        txtapemail.Text = dr["Email"].ToString();
+                        txtapphone.Text = dr["Phone"].ToString();
+                        txtapdob.Text = Convert.ToDateTime(dr["DOB"]).ToString("yyyy-MM-dd");
+                        rtxtapaddress.Text = dr["Address"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Accountant profile not found.");
+                    }
+
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Profile load error: " + ex.Message);
+            }
+        }
+
+
+        private void btnshowea_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = Connect())
+            {
+                string query = @"SELECT AttendanceId, UserId, Name, Status, AttendanceDate FROM Attendance WHERE UserType = 'Employee' ORDER BY AttendanceDate DESC";
+
+                SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dataGridView4.DataSource = dt;
+            }
+        }
+
+        private void btnsearchea_Click(object sender, EventArgs e)
+        {
+            lblerrorempidea.Text = "";
+
+            if (txtempidea.Text == "")
+            {
+                lblerrorempidea.Text = "*** The Employee ID Field is Required.";
+                return;
+            }
+
+            if (!int.TryParse(txtempidea.Text.Trim(), out int userId))
+            {
+                MessageBox.Show("Employee ID must be a number.");
+                return;
+            }
+
+            DateTime selectedDate = dateTimePicker2.Value.Date;
+
+            using (SqlConnection conn = Connect())
+            {
+                string query = @"SELECT AttendanceId, UserId, Name, Status, AttendanceDate FROM Attendance WHERE UserType = 'Employee' AND UserId = @UserId AND AttendanceDate = @Date";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                cmd.Parameters.AddWithValue("@Date", selectedDate);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    dataGridView4.DataSource = dt;
+                }
+                else
+                {
+                    MessageBox.Show("No attendance found for this employee on the selected date.");
+                    dataGridView4.DataSource = null;
+                }
+            }
+        }
+
+        private void btnresetea_Click(object sender, EventArgs e)
+        {
+            txtempidea.Text = "";
+            dateTimePicker2.Value = DateTime.Now;
+            lblerrorempidea.Text = "";
+            dataGridView4.DataSource = null;
+        }
+
+        private void btnattendance_Click(object sender, EventArgs e)
+        {
+            HideAllPanels();
+            EmployeeAttendancePanel.Visible = true;
+
+            txtempidea.Text = "";
+            dateTimePicker2.Value = DateTime.Now;
+            lblerrorempidea.Text = "";
+            dataGridView4.DataSource = null;
+        }
+
+        private string HashPassword(string password)
+        {
+            using (SHA256 sha = SHA256.Create())
+            {
+                byte[] bytes = sha.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in bytes)
+                    sb.Append(b.ToString("x2"));
+                return sb.ToString();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            txtcurrentpasscp.Text = txtnewpasscp.Text = txtconfirmnewpasscp.Text = "";
+
+            lblerrorcurrentpasscp.Text = lblerrornewpasscp.Text = lblerrorconfirmnewpasscp.Text = "";
+
+            cbshowpasscp.Checked = false;
+        }
+
+        private void cbshowpasscp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbshowpasscp.Checked)
+            {
+                txtcurrentpasscp.PasswordChar = '\0';
+                txtnewpasscp.PasswordChar = '\0';
+                txtconfirmnewpasscp.PasswordChar = '\0';
+            }
+            else
+            {
+                txtcurrentpasscp.PasswordChar = '*';
+                txtnewpasscp.PasswordChar = '*';
+                txtconfirmnewpasscp.PasswordChar = '*';
+            }
+        }
+
+        private void btnsubmitcp_Click(object sender, EventArgs e)
+        {
+            lblerrorcurrentpasscp.Text = "";
+            lblerrornewpasscp.Text = "";
+            lblerrorconfirmnewpasscp.Text = "";
+
+            bool hasError = false;
+
+            if (txtcurrentpasscp.Text.Trim() == "")
+            {
+                lblerrorcurrentpasscp.Text = "*** The Current Password Field is Required.";
+                hasError = true;
+            }
+
+            if (txtnewpasscp.Text.Trim() == "")
+            {
+                lblerrornewpasscp.Text = "*** The New Password Field is Required.";
+                hasError = true;
+            }
+
+            if (txtconfirmnewpasscp.Text.Trim() == "")
+            {
+                lblerrorconfirmnewpasscp.Text = "*** The Confirm New Password Field is Required.";
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            if (txtcurrentpasscp.Text.Trim() == txtnewpasscp.Text.Trim())
+            {
+                lblerrornewpasscp.Text = "*** New password cannot be same as current password.";
+                return;
+            }
+
+            if (txtnewpasscp.Text.Trim() != txtconfirmnewpasscp.Text.Trim())
+            {
+                lblerrorconfirmnewpasscp.Text = "*** New password and confirm password do not match.";
+                return;
+            }
+
+            string oldHash = HashPassword(txtcurrentpasscp.Text.Trim());
+            string newHash = HashPassword(txtnewpasscp.Text.Trim());
+
+            try
+            {
+                using (SqlConnection conn = Connect())
+                {
+                    string checkQuery = @"SELECT COUNT(*) 
+                              FROM Users 
+                              WHERE RefId=@id AND Role='Accountant' AND Password=@oldPass";
+
+                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@id", accountantId);
+                    checkCmd.Parameters.AddWithValue("@oldPass", oldHash);
+
+                    int exists = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                    if (exists == 0)
+                    {
+                        lblerrorcurrentpasscp.Text = "*** Current password is incorrect.";
+                        return;
+                    }
+
+                    string updateQuery = @"UPDATE Users 
+                               SET Password=@newPass 
+                               WHERE RefId=@id AND Role='Accountant'";
+
+                    SqlCommand updateCmd = new SqlCommand(updateQuery, conn);
+                    updateCmd.Parameters.AddWithValue("@newPass", newHash);
+                    updateCmd.Parameters.AddWithValue("@id", accountantId);
+                    updateCmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Password changed successfully!");
+
+                    button2_Click(null, null);
+                    HideAllPanels();
+                    showpanel.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

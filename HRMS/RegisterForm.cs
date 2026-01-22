@@ -9,21 +9,16 @@ namespace HRMS
 {
     public partial class RegisterForm : Form
     {
-        // -------------------- FIELDS --------------------
-
         private string fullName, email, gender, phone, address;
         private string securityQuestion, securityAnswer, department, jobTitle, employmentType;
         private string password;
         private decimal salary;
 
-        // 🔑 who opened this form
-        string callerRole = "";   // "ADMIN" or "HR"
+        string callerRole = "";
         int callerId = 0;
 
         private readonly string cs =
             ConfigurationManager.ConnectionStrings["HRMS_DB"].ConnectionString;
-
-        // -------------------- CONSTRUCTORS --------------------
 
         public RegisterForm()
         {
@@ -37,8 +32,6 @@ namespace HRMS
             callerId = id;
         }
 
-        // -------------------- NAVIGATION --------------------
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             HR_EmployeeManagement w = new HR_EmployeeManagement(callerRole, callerId);
@@ -51,8 +44,6 @@ namespace HRMS
             ClearForm();
         }
 
-        // -------------------- PASSWORD HASH --------------------
-
         private string HashPassword(string password)
         {
             using (SHA256 sha = SHA256.Create())
@@ -64,8 +55,6 @@ namespace HRMS
                 return sb.ToString();
             }
         }
-
-        // -------------------- EMAIL HELPERS --------------------
 
         private bool IsValidEmail(string email)
         {
@@ -92,8 +81,6 @@ namespace HRMS
             }
         }
 
-        // -------------------- SUBMIT --------------------
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             fullName = txtFullName.Text.Trim();
@@ -109,8 +96,6 @@ namespace HRMS
             if (rbMale.Checked) gender = "Male";
             else if (rbFemale.Checked) gender = "Female";
             else gender = "";
-
-            // -------- VALIDATION --------
 
             if (string.IsNullOrEmpty(fullName)) { MessageBox.Show("Enter full name"); return; }
             if (gender == "") { MessageBox.Show("Select gender"); return; }
@@ -136,8 +121,6 @@ namespace HRMS
             InsertPerson();
         }
 
-        // -------------------- MAIN INSERT LOGIC --------------------
-
         private void InsertPerson()
         {
             using (SqlConnection con = new SqlConnection(cs))
@@ -152,31 +135,17 @@ namespace HRMS
 
                     if (jobTitle.Trim().ToLower() == "accountant")
                     {
-                        string q = @"
-                        INSERT INTO Accountants
-                        (FullName, Email, Gender, DOB, Phone, Address, Department,
-                         JobTitle, EmploymentType, JoinDate, Salary)
-                        VALUES
-                        (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department,
-                         @JobTitle, @EmploymentType, @JoinDate, @Salary);
-                        SELECT SCOPE_IDENTITY();";
+                        string q = @"INSERT INTO Accountants (FullName, Email, Gender, DOB, Phone, Address, Department,JobTitle, EmploymentType, JoinDate, Salary) VALUES  (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department, @JobTitle, @EmploymentType, @JoinDate, @Salary);SELECT SCOPE_IDENTITY();";
 
                         SqlCommand cmd = new SqlCommand(q, con, tran);
                         FillCommonParameters(cmd);
-
                         refId = Convert.ToInt32(cmd.ExecuteScalar());
                         role = "Accountant";
                     }
                     else
                     {
                         string q = @"
-                        INSERT INTO Employees_Info
-                        (FullName, Email, Gender, DOB, Phone, Address, Department,
-                         JobTitle, EmploymentType, JoinDate, Salary)
-                        VALUES
-                        (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department,
-                         @JobTitle, @EmploymentType, @JoinDate, @Salary);
-                        SELECT SCOPE_IDENTITY();";
+                        INSERT INTO Employees_Info (FullName, Email, Gender, DOB, Phone, Address, Department,JobTitle, EmploymentType, JoinDate, Salary) VALUES (@FullName, @Email, @Gender, @DOB, @Phone, @Address, @Department,@JobTitle, @EmploymentType, @JoinDate, @Salary);SELECT SCOPE_IDENTITY();";
 
                         SqlCommand cmd = new SqlCommand(q, con, tran);
                         FillCommonParameters(cmd);
@@ -185,8 +154,7 @@ namespace HRMS
                         role = "Employee";
                     }
 
-                    string uq = @"INSERT INTO Users (RefId, Role, Email, Password, SecurityAns)
-                                  VALUES (@RefId, @Role, @Email, @Password, @SecurityAns)";
+                    string uq = @"INSERT INTO Users (RefId, Role, Email, Password, SecurityAns) VALUES (@RefId, @Role, @Email, @Password, @SecurityAns)";
 
                     SqlCommand ucmd = new SqlCommand(uq, con, tran);
                     ucmd.Parameters.AddWithValue("@RefId", refId);
@@ -194,22 +162,18 @@ namespace HRMS
                     ucmd.Parameters.AddWithValue("@Email", email);
                     ucmd.Parameters.AddWithValue("@Password", password);
                     ucmd.Parameters.AddWithValue("@SecurityAns", securityAnswer);
-
                     ucmd.ExecuteNonQuery();
-
                     tran.Commit();
-                    MessageBox.Show("✅ Registration successful!");
+                    MessageBox.Show("Registration successful!");
                     ClearForm();
                 }
                 catch (Exception ex)
                 {
                     tran.Rollback();
-                    MessageBox.Show("❌ Error: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
-
-        // -------------------- COMMON PARAMETERS --------------------
 
         private void FillCommonParameters(SqlCommand cmd)
         {
@@ -225,8 +189,6 @@ namespace HRMS
             cmd.Parameters.AddWithValue("@JoinDate", dtpJoiningDate.Value);
             cmd.Parameters.AddWithValue("@Salary", salary);
         }
-
-        // -------------------- CLEAR --------------------
 
         private void ClearForm()
         {

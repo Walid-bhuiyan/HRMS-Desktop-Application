@@ -1,5 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HRMS
@@ -10,14 +17,11 @@ namespace HRMS
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
-        // ✅ Constructor receives employeeId
         public UpdateProfile(int id)
         {
             InitializeComponent();
             employeeId = id;
         }
-
-        // ================= LOAD PROFILE =================
         private void LoadProfile()
         {
             try
@@ -56,18 +60,60 @@ namespace HRMS
                 MessageBox.Show("Load error: " + ex.Message);
             }
         }
+        private bool IsValidProfile()
+        {
+            if (txtName.Text.Trim() == "")
+            {
+                MessageBox.Show("Name cannot be empty");
+                return false;
+            }
 
-        // ================= UPDATE =================
+            string email = txtEmail.Text;
+
+            if (!email.Contains("@gmail.com"))
+
+            {
+
+                MessageBox.Show("Please enter a valid Gmail address");
+
+                return false;
+
+            }
+
+            if (email != email.ToLower())
+
+            {
+
+                MessageBox.Show("Email must be in lowercase letters");
+
+                return false;
+
+            }
+
+
+            if (txtPhone.Text.Length != 11 || !txtPhone.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must be 11 digits");
+                return false;
+            }
+
+            if (dateTimePickerDOB.Value > DateTime.Now)
+            {
+                MessageBox.Show("Date of Birth cannot be a future date");
+                return false;
+            }
+
+            return true;
+        }
+
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (!IsValidProfile())
+                return;
+
             try
             {
-                if (txtName.Text == "" || txtEmail.Text == "" || txtPhone.Text == "")
-                {
-                    MessageBox.Show("Please fill all required fields");
-                    return;
-                }
-
                 using (SqlConnection conn = new SqlConnection(conStr))
                 {
                     string query = @"UPDATE Employees_Info SET
@@ -97,7 +143,7 @@ namespace HRMS
                     conn.Close();
                 }
 
-                MessageBox.Show("Profile updated successfully ✅");
+                MessageBox.Show("Profile updated successfully");
                 LoadProfile();
             }
             catch (Exception ex)
@@ -106,15 +152,17 @@ namespace HRMS
             }
         }
 
-        // ================= FORM LOAD =================
+
         private void UpdateProfile_Load(object sender, EventArgs e)
         {
             txtId.Text = employeeId.ToString();
             txtId.ReadOnly = true;
+            txtdepartment.ReadOnly = true;
+            txtJobtitle.ReadOnly = true;
+            txtGender.ReadOnly = true;
+
             LoadProfile();
         }
-
-        // ================= BACK =================
         private void btnback_Click(object sender, EventArgs e)
         {
             EmployeeDashboard ed = new EmployeeDashboard(employeeId);

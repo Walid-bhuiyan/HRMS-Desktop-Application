@@ -13,16 +13,12 @@ namespace HRMS
         string adminEmail;
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
-
-        // ✅ ONLY constructor (called from login)
         public btnadminoperations(int id, string email)
         {
             InitializeComponent();
             adminId = id;
             adminEmail = email;
         }
-
-        // ================= LOAD =================
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
             resetpasspanel.Visible = false;
@@ -51,9 +47,13 @@ namespace HRMS
                     object result = cmd.ExecuteScalar();
 
                     if (result != null)
+                    {
                         lblwc.Text = "Welcome Admin - " + result.ToString();
+                    }
                     else
+                    {
                         lblwc.Text = "Welcome Admin";
+                    }
 
                     conn.Close();
                 }
@@ -65,8 +65,6 @@ namespace HRMS
                 MessageBox.Show("Error loading admin name: " + ex.Message);
             }
         }
-
-        // ================= LABEL AUTO FIT =================
         private void FitLabelText(Label lbl)
         {
             if (string.IsNullOrEmpty(lbl.Text)) return;
@@ -91,7 +89,6 @@ namespace HRMS
             }
         }
 
-        // ================= LOGOUT =================
         private void btnlogout_Click(object sender, EventArgs e)
         {
             loginframe lg = new loginframe();
@@ -99,15 +96,12 @@ namespace HRMS
             this.Hide();
         }
 
-        // ================= OPEN ADMIN OPERATIONS =================
         private void button1_Click_1(object sender, EventArgs e)
         {
             AdminOperation admnoperation = new AdminOperation(adminId, adminEmail);
             admnoperation.Show();
             this.Hide();
         }
-
-        // ================= RESET PANEL =================
         private void btnresetpassword_Click(object sender, EventArgs e)
         {
             resetpasspanel.Visible = true;
@@ -119,7 +113,6 @@ namespace HRMS
             resetpasspanel.Visible = false;
         }
 
-        // ================= HASH =================
         private string HashPassword(string password)
         {
             using (SHA256 sha = SHA256.Create())
@@ -131,8 +124,6 @@ namespace HRMS
                 return sb.ToString();
             }
         }
-
-        // ================= CHANGE PASSWORD =================
         private void btnconfirm_Click(object sender, EventArgs e)
         {
             string oldPass = txtoldpass.Text.Trim();
@@ -166,8 +157,7 @@ namespace HRMS
                 {
                     conn.Open();
 
-                    string checkQuery = @"SELECT COUNT(*) FROM Users 
-                                          WHERE RefId=@id AND Role='Admin' AND Password=@old";
+                    string checkQuery = @"SELECT COUNT(*) FROM Users WHERE RefId=@id AND Role='Admin' AND Password=@old";
 
                     SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
                     checkCmd.Parameters.AddWithValue("@id", adminId);
@@ -207,7 +197,6 @@ namespace HRMS
             }
         }
 
-        // ================= EMPLOYEE MANAGEMENT =================
         private void btnempoyeeoperations_Click(object sender, EventArgs e)
         {
             HR_EmployeeManagement emp = new HR_EmployeeManagement("ADMIN", adminId);
@@ -215,7 +204,6 @@ namespace HRMS
             this.Hide();
         }
 
-        // ================= HR MANAGER OPS =================
         private void btnmangeroperations_Click(object sender, EventArgs e)
         {
             AdminOpHRManager admnhrmanager = new AdminOpHRManager(adminId, adminEmail);
@@ -229,23 +217,46 @@ namespace HRMS
             admnatdnc.Show();
             this.Hide();
         }
-        private void txtusername_TextChanged(object sender, EventArgs e) { }
+        private void txtusername_TextChanged(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void txtoldpass_TextChanged(object sender, EventArgs e) { }
+        private void txtoldpass_TextChanged(object sender, EventArgs e)
+        {
+        
+        }
 
-        private void txtnewpass_TextChanged(object sender, EventArgs e) { }
+        private void txtnewpass_TextChanged(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void txtconfirmpass_TextChanged(object sender, EventArgs e) { }
+        private void txtconfirmpass_TextChanged(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) 
+        {
+        
+        }
 
-        private void lblwelcome_Click(object sender, EventArgs e) { }
+        private void lblwelcome_Click(object sender, EventArgs e) 
+        {
+        
+        }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) { }
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) 
+        {
+        
+        }
 
         private void btnaccountantoperations_Click(object sender, EventArgs e)
         {
-
+            Admin_PayrollManagement n = new Admin_PayrollManagement(adminId,adminEmail);
+            n.Show();
+            this.Hide();
         }
     }
 }

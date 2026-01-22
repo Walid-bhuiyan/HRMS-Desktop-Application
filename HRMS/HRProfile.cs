@@ -34,9 +34,7 @@ namespace HRMS
                 using (SqlConnection con = new SqlConnection(conStr))
                 {
                     string query = @"
-                        SELECT hrId, Name, Email, Phone, Gender, Address, DOB
-                        FROM HRManagers
-                        WHERE hrId = @id";
+                        SELECT hrId, Name, Email, Phone, Gender, Address, DOB FROM HRManagers WHERE hrId = @id";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@id", hrId);
@@ -77,5 +75,7 @@ namespace HRMS
         {
 
         }
+
+       
     }
 }

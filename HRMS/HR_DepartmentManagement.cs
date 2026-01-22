@@ -7,7 +7,6 @@ namespace HRMS
 {
     public partial class HR_DepartmentManagement : Form
     {
-        // ✅ Connection string (same style as your project)
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
 
         int hrId;
@@ -18,14 +17,9 @@ namespace HRMS
             hrId = id;
         }
 
-        // ================= FORM LOAD =================
-
         private void HR_DepartmentManagement_Load(object sender, EventArgs e)
         {
-            // Do nothing on load (data will show only when clicking Show)
         }
-
-        // ================= SHOW =================
 
         private void ShowDepartments()
         {
@@ -43,8 +37,6 @@ namespace HRMS
         {
             ShowDepartments();
         }
-
-        // ================= ADD =================
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -64,12 +56,10 @@ namespace HRMS
                 cmd.ExecuteNonQuery();
             }
 
-            MessageBox.Show("✅ Department added successfully!");
+            MessageBox.Show("Department added successfully!");
             ClearBoxes();
             ShowDepartments();
         }
-
-        // ================= GRID CLICK =================
 
         private void dataGridViewDepartments_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -82,8 +72,6 @@ namespace HRMS
                                     .Cells["DepartmentName"].Value.ToString();
             }
         }
-
-        // ================= UPDATE =================
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -105,12 +93,10 @@ namespace HRMS
                 cmd.ExecuteNonQuery();
             }
 
-            MessageBox.Show("✅ Department updated!");
+            MessageBox.Show("Department updated!");
             ClearBoxes();
             ShowDepartments();
         }
-
-        // ================= DELETE =================
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -123,8 +109,7 @@ namespace HRMS
             DialogResult confirm = MessageBox.Show(
                 "Are you sure you want to delete this department?",
                 "Confirm Delete",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
+                MessageBoxButtons.YesNo);
 
             if (confirm != DialogResult.Yes)
                 return;
@@ -134,7 +119,6 @@ namespace HRMS
                 string query = "DELETE FROM Departments WHERE DepartmentID=@id";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@id", txtDeptId.Text);
-
                 con.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -143,8 +127,6 @@ namespace HRMS
             ClearBoxes();
             ShowDepartments();
         }
-
-        // ================= CLEAR =================
 
         private void ClearBoxes()
         {
@@ -157,8 +139,6 @@ namespace HRMS
             ClearBoxes();
         }
 
-        // ================= BACK =================
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             HRManagerDashboard h = new HRManagerDashboard(hrId);
@@ -168,7 +148,7 @@ namespace HRMS
 
         private void btnBack_Click_1(object sender, EventArgs e)
         {
-            HRManagerDashboard hd=new HRManagerDashboard(hrId);
+            HRManagerDashboard hd = new HRManagerDashboard(hrId);
             hd.Show();
             this.Hide();
         }

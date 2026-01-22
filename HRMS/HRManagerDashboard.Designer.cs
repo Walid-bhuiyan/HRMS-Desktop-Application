@@ -32,6 +32,7 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.topHeaderLogin = new System.Windows.Forms.Label();
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.btnPayroll = new System.Windows.Forms.Button();
@@ -83,7 +84,6 @@
             // pnlTopHr
             // 
             this.pnlTopHr.BackColor = System.Drawing.Color.SteelBlue;
-            this.pnlTopHr.Controls.Add(this.btnLogout);
             this.pnlTopHr.Controls.Add(this.topHeaderLogin);
             this.pnlTopHr.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopHr.Location = new System.Drawing.Point(0, 0);
@@ -96,17 +96,18 @@
             // btnLogout
             // 
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.BackColor = System.Drawing.Color.SteelBlue;
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.Ivory;
-            this.btnLogout.Location = new System.Drawing.Point(707, 13);
+            this.btnLogout.Location = new System.Drawing.Point(463, 487);
             this.btnLogout.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(91, 34);
             this.btnLogout.TabIndex = 1;
             this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // topHeaderLogin
@@ -127,6 +128,7 @@
             this.pnlSidebar.Controls.Add(this.btnChangePassword);
             this.pnlSidebar.Controls.Add(this.btnProfile);
             this.pnlSidebar.Controls.Add(this.btnPayroll);
+            this.pnlSidebar.Controls.Add(this.button1);
             this.pnlSidebar.Controls.Add(this.btnLeaveManagementSP);
             this.pnlSidebar.Controls.Add(this.btnAttendance);
             this.pnlSidebar.Controls.Add(this.btnOrganization);
@@ -136,8 +138,26 @@
             this.pnlSidebar.Margin = new System.Windows.Forms.Padding(2);
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.pnlSidebar.Size = new System.Drawing.Size(220, 448);
+            this.pnlSidebar.Size = new System.Drawing.Size(220, 475);
             this.pnlSidebar.TabIndex = 9;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 240);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(220, 46);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Complaints";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnChangePassword
             // 
@@ -146,7 +166,7 @@
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.Color.White;
-            this.btnChangePassword.Location = new System.Drawing.Point(0, 332);
+            this.btnChangePassword.Location = new System.Drawing.Point(0, 378);
             this.btnChangePassword.Margin = new System.Windows.Forms.Padding(2);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -164,7 +184,7 @@
             this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfile.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfile.ForeColor = System.Drawing.Color.White;
-            this.btnProfile.Location = new System.Drawing.Point(0, 286);
+            this.btnProfile.Location = new System.Drawing.Point(0, 332);
             this.btnProfile.Margin = new System.Windows.Forms.Padding(2);
             this.btnProfile.Name = "btnProfile";
             this.btnProfile.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -182,7 +202,7 @@
             this.btnPayroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPayroll.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPayroll.ForeColor = System.Drawing.Color.White;
-            this.btnPayroll.Location = new System.Drawing.Point(0, 240);
+            this.btnPayroll.Location = new System.Drawing.Point(0, 286);
             this.btnPayroll.Margin = new System.Windows.Forms.Padding(2);
             this.btnPayroll.Name = "btnPayroll";
             this.btnPayroll.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -586,12 +606,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 504);
+            this.ClientSize = new System.Drawing.Size(800, 532);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.pnlTopHr);
             this.Controls.Add(this.pnlSidebar);
             this.Controls.Add(this.pnlMain);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HRManagerDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HRManagerDashboard";
             this.Load += new System.EventHandler(this.HRManagerDashboard_Load);
             this.pnlTopHr.ResumeLayout(false);
@@ -659,5 +681,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTotalEmployeesValue;
         private System.Windows.Forms.Label lblTotalEmployeesTitle;
+        private System.Windows.Forms.Button button1;
     }
 }

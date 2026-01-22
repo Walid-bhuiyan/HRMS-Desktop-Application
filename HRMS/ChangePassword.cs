@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
+using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Security.Cryptography;
 namespace HRMS
 {
     public partial class ChangePassword : Form
@@ -12,14 +17,14 @@ namespace HRMS
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
 
-        // ✅ MUST receive employeeId
+        
         public ChangePassword(int id)
         {
             InitializeComponent();
             employeeId = id;
         }
 
-        // 🔐 HASH FUNCTION
+        
         private string HashPassword(string password)
         {
             using (SHA256 sha = SHA256.Create())
@@ -32,7 +37,7 @@ namespace HRMS
             }
         }
 
-        // ✅ CHANGE PASSWORD
+        
         private void btnChange_Click(object sender, EventArgs e)
         {
             if (txtOldPass.Text == "" || txtNewPass.Text == "" || txtConfirmPass.Text == "")
@@ -56,7 +61,7 @@ namespace HRMS
                 {
                     con.Open();
 
-                    // 1️⃣ CHECK OLD PASSWORD
+                    
                     string checkQuery = @"SELECT COUNT(*) FROM Users 
                                           WHERE RefId=@id AND Role='Employee' AND Password=@oldpass";
 
@@ -72,7 +77,7 @@ namespace HRMS
                         return;
                     }
 
-                    // 2️⃣ UPDATE USERS
+                    
                     string updateUsers = @"UPDATE Users 
                                            SET Password=@newpass 
                                            WHERE RefId=@id AND Role='Employee'";
@@ -83,6 +88,8 @@ namespace HRMS
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Password changed successfully ✅");
+                    loginframe n = new loginframe();
+                    n.Show();
                     this.Close();
                 }
             }
@@ -92,7 +99,7 @@ namespace HRMS
             }
         }
 
-        // 🔙 BACK
+        
         private void btnback_Click(object sender, EventArgs e)
         {
             EmployeeDashboard ed = new EmployeeDashboard(employeeId);
@@ -100,7 +107,7 @@ namespace HRMS
             this.Hide();
         }
 
-        // 👁 SHOW PASSWORD
+        
         private void chbShowPass_CheckedChanged(object sender, EventArgs e)
         {
             if (chbShowPass.Checked)

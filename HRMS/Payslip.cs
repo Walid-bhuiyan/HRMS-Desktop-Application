@@ -12,14 +12,16 @@ namespace HRMS
 {
     public partial class Payslip : Form
     {
-        public Payslip()
+        int employeeId;
+        public Payslip(int employeeId)
         {
             InitializeComponent();
+            this.employeeId = employeeId;
         }
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            EmployeeDashboard ed = new EmployeeDashboard();
+            EmployeeDashboard ed = new EmployeeDashboard(employeeId);
             ed.Show();
             this.Hide();
         }
