@@ -31,14 +31,14 @@
             this.topLoginPanel = new System.Windows.Forms.Panel();
             this.topHeaderLogin = new System.Windows.Forms.Label();
             this.pnlsidebar = new System.Windows.Forms.Panel();
-            this.btnattendence = new System.Windows.Forms.Button();
             this.btnlogout = new System.Windows.Forms.Button();
+            this.btnattendence = new System.Windows.Forms.Button();
             this.btnresetpassword = new System.Windows.Forms.Button();
             this.btnaccountantoperations = new System.Windows.Forms.Button();
             this.btnempoyeeoperations = new System.Windows.Forms.Button();
             this.btnmangeroperations = new System.Windows.Forms.Button();
-            this.lbladminmenu = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lbladminmenu = new System.Windows.Forms.Label();
             this.resetpasspanel = new System.Windows.Forms.Panel();
             this.txtusername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -99,20 +99,6 @@
             this.pnlsidebar.Size = new System.Drawing.Size(226, 438);
             this.pnlsidebar.TabIndex = 15;
             // 
-            // btnattendence
-            // 
-            this.btnattendence.BackColor = System.Drawing.Color.SkyBlue;
-            this.btnattendence.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnattendence.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnattendence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnattendence.Location = new System.Drawing.Point(0, 331);
-            this.btnattendence.Name = "btnattendence";
-            this.btnattendence.Size = new System.Drawing.Size(226, 58);
-            this.btnattendence.TabIndex = 22;
-            this.btnattendence.Text = "Attendence";
-            this.btnattendence.UseVisualStyleBackColor = false;
-            this.btnattendence.Click += new System.EventHandler(this.btnattendence_Click);
-            // 
             // btnlogout
             // 
             this.btnlogout.BackColor = System.Drawing.Color.Red;
@@ -127,6 +113,20 @@
             this.btnlogout.Text = "Log Out";
             this.btnlogout.UseVisualStyleBackColor = false;
             this.btnlogout.Click += new System.EventHandler(this.btnlogout_Click);
+            // 
+            // btnattendence
+            // 
+            this.btnattendence.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnattendence.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnattendence.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnattendence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnattendence.Location = new System.Drawing.Point(0, 331);
+            this.btnattendence.Name = "btnattendence";
+            this.btnattendence.Size = new System.Drawing.Size(226, 58);
+            this.btnattendence.TabIndex = 22;
+            this.btnattendence.Text = "Attendence";
+            this.btnattendence.UseVisualStyleBackColor = false;
+            this.btnattendence.Click += new System.EventHandler(this.btnattendence_Click);
             // 
             // btnresetpassword
             // 
@@ -153,7 +153,7 @@
             this.btnaccountantoperations.Name = "btnaccountantoperations";
             this.btnaccountantoperations.Size = new System.Drawing.Size(226, 58);
             this.btnaccountantoperations.TabIndex = 19;
-            this.btnaccountantoperations.Text = "Accountant ";
+            this.btnaccountantoperations.Text = "Accountant Operations";
             this.btnaccountantoperations.UseVisualStyleBackColor = false;
             this.btnaccountantoperations.Click += new System.EventHandler(this.btnaccountantoperations_Click);
             // 
@@ -187,20 +187,6 @@
             this.btnmangeroperations.UseVisualStyleBackColor = false;
             this.btnmangeroperations.Click += new System.EventHandler(this.btnmangeroperations_Click);
             // 
-            // lbladminmenu
-            // 
-            this.lbladminmenu.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbladminmenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbladminmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.lbladminmenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbladminmenu.Location = new System.Drawing.Point(0, 0);
-            this.lbladminmenu.Margin = new System.Windows.Forms.Padding(11, 4, 11, 4);
-            this.lbladminmenu.Name = "lbladminmenu";
-            this.lbladminmenu.Size = new System.Drawing.Size(226, 41);
-            this.lbladminmenu.TabIndex = 16;
-            this.lbladminmenu.Text = "    Admin  Menu   ";
-            this.lbladminmenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SkyBlue;
@@ -215,6 +201,20 @@
             this.button1.Text = "Admin Operations";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // lbladminmenu
+            // 
+            this.lbladminmenu.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lbladminmenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbladminmenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.lbladminmenu.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbladminmenu.Location = new System.Drawing.Point(0, 0);
+            this.lbladminmenu.Margin = new System.Windows.Forms.Padding(11, 4, 11, 4);
+            this.lbladminmenu.Name = "lbladminmenu";
+            this.lbladminmenu.Size = new System.Drawing.Size(226, 41);
+            this.lbladminmenu.TabIndex = 16;
+            this.lbladminmenu.Text = "    Admin  Menu   ";
+            this.lbladminmenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // resetpasspanel
             // 

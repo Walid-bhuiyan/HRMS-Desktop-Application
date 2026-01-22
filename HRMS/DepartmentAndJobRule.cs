@@ -70,7 +70,7 @@ namespace HRMS
         
         private void DepartmentAndJobRule_Load(object sender, EventArgs e)
         {
-            ShowDetails();
+           // ShowDetails();
             SetReadOnly();
         }
 
@@ -80,6 +80,11 @@ namespace HRMS
             EmployeeDashboard ed = new EmployeeDashboard(employeeId);
             ed.Show();
             this.Hide();
+        }
+
+        private void btnshow_Click(object sender, EventArgs e)
+        {
+            ShowDetails();
         }
     }
 }

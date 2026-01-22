@@ -15,7 +15,6 @@ namespace HRMS
             hrId = id;
         }
 
-        // ================= DATABASE CONNECTION =================
         private SqlConnection Connect()
         {
             string connectionString = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True;";
@@ -24,10 +23,8 @@ namespace HRMS
             return conn;
         }
 
-        // ================= FORM LOAD =================
         private void HR_PayrollManagement_Load(object sender, EventArgs e)
         {
-            // ✅ FIRST screen
             payrollProcessingPanel.Visible = true;
             viewemppayrollPanel.Visible = false;
 
@@ -39,15 +36,12 @@ namespace HRMS
             lblerroryear.Text = "";
         }
 
-        // ================= BACK TO HR DASHBOARD =================
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
             HRManagerDashboard hd = new HRManagerDashboard(hrId);
             hd.Show();
         }
-
-        // ================= PAYROLL PROCESSING =================
 
         private void btngeneratepayroll_Click(object sender, EventArgs e)
         {
@@ -203,8 +197,6 @@ namespace HRMS
             lblerroryear.Text = "";
         }
 
-        // ================= VIEW EMPLOYEE PAYROLL =================
-
         private void btnviewemppayroll_Click(object sender, EventArgs e)
         {
             payrollProcessingPanel.Visible = true;
@@ -238,17 +230,7 @@ namespace HRMS
             using (SqlConnection conn = Connect())
             {
                 string query = @"
-                SELECT 
-                    p.PayrollID,
-                    e.FullName,
-                    e.Department,
-                    e.JobTitle,
-                    p.Month,
-                    p.Year,
-                    p.GrossSalary,
-                    p.TotalDeduction,
-                    p.NetSalary
-                FROM Payroll p
+                SELECT p.PayrollID,e.FullName,e.Department,e.JobTitle,p.Month,p.Year,p.GrossSalary,p.TotalDeduction,p.NetSalary FROM Payroll p
                 INNER JOIN Employees_Info e ON e.EmployeeID = p.EmployeeID
                 WHERE p.EmployeeID=@EmpID AND p.Month=@Month AND p.Year=@Year";
 
@@ -343,6 +325,7 @@ namespace HRMS
             payrollProcessingPanel.Visible = true;
             viewemppayrollPanel.Visible = false;
         }
+
         private void showPayroll()
         {
             SqlConnection conn = Connect();
@@ -365,18 +348,57 @@ namespace HRMS
         private void btnreset2_Click(object sender, EventArgs e)
         {
             cmbselectmonth.SelectedIndex = cmbselectyear.SelectedIndex = -1;
-
             dataGridView2.DataSource = null;
-
             lblerrormonth.Text = lblerroryear.Text = "";
-
         }
 
         private void btnBackToHR_Click(object sender, EventArgs e)
         {
-            HRManagerDashboard hr= new HRManagerDashboard(hrId);
+            HRManagerDashboard hr = new HRManagerDashboard(hrId);
             hr.Show();
             this.Hide();
         }
+
+        private void topHeaderLogin_Click(object sender, EventArgs e) { }
+        private void payrollProcessingPanel_Paint(object sender, PaintEventArgs e) { }
+        private void topLoginPanel_Paint(object sender, PaintEventArgs e) { }
+        private void txtpayrollid_TextChanged(object sender, EventArgs e) { }
+        private void lblpayrollid_Click(object sender, EventArgs e) { }
+        private void lblerroryearpayroll_Click(object sender, EventArgs e) { }
+        private void lblerrormonthpayroll_Click(object sender, EventArgs e) { }
+        private void lblerrorempidpayroll_Click(object sender, EventArgs e) { }
+        private void lblpayrollbreakdown_Click(object sender, EventArgs e) { }
+        private void lblempinfopayroll_Click(object sender, EventArgs e) { }
+        private void txtnetsalarypayroll_TextChanged(object sender, EventArgs e) { }
+        private void lblnetsalarypayroll_Click(object sender, EventArgs e) { }
+        private void txttotaldeductionpayroll_TextChanged(object sender, EventArgs e) { }
+        private void lbltotaldeductionpayroll_Click(object sender, EventArgs e) { }
+        private void txtgrosssalarypayroll_TextChanged(object sender, EventArgs e) { }
+        private void lblgrosssalarypayroll_Click(object sender, EventArgs e) { }
+        private void txtyearpayroll_TextChanged(object sender, EventArgs e) { }
+        private void lblyearpayroll_Click(object sender, EventArgs e) { }
+        private void txtmonthpayroll_TextChanged(object sender, EventArgs e) { }
+        private void lblmonthpayroll_Click(object sender, EventArgs e) { }
+        private void txtjobtitlepayroll_TextChanged(object sender, EventArgs e) { }
+        private void lbljobtitlepayroll_Click(object sender, EventArgs e) { }
+        private void txtdepartmentpayroll_TextChanged(object sender, EventArgs e) { }
+        private void lbldepartmentpayroll_Click(object sender, EventArgs e) { }
+        private void txtempnamepayroll_TextChanged(object sender, EventArgs e) { }
+        private void lblempnamepayroll_Click(object sender, EventArgs e) { }
+        private void cmbselectmonthpayroll_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void lblselectmonthpayroll_Click(object sender, EventArgs e) { }
+        private void lblselectyearpayroll_Click(object sender, EventArgs e) { }
+        private void txtempidpayroll_TextChanged(object sender, EventArgs e) { }
+        private void cmbselectyearpayroll_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void viewemppayrollPanel_Paint(object sender, PaintEventArgs e) { }
+        private void lblempidpayroll_Click(object sender, EventArgs e) { }
+        private void lblviewemppayroll_Click(object sender, EventArgs e) { }
+        private void lblerroryear_Click(object sender, EventArgs e) { }
+        private void lblerrormonth_Click(object sender, EventArgs e) { }
+        private void cmbselectyear_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void cmbselectmonth_SelectedIndexChanged(object sender, EventArgs e) { }
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void lblselectyear_Click(object sender, EventArgs e) { }
+        private void lblselectmonth_Click(object sender, EventArgs e) { }
     }
 }

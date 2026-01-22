@@ -196,7 +196,7 @@
             this.btnshow.TabIndex = 56;
             this.btnshow.Text = "Show";
             this.btnshow.UseVisualStyleBackColor = false;
-            //this.btnshow.Click += new System.EventHandler(this.btnshow_Click);
+            this.btnshow.Click += new System.EventHandler(this.btnshow_Click);
             // 
             // DepartmentAndJobRule
             // 

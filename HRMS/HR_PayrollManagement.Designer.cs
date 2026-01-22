@@ -93,6 +93,7 @@
             this.topLoginPanel.Name = "topLoginPanel";
             this.topLoginPanel.Size = new System.Drawing.Size(1296, 59);
             this.topLoginPanel.TabIndex = 9;
+            this.topLoginPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.topLoginPanel_Paint);
             // 
             // topHeaderLogin
             // 
@@ -105,6 +106,7 @@
             this.topHeaderLogin.TabIndex = 0;
             this.topHeaderLogin.Text = "Payroll Processing";
             this.topHeaderLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.topHeaderLogin.Click += new System.EventHandler(this.topHeaderLogin_Click);
             // 
             // payrollProcessingPanel
             // 
@@ -122,11 +124,12 @@
             this.payrollProcessingPanel.Controls.Add(this.lblselectyear);
             this.payrollProcessingPanel.Controls.Add(this.lblselectmonth);
             this.payrollProcessingPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.payrollProcessingPanel.Location = new System.Drawing.Point(72, 68);
+            this.payrollProcessingPanel.Location = new System.Drawing.Point(38, 68);
             this.payrollProcessingPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.payrollProcessingPanel.Name = "payrollProcessingPanel";
             this.payrollProcessingPanel.Size = new System.Drawing.Size(1192, 703);
             this.payrollProcessingPanel.TabIndex = 37;
+            this.payrollProcessingPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.payrollProcessingPanel_Paint);
             // 
             // viewemppayrollPanel
             // 
@@ -164,12 +167,13 @@
             this.viewemppayrollPanel.Controls.Add(this.lblempidpayroll);
             this.viewemppayrollPanel.Controls.Add(this.lblviewemppayroll);
             this.viewemppayrollPanel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.viewemppayrollPanel.Location = new System.Drawing.Point(6, 4);
+            this.viewemppayrollPanel.Location = new System.Drawing.Point(3, 4);
             this.viewemppayrollPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.viewemppayrollPanel.Name = "viewemppayrollPanel";
             this.viewemppayrollPanel.Size = new System.Drawing.Size(1183, 699);
             this.viewemppayrollPanel.TabIndex = 40;
             this.viewemppayrollPanel.Visible = false;
+            this.viewemppayrollPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.viewemppayrollPanel_Paint);
             // 
             // txtpayrollid
             // 
@@ -178,6 +182,7 @@
             this.txtpayrollid.Name = "txtpayrollid";
             this.txtpayrollid.Size = new System.Drawing.Size(231, 30);
             this.txtpayrollid.TabIndex = 62;
+            this.txtpayrollid.TextChanged += new System.EventHandler(this.txtpayrollid_TextChanged);
             // 
             // lblpayrollid
             // 
@@ -188,6 +193,7 @@
             this.lblpayrollid.Size = new System.Drawing.Size(88, 23);
             this.lblpayrollid.TabIndex = 61;
             this.lblpayrollid.Text = "Payroll ID";
+            this.lblpayrollid.Click += new System.EventHandler(this.lblpayrollid_Click);
             // 
             // button1
             // 
@@ -212,6 +218,7 @@
             this.lblerroryearpayroll.Name = "lblerroryearpayroll";
             this.lblerroryearpayroll.Size = new System.Drawing.Size(0, 19);
             this.lblerroryearpayroll.TabIndex = 59;
+            this.lblerroryearpayroll.Click += new System.EventHandler(this.lblerroryearpayroll_Click);
             // 
             // lblerrormonthpayroll
             // 
@@ -222,6 +229,7 @@
             this.lblerrormonthpayroll.Name = "lblerrormonthpayroll";
             this.lblerrormonthpayroll.Size = new System.Drawing.Size(0, 19);
             this.lblerrormonthpayroll.TabIndex = 58;
+            this.lblerrormonthpayroll.Click += new System.EventHandler(this.lblerrormonthpayroll_Click);
             // 
             // lblerrorempidpayroll
             // 
@@ -232,6 +240,7 @@
             this.lblerrorempidpayroll.Name = "lblerrorempidpayroll";
             this.lblerrorempidpayroll.Size = new System.Drawing.Size(0, 19);
             this.lblerrorempidpayroll.TabIndex = 57;
+            this.lblerrorempidpayroll.Click += new System.EventHandler(this.lblerrorempidpayroll_Click);
             // 
             // lblpayrollbreakdown
             // 
@@ -243,6 +252,7 @@
             this.lblpayrollbreakdown.Size = new System.Drawing.Size(161, 23);
             this.lblpayrollbreakdown.TabIndex = 56;
             this.lblpayrollbreakdown.Text = "Payroll Breakdown";
+            this.lblpayrollbreakdown.Click += new System.EventHandler(this.lblpayrollbreakdown_Click);
             // 
             // lblempinfopayroll
             // 
@@ -254,6 +264,7 @@
             this.lblempinfopayroll.Size = new System.Drawing.Size(189, 23);
             this.lblempinfopayroll.TabIndex = 55;
             this.lblempinfopayroll.Text = "Employee Information";
+            this.lblempinfopayroll.Click += new System.EventHandler(this.lblempinfopayroll_Click);
             // 
             // txtnetsalarypayroll
             // 
@@ -262,6 +273,7 @@
             this.txtnetsalarypayroll.Name = "txtnetsalarypayroll";
             this.txtnetsalarypayroll.Size = new System.Drawing.Size(231, 30);
             this.txtnetsalarypayroll.TabIndex = 54;
+            this.txtnetsalarypayroll.TextChanged += new System.EventHandler(this.txtnetsalarypayroll_TextChanged);
             // 
             // lblnetsalarypayroll
             // 
@@ -272,6 +284,7 @@
             this.lblnetsalarypayroll.Size = new System.Drawing.Size(94, 23);
             this.lblnetsalarypayroll.TabIndex = 53;
             this.lblnetsalarypayroll.Text = "Net Salary";
+            this.lblnetsalarypayroll.Click += new System.EventHandler(this.lblnetsalarypayroll_Click);
             // 
             // txttotaldeductionpayroll
             // 
@@ -280,6 +293,7 @@
             this.txttotaldeductionpayroll.Name = "txttotaldeductionpayroll";
             this.txttotaldeductionpayroll.Size = new System.Drawing.Size(231, 30);
             this.txttotaldeductionpayroll.TabIndex = 52;
+            this.txttotaldeductionpayroll.TextChanged += new System.EventHandler(this.txttotaldeductionpayroll_TextChanged);
             // 
             // lbltotaldeductionpayroll
             // 
@@ -290,6 +304,7 @@
             this.lbltotaldeductionpayroll.Size = new System.Drawing.Size(137, 23);
             this.lbltotaldeductionpayroll.TabIndex = 51;
             this.lbltotaldeductionpayroll.Text = "Total Deduction";
+            this.lbltotaldeductionpayroll.Click += new System.EventHandler(this.lbltotaldeductionpayroll_Click);
             // 
             // txtgrosssalarypayroll
             // 
@@ -298,6 +313,7 @@
             this.txtgrosssalarypayroll.Name = "txtgrosssalarypayroll";
             this.txtgrosssalarypayroll.Size = new System.Drawing.Size(231, 30);
             this.txtgrosssalarypayroll.TabIndex = 50;
+            this.txtgrosssalarypayroll.TextChanged += new System.EventHandler(this.txtgrosssalarypayroll_TextChanged);
             // 
             // lblgrosssalarypayroll
             // 
@@ -308,6 +324,7 @@
             this.lblgrosssalarypayroll.Size = new System.Drawing.Size(108, 23);
             this.lblgrosssalarypayroll.TabIndex = 49;
             this.lblgrosssalarypayroll.Text = "Gross Salary";
+            this.lblgrosssalarypayroll.Click += new System.EventHandler(this.lblgrosssalarypayroll_Click);
             // 
             // txtyearpayroll
             // 
@@ -316,6 +333,7 @@
             this.txtyearpayroll.Name = "txtyearpayroll";
             this.txtyearpayroll.Size = new System.Drawing.Size(231, 30);
             this.txtyearpayroll.TabIndex = 48;
+            this.txtyearpayroll.TextChanged += new System.EventHandler(this.txtyearpayroll_TextChanged);
             // 
             // lblyearpayroll
             // 
@@ -326,6 +344,7 @@
             this.lblyearpayroll.Size = new System.Drawing.Size(43, 23);
             this.lblyearpayroll.TabIndex = 47;
             this.lblyearpayroll.Text = "Year";
+            this.lblyearpayroll.Click += new System.EventHandler(this.lblyearpayroll_Click);
             // 
             // txtmonthpayroll
             // 
@@ -334,6 +353,7 @@
             this.txtmonthpayroll.Name = "txtmonthpayroll";
             this.txtmonthpayroll.Size = new System.Drawing.Size(231, 30);
             this.txtmonthpayroll.TabIndex = 46;
+            this.txtmonthpayroll.TextChanged += new System.EventHandler(this.txtmonthpayroll_TextChanged);
             // 
             // lblmonthpayroll
             // 
@@ -344,6 +364,7 @@
             this.lblmonthpayroll.Size = new System.Drawing.Size(63, 23);
             this.lblmonthpayroll.TabIndex = 45;
             this.lblmonthpayroll.Text = "Month";
+            this.lblmonthpayroll.Click += new System.EventHandler(this.lblmonthpayroll_Click);
             // 
             // txtjobtitlepayroll
             // 
@@ -352,6 +373,7 @@
             this.txtjobtitlepayroll.Name = "txtjobtitlepayroll";
             this.txtjobtitlepayroll.Size = new System.Drawing.Size(231, 30);
             this.txtjobtitlepayroll.TabIndex = 44;
+            this.txtjobtitlepayroll.TextChanged += new System.EventHandler(this.txtjobtitlepayroll_TextChanged);
             // 
             // lbljobtitlepayroll
             // 
@@ -362,6 +384,7 @@
             this.lbljobtitlepayroll.Size = new System.Drawing.Size(80, 23);
             this.lbljobtitlepayroll.TabIndex = 43;
             this.lbljobtitlepayroll.Text = "Job Title";
+            this.lbljobtitlepayroll.Click += new System.EventHandler(this.lbljobtitlepayroll_Click);
             // 
             // txtdepartmentpayroll
             // 
@@ -370,6 +393,7 @@
             this.txtdepartmentpayroll.Name = "txtdepartmentpayroll";
             this.txtdepartmentpayroll.Size = new System.Drawing.Size(231, 30);
             this.txtdepartmentpayroll.TabIndex = 42;
+            this.txtdepartmentpayroll.TextChanged += new System.EventHandler(this.txtdepartmentpayroll_TextChanged);
             // 
             // lbldepartmentpayroll
             // 
@@ -380,6 +404,7 @@
             this.lbldepartmentpayroll.Size = new System.Drawing.Size(108, 23);
             this.lbldepartmentpayroll.TabIndex = 41;
             this.lbldepartmentpayroll.Text = "Department";
+            this.lbldepartmentpayroll.Click += new System.EventHandler(this.lbldepartmentpayroll_Click);
             // 
             // txtempnamepayroll
             // 
@@ -388,6 +413,7 @@
             this.txtempnamepayroll.Name = "txtempnamepayroll";
             this.txtempnamepayroll.Size = new System.Drawing.Size(231, 30);
             this.txtempnamepayroll.TabIndex = 40;
+            this.txtempnamepayroll.TextChanged += new System.EventHandler(this.txtempnamepayroll_TextChanged);
             // 
             // lblempnamepayroll
             // 
@@ -398,6 +424,7 @@
             this.lblempnamepayroll.Size = new System.Drawing.Size(140, 23);
             this.lblempnamepayroll.TabIndex = 39;
             this.lblempnamepayroll.Text = "Employee Name";
+            this.lblempnamepayroll.Click += new System.EventHandler(this.lblempnamepayroll_Click);
             // 
             // btnresetpayroll
             // 
@@ -434,6 +461,7 @@
             this.cmbselectmonthpayroll.Name = "cmbselectmonthpayroll";
             this.cmbselectmonthpayroll.Size = new System.Drawing.Size(270, 31);
             this.cmbselectmonthpayroll.TabIndex = 37;
+            this.cmbselectmonthpayroll.SelectedIndexChanged += new System.EventHandler(this.cmbselectmonthpayroll_SelectedIndexChanged);
             // 
             // lblselectmonthpayroll
             // 
@@ -444,6 +472,7 @@
             this.lblselectmonthpayroll.Size = new System.Drawing.Size(116, 23);
             this.lblselectmonthpayroll.TabIndex = 36;
             this.lblselectmonthpayroll.Text = "Select Month";
+            this.lblselectmonthpayroll.Click += new System.EventHandler(this.lblselectmonthpayroll_Click);
             // 
             // lblselectyearpayroll
             // 
@@ -454,6 +483,7 @@
             this.lblselectyearpayroll.Size = new System.Drawing.Size(96, 23);
             this.lblselectyearpayroll.TabIndex = 35;
             this.lblselectyearpayroll.Text = "Select Year";
+            this.lblselectyearpayroll.Click += new System.EventHandler(this.lblselectyearpayroll_Click);
             // 
             // txtempidpayroll
             // 
@@ -462,6 +492,7 @@
             this.txtempidpayroll.Name = "txtempidpayroll";
             this.txtempidpayroll.Size = new System.Drawing.Size(270, 30);
             this.txtempidpayroll.TabIndex = 34;
+            this.txtempidpayroll.TextChanged += new System.EventHandler(this.txtempidpayroll_TextChanged);
             // 
             // cmbselectyearpayroll
             // 
@@ -483,6 +514,7 @@
             this.cmbselectyearpayroll.Name = "cmbselectyearpayroll";
             this.cmbselectyearpayroll.Size = new System.Drawing.Size(270, 31);
             this.cmbselectyearpayroll.TabIndex = 33;
+            this.cmbselectyearpayroll.SelectedIndexChanged += new System.EventHandler(this.cmbselectyearpayroll_SelectedIndexChanged);
             // 
             // btnsearch2
             // 
@@ -507,6 +539,7 @@
             this.lblempidpayroll.Size = new System.Drawing.Size(111, 23);
             this.lblempidpayroll.TabIndex = 31;
             this.lblempidpayroll.Text = "Employee ID";
+            this.lblempidpayroll.Click += new System.EventHandler(this.lblempidpayroll_Click);
             // 
             // lblviewemppayroll
             // 
@@ -518,6 +551,7 @@
             this.lblviewemppayroll.Size = new System.Drawing.Size(273, 32);
             this.lblviewemppayroll.TabIndex = 6;
             this.lblviewemppayroll.Text = "View Employee Payroll";
+            this.lblviewemppayroll.Click += new System.EventHandler(this.lblviewemppayroll_Click);
             // 
             // lblerroryear
             // 
@@ -528,6 +562,7 @@
             this.lblerroryear.Name = "lblerroryear";
             this.lblerroryear.Size = new System.Drawing.Size(0, 19);
             this.lblerroryear.TabIndex = 30;
+            this.lblerroryear.Click += new System.EventHandler(this.lblerroryear_Click);
             // 
             // btnBackToHR
             // 
@@ -552,6 +587,7 @@
             this.lblerrormonth.Name = "lblerrormonth";
             this.lblerrormonth.Size = new System.Drawing.Size(0, 19);
             this.lblerrormonth.TabIndex = 29;
+            this.lblerrormonth.Click += new System.EventHandler(this.lblerrormonth_Click);
             // 
             // btnreset2
             // 
@@ -587,6 +623,7 @@
             this.cmbselectyear.Name = "cmbselectyear";
             this.cmbselectyear.Size = new System.Drawing.Size(231, 31);
             this.cmbselectyear.TabIndex = 27;
+            this.cmbselectyear.SelectedIndexChanged += new System.EventHandler(this.cmbselectyear_SelectedIndexChanged);
             // 
             // cmbselectmonth
             // 
@@ -609,6 +646,7 @@
             this.cmbselectmonth.Name = "cmbselectmonth";
             this.cmbselectmonth.Size = new System.Drawing.Size(231, 31);
             this.cmbselectmonth.TabIndex = 26;
+            this.cmbselectmonth.SelectedIndexChanged += new System.EventHandler(this.cmbselectmonth_SelectedIndexChanged);
             // 
             // btngeneratepayroll
             // 
@@ -648,6 +686,7 @@
             this.dataGridView2.RowTemplate.Height = 28;
             this.dataGridView2.Size = new System.Drawing.Size(988, 342);
             this.dataGridView2.TabIndex = 14;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // btnviewemppayroll
             // 
@@ -672,6 +711,7 @@
             this.lblselectyear.Size = new System.Drawing.Size(96, 23);
             this.lblselectyear.TabIndex = 1;
             this.lblselectyear.Text = "Select Year";
+            this.lblselectyear.Click += new System.EventHandler(this.lblselectyear_Click);
             // 
             // lblselectmonth
             // 
@@ -682,6 +722,7 @@
             this.lblselectmonth.Size = new System.Drawing.Size(116, 23);
             this.lblselectmonth.TabIndex = 0;
             this.lblselectmonth.Text = "Select Month";
+            this.lblselectmonth.Click += new System.EventHandler(this.lblselectmonth_Click);
             // 
             // HR_PayrollManagement
             // 

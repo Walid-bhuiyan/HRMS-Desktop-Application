@@ -49,7 +49,7 @@
             this.btnback.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnback.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.btnback.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnback.Location = new System.Drawing.Point(13, 206);
+            this.btnback.Location = new System.Drawing.Point(47, 220);
             this.btnback.Margin = new System.Windows.Forms.Padding(4);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(122, 28);
@@ -65,7 +65,7 @@
             this.topLoginPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topLoginPanel.Location = new System.Drawing.Point(0, 0);
             this.topLoginPanel.Name = "topLoginPanel";
-            this.topLoginPanel.Size = new System.Drawing.Size(703, 64);
+            this.topLoginPanel.Size = new System.Drawing.Size(724, 64);
             this.topLoginPanel.TabIndex = 12;
             // 
             // topHeaderLogin
@@ -75,7 +75,7 @@
             this.topHeaderLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.topHeaderLogin.Location = new System.Drawing.Point(237, 12);
             this.topHeaderLogin.Name = "topHeaderLogin";
-            this.topHeaderLogin.Size = new System.Drawing.Size(268, 30);
+            this.topHeaderLogin.Size = new System.Drawing.Size(341, 38);
             this.topHeaderLogin.TabIndex = 0;
             this.topHeaderLogin.Text = "HR Management System";
             // 
@@ -84,7 +84,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(434, 87);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(244, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(244, 27);
             this.dateTimePicker1.TabIndex = 17;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -95,7 +95,7 @@
             this.label2.Location = new System.Drawing.Point(380, 89);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.Size = new System.Drawing.Size(55, 20);
             this.label2.TabIndex = 18;
             this.label2.Text = "Date :";
             // 
@@ -107,10 +107,10 @@
             "Manager",
             "Employee",
             "Accountant"});
-            this.chbdept.Location = new System.Drawing.Point(165, 86);
+            this.chbdept.Location = new System.Drawing.Point(182, 87);
             this.chbdept.Margin = new System.Windows.Forms.Padding(4);
             this.chbdept.Name = "chbdept";
-            this.chbdept.Size = new System.Drawing.Size(160, 25);
+            this.chbdept.Size = new System.Drawing.Size(160, 28);
             this.chbdept.TabIndex = 19;
             this.chbdept.SelectedIndexChanged += new System.EventHandler(this.chbdept_SelectedIndexChanged);
             // 
@@ -121,7 +121,7 @@
             this.label3.Location = new System.Drawing.Point(67, 93);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 17);
+            this.label3.Size = new System.Drawing.Size(107, 20);
             this.label3.TabIndex = 20;
             this.label3.Text = "Department :";
             // 
@@ -130,23 +130,27 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Present});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 242);
+            this.dataGridView1.Location = new System.Drawing.Point(47, 256);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(677, 251);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(631, 248);
             this.dataGridView1.TabIndex = 21;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Present
             // 
             this.Present.HeaderText = "Present";
+            this.Present.MinimumWidth = 6;
             this.Present.Name = "Present";
+            this.Present.Width = 125;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(165, 146);
+            this.button1.Location = new System.Drawing.Point(182, 154);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(160, 42);
@@ -182,10 +186,10 @@
             // 
             // AdminAttendence
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(703, 497);
+            this.ClientSize = new System.Drawing.Size(724, 517);
             this.Controls.Add(this.btnsearch);
             this.Controls.Add(this.btnback);
             this.Controls.Add(this.btnconfirm);

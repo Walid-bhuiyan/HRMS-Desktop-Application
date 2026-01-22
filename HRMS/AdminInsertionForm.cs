@@ -23,7 +23,7 @@ namespace HRMS
 
         string conStr = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True";
 
-        // ✅ REQUIRED CONSTRUCTOR
+
         public AdminInsertionForm(int id, string emailLogged)
         {
             InitializeComponent();
@@ -102,8 +102,7 @@ namespace HRMS
                 SqlConnection conn = Connect();
 
                 string query = "INSERT INTO Admins (name,email,phone,gender,address,dob,securityans,password) " +
-                               "VALUES ('" + name + "','" + email + "','" + phone + "','" + gender + "','" + address + "','" + dob + "','" + securityans + "','" + hashedPass + "'); " +
-                               "SELECT SCOPE_IDENTITY();";
+                               "VALUES ('" + name + "','" + email + "','" + phone + "','" + gender + "','" + address + "','" + dob + "','" + securityans + "','" + hashedPass + "'); " + "SELECT SCOPE_IDENTITY();";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
                 int adminId = Convert.ToInt32(cmd.ExecuteScalar());
@@ -115,17 +114,18 @@ namespace HRMS
             {
                 if (sqlEx.Number == 2627)
                 {
-                    MessageBox.Show("This email already exists! Please use a different email.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("This email already exists! Please use a different email.");
                 }
                 else
                 {
-                    MessageBox.Show("Database error: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Database error: " + sqlEx.Message);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message);
             }
+
         }
 
         private void InsertIntoUsers(int refId, string role)
@@ -142,39 +142,53 @@ namespace HRMS
             }
             catch (SqlException sqlEx)
             {
-                if (sqlEx.Number == 2627) 
+                if (sqlEx.Number == 2627)
                 {
-                    MessageBox.Show("This email already exists in Users table! Insert failed.", "Duplicate Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("This email already exists in Users table! Insert failed.");
                 }
                 else
                 {
-                    MessageBox.Show("Database error in Users table: " + sqlEx.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Database error in Users table: " + sqlEx.Message);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in Users table: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error in Users table: " + ex.Message);
             }
+
         }
 
 
         public static bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
+            {
                 return false;
+            }
+
             foreach (char c in email)
             {
                 if (char.IsUpper(c))
+                {
                     return false;
+                }
             }
+
             int atCount = 0;
+
             foreach (char c in email)
             {
                 if (c == '@')
+                {
                     atCount++;
+                }
             }
+
             if (atCount != 1)
+            {
                 return false;
+            }
+
 
             string[] parts = email.Split('@');
             string local = parts[0];
@@ -240,9 +254,19 @@ namespace HRMS
             pass = txtpass.Text;
             dob = Convert.ToDateTime(dateTimePicker1.Text);
 
-            if (rbmale.Checked) gender = "Male";
-            else if (rbfemale.Checked) gender = "Female";
-            else gender = "";
+            if (rbmale.Checked)
+            {
+                gender = "Male";
+            }
+            else if (rbfemale.Checked)
+            {
+                gender = "Female";
+            }
+            else
+            {
+                gender = "";
+            }
+
 
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -293,7 +317,13 @@ namespace HRMS
 
             if (phone.Length < 6 || phone.Length > 15 || !phone.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must be 6-15 digits and digits only!", "Invalid Phone", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Phone number must be 6-15 digits and digits!", "Invalid Phone", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Invalid email address!", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -303,11 +333,6 @@ namespace HRMS
                 return;
             }
 
-            if (!IsValidEmail(email))
-            {
-                MessageBox.Show("Invalid email address!", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             InsertIntoAdmin();
             MessageBox.Show("Admin inserted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

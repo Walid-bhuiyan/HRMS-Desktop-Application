@@ -33,13 +33,10 @@ namespace HRMS
         
         private SqlConnection Connect()
         {
-            SqlConnection conn = new SqlConnection(
-                @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
+            SqlConnection conn = new SqlConnection(@"Data Source=localhost\MSSQLSERVER01;Initial Catalog=HRMS_DB;Integrated Security=True");
             conn.Open();
             return conn;
         }
-
-        
         private void SalaryDetails_Load(object sender, EventArgs e)
         {
             if (employeeId != 0)
@@ -60,10 +57,10 @@ namespace HRMS
             
             
 
-            if (employeeId != 0)
+            /*if (employeeId != 0)
             {
                 showSalary();
-            }
+            }*/
 
             setReadOnly();
         }

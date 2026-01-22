@@ -204,6 +204,12 @@
     <Compile Include="AdminOpHRManager.Designer.cs">
       <DependentUpon>AdminOpHRManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_PayrollManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_PayrollManagement.Designer.cs">
+      <DependentUpon>Admin_PayrollManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ApplyforLeave.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminOpHRManager.resx">
       <DependentUpon>AdminOpHRManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_PayrollManagement.resx">
+      <DependentUpon>Admin_PayrollManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ApplyforLeave.resx">
       <DependentUpon>ApplyforLeave.cs</DependentUpon>

@@ -25,7 +25,7 @@ namespace HRMS
         }
 
         
-        private void ComplainBox_Load(object sender, EventArgs e)
+       /* private void ComplainBox_Load(object sender, EventArgs e)
         {
             txtId.Text = employeeId.ToString();
             txtId.ReadOnly = true;
@@ -33,7 +33,7 @@ namespace HRMS
             dateTimePicker1.Value = DateTime.Today;
 
             LoadUserType();   
-        }
+        }*/
 
        
         private void LoadUserType()
@@ -55,7 +55,7 @@ namespace HRMS
         }
 
         
-        private void btnDrop_Click(object sender, EventArgs e)
+       /* private void btnDrop_Click(object sender, EventArgs e)
         {
             if (txtSubject.Text.Trim() == "" || richTextBox1.Text.Trim() == "")
             {
@@ -113,7 +113,7 @@ namespace HRMS
                     MessageBox.Show("No complaints found.");
                 }
             }
-        }
+        }*/
 
         
         private void btnback_Click(object sender, EventArgs e)
